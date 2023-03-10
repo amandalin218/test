@@ -1,0 +1,154 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	padding:0;
+	margin:0;
+	background:url(../images/bg.jpg) top center no-repeat  #000;
+}
+
+dl, dt, dd,  ol,  h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, li,ul,blockquote, p,th, td {
+	padding:0;
+	margin:0;
+	font-family:"Microsoft JhengHei",Arial, Helvetica, sans-serif ;
+	font-size:16px;
+	list-style-type:none;
+}
+
+#main{
+	position:relative;
+	width:1000px;
+	height:100%;
+	margin:0 auto;
+}
+
+.photo {
+	padding:0;
+	margin:0;
+}
+
+#logo{
+	position: absolute;
+	left: 24px;
+	top: 6px;
+	width: 293px;
+	height: 130px;
+	z-index: 1;
+	display: block;
+	cursor: pointer;
+}
+
+#gamebase{
+	position: absolute;
+	left: 863px;
+	top: 16px;
+	width: 36px;
+	height: 32px;
+	z-index: 1;
+	display: block;
+	cursor: pointer;
+}
+#gamebase:hover{
+	background:url(../images/gamebase.jpg)top center no-repeat;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+}
+
+#forum{
+	position: absolute;
+	left: 902px;
+	top: 17px;
+	width: 36px;
+	height: 32px;
+	z-index: 1;
+	display: block;
+	cursor: pointer;
+}
+#forum:hover{
+	background:url(../images/forum.jpg)top center no-repeat;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+}
+
+
+#share{
+	position: absolute;
+	left: 942px;
+	top: 17px;
+	width: 36px;
+	height: 32px;
+	z-index: 1;
+	display: block;
+	cursor: pointer;
+}
+#share:hover{
+	background:url(../images/share.jpg)top center no-repeat;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+}
+
+#download{
+	position: absolute;
+	left: 878px;
+	top: 55px;
+	width: 85px;
+	height: 25px;
+	z-index: 1;
+	display: block;
+	cursor: pointer;
+}
+#download:hover{
+	background:url(../images/download.jpg)top center no-repeat;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+}
+
+#account{
+	position: absolute;
+	left: 878px;
+	top: 84px;
+	width: 86px;
+	height: 23px;
+	z-index: 1;
+	display: block;
+	cursor: pointer;
+}
+#account:hover{
+	background:url(../images/account.jpg)top center no-repeat;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+}
+#btn{
+	position: absolute;
+	background:url(../images/btn_1.jpg) top center no-repeat;
+	margin-top:283px;
+	margin-left:120px;
+	width: 295px;
+	height: 95px;
+	display: block;
+	cursor: pointer;
+	 
+}
+
+#btn:hover{
+	background:url(../images/btn_2.jpg)top center no-repeat;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+}
