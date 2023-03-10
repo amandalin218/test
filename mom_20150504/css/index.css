@@ -1,0 +1,321 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	margin:0;
+	padding:0;
+	background-color: #fcfbdc;
+    }
+#main{
+	position:relative;
+	margin:0 auto;
+	min-width:1000px;
+	width:1326px;
+	height:3880px;
+	background:url(../images/bg.jpg) top center repeat;
+	}
+#topflower{
+	position:fixed;
+	margin-top:0px;
+	margin-left:-250px;
+	background:url(../images/topflower.png) top no-repeat;
+	width:978px;
+	height:421px;
+	z-index:10;
+	}
+#footer{
+	position:fixed;
+	display:block;
+	background:url(../images/floor.png) top  right no-repeat;
+	width:1049px;
+	height:323px;
+	bottom:-100px;
+	right:0;
+
+	}
+#btn1{
+	position:absolute;
+	background:url(../images/btn1.png) top center no-repeat;
+	width:148px;
+	height:59px;
+	margin-top:37px;
+	margin-left:280px;
+	cursor:pointer;
+	}
+#btn1:hover{
+	background:url(../images/btn1_h.png) top center no-repeat;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+    }
+#btn2{
+	position:absolute;
+	background:url(../images/btn2.png) top center no-repeat;
+	width:176px;
+	height:48px;
+	margin-top:28px;
+	margin-left:555px;
+	cursor:pointer;
+	}
+#btn2:hover{
+	background:url(../images/btn2_h.png) top center no-repeat;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+    }
+#btn3{
+	position:absolute;
+	background:url(../images/btn3.png) top center no-repeat;
+	width:179px;
+	height:56px;
+	margin-top:115px;
+	margin-left:376px;
+	cursor:pointer;
+	}
+#btn3:hover{
+	background:url(../images/btn3_h.png) top center no-repeat;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+    }
+#FB{
+	position:absolute;
+	background:url(../images/fb.png) top center  no-repeat;
+	width:40px;
+	height:40x;
+	top:5px;
+	left:1000px;
+	cursor:pointer;
+	}
+
+#share{
+	position:absolute;
+	background:url(../images/share.png) top center   no-repeat;
+	width:40px;
+	height:40px;
+	top:5px;
+	left:1050px;
+	cursor:pointer;
+	}
+#gamebase{
+	position:absolute;
+	background:url(../images/gamebase.png) top center   no-repeat;
+	width:40px;
+	height:40px;
+	top:5px;
+	left:1100px;
+	cursor:pointer;
+	}
+#gamer{
+	position:absolute;
+	background:url(../images/gamer.png) top center  no-repeat;
+	width:40px;
+	height:40px;
+	top:5px;
+	left:1150px;
+	cursor:pointer;
+	}
+#im_s{
+	position:absolute;
+	width:71px;
+	height:88px;
+	background:url(../images/im_s.png) top center  no-repeat;
+	top:150px;
+	left:260px;
+	cursor:pointer;
+}
+#logo{
+	position:relative;
+	background: url(../images/logo.png) top center no-repeat;
+	width: 196px;
+	height: 120px;
+	left:1200px;
+	top:10px;
+	cursor:pointer;
+	}
+#logo_s{
+	position: relative;
+	width:50px;
+	height:36px;
+	top:90px;
+	left:150px;
+
+	}
+#logo_s:hover{
+	background:url(../images/logo_sbg.png) top center no-repeat;
+  }
+#title{
+	position:absolute;
+	background:url(../images/title.png) top center no-repeat;
+	width:408px;
+	height:352px;
+	left:860px;
+	top:100px;
+	}
+#people{
+	position:absolute;
+	background:url(../images/people.png) top center no-repeat;
+	width:679px;
+	height:657px;
+	left:250px;
+	top:90px;
+	}
+#download{
+	position:absolute;
+	background:url(../images/download.png) top center no-repeat;
+	width:170px;
+	height:79px;
+	cursor:pointer;
+	top:420px;
+	left:900px;
+	}
+#account{
+	position:absolute;
+	background:url(../images/account.png) top center no-repeat;
+	width:170px;
+	height:79px;
+	cursor:pointer;
+	top:420px;
+	left:1100px;
+	}
+#flower1{
+	position:absolute;
+	background: url(../images/flower1.png)top center no-repeat;
+	width:758px;
+	height:292px;
+	margin-top:380px;
+	margin-left:280px;
+	
+	}
+#flower2{
+	position:absolute;
+	background: url(../images/flower2.png)top center no-repeat;
+	width:99px;
+	height:112px;
+	margin-top:700px;
+	margin-left:300px;
+	}
+	
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-200px);
+    -ms-transform: translateY(-200px);
+    transform: translateY(-200x);
+
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(200px);
+    -ms-transform: translateY(200px);
+    transform: translateY(200px);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-200px);
+    -ms-transform: translateY(-200px);
+    transform: translateY(-200px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(200px);
+    -ms-transform: translateY(200px);
+    transform: translateY(200px);
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 5s;
+  animation-duration: 5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.flower_icon{
+	background:url(../images/flower_icon.png)top left no-repeat;
+	width:39px;
+	height:37px;
+	opacity:0;
+    -webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+	}
+.flower_icon:hover{
+	opacity:1;
+	margin-top:20px;
+	}
+#content1{
+	position:absolute;
+	background:url(../images/content1.png) top center no-repeat;
+	width:1054px;
+	height:929px;
+	left:270px;
+	top:700px;
+	cursor:pointer;
+	display:none;
+}
+#content2{
+	position: absolute;
+	width: 1000px;
+	height: auto;
+	display: block;
+	left: 270px;
+	top: 1700px;
+	font-family: "微軟正黑體";
+}
+#content3{
+	position:absolute;
+	background:url(../images/content3.png) top center no-repeat;
+	width:882px;
+	height:670px;
+	left:270px;
+	top:3200px;
+	cursor:pointer;
+}
+
+#top{
+	position:fixed;
+	background:url(../images/top.png)  top center no-repeat;
+	width:220px;
+	height:207px;
+	z-index:100px;
+	margin-top:400px;
+	cursor:pointer;
+	display:none;
+}
+
+#im{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background:rgba(30%,0%,0%,0.6);
+	z-index:100;
+	display:none;
+}
+.center{
+	margin-left:auto;
+	margin-right:auto;
+	width:839px;
+	height:314px;
+	margin-top:300px;
+}
+.close{
+	margin-left:800px;
+	background:url(../images/close.png) top center no-repeat;
+	width:27px;
+	height:27px;
+	cursor:pointer;
+}
