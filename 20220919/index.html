@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>  
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <title>邱比特的戀愛扭蛋機</title>
+   <link rel="icon" href="images/like.png">
+   <!-- mobile settings -->
+   <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+   <link rel="stylesheet" type="text/css" href="css/index.css"/>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+   <script src="js/jquery.colorbox.js"></script>
+   <script type="text/javascript" src="js/index.js"></script>
+   <script src="js/jquery.stellar.min.js"></script>
+   <script src="js/jquery.history.js"></script>
+   <script src="js/common.js"></script>
+</head>
+
+<body>
+   <div id="main">
+      <div id="title" ></div>
+      <div id="ts"></div>
+      <div id="subtitle" class="starlight"></div>
+      <div class="awards">
+            <div class="awards1"></div>
+            <div class="awards2"></div>
+            <div class="awards3"></div>
+      </div>
+      <div class="awards_2">
+            <div class="awards4"></div>
+            <div class="awards5"></div>
+      </div>
+      <div class="gashapon">
+         <div class="gashapon_top"></div>
+         <div class="ball_5"></div>
+         <div class="ball_2"></div>
+         <div class="ball_4"></div>
+         <div class="ball_3"></div>
+         <div class="ball_1"></div>
+         <div id="gashapon_word"></div>
+         <div id="plate" onclick="toggleLightbox()"></div>
+      </div>
+      <div class="gashapon2">
+         <div class="gashapon_top"></div>
+         <div class="ball_5"></div>
+         <div class="ball_2"></div>
+         <div class="ball_4"></div>
+         <div class="ball_3"></div>
+         <div class="ball_1"></div>
+         <div class="open" onclick="toggleLightbox2()">
+            <div class="open1"></div>
+            <div class="open2"></div>
+         </div>
+         <div id="gashapon_word"></div>
+         <div id="plate"></div>
+      </div>
+   </div>
+   <div id="lightbox">
+      <div>
+         <button type="submit" class="btn-cta2">開始扭蛋</button>
+         <iframe src="./modal.html"></iframe>
+         <div id="close" onclick="toggleLightbox()"></div>
+      </div>
+   </div>
+   <div id="lightbox2">
+      <div>
+         <iframe src="./award1.html"></iframe>
+         <div id="close" onclick="toggleLightbox2()"></div>
+      </div>
+   </div>
+   <script src="starlight/starlight.js"></script>
+   <div class="starlight"></div>
+</body>
+</html>

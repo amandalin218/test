@@ -1,0 +1,993 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	background:url(../images/bg.jpg) top center no-repeat;
+	padding:0;
+	margin:0;
+    font-family: "Microsoft JhengHei",Arial,Helvetica, sans-serif;
+}
+dl, dt, dd,  h1, h2, h3, h4, h5, h6, pre, form, fieldset, textarea,ul,blockquote, p,th, td {
+	padding: 0;
+	margin: 0;
+	font-family: "Microsoft JhengHei",Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	list-style-type: none;
+	position:relative;
+}
+#main{
+	position: relative;
+	width: 100%;
+	max-width: 1000px;
+	margin:0 auto;
+}
+#title{
+	position: absolute;
+	background: url(../images/title.png) no-repeat top center;
+	width: 464px;
+	height: 244px;
+	top: 90px;
+}
+#ts{
+	position: absolute;
+	background: url(../images/ts.jpg) no-repeat top center;
+	width: 442px;
+	height: 37px;
+	top:345px;
+	left: 57px;
+}
+#subtitle{
+	position: absolute;
+	background: url(../images/subtitle.png) no-repeat top center;
+	width: 458px;
+	height: 116px;
+  	left: 50px;
+  	top: 389px;
+}
+.awards{
+	position: absolute;
+	width: 100%;
+	max-width: 530px;
+  	top: 500px;
+	display: flex;
+	justify-content: center;
+}
+.awards_2{
+	position: absolute;
+	width: 100%;
+	max-width: 530px;
+  	top: 680px;
+	display: flex;
+	justify-content: center;
+}
+.awards1{
+	background: url(../images/awards1.png) no-repeat top center;
+	width: 191px;
+	height: 186px;
+}
+.awards2{
+	background: url(../images/awards2.png) no-repeat top center;
+	width: 191px;
+	height: 186px;
+}
+.awards3{
+	background: url(../images/awards3.png) no-repeat top center;
+	width: 191px;
+	height: 186px;
+}
+.awards4{
+	background: url(../images/awards4.png) no-repeat top center;
+	width: 191px;
+	height: 186px;
+}
+.awards5{
+	background: url(../images/awards5.png) no-repeat top center;
+	width: 191px;
+	height: 186px;
+}
+
+.close{
+	float: right;
+	cursor:pointer;
+	text-align:right;
+}
+.gashapon{
+	background: url(../images/gashapon.png) no-repeat top center;
+	position: relative;
+	left: 480px;
+	width: 621px;
+	height: 999px;
+
+}
+.gashapon2{
+	background: url(../images/gashapon.png) no-repeat top center;
+	position: relative;
+	left: 480px;
+	width: 621px;
+	height: 999px;
+	display: none;
+}
+.gashapon_top{
+	background: url(../images/gashapon_top.png) no-repeat top center;
+	position: relative;
+	width: 621px;
+	height: 999px;
+	z-index: 2;
+
+}
+.ball_1{
+	background: url(../images/ball_1.png) no-repeat top center;
+	position: absolute;
+	width: 385px;
+	height: 171px;
+	z-index: 1;
+    top: 355px;
+    left: 110px;
+}
+.ball_2{
+	background: url(../images/ball_2.png) no-repeat top center;
+	position: absolute;
+	width: 385px;
+	height: 223px;
+    top: 240px;
+    left: 110px;
+}
+.ball_3{
+	background: url(../images/sball.png) no-repeat top center;
+	position: absolute;
+	width: 90px;
+	height: 90px;
+    top: 368px;
+    left: 324px
+}
+.ball_4{
+	background: url(../images/sball2.png) no-repeat top center;
+	position: absolute;
+	top: 358px;
+    left: 189px;
+	width: 90px;
+	height: 90px;
+}
+.ball_5{
+	background: url(../images/sball2.png) no-repeat top center;
+	position: absolute;
+	top: 246px;
+    left: 316px;
+	width: 90px;
+	height: 90px;
+}
+.gashapon2>.ball_1{
+	animation-delay:1s;
+	-webkit-animation-delay:1s;
+	-webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+	-webkit-animation-iteration-count:1;
+    animation-iteration-count: 1;
+	-webkit-animation-name: move;
+    animation-name: move;
+}
+.gashapon2>.ball_2{
+	animation-delay:1s;
+	-webkit-animation-delay:1s;
+	-webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+	-webkit-animation-iteration-count:1;
+    animation-iteration-count: 1;
+	-webkit-animation-name: move3;
+    animation-name: move3;
+}
+.gashapon2>.ball_3{
+	animation-delay:1s;
+	-webkit-animation-delay:1s;
+	-webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+	-webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+	-webkit-animation-name: move3 ;
+    animation-name: move3;
+}
+.gashapon2>.ball_4{
+	animation-delay:1s;
+	-webkit-animation-delay:1s;
+	-webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+	-webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+	-webkit-animation-name: move2 ;
+    animation-name: move2;
+}
+.gashapon2>.ball_5{
+	animation-delay:1s;
+	-webkit-animation-delay:1s;
+	-webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+	-webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+	-webkit-animation-name: move3 ;
+    animation-name: move3;
+}
+.open{
+	z-index: 9;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 230px;
+    left: -80px;
+    cursor: pointer;
+	animation-delay:4s;
+	-webkit-animation-delay:4s;
+	-webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+	-webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+	-webkit-animation-name: scaleDraw;
+    animation-name: scaleDraw;
+}
+.open1{
+	z-index: 9;
+	background: url(../images/open.png) left top no-repeat;
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+	animation-delay:4s;
+	-webkit-animation-delay:4s;
+	-webkit-animation-duration: 6s;
+    animation-duration: 6s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+	-webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+	-webkit-animation-name: scaleDraw4;
+    animation-name: scaleDraw4;
+}
+.open2{
+	z-index: 9;
+	background: url(../images/open2.png) left top no-repeat;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+	animation-delay:8s;
+	-webkit-animation-delay:8s;
+	-webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+	-webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+	-webkit-animation-name: scaleDraw2;
+    animation-name: scaleDraw2;
+}
+#gashapon_word{
+	background: url(../images/gashapon_word.gif) no-repeat top center;
+	position: absolute;
+	width: 198px;
+	height: 44px;
+  	top: 585px;
+  	left: 130px;
+  	-webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+	-webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+	-webkit-animation-name: shake;
+    animation-name: shake;
+}
+.gashapon2>#gashapon_word{
+	background: url(../images/gashapon_word.gif) no-repeat top center;
+	position: absolute;
+	width: 198px;
+	height: 44px;
+  	top: 585px;
+  	left: 130px;
+	-webkit-animation-name: none;
+    animation-name: none;
+}
+#plate{
+	z-index: 3;
+	background: url(../images/plate.png) no-repeat top center;
+	position: absolute;
+	width: 164px;
+	height: 161px;
+  	top: 582px;
+  	left: 313px;
+  	cursor: pointer;
+  	-webkit-animation-duration: 3s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+	-webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+	-webkit-animation-name: rotate;
+    animation-name: rotate;
+}
+.gashapon2>#plate{
+  	-webkit-animation-duration: 3s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+	-webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+	-webkit-animation-name: rotate2;
+    animation-name: rotate2;
+    cursor: auto;
+}
+#modal{
+	position: relative;
+	margin: 0 auto;
+    width: 100%;
+    max-width: 600px;
+	height: auto;
+}
+.head{
+	background-color: #ffc6c6;
+	color:#e54662;
+	font-size: 18pt;
+	padding-top: 20px;
+   	padding-bottom: 20px;
+   	display: flex;
+}
+.head2{
+	background-color: #ffc6c6;
+	color:#e54662;
+	font-size: 18pt;
+	padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+.icon{
+	width: 30%;
+   height: 58px;
+   position: relative;
+}
+.icon2{
+	width: 58px;
+    height: 58px;
+    position: relative;
+    margin-right: 10px;
+}
+.icon_word{
+	width: 70%;
+    padding-top: 15px;
+}
+.verify{
+	background-color: #ffcfb4;
+	color: #904921;
+	width: 100%;
+    height: 20px;
+    margin-top: 20px;
+    padding-top: 7px;
+}
+.content{
+/*	height: 300px;*/
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+}
+.content1{
+	height: 490px;
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+	background: url(../images/award1.jpg) top center;
+}
+.content2{
+	height: 490px;
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+	background: url(../images/award2.jpg) top center;
+}
+.content3{
+	height: 490px;
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+	background: url(../images/award3.jpg) top center;
+}
+.content4{
+	height: 490px;
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+	background: url(../images/award4.jpg) top center;
+}
+.content5{
+	height: 490px;
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+	background: url(../images/award5.jpg) top center;
+}
+.content6{
+	height: 443px;
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+	background: url(../images/award6.jpg) top center;
+}
+.content7{
+	height: 600px;
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+	background: url(../images/people.jpg) top center;
+}
+.form-control{
+    padding: 5px;
+    margin-top: 20px;
+}
+.item ,.item4,.item5{
+	margin: 0 auto;
+	width: 60%;
+	display: flex;
+}
+#modal .content .item>input {
+	width: 65%;
+	margin-right: 7px;
+}
+
+#modal .content .item>select {
+	width: 30%;
+}
+#modal .content .item4>input {
+	width: 100%;
+}
+#modal .content .item5>input {
+	width: 65%;
+	margin-right: 7px;
+}
+#modal .content .item5>.verify {
+	width: 30%;
+}
+#modal .content6 .item4>input {
+	width: 100%;
+}
+/*#modal .content6 .item>select {
+    width: 50%;
+    margin-right: 7px;
+}
+#modal .content6 .item>select:last-child {
+	margin-right: 0;
+}*/
+#modal .content6 .item {
+	justify-content: space-between;
+	gap: 7px;
+}
+#modal .content6 .item>select {
+	flex-grow: 1;
+}
+.item1{
+	margin: 0 auto;
+	width: 60%;
+	height: 200px;
+    -webkit-box-shadow: 0 0 15px #a3a3a3;
+	-moz-box-shadow: 0 0 15px #a3a3a3;
+	box-shadow: 0 0 15px #a3a3a3;
+	display: block;
+	border-radius: 20px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+ }
+ .item2{
+	margin: 0 auto;
+	width: 80%;
+    height: 200px;
+    -webkit-box-shadow: 0 0 15px #a3a3a3;
+	-moz-box-shadow: 0 0 15px #a3a3a3;
+	box-shadow: 0 0 15px #a3a3a3;
+	display: block;
+	border-radius: 20px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	padding-bottom: 40px;
+ }
+.btn-cta{
+	background-color: #ff9d9d;
+	color: #fff;
+	transition: all .2s;
+    border: 1px solid transparent;
+    font-size: 14px;
+    border-radius: 8px;
+    padding: 10px 16px;“”
+    font-size: 18px;
+    line-height: 1.3333333;
+    cursor:pointer;
+}
+
+.btn-cta:hover{
+	background-color: #e54662;
+}
+.btn-cta2{
+	position: absolute;
+	top: 330px;
+	left: 45%;
+	background-color: #ff9d9d;
+	color: #fff;
+	transition: all .2s;
+    border: 1px solid transparent;
+    font-size: 14px;
+    border-radius: 8px;
+    padding: 10px 16px;“”
+    font-size: 18px;
+    line-height: 1.3333333;
+    cursor:pointer;
+}
+.btn-cta2:hover{
+	background-color: #e54662;
+}
+img {  
+    max-height: 100%;  
+    max-width: 100%; 
+    width: auto;
+    height: auto;
+    position: absolute;  
+    top: 0;  
+    bottom: 0;  
+    left: 0;  
+    right: 0;  
+    margin: auto;
+}
+      #lightbox {
+         z-index: 10;
+         display: none;
+         align-items: center;
+         justify-content: center;
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         text-align: center;
+         background-color: rgba(0,0,0,.5);
+      }
+      #lightbox.show {
+         display: flex;
+      }
+
+      #lightbox>div {
+         display: inline-block;
+         position: relative;
+         width: 600px;
+         height: 400px;
+         background-color: white;
+      }
+
+      #lightbox>div>iframe {
+         border: 0;
+         width: 100%;
+         height: 100%;
+      }
+
+      #lightbox>div>#close {
+         display: inline-block;
+         position: absolute;
+         top: 10px;
+         right: 10px;
+         width: 20px;
+         height: 20px;
+         background: url(../images/close.png) top center no-repeat;
+         cursor: pointer;
+}
+      #lightbox2 {
+         z-index: 10;
+         display: none;
+         align-items: center;
+         justify-content: center;
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         text-align: center;
+         background-color: rgba(0,0,0,.5);
+      }
+      #lightbox2.show {
+         display: flex;
+      }
+
+      #lightbox2>div {
+         display: inline-block;
+         position: relative;
+         width: 600px;
+         height: 630px;
+         background-color: white;
+      }
+
+      #lightbox2>div>iframe {
+         border: 0;
+         width: 100%;
+         height: 100%;
+      }
+
+      #lightbox2>div>#close {
+         display: inline-block;
+         position: absolute;
+         top: 8px;
+         right: 21px;
+         width: 20px;
+         height: 20px;
+         background: url(../images/close.png) ;
+         cursor: pointer;
+}
+@keyframes shake {
+  0%, 100% {
+    -webkit-transform: translate(0px,0px);
+    -ms-transform: translate(0px,0px);
+    transform: translate(0px,0px);
+  }
+
+  50% {
+    -webkit-transform: translate(10px,0px);
+    -ms-transform: translate(10px,0px);
+    transform: translate(10px,0px);
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(45deg);
+  } 
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes rotate2 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes move{
+            10%, 90% { transform: translate3d(+1px, 0, 0); }
+            20%, 80% { transform: translate3d(-1px, 0, 0); }
+            30%, 70% { transform: translate3d(+1px, 0, 0); }
+            40%, 60% { transform: translate3d(-1px, 0, 0); }
+            50% { transform: translate3d(+1px, 0, 0); }
+}
+@keyframes move2 {
+            10%, 90% { transform: translate3d(-1px, 0, 0); }
+            20%, 80% { transform: translate3d(+2px, 0, 0); }
+            30%, 70% { transform: translate3d(-4px, 0, 0); }
+            40%, 60% { transform: translate3d(+4px, 0, 0); }
+            50% { transform: translate3d(-4px, 0, 0); }
+}
+@keyframes move3{
+            10%, 90% { transform: translate3d(+1px, 0, 0); }
+            20%, 80% { transform: translate3d(-2px, 0, 0); }
+            30%, 70% { transform: translate3d(+4px, 0, 0); }
+            40%, 60% { transform: translate3d(-4px, 0, 0); }
+            50% { transform: translate3d(+4px, 0, 0); }
+}
+@keyframes scaleDraw { 
+            0%{  
+            	opacity: 0;
+            	transform: translate(160px,413px) scale(0.5); 
+            }
+            30%{  
+            	opacity: 1;
+            	transform: translate(160px,413px) scale(0.5);      
+            }
+            100%{ 
+            	transform: translate(0px,0px) scale(1);  
+            }
+}
+@keyframes scaleDraw2 { 
+            0%{  
+            	opacity: 0;
+            }
+            100%{ 
+            	opacity: 1;
+            }
+}
+@keyframes scaleDraw3 { 
+            0%{  
+            	opacity: 0;
+            	transform: translate(0px,0px) scale(0.5); 
+            }
+            30%{  
+            	opacity: 1;
+            	transform: translate(0px,0px) scale(0.5);      
+            }
+            100%{ 
+            	transform: translate(25px,-200px) scale(1);  
+            }
+}
+@keyframes scaleDraw4 { 
+            70%{  
+            	opacity: 1;
+            }
+            100%{ 
+            	opacity: 0;
+            }
+}
+@media screen and (max-width: 768px) {
+	body{
+		background:url(../images/bg_m.jpg) top center no-repeat;
+	}
+	#main,#modal{
+		width: 100%;
+	}
+	#title{
+		background: url(../images/title_m.png) no-repeat top center;
+		top: 10px;
+    	left: 20%;
+    	width: 413px;
+	}	
+	#ts{
+		top: 230px;
+		left: 20%;
+	}
+	#subtitle{
+		top: 265px;
+	    left: 20%;
+	}
+	.gashapon{
+		background: url(../images/gashapon_m.png)no-repeat top center;
+		width: 621px;
+		height: 999px;
+	    top: 360px;
+	    left: 10%;
+	}
+	.gashapon2{
+		background: url(../images/gashapon_m.png)no-repeat top center;
+		width: 621px;
+		height: 999px;
+	    top: 360px;
+	    left: 10%;
+
+	}
+	.awards{
+		top: 1360px;
+		max-width: initial;
+	}
+	.awards_2{
+		top: 1530px;
+		max-width: initial;
+}
+@media screen and (max-width: 480px) {
+	body{
+		background:url(../images/bg_s.jpg) top center no-repeat;
+	}
+	#main,#modal{
+		width: 100%;
+	}
+	#title{	
+		background: url(../images/title_s.png) no-repeat top center;
+		width: 240px;
+		height: 126px;
+		top: 10px;
+    	left: 14%;
+	}
+	#ts{
+		background: url(../images/ts_s.jpg)top center no-repeat;
+		width: 268px;
+		height: 65px;
+		top: 142px;
+		left: 16%;
+	}
+	#subtitle{
+		background: url(../images/subtitle_s.png) no-repeat top center;
+		width: 284px;
+		height: 67px;
+		top: 166px;
+    	left: 14%;
+	}
+	.gashapon{
+		background: url(../images/gashapon_s.png) no-repeat top center;
+		width: 243px;
+		height: 391px;
+		left: 20%;
+	    top: 238px;
+
+	}
+	.gashapon2{
+		background: url(../images/gashapon_s.png) no-repeat top center;
+		width: 243px;
+		height: 391px;
+		left: 20%;
+	    top: 238px;
+
+	}
+	.open{
+		z-index: 9;
+	    width: 200px;
+	    height: 200px;
+	    position: absolute;
+	    top: 170px;
+	    left: -20px;
+		animation-delay:4s;
+		-webkit-animation-delay:4s;
+		-webkit-animation-duration: 3s;
+	    animation-duration: 3s;
+	    -webkit-animation-fill-mode: both;
+	    animation-fill-mode: both;
+		-webkit-animation-iteration-count: 1;
+	    animation-iteration-count: 1;
+		-webkit-animation-name: scaleDraw3;
+	    animation-name: scaleDraw3;
+	}
+		.open2{
+		z-index: 9;
+		background: url(../images/open2.png) ;
+	    width: 200px;
+	    height: 200px;
+	    position: absolute;
+	    top: 0px;
+	    left: 0px;
+		animation-delay:8s;
+		-webkit-animation-delay:8s;
+		-webkit-animation-duration: 2s;
+	    animation-duration: 2s;
+	    -webkit-animation-fill-mode: both;
+	    animation-fill-mode: both;
+		-webkit-animation-iteration-count: 1;
+	    animation-iteration-count: 1;
+		-webkit-animation-name: scaleDraw2;
+	    animation-name: scaleDraw2;
+	}
+
+	.gashapon_top{
+		background: url(../images/gashapon_top_s.png) no-repeat top center;
+		width: 243px;
+		height: 391px;
+	}
+	.ball_1{
+		background: url(../images/ball_1_s.png) no-repeat top center;
+		width: 146px;
+		height: 59px;
+	    top: 147px;
+	    left: 48px;
+	}
+	.ball_2{
+		background: url(../images/ball_2_s.png) no-repeat top center;
+		width: 146px;
+		height: 59px;
+	    top: 100px;
+	    left: 48px;
+	}
+	.ball_3{
+		background: url(../images/sball_s.png) no-repeat top center;
+		width: 35px;
+		height: 35px;
+		top: 150px;
+    	left: 131px;
+	}
+	.ball_4{
+		background: url(../images/sball2_s.png) no-repeat top center;
+		width: 35px;
+		height: 35px;
+		top: 144px;
+    	left: 78px;
+	}
+	.ball_5{
+		background: url(../images/sball2_s.png) no-repeat top center;
+		width: 35px;
+		height: 35px;
+		top: 100px;
+    	left: 130px;
+	}
+	#gashapon_word{
+		background: url(../images/gashapon_word_s.gif) no-repeat top center;
+	    width: 75px;
+	    height: 17px;
+	    top: 228px;
+	    left: 52px;
+	}
+	.gashapon2>#gashapon_word{
+		background: url(../images/gashapon_word_s.gif) no-repeat top center;
+	    width: 75px;
+	    height: 17px;
+	    top: 228px;
+	    left: 52px;
+	}
+	#plate{
+		background: url(../images/plate_s.png) no-repeat top center;
+		width: 58x;
+		height: 57px;
+		top: 232px;
+    	left: 73px;
+	}
+	.awards{
+    	top: 640px;
+    	left: 0;
+	  	max-width: 480px;
+	  	justify-content: center;
+	}
+	.awards_2{
+	    top: 760px;
+	    left: 0;
+	  	max-width: 480px;
+	  	justify-content: center;
+	}
+	.awards1{
+		background: url(../images/awards1_s.png) no-repeat top center;
+		width: 130px;
+		height: 127px;
+		top: 0;
+		left: 0;
+	}
+	.awards2{
+		background: url(../images/awards2_s.png) no-repeat top center;
+		width: 130px;
+		height: 127px;
+	    top: 0;
+	    left: 24%;
+	}
+	.awards3{
+		background: url(../images/awards3_s.png) no-repeat top center;
+		width: 130px;
+		height: 127px;
+	    top: 0;
+	    left: 47%;
+	}
+	.awards4{
+		background: url(../images/awards4_s.png) no-repeat top center;
+		width: 130px;
+		height: 127px;
+	    top: 120px;
+	    left: 12%;
+	}
+	.awards5{
+		background: url(../images/awards5_s.png) no-repeat top center;
+		width: 130px;
+		height: 127px;
+	    top: 120px;
+	    left: 38%;
+	}
+	.content7{
+		height: 530px;
+		margin: 0 auto;
+		text-align: center;
+		width: 100%;
+		background: url(../images/people_s.jpg) top center no-repeat;
+	}
+	.item2{
+		height: 200px;
+	    display: block;
+	    border-radius: 20px;
+	    margin-top: 20px;
+	    margin-bottom: 20px;
+	    padding-bottom: 30px;
+ }
+	.icon_word {
+	    padding-top: 0px;
+	    padding-left: 20px;
+	}
+	.icon_word span{
+    	display: inline-block;
+	}
+	.head{
+		padding-left: 10px;
+    	padding-right: 10px;
+	}
+	#lightbox>div {
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+	.btn-cta2{left: 40%;}
+	
+	#lightbox2>div {
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+}
