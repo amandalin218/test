@@ -1,0 +1,316 @@
+@charset "utf-8";
+body{
+	padding:0;
+	margin:0;
+    background: url(../images/bg.jpg) no-repeat top center #FFFFFF;
+}
+dl, dt, dd,  ol,  h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, blockquote, p,th, td {
+	padding:0;
+	margin:0;
+	font-family:"Microsoft JhengHei",Arial, Helvetica, sans-serif ;
+	list-style-type:none;
+}
+#bg{
+	position: relative;
+	display:block;
+    width:1000px;
+	min-height:1000px;
+	height:1187px;;
+	margin:0 auto;
+}
+
+#logo{
+	position:relative;
+	background:url(../images/logo_1.png) top center no-repeat;
+	cursor:pointer;
+	width:505px;
+	height:259px;
+}
+#logo:hover{
+	background:url(../images/logo_2.png) top center no-repeat;
+	-webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+}
+
+#icon{
+	position:absolute;
+	display:block;
+	width:240px;
+	height:53px;
+	margin-left:750px;
+	margin-top:-260px;
+}
+
+#fb{
+	background:url(../images/fb_1.png) top center no-repeat;
+	width:53px;
+	height:53px;
+	float:left;
+	cursor:pointer;
+}
+#fb:hover{
+	background:url(../images/fb_2.png) top center no-repeat;
+	-webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+}
+
+#share{
+	background:url(../images/share_1.png) top center no-repeat;
+	width:53px;
+	height:53px;
+	float:left;
+	margin-left:2px;
+	cursor:pointer;
+}
+#share:hover{
+	background:url(../images/share_2.png) top center no-repeat;
+	-webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+}
+
+#gamebase{
+	background:url(../images/gamebase_1.png) top center no-repeat;
+	width:53px;
+	height:53px;
+	float:left;
+	margin-left:2px;
+	cursor:pointer;
+}
+#gamebase:hover{
+	background:url(../images/gamebase_2.png) top center no-repeat;
+	-webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+}
+
+#gamer{
+	background:url(../images/forum_1.png) top center no-repeat;
+	width:53px;
+	height:53px;
+	float:left;
+	margin-left:2px;
+	cursor:pointer;
+}
+#gamer:hover{
+	background:url(../images/forum_2.png) top center no-repeat;
+	-webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+}
+
+#sbg{
+	position:absolute;
+	background:url(../images/downloadaccount_bg.png) top center no-repeat;
+	display:block;
+	width:226px;
+	height:101px;
+	margin-left:750px;
+	margin-top:-200px;
+}
+
+#download{
+	background:url(../images/download_1.png) top center no-repeat;
+	width:104px;
+	height:32px;
+	margin-top:62px;
+	margin-left:5px;
+	cursor:pointer;
+}
+#download:hover{
+	background:url(../images/download_2.png) top center no-repeat;
+	-webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+}
+
+#account{
+	background:url(../images/account_1.png) top center no-repeat;
+	width:104px;
+	height:32px;
+	float:left;
+	margin-left:114px;
+	margin-top:-32px;
+	cursor:pointer;
+}
+#account:hover{
+	background:url(../images/account_2.png) top center no-repeat;
+	-webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+}
+
+#btn1{
+	position:relative;
+	background:url(../images/01_1.png) top center no-repeat;
+	display:block;
+	width:128px;
+	height:71px;
+	margin-top:370px;
+	margin-left:93px;
+	cursor:pointer;
+}
+#btn1:hover{
+	background:url(../images/01_2.png) top center no-repeat;
+	-webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+}
+
+#btn2{
+	position:relative;
+	background:url(../images/02_1.png) top center no-repeat;
+	display:block;
+	width:157px;
+	height:74px;
+	margin-top:-40px;
+	margin-left:345px;
+	cursor:pointer;
+}
+#btn2:hover{
+	background:url(../images/02_2.png) top center no-repeat;
+	-webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+}
+
+#btn3{
+	position:relative;
+	background:url(../images/03_1.png) top center no-repeat;
+	display:block;
+	width:151px;
+	height:69px;
+	margin-top:-43px;
+	margin-left:710px;
+	cursor:pointer;
+}
+#btn3:hover{
+	background:url(../images/03_2.png) top center no-repeat;
+	-webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+}
+#flooter{
+	position:relative;
+	background:url(../images/flooter.jpg) top center no-repeat;
+	width:100%;
+	height:219px;
+	margin:0 auto;
+}
+#content1{
+	position:relative;
+	width:1000px;
+	height:auto;
+	margin:0 auto;
+	/*display:none;*/
+}
+#content2{
+	position:relative;
+	width:1000px;
+	height:auto;
+	margin:0 auto;
+	display:none;
+}
+#content3{
+	position:relative;
+	width:1000px;
+	height:100%;
+	margin:0 auto;
+	display:none;
+}
+#content4{
+	position:relative;
+	width:1000px;
+	height:auto;
+	margin:0 auto;
+	display:none;
+}
+#content5{
+	position:relative;
+	width:1000px;
+	height:auto;
+	margin:0 auto;
+	display:none;
+}
+#top{
+	background:url(../images/TOP.png) top center no-repeat;
+	width:198px;
+	height:144px;
+	position:relative;
+	z-index:2;
+	cursor:pointer;
+	margin:0 auto;
+}
+#add{
+	background: url(../images/add.png) top center no-repeat;
+	width:244px;
+	height:387px;
+	margin-left:480px;
+	-webkit-animation-duration: 10s;
+    animation-duration: 5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+	-webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+	-webkit-animation-name: shake;
+    animation-name: shake;
+	cursor:pointer;
+}
+@-webkit-keyframes shake {
+  0%, 100% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translate(0px,20px);
+    transform: translate(0px,20px);
+  }
+
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translate(0px,-8px);
+    transform: translate(0px,-8px);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    -webkit-transform: translate(0);
+    -ms-transform: translate(0);
+    transform: translate(0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translate(0px,20px);
+    -ms-transform: translate(0px,20px);
+    transform: translate(0px,20px);
+  }
+
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translate(0px,-8px);
+    -ms-transform: translate(0px,-8px);
+    transform: translate(0px,-8px);
+  }
+}
