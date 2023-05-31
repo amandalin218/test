@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>風色幻想online點數轉移</title>
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link type="text/css" rel="stylesheet" href="css/index.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/swfobject.js"></script>
+<script type="text/javascript">
+$(function(){	
+	$('#nav1').click(function() {
+			$('.one').fadeOut(500,function(){
+                $('.two').fadeIn(500);
+            });
+	 		
+			return false; });
+    
+    $('#backnav').click(function() {
+            $('.two').fadeOut(500,function(){
+                $('.one').fadeIn(500);
+            });
+            
+            return false; });
+
+    $('#logo').click(function(){
+    window.open('http://ago.gameflier.com/');
+    });
+	
+	var vars = {};
+	var params = { scale:"noscale", menu:"false", wmode:"transparent", allowFullScreen:"true", allowscriptaccess: "always" };
+	var attributes = { id:"flashContent", name:"flashContent" };
+	
+	swfobject.embedSWF("flash/agoFlash.swf", "flashContent", "500", "400", "10.0.0","false",vars,params,attributes);
+
+	  	   
+});
+
+</script>
+</head>
+
+<body>
+    <div id="wrapper">
+      <div id="c">
+      <div id="logo"></div>
+      <div id="contect">
+            <div class="one">
+            <img src="images/bbb11.png" width="612px" height="46px">
+            <ol>
+              <li>點數轉移申請期間為<span class="w1">2014年10月31日(五)10:00起至2014年11月28日(五)10:00</span>結束，逾期恕不受理。</li>
+              <li>點數轉移申請限定需為GF以及遊戲帳號皆為本人之狀況下，以避免損害玩家權益。</li>
+              <li>點數轉移將於<span class="w1">2014年11月28日(五)10:00結束</span>收件後開始統一進行，審核期7日、作業期14日，預計將於21個工作天內處理完畢。</li>
+              <li>屆時請玩家點選本頁下方<span class="w1"><strong>【申請點數返還】</strong></span>進行殘點轉移申請。</li>
+              <li>殘餘點數轉移之遊戲 ：新仙境傳說(月)、新仙境傳說(免)、新仙境傳說(老玩家)、新仙境傳說(幸福起飛)、
+              三國群英傳、信長之野望、天使之戀、完美世界、天龍八部3、尬舞、芙蘭戰記、萌萌彩虹島、聖鬥士星矢、新龍之谷。</li>
+            </ol>
+            <div id="nav1"></div>
+
+            </div>
+            <!-- one fin -->
+            <div class="two">
+            <div id="center"><img src="images/bbb12.png"/></div>            
+            <div class="title">遊戲名稱</div>
+            <div class="text"><div class="typebottom">風色幻想</div></div>
+                       
+            <div class="title">GF帳號</div>
+            <div class="text"><input name="game_id" type="text" id="game_id" class="typebox" /></div>
+            
+            <div class="title">申請項目</div>
+            <div class="text t4">
+                    <label>
+                      <input type="radio" name="crash" value="m" id="sex_0" checked="checked" />點數移轉
+                    </label>
+            </div>
+            
+            <div class="title">移轉平台</div>
+            <div class="text t4">  
+                    <label>
+                      <input type="radio" name="gf" value="m" id="sex_0"  checked="checked" />GF
+                    </label>
+                    <label>
+                      <input type="radio" name="gf" value="w" id="sex_1" />GF+
+                    </label>
+            </div>
+                       
+           <div class="title t2">移轉的遊戲名稱</div>
+            <div class="text t3"> <select name="transfer_name" id="transfer_name" class="typebox t3" />
+                                    <option>新仙境傳說(月)</option>
+                                    <option>新仙境傳說(免)</option>
+                                    <option>新仙境傳說(老玩家)</option>
+                                    <option>新仙境傳說(幸福起飛)</option>
+                                    <option>三國群英傳</option>
+                                    <option>信長之野望</option>
+                                    <option>天使之戀</option>
+                                    <option>天龍八部3</option>
+                                    <option>完美世界</option>
+                                    <option>尬舞</option>
+                                    <option>萌萌彩虹島</option>
+                                    <option>芙蘭戰記</option>
+                                    <option>聖鬥士星矢</option>
+                                    <option>新龍之谷</option></select>
+            </div> 
+                                    
+            <div class="title t5">移轉的伺服器名稱</div>
+            <div class="text  t6"> <select name="transfer_server" id="transfer_server" class="typebox t6" />
+                                    <option>伺服器001</option>
+                                    <option>伺服器002</option>
+                                    <option>伺服器003</option></select></div>   
+                       
+            <div class="title t2">移轉的遊戲帳號</div>
+            <div class="text"> <input name="transfer_id" type="text" id="transfer_id" class="typebox" /></div> 
+           
+            <div class="title t2">移轉的角色名稱</div>
+            <div class="text"> <input name="transfer_player" type="text" id="transfer_player" class="typebox"/></div>   
+         
+            <div class="title">會員姓名</div>
+            <div class="text"> <input name="user" type="text" id="user" class="typebox"/></div>      
+            
+            <div class="title">聯絡電話</div>
+            <div class="text"> <input name="phone" type="text" id="phone" class="typebox"/></div>  
+                                              
+            <div class="title"style="text-align: left;">E-MAIL</div>
+            <div class="text t7"> <input name="email" type="text" id="email" class="typebox t7" /></div>                  
+
+            <div class="text3"><input name="" type="checkbox" />本人同意所提供的個人資料，為此次【點數轉移】頁面之使用外，其他均依個人資料暨隱私權保護政策辦理。</div>
+
+ 
+            <div id="btn">
+                <ul>
+                    <li><a href="#" class="rewrite"></a></li>
+                    <li><a href="#" class="send"></a></li>
+                </ul>
+            </div>
+
+            <div id="backnav"></div>
+                
+            </div>
+            </div>
+        </div>
+       <!--flash部分-->
+                <div id="flashContent"></div>
+    </div>
+
+    
+</body>
+</html>

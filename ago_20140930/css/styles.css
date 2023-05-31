@@ -1,0 +1,47 @@
+﻿a img{ border:0}
+a{ outline: none; /* for Firefox */ 
+   hlbr:expression(this.onFocus=this.blur()); /* for IE */} 
+ol, li {padding:0; margin:0 0 0 12px;}
+   
+body{ padding:0; margin:0;background-image:url(../images/bg0.jpg); background-repeat:no-repeat; background-color:#000; background-position: center top;}
+#wrapper{ width:100%; margin:0 auto; min-width:1000px;}
+
+#center{width:1000px; height:1000px; margin:0 auto; background-image:url(../images/bg1.jpg); background-repeat:no-repeat;}
+#logo a{ width:400px; height:210px; padding:90px 300px 0 300px; background:url(../images/logo.png) no-repeat center; display:block}
+
+#middle{position:relative;width:720px; height:470px; margin:0 auto; padding:85px 140px 0 140px; overflow:hidden;}
+#one{ width:700px; height:430px;font-size:13px; color:#dcdbd0; line-height:24px; padding:10px 10px;}
+#two{ width:700px; height:470px;font-size:13px; color:#dcdbd0; line-height:24px; padding:30px 10px 0 10px;}
+
+/*轉移點數按鈕*/
+#transfer{width:169px; height:68px;background:url(../images/transfer.png) top center; margin:0 auto;}
+#transfer a{width:169px; height:68px;;display:block;background:url(../images/transfer.png); background-position:0 0;}
+#transfer a:hover{background-position:0 -68px;}
+
+/*第二頁填資料部份*/
+.title{font-size:13px; line-height:27px; color:#dcdbd0; width:120px; height:28px; float:left; background:url(../images/dott.png) repeat-x; text-align:center; margin-left:120px;}
+.text{width:316px; height:28px; float:left; background:url(../images/dott.png) repeat-x;}
+.title2{font-size:13px; line-height:27px; color:#dcdbd0; width:120px; height:28px; float:left; text-align:center; margin-left:120px;}
+.text2{width:316px; height:28px; float:left;}
+.text3{width:490px; margin:2px auto 0 100px;float:left;ont-size:13px; color:#ECC246; line-height:18px;}
+.typebox{background-color:#695962; width:300px; height:17px; font-size:13px; color:#FFF; margin:5px 8px; border:none; padding-left:3px;}
+.typebottom{background-color:#4e3d47; width:300px; height:17px; font-size:13px; line-height:17px; color:#FFF; margin:5px 8px; border:none; padding-left:3px;}
+
+/*送出重填按鈕*/
+#btn{width:346px; height:40px; margin:0 auto auto 230px;}
+#btn ul{display:inline;}
+#btn li{list-style:none; margin:0; padding:0;float:left;padding-top:4px;}
+#btn a{width:132px; height:40px;display:block;}
+
+#btn .rewrite{background-image:url(../images/bbb11.png);}
+#btn .rewrite:hover{background-image:url(../images/bbb12.png);}
+
+#btn .send{background-image:url(../images/bbb21.png);}
+#btn .send:hover{background-image:url(../images/bbb22.png);}
+
+
+
+
+
+.w1{font-size:13px; color:#61f9f7;}
+.w2{font-size:13px; color:#ECC246;}
