@@ -1,0 +1,321 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>月影傳說online 點數轉移</title>
+<link href="css/animate1.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+body{
+	margin:0;
+	padding:0;
+	width: 100%;
+	height: 100%;
+	background:url(image/bg.jpg)  top ;
+}
+p{
+	margin:5px;
+}
+ol{
+	margin-top:0px;
+}
+#bg{
+	position:relative;
+	width:1000px;
+	margin:0 auto;
+	text-align:center;
+}
+#logo{
+	width:238px;
+	height:170px;
+	background:url(image/logo.png) top no-repeat; 
+	cursor: pointer;
+	float: left;
+}
+.one{
+	height:680px;
+}
+.two{
+	position:relative;
+	display:block;
+	height:630px;
+	width:550px;
+	margin-left:200px;
+	margin-top:50px;
+	font-size: 18px;
+	font-family: "Microsoft JhengHei";
+	text-align:left;
+	display:none;
+}
+.title{
+	position:relative;
+	width:579px;
+	height:141px;
+	background:url(image/title.png) top no-repeat;
+	margin-left:250px;
+	margin-top:25px;
+}
+#word{
+	position:relative;
+	width:574px;
+	height:167px;
+	background:url(image/word.png) top no-repeat;
+	margin-left:150px;
+
+}
+
+#content{
+	position:relative;
+	width:520px;
+	margin-top:10px;
+	margin-left:150px;
+	font-size: 16px;
+	font-family: "Microsoft JhengHei";
+	text-align:left;
+}
+
+#red {
+	color: #F00;
+}
+.bold {
+	font-weight: bold;
+	font-size:18px;
+	font:"Arial Black", Gadget, sans-serif;
+}
+#footer{
+	position: absolute;
+	width:100%;
+	height:67px;
+	background:url(image/footer.png) top center no-repeat;
+	text-align:center;
+}
+#nav1 {
+  width: 240px;
+  height: 71px;
+  margin-top:10px;
+  background: url(image/nav_1.png) no-repeat ;
+  -webkit-transition: background 0.5s ease-in-out;
+  -moz-transition: background 0.5s ease-in-out;
+  -o-transition: background 0.5s ease-in-out;
+  -ms-transition: background 0.5s ease-in-out;
+  transition: background 0.5s ease-in-out;
+  margin-left:300px;
+  cursor: pointer;
+}
+#nav1:hover {
+	background:url(image/nav_0.png);
+}
+#btnok {
+	position: absolute;
+	background: url(image/b1_1.png);
+	width: 170px;
+	height: 61px;
+	cursor: pointer;
+	-webkit-transition: background 0.5s ease-in-out;
+	-moz-transition: background 0.5s ease-in-out;
+	-o-transition: background 0.5s ease-in-out;
+	-ms-transition: background 0.5s ease-in-out;
+	transition: background 0.5s ease-in-out;
+	margin-top:450px;
+
+}
+#btnok:hover{
+  background:url(image/b1_0.png);
+}
+#btnre {
+	position: absolute;
+	background: url(image/b2_1.png);
+	width: 170px;
+	height: 61px;
+	cursor: pointer;
+	-webkit-transition: background 0.5s ease-in-out;
+	-moz-transition: background 0.5s ease-in-out;
+	-o-transition: background 0.5s ease-in-out;
+	-ms-transition: background 0.5s ease-in-out;
+	transition: background 0.5s ease-in-out;
+	margin-top:450px;
+	margin-left:220px;
+}
+#btnre:hover{
+  background:url(image/b2_0.png);
+}
+#backnav{
+	position:absolute;
+	background:url(image/backnav.png);
+	width:100px;
+	height:37px;
+	cursor: pointer;
+	margin-top:540px;
+	margin-left:160px;
+}
+.text{
+	width:200px;
+	text-align:left;
+	float:left;
+	margin-top:10px;
+}
+.text2{
+	width:300px;
+	text-align:left;
+    float:left;
+	margin-top:10px;
+}
+.text3{
+	width:450px;
+	text-align:left;
+    float:left;
+	margin-top:10px;
+}
+
+.typebottom {
+  background-color: #FCC;
+  width: 240px;
+  font-size: 14px;
+  color: #F66;
+  font-family: "Microsoft JhengHei";
+  line-height:10px;
+  border-color:#F99;
+}
+.typebottom :hover{
+  background-color: #FCC;
+}
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){	
+	$('#nav1').click(function() {
+			$('.one').fadeOut(500,function(){
+                $('.two').fadeIn(500);
+            });
+	 		
+			return false; });
+    
+    $('#backnav').click(function() {
+            $('.two').fadeOut(500,function(){
+                $('.one').fadeIn(500);
+            });
+            
+            return false; });
+
+    $('#logo').click(function(){
+         window.open('http://moon.gameflier.com/index.aspx');
+    });
+ 	   
+ }) ; 
+</script>
+</head>
+<body>
+<div id="bg">
+   <div id="logo" class="animated flipInX"></div>
+   <div class="title"></div>
+  <div class="one">
+    <div id="word"></div>
+    <div id="content">
+            <p><span class="bold">殘點 相關處理規則如下：</span> </p>
+            <ol>
+           <li>
+                點數轉移申請期間為
+                <span id="red">
+                  2014年11月24日(一) 10:00 起至 12月22日(一)10:00結束，
+                </span>
+                逾期恕不受理。
+           </li>
+              <li>
+                點數轉移申請限定需為GF以及遊戲帳號皆為本人之狀況下，以避免損害玩家權益。
+           </li>
+              <li>
+                點數轉移將於<span id="red">2014年12月22日(一)10:00結束收件後</span>
+                開始統一進行，審核期7日、作業期14日，預計將於21個工作天內處理完畢。
+           </li>
+              <li>
+                請屆時請玩家點選本頁下方<span id="red">點選【申請點數轉移】</span>
+                進行殘點轉移申請。
+           </li>
+              <li style="width:450px">
+                殘餘點數轉移之遊戲：新仙境傳說(月)、新仙境傳說(免)、新仙境傳說(老玩家)、
+                新仙境傳說(幸福起飛)、三國群英傳、信長之野望、天使之戀、完美世界、
+                天龍八部3、尬舞、芙蘭戰記、萌萌彩虹島、聖鬥士星矢、新龍之谷。
+           </li>
+      </ol>
+    </div>
+              <div id="nav1"></div>
+  </div>
+<!--第二頁-->
+  <div class="two">
+                  <h3 style="height:8px; color:#F69">遊戲名稱:月影傳說</h3>
+                  <div class="text">GF帳號:</div>
+                  <div class="text2">
+                  <input name="game_id" type="text" id="game_id" class="typebottom" />
+                  </div>
+
+                <div class="text">申請項目:</div>
+                   <div class="text2">
+                    <label>
+                      <input type="radio" name="crash" value="m" id="sex_0" checked="checked" />點數移轉
+                    </label>
+                   </div>
+
+                <div class="text">移轉平台:</div>
+                   <div class="text2">  
+                    <label>
+                      <input type="radio" name="gf" value="m" id="sex_0"  checked="checked" />GF
+                    </label>
+                    <label>
+                      <input type="radio" name="gf" value="w" id="sex_1" />GF+
+                    </label>
+                   </div>
+
+               <div class="text">移轉的遊戲名稱:</div>
+                  <div class="text2">
+                    <select name="transfer_name" id="transfer_name" class="typebottom"/>
+                                    <option>新仙境傳說(月)</option>
+                                    <option>新仙境傳說(免)</option>
+                                    <option>新仙境傳說(老玩家)</option>
+                                    <option>新仙境傳說(幸福起飛)</option>
+                                    <option>三國群英傳</option>
+                                    <option>信長之野望</option>
+                                    <option>天使之戀</option>
+                                    <option>天龍八部3</option>
+                                    <option>完美世界</option>
+                                    <option>尬舞</option>
+                                    <option>萌萌彩虹島</option>
+                                    <option>芙蘭戰記</option>
+                                    <option>聖鬥士星矢</option>
+                                    <option>新龍之谷</option>
+                    </select>
+                  </div> 
+
+                <div class="text">移轉的伺服器名稱:</div>
+                <div class="text2"> <select name="transfer_server" id="transfer_server" class="typebottom" />
+                                    <option>伺服器001</option>
+                                    <option>伺服器002</option>
+                                    <option>伺服器003</option></select>
+                </div>   
+
+                <div class="text">移轉的遊戲帳號:</div>
+                <div class="text2"><input name="transfer_id" type="text" id="transfer_id" class="typebottom" /></div> 
+
+                   <div class="text t2">移轉的角色名稱:</div>
+                   <div class="text2"> <input name="transfer_player" type="text" id="transfer_player" class="typebottom"/></div>   
+
+                   <div class="text">會員姓名:</div>
+                   <div class="text2"> <input name="user" type="text" id="user" class="typebottom"/></div>      
+
+                   <div class="text">聯絡電話:</div>
+                   <div class="text2"> <input name="phone" type="text" id="phone" class="typebottom"/></div>  
+
+                   <div class="text"style="text-align: left;">E-MAIL:</div>
+                   <div class="text2"> <input name="email" type="text" id="email" class="typebottom" /></div>                  
+
+                  <div class="text3"> <input name="" type="checkbox" />本人同意所提供的個人資料，為此次【月影傳說點數轉移】頁面之使用外，其他均依個人資料暨隱私權保護政策辦理。 </div>
+    <div id="btnok"> </div>
+    <div id="btnre"> </div>
+    <div id="backnav"></div>
+            </div>
+<!--第二頁面結束-->
+        </div>
+    </div>
+ </div>
+ <div id="footer"></div>
+</body>
+</html>
