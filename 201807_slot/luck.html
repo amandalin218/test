@@ -1,0 +1,494 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>完美世界 2 Online</title>
+<script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
+<script>
+$(document).ready(function(){
+  $(".lottery1").click(function(){   
+	$("#inline_content").fadeIn();
+	$("#inline_content2,#inline_content3").fadeOut();
+	$(".inline").hide();
+  });
+  $(".lottery2").click(function(){   
+	$("#inline_content2").fadeIn();
+	$("#inline_content,#inline_content3").fadeOut();
+	$(".inline").hide();
+  });
+  $(".lottery3").click(function(){   
+	$("#inline_content3").fadeIn();
+	$("#inline_content,#inline_content2").fadeOut();
+	$(".inline").hide();
+  });
+    $(".back").click(function(){   
+	$(".inline").show();
+	$("#inline_content,#inline_content2,#inline_content3").hide();
+  });
+ });
+</script>
+<style type="text/css">
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+	padding:0;
+	margin:0;
+	font-family:"微軟正黑體", "Microsoft JhengHei" ,Arial, Helvetica, sans-serif;
+	
+	}
+body{background:url(images/boxbg.jpg);}
+.box{
+	margin:0 auto;
+	padding-top:10px;
+	}
+.title{
+	background:url(images/title1.png) top center no-repeat;
+	width:343px;
+	height:119px;
+	margin-left:auto;
+	margin-right:auto;
+	}
+.close{
+	background:url(images/close.png) top center no-repeat;
+	width:53px;
+	height:62px;
+	margin-left:820px;
+	cursor:pointer;
+	}
+.lottery1{
+	background:url(images/lottery_1.png) top center no-repeat;
+	position:absolute;
+	margin-left:100px;
+	width:198px;
+	height:60px;
+	cursor:pointer;
+	}
+.lottery1:hover{background:url(images/lottery_1.png) bottom center no-repeat;}
+.lottery2{
+	background:url(images/lottery_10.png) top center no-repeat;
+	position:absolute;
+	margin-left:320px;
+	width:198px;
+	height:60px;
+	cursor:pointer;
+	}
+.lottery2:hover{background:url(images/lottery_10.png) bottom center no-repeat;}
+.lottery3{
+	background:url(images/lottery_all.png) top center no-repeat;
+	position:absolute;
+	margin-left:540px;
+	width:198px;
+	height:60px;
+	cursor:pointer;
+	}
+.lottery3:hover{background:url(images/lottery_all.png) bottom center no-repeat;}
+/* 帳號 */
+.accountbox {
+	width:600px;
+	margin:0px auto;
+	padding-top:10px;
+	text-align:center;
+	overflow: hidden;
+	}
+.accountbox > div {
+	display:inline-block;
+	font-family: Arial, "微軟正黑體", Helvetica, sans-serif;
+	font-size: 17px;
+	line-height:31px;
+	}
+.accountbox > div > span{
+	float: left;
+	display: block;
+	line-height:31px;/*23*/
+	color: #534532;
+	font-weight:600;
+	}
+.accountbox > div > select{
+	float:left;
+	width:170px;
+	font-family: Arial, "微軟正黑體", Helvetica, sans-serif;
+	font-size: 17px;
+	line-height:23px;
+	height:30px;
+	color:#534532;
+	background-color: #f1f1f1;
+	border: 1px solid #cacaca;
+	padding:1px;
+	}
+.itembox {
+    width: 600px;
+    margin: 0px auto;
+    font-size: 17px;
+    color: #534532;
+    line-height: 35px;
+    margin-bottom: 5px;
+    font-weight: 600;
+	text-align:center
+	}
+.note{
+	width:800px; 
+	margin:0 auto;
+	font-size:17px;
+	line-height:24px;
+	padding-top:30px;
+	padding-bottom:30px;
+	}
+.lotterybox {
+    position: relative;
+    width: 850px;
+    height: 80px;
+    margin: 0px auto;
+    padding: 10px 0 0 0;
+}
+#inline_content{
+	 text-align:center;
+	 margin:0 auto;
+	 padding-bottom:20px;
+	 padding-top:180px;
+	 display:none;
+}
+#inline_content2{
+	 text-align:center;
+	 margin:0 auto;
+	 padding-bottom:20px;
+	 padding-top:30px;
+	 display:none;
+}
+#inline_content3{
+	 text-align:center;
+	 margin:0 auto;
+	 padding-bottom:20px;
+	 padding-top:30px;
+	 display:none;		 
+}
+.back{
+	background:url(images/back.png) top center no-repeat;
+	width:174px;
+	height:58px;
+	margin:0 auto;
+	margin-top:10px;
+	cursor:pointer;
+}
+.back:hover{background:url(images/back.png) bottom center no-repeat;}
+.pbox {
+    padding: 10px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 16px;
+    color: #42382b;
+}
+.pbox1 {display: inline-block;color:#803b09;}
+ul.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+ul.pagination li {display: inline;}
+ul.pagination li a{
+	text-decoration: none;
+	border-right: #803b09 1px solid;
+	border-top: #803b09 1px solid;
+	border-left: #803b09 1px solid;
+	border-bottom: #803b09 1px solid;
+	padding-right: 5px;
+    padding-left: 5px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+	color:#803b09;
+	}
+ul.pagination li a:visited { color:#803b09;}
+ul.pagination li a:hover{ background:#803b09; color:#FFF;}
+.pbox2 {
+    display: inline-block;
+    width: 35px;
+    margin-left: 3px;
+    margin-right: 4px;
+    text-align: center;
+}
+.pbox3{
+	border-right: #803b09 1px solid;
+	border-top: #803b09 1px solid;
+	border-left: #803b09 1px solid;
+	border-bottom: #803b09 1px solid;
+	color:#803b09;
+	cursor:pointer;
+	width:50px;
+	height:20px;
+	line-height:20px;
+	margin-left:10px;
+	display:inline-block;	 
+}
+.pbox3:hover{background:#803b09; color:#FFF;}
+.award{
+    background: #fff;
+    width: 400px;
+    height: 100px;
+    border: #ffd200 8px solid;
+    border-radius: 30px;
+    box-shadow: 4px 4px 18px #3e3119;
+    margin: 30px auto;
+    padding-top: 20px;
+	}
+.awardword{
+	font-size: 50px;
+    width: 50px;
+    margin-left: 230px;
+    margin-top: -80px;
+    color: #eec400;
+    text-shadow: 1px 1px 5px #3e3119;
+	}
+.awardword2{
+	font-size: 50px;
+    width: 80px;
+    margin-left: 280px;
+    margin-top: -65px;
+    letter-spacing: 7px;
+    color: #886e07;
+	}
+.pic{
+	background:url(images/777big.png) top center no-repeat; 
+	width:171px; 
+	height:78px;
+	margin-left:50px;
+	}
+</style>
+</head>
+
+<body>
+<div class="box">
+   <div class="inline">
+      <div class="title"></div>
+      <div class="accountbox">
+          <div><span>遊戲帳號：</span>
+            <select>
+               <option selected="selected">請選擇</option>
+               <option >xxx</option>
+               <option >ooo</option>
+               <option >www</option>
+            </select>
+          </div>
+      </div>
+      <div class="itembox">抽獎次數：<span>９９９９９</span></div>
+          <div class="lotterybox">
+             <div class="lottery1"></div>
+             <div class="lottery2"></div>
+             <div class="lottery3"></div>
+          </div>
+      <div class="note">
+        <p>※點擊抽獎時，請勿返回上一頁、重整頁面，或關閉頁面。</p>
+        <p>※若<span style="color:#F00;">連續點擊</span>抽獎按鈕，將扣除連續點擊的抽獎次數，頁面中僅會顯示最後一筆獲得的虛寶獎項，所有已獲得的獎項可前往【 <a href="inquire.html" id="various2">序號查詢</a>】確認。</p>
+      </div>
+  </div>
+        <div id="inline_content">
+         <img src="images/congratulations.png" width="611" height="72">
+          <table width="700" align="center">
+              <tr>
+                <td width="158" align="center" bgcolor="#ff6c00" style="color:#FFF;">獎勵品項</td>
+                <td width="172" align="center" bgcolor="#ff6c00" style="color:#FFF;">虛寶序號</td>
+                <td width="172" align="center" bgcolor="#ff6c00" style="color:#FFF;">虛寶密碼</td>
+                <td width="126" align="center" bgcolor="#ff6c00" style="color:#FFF;">儲值期限</td>
+              </tr>
+              <tr>
+                <td bgcolor="#fce9cf" align="center">凌墟˙天玄骨碎片(10)</td>
+                <td bgcolor="#fce9cf" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#fce9cf" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#fce9cf" align="center">2018/8/31</td>
+              </tr>
+           </table>
+           <div class="back"></div>
+        </div>
+        <div id="inline_content2">
+         <img src="images/congratulations.png" width="611" height="72">
+          <table width="700" align="center">
+              <tr>
+                <td width="158" align="center" bgcolor="#ff6c00" style="color:#FFF;">獎勵品項</td>
+                <td width="172" align="center" bgcolor="#ff6c00" style="color:#FFF;">虛寶序號</td>
+                <td width="172" align="center" bgcolor="#ff6c00" style="color:#FFF;">虛寶密碼</td>
+                <td width="126" align="center" bgcolor="#ff6c00" style="color:#FFF;">儲值期限</td>
+              </tr>
+              <tr>
+                <td bgcolor="#fff7eb" align="center">凌墟˙天玄骨碎片(10)</td>
+                <td bgcolor="#fff7eb" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#fff7eb" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#fff7eb" align="center">2018/8/31</td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffaf7e" align="center">凌墟˙天玄骨碎片(10)</td>
+                <td bgcolor="#ffaf7e" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#ffaf7e" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#ffaf7e" align="center">2018/8/31</td>
+              </tr>
+              <tr>
+                <td bgcolor="#fff7eb" align="center">凌墟˙天玄骨碎片(10)</td>
+                <td bgcolor="#fff7eb" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#fff7eb" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#fff7eb" align="center">2018/8/31</td>
+              </tr>  
+              <tr>
+                <td bgcolor="#ffaf7e" align="center">凌墟˙天玄骨碎片(10)</td>
+                <td bgcolor="#ffaf7e" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#ffaf7e" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#ffaf7e" align="center">2018/8/31</td>
+              </tr> 
+              <tr>
+                <td bgcolor="#fff7eb" align="center">凌墟˙天玄骨碎片(10)</td>
+                <td bgcolor="#fff7eb" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#fff7eb" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#fff7eb" align="center">2018/8/31</td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffaf7e" align="center">凌墟˙天玄骨碎片(10)</td>
+                <td bgcolor="#ffaf7e" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#ffaf7e" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#ffaf7e" align="center">2018/8/31</td>
+              </tr>
+              <tr>
+                <td bgcolor="#fff7eb" align="center">凌墟˙天玄骨碎片(10)</td>
+                <td bgcolor="#fff7eb" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#fff7eb" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#fff7eb" align="center">2018/8/31</td>
+              </tr>  
+              <tr>
+                <td bgcolor="#ffaf7e" align="center">凌墟˙天玄骨碎片(10)</td>
+                <td bgcolor="#ffaf7e" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#ffaf7e" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#ffaf7e" align="center">2018/8/31</td>
+              </tr>
+              <tr>
+                <td bgcolor="#fff7eb" align="center">凌墟˙天玄骨碎片(10)</td>
+                <td bgcolor="#fff7eb" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#fff7eb" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#fff7eb" align="center">2018/8/31</td>
+              </tr>  
+              <tr>
+                <td bgcolor="#ffaf7e" align="center">凌墟˙天玄骨碎片(10)</td>
+                <td bgcolor="#ffaf7e" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#ffaf7e" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#ffaf7e" align="center">2018/8/31</td>
+              </tr>         
+           </table>
+           <div class="award">
+   		      <div class="pic"></div>
+              <div class="awardword">x</div>
+              <div class="awardword2">3</div>
+           </div>
+               <!-- 分頁 -->
+		<div class="pbox">
+        	<div class="pbox1">
+              <ul class="pagination">
+              <li><a href="#">◄</a></li>
+              <li><a href="#" class="active" >1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li><a href="#">6</a></li>
+              <li><a href="#">7</a></li>
+              <li><a href="#">8</a></li>
+              <li><a href="#">9</a></li>
+              <li><a href="#">10</a></li>
+              <li><a href="#">►</a></li>
+            </ul>
+            │到第</div> 
+   	  	  <input name="" type="text" class="pbox2"/><div class="pbox1">頁</div><div class="pbox3">確定</div>
+        </div>
+           <div class="back"></div>
+        </div>
+        <div id="inline_content3">
+         <img src="images/congratulations.png" width="611" height="72">
+          <table width="700" align="center">
+              <tr>
+                <td width="158" align="center" bgcolor="#ff6c00" style="color:#FFF;">獎勵品項</td>
+                <td width="172" align="center" bgcolor="#ff6c00" style="color:#FFF;">虛寶序號</td>
+                <td width="172" align="center" bgcolor="#ff6c00" style="color:#FFF;">虛寶密碼</td>
+                <td width="126" align="center" bgcolor="#ff6c00" style="color:#FFF;">儲值期限</td>
+              </tr>
+              <tr>
+                <td bgcolor="#fff7eb" align="center">凌墟˙天玄骨碎片(10)</td>
+                <td bgcolor="#fff7eb" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#fff7eb" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#fff7eb" align="center">2018/8/31</td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffaf7e" align="center">凌墟˙天玄骨碎片(10)</td>
+                <td bgcolor="#ffaf7e" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#ffaf7e" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#ffaf7e" align="center">2018/8/31</td>
+              </tr>
+              <tr>
+                <td bgcolor="#fff7eb" align="center">凌墟˙天玄骨碎片(10)</td>
+                <td bgcolor="#fff7eb" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#fff7eb" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#fff7eb" align="center">2018/8/31</td>
+              </tr>  
+              <tr>
+                <td bgcolor="#ffaf7e" align="center">凌墟˙天玄骨碎片(10)</td>
+                <td bgcolor="#ffaf7e" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#ffaf7e" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#ffaf7e" align="center">2018/8/31</td>
+              </tr> 
+              <tr>
+                <td bgcolor="#fff7eb" align="center">凌墟˙天玄骨碎片(10)</td>
+                <td bgcolor="#fff7eb" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#fff7eb" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#fff7eb" align="center">2018/8/31</td>
+              </tr>
+              <tr>
+                <td bgcolor="#ffaf7e" align="center">凌墟˙天玄骨碎片(10)</td>
+                <td bgcolor="#ffaf7e" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#ffaf7e" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#ffaf7e" align="center">2018/8/31</td>
+              </tr>
+              <tr>
+                <td bgcolor="#fff7eb" align="center">凌墟˙天玄骨碎片(10)</td>
+                <td bgcolor="#fff7eb" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#fff7eb" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#fff7eb" align="center">2018/8/31</td>
+              </tr>  
+              <tr>
+                <td bgcolor="#ffaf7e" align="center">凌墟˙天玄骨碎片(10)</td>
+                <td bgcolor="#ffaf7e" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#ffaf7e" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#ffaf7e" align="center">2018/8/31</td>
+              </tr>
+              <tr>
+                <td bgcolor="#fff7eb" align="center">凌墟˙天玄骨碎片(10)</td>
+                <td bgcolor="#fff7eb" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#fff7eb" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#fff7eb" align="center">2018/8/31</td>
+              </tr>  
+              <tr>
+                <td bgcolor="#ffaf7e" align="center">凌墟˙天玄骨碎片(10)</td>
+                <td bgcolor="#ffaf7e" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#ffaf7e" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#ffaf7e" align="center">2018/8/31</td>
+              </tr>         
+           </table>
+           <div class="award">
+   		      <div class="pic"></div>
+              <div class="awardword">x</div>
+              <div class="awardword2">3</div>
+           </div>
+               <!-- 分頁 -->
+		<div class="pbox">
+        	<div class="pbox1">
+              <ul class="pagination">
+              <li><a href="#">◄</a></li>
+              <li><a href="#" class="active" >1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li><a href="#">6</a></li>
+              <li><a href="#">7</a></li>
+              <li><a href="#">8</a></li>
+              <li><a href="#">9</a></li>
+              <li><a href="#">10</a></li>
+              <li><a href="#">►</a></li>
+            </ul>
+            │到第</div> 
+   	  	  <input name="" type="text" class="pbox2"/><div class="pbox1">頁</div><div class="pbox3">確定</div>
+        </div>
+           <div class="back"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>完美世界 2 Online</title>
+<script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
+<script>
+$(document).ready(function(){
+  $(".start").click(function(){   
+	$(".giftbox").fadeIn();
+	$(".start").hide();
+  });
+  $(".gift").click(function(){   
+	$(".giftok,.gift2,.gift3").show();
+	$(".gift,.giftok2,.giftok3").hide();
+  });
+  $(".gift2").click(function(){   
+	$(".giftok2,.gift,.gift3").show();
+	$(".gift2,.giftok,.giftok3").hide();
+  });
+  $(".gift3").click(function(){   
+	$(".giftok3,.gift,.gift2").show();
+	$(".gift3,.giftok,.giftok2").hide();
+  });
+  $(".ok").click(function(){   
+	$("#inline_content").show();
+	$(".inline").hide();
+  });
+  $(".back").click(function(){   
+	$(".inline,.start").show();
+	$("#inline_content,.giftbox").hide();
+  });
+ });
+</script>
+<style type="text/css">
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+	padding:0;
+	margin:0;
+	font-family:"微軟正黑體", "Microsoft JhengHei" ,Arial, Helvetica, sans-serif;
+	}
+body{background:url(images/boxbg.jpg);}
+.box{
+	margin:0 auto;
+	padding-top:10px;
+	}
+.title{
+	background:url(images/title2.png) top center no-repeat;
+	width:500px;
+	height:92px;
+	margin-left:auto;
+	margin-right:auto;
+	}
+.close{
+	background:url(images/close.png) top center no-repeat;
+	width:53px;
+	height:62px;
+	margin-left:820px;
+	cursor:pointer;
+	}
+.itembox {
+    width: 600px;
+    margin: 0px auto;
+    font-size: 17px;
+    color: #534532;
+    line-height: 35px;
+    margin-bottom: 5px;
+    font-weight: 600;
+	text-align:center
+	}
+
+/* 帳號 */
+.accountbox {
+	width:600px;
+	margin:0px auto;
+	padding-top:10px;
+	text-align:center;
+	overflow: hidden;
+	}
+.accountbox > div {
+	display:inline-block;
+	font-family: Arial, "微軟正黑體", Helvetica, sans-serif;
+	font-size: 17px;
+	line-height:31px;
+	}
+.accountbox > div > span{
+	float: left;
+	display: block;
+	line-height:31px;/*23*/
+	color: #534532;
+	font-weight:600;
+	}
+.accountbox > div > select{
+	float:left;
+	width:170px;
+	font-family: Arial, "微軟正黑體", Helvetica, sans-serif;
+	font-size: 17px;
+	line-height:23px;
+	height:30px;
+	color:#534532;
+	background-color: #f1f1f1;
+	border: 1px solid #cacaca;
+	padding:1px;
+	}
+.start{ background:url(images/start_1.png) top center no-repeat;
+		width:396px;
+		height:284px;
+		margin:0 auto;
+		cursor:pointer;
+
+	}
+.start:hover{background:url(images/start_2.png) top center no-repeat;}
+.giftbox{ margin:0 auto; width:450px; padding-top:30px; display:none;}
+.gift{ 
+	   background:url(images/gift1_1.png); 
+	   width:135px;
+	   height:84px; 
+	   border-style:solid;
+	   border-color:#8e550b;
+	   cursor:pointer;
+	   }
+.gift:hover{background:url(images/gift1_2.png); } 
+.gift2{
+	   background:url(images/gift2_1.png); 
+	   width:135px; 
+	   height:84px; 
+	   margin-left: 150px;
+       margin-top: -90px;
+	   border-style:solid;
+	   border-color:#8e550b;
+	   cursor:pointer;
+	   }
+.gift2:hover{background:url(images/gift2_2.png); } 
+.gift3{
+		background:url(images/gift3_1.png); 
+		width:135px; 
+		height:84px; 
+		margin-left: 300px;
+        margin-top: -90px;
+		border-style:solid;
+		border-color:#8e550b;
+	    cursor:pointer;
+		}
+.gift3:hover{background:url(images/gift3_2.png); } 
+.giftok{ 
+		 background:url(images/gift1_3.png);
+		 width:135px; 
+		 height:84px;
+		 border-style:solid;
+		 border-color:#8e550b;
+		 display:none;  
+		 cursor:pointer; 
+		}
+.giftok2{ 
+		 background:url(images/gift2_3.png);
+		 width:135px; 
+		 height:84px;
+		 border-style:solid;
+		 border-color:#8e550b;
+		 display:none;  
+	     margin-left: 150px;
+         margin-top: -90px;
+		 cursor:pointer; 
+		}
+.giftok3{ 
+		 background:url(images/gift3_3.png);
+		 width:135px; 
+		 height:84px;
+		 border-style:solid;
+		 border-color:#8e550b;
+		 display:none; 
+		 margin-left: 300px;
+         margin-top: -90px;
+		 cursor:pointer;
+		}
+.ok{
+	background:url(images/ok.png) top center no-repeat;
+	width:174px;
+	height:58px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:50px;
+	cursor:pointer;
+}
+.ok:hover{background:url(images/ok.png) bottom center no-repeat; }
+.inline{ padding-bottom:30px;}
+.back{
+	background:url(images/back.png) top center no-repeat;
+	width:174px;
+	height:58px;
+	margin:0 auto;
+	margin-top:10px;
+	cursor:pointer;
+}
+#inline_content{
+	 text-align:center;
+	 margin:0 auto;
+	 padding-bottom:20px;
+	 padding-top:180px;
+	 display:none;
+}
+</style>
+</head>
+
+<body>
+<div class="box">
+   <div class="inline">
+     <div class="title"></div>
+     <div class="accountbox">
+          <div><span>遊戲帳號：</span>
+            <select>
+               <option selected="selected">請選擇</option>
+               <option >xxx</option>
+               <option >ooo</option>
+               <option >www</option>
+            </select>
+          </div>
+      </div>
+	  <div class="itembox">777數量：<span>９９９９９</span></div>
+      <div class="start"></div>
+      <div class="giftbox">
+           <div class="gift"></div>
+           <div class="giftok"></div>
+           <div class="gift2"></div>
+           <div class="giftok2"></div>
+           <div class="gift3"></div>
+           <div class="giftok3"></div>
+       <div class="ok"></div>
+      </div>
+  </div>
+  <div id="inline_content">
+         <img src="images/congratulations.png" width="611" height="72">
+          <table width="700" align="center">
+              <tr>
+                <td width="158" align="center" bgcolor="#ff6c00" style="color:#FFF;">獎勵品項</td>
+                <td width="172" align="center" bgcolor="#ff6c00" style="color:#FFF;">虛寶序號</td>
+                <td width="172" align="center" bgcolor="#ff6c00" style="color:#FFF;">虛寶密碼</td>
+                <td width="126" align="center" bgcolor="#ff6c00" style="color:#FFF;">儲值期限</td>
+              </tr>
+              <tr>
+                <td bgcolor="#fce9cf" align="center">凌墟˙天玄骨碎片(10)</td>
+                <td bgcolor="#fce9cf" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#fce9cf" align="center">SDFGOPIUYRMNBHUJ</td>
+                <td bgcolor="#fce9cf" align="center">2018/8/31</td>
+              </tr>
+           </table>
+           <div class="back"></div>
+   </div>
+</div>
+</body>
+</html>
