@@ -1,0 +1,110 @@
+/* CSS Document */
+
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #000000;
+	background:url(bg.jpg) top center no-repeat #000000;
+}
+#HEADER { 
+   margin: 0px auto; 
+   position: relative;
+   width: 1000px;
+   height:800px;
+}
+
+a:link {
+    color: #f7cdff;
+	font-size:14px;
+	font-family:"Microsoft JhengHei";
+	text-decoration: none;
+}
+a:visited {
+    color: #f7cdff;
+	font-size:14px;
+	font-family:"Microsoft JhengHei";
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+	font-size:14px;
+	font-family:"Microsoft JhengHei";
+	color: #F00;
+}
+a:active {
+	text-decoration: none;
+	font-size:14px;
+	font-family:"Microsoft JhengHei";
+	color: #f7cdff;
+}
+
+#Download_A{
+	position: absolute;
+	width: 100px;
+	height: 70px;
+	color: #f7cdff;
+	font-size: 14px;
+	font-family: "Microsoft JhengHei";
+	margin-top: -400px;
+	margin-left: 800px;
+}
+#Download_B{
+	position: absolute;
+	width: 100px;
+	height: 20px;
+	color: #f7cdff;
+	font-size:14px;
+	font-family:"Microsoft JhengHei";
+	margin-top: -300px;
+	margin-left: 860px;
+}
+
+#vmenu {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	position:absolute;
+	margin-left:697px;
+	margin-top:20px;
+}
+#vmenu li {
+	padding: 3px 0;
+	width:139px;
+}
+#vmenu li a {
+	display: block;
+	height: 39px; /* 圖片的高 */
+	line-height: 18px;	/* ie suck */
+	text-indent: -9999px;
+}
+#vmenu a.v1 {
+	width:139px; /* 圖片的寬/2 */
+	background: url(t1.png) no-repeat 0 0;
+	margin-left:53px;	
+}
+#vmenu a.v2 {
+	width:139px; /* 圖片的寬/2 */
+	background:url(t2.png) no-repeat 0 0;
+	margin-left:25px;
+}	
+#vmenu a.v3 {
+	width:139px; /* 圖片的寬/2 */
+	background:url(t3.png) no-repeat 0 0;
+}
+#vmenu a.v4 {
+	width:139px; /* 圖片的寬/2 */
+	background:url(t4.png) no-repeat 0 0;
+	margin-left:90px;	
+}
+#vmenu a.v5 {
+	width:139px; /* 圖片的寬/2 */
+	background:url(t5.png) no-repeat 0 0;
+	margin-left:120px;	
+}
+#vmenu a.v6 {
+	width:139px; /* 圖片的寬/2 */
+	background:url(t6.png) no-repeat 0 0;
+	margin-left:140px;	
+}

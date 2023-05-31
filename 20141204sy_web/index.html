@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>《聖鬥士星矢》官方網站</title>
+<meta name="title" content="《聖鬥士星矢》官方網站"/>
+<meta name="description" content="天猛復生"/>
+ <link rel="image_src" href="http://sy.gameflier.com/images/FB.jpg"/>
+ <meta property="og:url" content="http://sy.gameflier.com/"/>
+<meta property="og:image" content="http://sy.gameflier.com/images/FB.jpg"/>
+<meta property="og:Site_name" content="《聖鬥士星矢》官方網站"/>
+<meta property="og:Description"content="天猛復生"/>
+<link href="images/style.css" rel="stylesheet" type="text/css" />
+<link href="images/thickbox.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="Scripts/jquery.js"></script> 
+<script type="text/javascript" src="Scripts/thickbox.js"></script>
+<script type="text/javascript" src="Scripts/jquery.backgroundPosition.js"></script>
+
+<script>
+//
+function sy()
+{window.alert("敬請期待")}
+//
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-18342628-105', 'gameflier.com');
+  ga('send', 'pageview');
+</script>
+<script type="text/javascript">
+	$(function(){
+		// 幫 #hmenu li a 加上 hover 事件
+		$("#vmenu li a").hover(function(){
+			// 滑鼠移進選項時..
+			// 把背景圖片的位置往上移動
+			var _this = $(this),
+				_height = _this.height() * -1;
+			_this.stop().animate({
+				backgroundPosition: "0px " + _height + "px"
+			}, 100);
+		}, function(){
+			// 滑鼠移出選項時..
+			// 把背景圖片的位置移回原位
+			$(this).stop().animate({
+				backgroundPosition: "0px 0px"
+			}, 100);
+		});
+	});
+</script>
+</head>
+
+<body onLoad="javascript:thickbox_open('mv.html',700,600);">
+
+<div id="HEADER">
+  <ul id="vmenu">
+        <li><a href="https://gfb.gameflier.com/Billing/account/SY/index2.asp?SourceID=2&Game=SY" target="_blank" class="v3">帳號申請</a></li>	
+		<li><a href="https://gfb.gameflier.com/Billing/Login/login.asp?redct=G12&game=SY"  target="_blank" class="v2">快速儲值</a></li>
+		<li><a href="https://gfb.gameflier.com/Billing/Login/login.asp?redct=G4&game=SY" target="_blank" class="v1">虛寶領取</a></li>
+		<li><a href="http://sy.gameflier.com/gameinfo/9characteristic_01.html" target="_blank" class="v4">遊戲特色</a></li>
+        <li><a href="http://sy.gameflier.com/guide/first_01.html"  target="_blank" class="v5">新手入門</a></li>
+        <li><a href="http://sy.gameflier.com/ep/tmfs_20141107/index.htm"  target="_blank" class="v6">活動專區</a></li>
+	</ul>
+    <img src="images/bg_s.jpg" width="1000" height="800" usemap="#Map">
+      <map name="Map">
+        <area shape="poly" coords="584,483,769,483,863,633,680,634" href="mv.html?TB_iframe=true&amp;height=550&amp;width=700"  class="thickbox" />
+        <area shape="rect" coords="896,122,936,143" href="http://sy.gameflier.com/news/news_in.aspx?ptype=news&amp;ID=19" target="_blank">
+        <area shape="rect" coords="869,79,916,102" href="http://sy.gameflier.com/news/news_in.aspx?ptype=news&amp;ID=25" target="_blank">
+        <area shape="rect" coords="840,34,883,55" href="http://sy.gameflier.com/news/news_in.aspx?ptype=news&amp;ID=17" target="_blank"/>
+        <area shape="rect" coords="475,22,676,199" href="http://sy.gameflier.com/index.aspx" target="_self" />
+        <area shape="poly" coords="855,298,889,297,908,333,873,333" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fsy.gameflier.com%2F" target="_blank" />
+        <area shape="poly" coords="901,297,934,296,953,332,918,332" href="http://forum.gamer.com.tw/A.php?bsn=20177"  target="_blank" />
+        <area shape="poly" coords="946,297,980,296,997,332,963,332" href="http://www.gamebase.com.tw/forum/63770"   target="_blank" />
+    </map>
+    <div id="Download_A">
+     <pre>
+<a href="http://dler.org/index.php?o=display;id=8903" target="_blank">昨日小築</a>
+ <a href="http://hinetgame.games.hinet.net/download/item/6137" target="_blank"> HINET</a>
+   <a href="http://sy.gameflier.com/download/program.aspx" target="_blank">更多載點</a>
+     </pre>
+  </div>
+    <div id="Download_B">
+    <a href="http://sy.gameflier.com/download/program_updates.aspx" target="_blank">官方載點</a> </div>
+</div>
+</body>
+</html>
