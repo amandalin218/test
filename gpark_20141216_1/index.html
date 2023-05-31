@@ -1,0 +1,393 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>萌萌彩虹島Online《吉恩蒂亞公園》改版專區</title>
+<meta name="title" content="萌萌彩虹島Online《吉恩蒂亞公園》改版專區"/>
+<meta name="description" content="冬季挑戰來襲！全新地圖-吉恩蒂亞公園，即將改版登場！"/>
+ <link rel="image_src" href="http://la.gameflier.com/ep/gpark_20141216/images/FB.jpg"/>
+<style type="text/css">
+body{
+  	margin:0;
+	padding:0;
+    height: auto;
+    background: #000;
+}
+#bg {
+    position: absolute;
+    width: 100%;
+    height: 800PX;
+    background: url(images/bg.jpg) no-repeat top center;
+    min-width: 1000px;
+	margin:0 auto;
+	z-index:-1;
+}
+#bg2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(images/bg2.jpg) no-repeat top center;
+    min-width: 1000px;
+	margin:0 auto;
+	display:none;
+}
+#bg3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(images/bg3.jpg) no-repeat top center;
+    min-width: 1000px;
+	margin:0 auto;
+	display:none;
+}
+#bg4 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(images/bg4.jpg) no-repeat top center;
+    min-width: 1000px;
+	margin:0 auto;
+	display:none;
+}
+#all{
+	position: relative;
+	width: 1000px;
+	height: 800px;
+	margin: 0 auto;
+	visibility: visible;
+}
+#titleall{
+	position: relative;
+	width: 306px;
+	height: 800px;
+	float: left;
+	visibility: visible;
+}
+#logo{
+	width:196px;
+	height:139px;
+	background:url(images/logo.png)  0px 20px no-repeat;
+	margin:0px auto;
+	padding-top:20px;
+	cursor:pointer;
+}
+#title{
+	width:306px;
+	height:206px;
+	background:url(images/title.png) top center no-repeat;
+	margin-top:-35px;
+	cursor:pointer;
+}
+#title:hover{
+	background:url(images/title_1.png)top center no-repeat;
+}
+#t1{
+	width:169px;
+	height:94px;
+	background:url(images/t1.png) top center no-repeat;
+	margin-top:-20px;
+	margin-left:auto;
+	margin-right:auto;
+	cursor:pointer;
+}
+#t1:hover{
+	background:url(images/t1_1.png)top center no-repeat;
+}
+#t2{
+	width:169px;
+	height:60px;
+	background:url(images/t2.png) top center no-repeat;
+	margin-left:auto;
+	margin-right:auto;
+	cursor:pointer;
+}
+#t2:hover{
+	background:url(images/t2_1.png)top center no-repeat;
+}
+#t2_a{
+	width:169px;
+	height:57px;
+	background:url(images/t2_a.png) top center no-repeat;
+	margin-left:auto;
+	margin-right:auto;
+	cursor:pointer;
+	display:none;
+}
+
+#t2_a1{
+	width:169px;
+	height:29px;
+	background:url(images/t2_a1.png)no-repeat;
+	margin-left:auto;
+	margin-right:auto;
+	cursor:pointer;
+	display:none;
+}
+#t2_a1:hover{
+	background:url(images/t2_a1_1.png)top center no-repeat;
+}
+#t2_a2{
+	width:169px;
+	height:41px;
+	background:url(images/t2_a2.png);
+	margin-left:auto;
+	margin-right:auto;
+	cursor:pointer;
+	display:none;
+}
+#t2_a2:hover{
+	background:url(images/t2_a2_1.png)top center no-repeat;
+}
+#t3{
+	width:169px;
+	height:60px;
+	background:url(images/t3.png) top center no-repeat;
+	margin-left:auto;
+	margin-right:auto;
+	cursor:pointer;
+}
+#t3:hover{
+	background:url(images/t3_1.png)top center no-repeat;
+}
+#t4{
+	width:169px;
+	height:60px;
+	background:url(images/t4.png) top center no-repeat;
+	margin-left:auto;
+	margin-right:auto;
+	cursor:pointer;
+}
+#t4:hover{
+	background:url(images/t4_1.png)top center no-repeat;
+}
+#icon{
+	margin:0 auto;
+	width:203px;
+	height:60px;
+	display:block;
+	text-align:center;
+}
+#fb{
+	width:47px;
+    height:61px;
+	background:url(images/fb.png) top center no-repeat;
+	float:left;
+	cursor:pointer;
+    -webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+
+}
+#fb:hover{
+	background:url(images/fb_1.png) top center;
+}
+#share{
+	width:47px;
+    height:61px;
+	background:url(images/share.png) top center no-repeat;
+	float:left;
+	margin-left:5px;
+	cursor:pointer;
+    -webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+}
+#share:hover{
+	background:url(images/share_1.png) top center;
+}
+#gamer{
+	width:47px;
+    height:61px;
+	background:url(images/gamer.png) top center no-repeat;
+	float:left;
+	margin-left:5px;
+	cursor:pointer;
+    -webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+}
+#gamer:hover{
+	background:url(images/gamer_1.png) top center;
+}
+#gamebase{
+	width:47px;
+    height:61px;
+	background:url(images/gamebase.png) top center no-repeat;
+	float:left;
+	margin-left:5px;
+	cursor:pointer;
+    -webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+}
+#gamebase:hover{
+	background:url(images/gamebase_1.png) top center;
+}
+#floor{
+    position: relative;
+	width:100%;
+	height:55px;
+    background: url(images/floor.jpg) no-repeat top center;
+    min-width: 1000px;
+	margin-top:-54px;
+	margin-left:auto;
+	margin-right:auto;
+}
+#download{
+	position:absolute;
+	width:231px;
+	height:168px;
+	background:url(images/download.png) top center;
+	margin-top:380px;
+	margin-left:280px;
+    cursor:pointer;
+    -webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+}
+#download:hover{
+	background:url(images/download_1.png) top center;
+}
+#account{
+	position:absolute;
+	width:243px;
+	height:150px;
+	background:url(images/account.png) top center;
+	margin-top:430px;
+	margin-left:700px;
+	cursor:pointer;
+    -webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+}
+#account:hover{
+	background:url(images/account_1.png) top center;
+
+}
+#pic1{
+	background:url(images/pic1.png) 0px no-repeat;
+	width:547px;
+	height:202px;
+	margin-left:200px;
+	margin-top:-230px;
+}
+
+#pic2{
+	background:url(images/pic2.png) no-repeat;
+	width:514px;
+	height: 801px;
+	margin-left:366px;
+	margin-top:-800px;
+
+}
+#pic3{
+	background:url(images/pic3.png) 0px 230px no-repeat;
+	width:685px;
+	height:800px;
+	margin-left:365px;
+}
+#iframe{
+	position:absolute;
+	margin-top:125px;
+	margin-left:485px;
+	display:none;
+}
+#iframe2{
+	position:absolute;
+	margin-top:125px;
+	margin-left:485px;
+	display:none;
+
+}
+#iframe2a{
+	position:absolute;
+	margin-top:125px;
+	margin-left:485px;
+	display:none;
+
+}
+
+#iframe3{
+	position:absolute;
+	margin-top:125px;
+	margin-left:410px;
+	display:none;
+
+}
+</style>
+ <meta property="og:url" content="http://la.gameflier.com/ep/gpark_20141216/index.html"/>
+ <meta property="og:image" content="http://la.gameflier.com/ep/gpark_20141216/images/FB.jpg"/>
+ <meta property="og:Site_name" content="萌萌彩虹島Online《吉恩蒂亞公園》改版專區"/>
+ <meta property="og:Description"content="冬季挑戰來襲！全新地圖-吉恩蒂亞公園，即將改版登場！"/>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-18342628-85']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script>
+function myFunction() {
+   
+}
+</script>
+</head>
+
+<body>
+<div id="bg"></div>
+<div id="bg2"></div>
+<div id="bg3"></div>
+<div id="bg4"></div>
+  <div id="all">
+   <div id="iframe"><iframe src="item1.html" width="450" height="530" scrolling="yes" frameborder="0"> </iframe></div>
+   <div id="iframe2"><iframe src="item2.html" width="450" height="530" scrolling="yes" frameborder="0"> </iframe></div>
+   <div id="iframe2a"><iframe src="item2_1.html" width="450" height="530" scrolling="yes" frameborder="0"> </iframe></div>
+   <div id="iframe3"><iframe src="item3.html" width="520" height="530" scrolling="yes" frameborder="0"> </iframe></div>
+    <div id="titleall">
+       <div id="logo"></div>
+       <div id="title"></div>
+       <div id="t1" ></div>
+       <div id="t2"></div>
+       <div id="t2_a"></div> 
+       <div id="t2_a1"></div>
+       <div id="t2_a2"></div>  
+       <div id="t3"></div>
+      <div id="t4" onclick="alert('敬請期待!12/22開連結!!')"></div>
+       <div id="icon">
+         <div id="fb"></div>
+         <div id="share"></div>
+         <div id="gamer"></div>
+         <div id="gamebase"></div>
+       </div>
+    </div>
+    <div id="download"></div>
+    <div id="account"></div>
+    <div id="pic3"></div>
+    <div id="pic2"></div>
+    <div id="pic1"></div>
+  </div>
+
+
+<div id="floor"></div>
+</body>
+</html>
