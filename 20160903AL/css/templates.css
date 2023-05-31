@@ -1,0 +1,225 @@
+/*長寬*/
+/*藏字*/
+/* line 29, ../sass/_brain_plugin.scss */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 5, ../sass/templates.scss */
+body {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 8, ../sass/templates.scss */
+#all {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  min-width: 1000px;
+}
+
+/* line 13, ../sass/templates.scss */
+#gotoTop {
+  background: url(../news/new_list/gototop.png) no-repeat top left;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  display: block;
+  position: absolute;
+  z-index: 99;
+  right: 20px;
+  top: 500px;
+}
+
+/* line 22, ../sass/templates.scss */
+#title_icon {
+  font-family: Arial, Helvetica, sans-serif, "微軟正黑體", "新細明體", "標楷體";
+  font-size: 10pt;
+  line-height: 18pt;
+  margin: 10px 0px;
+  width: 169px;
+  height: 38px;
+  margin-left: 20px;
+}
+
+/* line 30, ../sass/templates.scss */
+#header {
+  position: relative;
+  background: #fff;
+  width: 100%;
+  height: 670px;
+  background: url(../images/header_bg.jpg) no-repeat top center;
+  background: url(../images/header_bg.jpg) no-repeat top center\9;
+}
+/* line 36, ../sass/templates.scss */
+#header .gf_swf {
+  position: relative;
+  z-index: 30;
+  top: 0;
+  width: 100%;
+  height: 40px;
+  background: #000;
+}
+/* line 42, ../sass/templates.scss */
+#header .gf_swf #gf_swf2 {
+  width: 1000px;
+  height: 170px;
+  position: relative;
+  margin: 0 auto;
+}
+/* line 46, ../sass/templates.scss */
+#header .gf_swf #gf_swf2 #gf_swf3 {
+  width: 1000px;
+  height: 170px;
+  position: absolute;
+}
+/* line 50, ../sass/templates.scss */
+#header .indexslider {
+  width: 1000px;
+  height: 630px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 14;
+}
+/* line 55, ../sass/templates.scss */
+#header .angle_bar {
+  width: 855px;
+  height: 121px;
+  position: absolute;
+  top: 55px;
+  left: 50%;
+  z-index: 50;
+  margin-left: -456px;
+}
+/* line 63, ../sass/templates.scss */
+#header .control {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+/* line 64, ../sass/templates.scss */
+#header .control a {
+  display: inline-block;
+  margin: 0 3px;
+  width: 17px;
+  height: 17px;
+  background: url(../slidershow/images/nav_1.png) no-repeat top center;
+  color: #000;
+  text-align: center;
+  font-size: 12px;
+  text-decoration: none;
+}
+/* line 73, ../sass/templates.scss */
+#header .control .on {
+  background: url(../slidershow/images/nav_2.png) no-repeat top center;
+  font-weight: bold;
+  color: #f00;
+}
+/* line 77, ../sass/templates.scss */
+#header #bg_article_top {
+  width: 1000px;
+  height: 176px;
+  position: relative;
+  margin: 0 auto;
+  margin-top: -176px;
+  z-index: 15;
+}
+
+/* line 86, ../sass/templates.scss */
+#article {
+  position: relative;
+  background: #03090c;
+  width: 100%;
+  overflow: visible;
+  text-align: center;
+}
+/* line 93, ../sass/templates.scss */
+#article #article_contect {
+  width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  background: url(../images/article_contect.gif) repeat-y top center;
+  *zoom: 1;
+}
+/* line 38, ../../../fire.app/lib/ruby/compass_0.12/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+#article #article_contect:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 100, ../sass/templates.scss */
+#article #article_contect #article_right {
+  position: relative;
+  width: 262px;
+  height: auto;
+  float: left;
+  margin-left: 30px;
+}
+/* line 105, ../sass/templates.scss */
+#article #article_contect #article_right #new_list {
+  position: inherit;
+  width: 207px;
+  height: auto;
+  top: -120px;
+  left: 30px;
+}
+/* line 112, ../sass/templates.scss */
+#article #article_contect #article_left {
+  position: relative;
+  width: 600px;
+  height: auto;
+  margin-left: 25px;
+  margin-top: 15px;
+  float: left;
+}
+/* line 121, ../sass/templates.scss */
+#article #article_contect #game_list {
+  width: 260px;
+  height: 260px;
+  position: inherit;
+  top: -127px;
+  margin-top: -127px\9;
+  margin-bottom: 15px\9;
+  background: #0c92cf;
+  z-index: 49;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  background: url(../images/game_bg.gif) no-repeat top left \9;
+}
+/* line 131, ../sass/templates.scss */
+#article #article_contect #game_list #game_list2 {
+  background: transparent;
+  position: relative;
+  width: 196px;
+  height: 213px;
+  display: block;
+  z-index: 50;
+  left: 30px;
+  left: 0px\9;
+  top: 18px;
+}
+/* line 142, ../sass/templates.scss */
+#article #article_footer {
+  background: url(../images/article_footer.gif) no-repeat top left;
+  margin: 0 auto;
+  position: relative;
+  height: 60px;
+  z-index: 2;
+  width: 1000px;
+  height: 81px;
+}
+
+/* line 152, ../sass/templates.scss */
+#footer {
+  position: relative;
+  width: 100%;
+  height: 79px;
+  background: url(../images/empolyee.gif) no-repeat top center;
+  overflow: hidden;
+}
