@@ -1,0 +1,181 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	padding:0;
+	margin:0;
+    font-family: "Microsoft JhengHei",Arial, Helvetica, sans-serif;
+}
+
+dl, dt, dd,  ol,  h1, h2, h4, h5, h6, pre, form, fieldset, input, textarea, li,ul,blockquote, p,th, td {
+	padding: 0;
+	margin: 0;
+	font-family: "Microsoft JhengHei",Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	list-style-type: none;
+	position: relative;
+	line-height: 30px;
+}
+h3{
+	padding: 0;
+	margin: 0;
+	line-height:30px;
+	color:#9a1c24;
+}
+#bg{
+	background:url(../images/bg.jpg) top center no-repeat;
+	width:100%;
+	height:100%;
+	position:absolute;
+	min-width: 1000px;
+}
+#bg1{
+	background:url(../images/bg2.jpg) top center no-repeat;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	min-width: 1000px;
+	background-attachment: scroll;
+	margin:0 auto;
+	background-size: cover;
+	display:none;
+}
+#bg2{
+	background:url(../images/bg3.jpg) top center no-repeat;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	min-width: 1000px;
+	background-attachment: scroll;
+	margin:0 auto;
+	background-size: cover;
+	display:none;
+}
+.center{
+	width:1000px;
+	position: relative;
+	margin:0 auto;
+}
+.acfbox{
+	width: 680px;
+    height: 78px;
+    position: absolute;
+	left:0px;
+}
+.revision {
+	float:left;
+	width:110px;
+	height:39px;
+	display: block;
+	background-image: url(../images/icon.png);
+	background-position: 0px 0px;
+	cursor:pointer;
+	}
+.revision:hover {background-position: 0px 39px;}
+.action{
+	float:left;
+	width:190px;
+	height:39px;
+	display: block;
+	background-image: url(../images/icon.png);
+	background-position: -105px 0px;
+	cursor:pointer;
+}
+.action:hover{background-position: -105px 39px;}
+.account{
+	float:left;
+	width:110px;
+	height:39px;
+	display: block;
+	background-image: url(../images/icon.png);
+	background-position: -293px 0px;
+	cursor:pointer;
+}
+.account:hover{background-position: -293px 39px;}
+.download{
+	float:left;
+	width:110px;
+	height:39px;
+	display: block;
+	background-image: url(../images/icon.png);
+	background-position: -400px 0px;
+	cursor:pointer;	
+}
+.download:hover{background-position: -400px 39px;}
+.return{
+	float:left;
+	width:110px;
+	height:39px;
+	display: block;
+	background-image: url(../images/icon.png);
+	background-position: -505px 0px;
+	cursor:pointer;	
+}
+.return:hover{background-position: -505px 39px;}
+.fb{
+	float:left;
+	width:45px;
+	height:39px;
+	display: block;
+	background-image: url(../images/icon.png);
+	background-position: -615px 0px;
+	cursor:pointer;	
+}
+.fb:hover{background-position: -615px 39px;}
+.logo{
+    position: absolute;
+    width: 350px;
+    height: 150px;
+    cursor: pointer;
+    display: block;
+    top: 300px;
+    left: 200px;
+}
+#bottom{
+	width:100%;
+	height:68px;
+	background:url(../images/bottom_bg.jpg);
+	position:fixed;
+	bottom:0px;
+}
+.button{
+	background:url(../images/pi.png);
+	width:100%;
+	height:50px;
+	position:fixed;
+	bottom:68px;
+}
+.b1{
+	background:url(../images/button1.png)top left no-repeat;
+	width:250px;
+	height:48px;
+	cursor:pointer;
+
+}
+.b2{
+	background:url(../images/button1.png)top right no-repeat;
+	width:250px;
+	height:48px;
+	cursor:pointer;
+
+}
+#content{
+	width:1000px;
+	height: auto;
+	position:absolute;
+	margin:0 auto;
+	margin-top:50px;
+}
+.close{
+	width:71px;
+	height:68px;
+	background:url(../images/close.png) top center no-repeat;
+	cursor:pointer;
+	top:10px;
+	left:830px;
+	position:absolute;
+	display:none;
+}
+.close a:hover{
+	background-position:bottom;
+}
