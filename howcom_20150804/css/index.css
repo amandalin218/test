@@ -1,0 +1,250 @@
+@charset "utf-8";
+body{
+	padding:0;
+	margin:0;
+	background:url(../images/bg.jpg) top center no-repeat #4b1855;
+}
+dl, dt, dd,  ol,  h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, blockquote, p,th, td {
+	padding:0;
+	margin:0;
+	font-family:"Microsoft JhengHei",Arial, Helvetica, sans-serif ;
+	font-size:16px;
+	list-style-type:none;
+	color:#333;
+}
+td{
+	text-align: center;
+	font-size: 14px;
+	font-family:"Microsoft JhengHei";
+}
+li{
+	font-family:"Microsoft JhengHei";
+	color:#333;
+	font-size:16px;
+}
+.red{
+	color:#F33;
+	font-size:20px;
+	font-weight:bold;
+}
+
+.green{
+	color: #063;
+}
+#main{
+	position:relative;
+	width:1000px;
+	height:832px;
+	margin:0 auto;
+}
+#bottom{
+	position:relative;
+	background:url(../images/bottom.png) top center no-repeat;
+	width:1000px;
+	height:71px;
+	margin:0 auto;
+	text-align:center;
+}
+#logo{
+	background:url(../images/logo_1.png)top center no-repeat;
+	width:245px;
+	height:141px;
+	cursor:pointer;
+	margin-top:30px;
+}
+#logo:hover{
+	background:url(../images/logo_2.png) top center no-repeat;
+}
+#exclusive{
+	background:url(../images/exclusive_1.png)top center no-repeat;
+	width:428px;
+	height:241px;
+	cursor:pointer;
+	margin-left:600px;
+	margin-top:-200px;
+}
+#exclusive:hover{
+	background:url(../images/exclusive_2.png) top center no-repeat;
+}
+
+#download{
+	background:url(../images/download_1.png)top center no-repeat;
+	width:139px;
+	height:185px;
+	cursor:pointer;
+	margin-top:20px;
+	margin-left:50px;
+}
+#download:hover{
+	background:url(../images/download_2.png) top center no-repeat;
+}
+
+#account{
+	background:url(../images/account_1.png)top center no-repeat;
+	width:116px;
+	height:181px;
+	cursor:pointer;
+	margin-top:20px;
+	margin-left:73px;
+}
+#account:hover{
+	background:url(../images/account_2.png) top center no-repeat;
+}
+#btnbg{
+	width:490px;
+	height:168px;
+	margin-top:50px;
+	margin-left:45px;
+}
+#btn1{
+	background:url(../images/1_1.png)top center no-repeat;
+	width:67px;
+	height:168px;
+	float:left;
+	cursor:pointer;
+
+}
+#btn1:hover{
+	background:url(../images/1_2.png) top center no-repeat;
+}
+#btn2{
+	background:url(../images/2_1.png)top center no-repeat;
+	width:67px;
+	height:168px;
+	float:left;
+	cursor:pointer;
+	margin-left:10px;
+}
+#btn2:hover{
+	background:url(../images/2_2.png) top center no-repeat;
+}
+#btn3{
+	background:url(../images/3_1.png)top center no-repeat;
+	width:67px;
+	height:168px;
+	float:left;
+	cursor:pointer;
+	margin-left:10px;
+}
+#btn3:hover{
+	background:url(../images/3_2.png) top center no-repeat;
+}
+#btn4{
+	background:url(../images/4_1.png)top center no-repeat;
+	width:67px;
+	height:168px;
+	float:left;
+	cursor:pointer;
+	margin-left:10px;
+}
+#btn4:hover{
+	background:url(../images/4_2.png) top center no-repeat;
+}
+#btn5{
+	background:url(../images/5_1.png)top center no-repeat;
+	width:67px;
+	height:168px;
+    float:left;
+	cursor:pointer;
+	margin-left:10px;
+}
+#btn5:hover{
+	background:url(../images/5_2.png) top center no-repeat;
+}
+#icon{
+	position:absolute;
+	width:100px;
+	height:90px;
+	margin-top:40px;
+	margin-left:400px;
+}
+#fb{
+	background:url(../images/fb_1.png)top center no-repeat;
+	width:40px;
+	height:40px;
+	cursor:pointer;
+	float:left;
+
+}
+#fb:hover{
+	background:url(../images/fb_2.png) top center no-repeat;
+}
+#share{
+	background:url(../images/share_1.png)top center no-repeat;
+	width:40px;
+	width:40px;
+	height:40px;
+	cursor:pointer;
+	float:left;
+	margin-left:5px;
+
+}
+#share:hover{
+	background:url(../images/share_2.png) top center no-repeat;
+}
+#gamebase{
+	background:url(../images/gamebase_1.png)top center no-repeat;
+	width:40px;
+	height:40px;
+	cursor:pointer;
+	float:left;
+	margin-top:5px;
+
+}
+#gamebase:hover{
+	background:url(../images/gamebase_2.png) top center no-repeat;
+}
+#gamer{
+	background:url(../images/gamer_1.png)top center no-repeat;
+	width:40px;
+	height:40px;
+	cursor:pointer;
+	float:left;
+	margin-left:5px;
+	margin-top:5px;
+}
+#gamer:hover{
+	background:url(../images/gamer_2.png)  top center no-repeat;
+}
+#content1,#content2,#content3,#content4,#content5{
+	position:relative;
+	width:1000px;
+	height:auto;
+	margin:0 auto;
+	display:none;
+}
+#left{
+	width:450px;
+}
+#right{
+	width:500px;
+	margin-left:500px;
+	margin-top:-900px;
+}
+#image1{
+	background:url(../images/image026.png) top center no-repeat;
+	width:116px;
+	height:143px;
+	margin-left:80px;
+}
+#image2{
+	background:url(../images/image027.png) top center no-repeat;
+	width:116px;
+	height:143px;
+	margin-left:250px;
+	margin-top:-142px;
+}
+.close{
+	position:absolute;
+	background:url(../images/cloes_1.png) top center no-repeat;
+	width:43px;
+	height:43px;
+	cursor:pointer;
+	z-index:20;
+	margin-left:940px;
+	margin-top:50px;
+	display:none;
+}
+.close:hover{
+	background:url(../images/close_2.png) top center no-repeat;
+}
