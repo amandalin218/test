@@ -1,0 +1,159 @@
+/*長寬*/
+/*藏字*/
+/* line 29, ../sass/_brain_plugin.scss */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 3, ../sass/service_nav.scss */
+body {
+  background: transparent;
+}
+
+/* line 7, ../sass/service_nav.scss */
+#all_nav {
+  width: 207px;
+  height: auto;
+  position: relative;
+}
+/* line 11, ../sass/service_nav.scss */
+#all_nav #slider_bar {
+  width: 197px;
+  height: auto;
+  background: #0c92cf;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  position: relative;
+  margin-left: 5px;
+  padding-bottom: 20px;
+}
+/* line 19, ../sass/service_nav.scss */
+#all_nav #slider_bar #logo_icon {
+  width: 203px;
+  height: 43px;
+  top: 14px;
+  left: -12px;
+  position: relative;
+}
+/* line 25, ../sass/service_nav.scss */
+#all_nav #slider_bar #banner_icon {
+  width: 194px;
+  height: auto;
+  position: inherit;
+  margin-top: 35px;
+}
+/* line 30, ../sass/service_nav.scss */
+#all_nav #slider_bar #banner_icon li {
+  width: 179px;
+  height: 27px;
+  margin-top: 15px;
+}
+/* line 35, ../sass/service_nav.scss */
+#all_nav #slider_bar #banner_icon li:nth-child(10) {
+  margin-bottom: 10px;
+}
+/* line 36, ../sass/service_nav.scss */
+#all_nav #slider_bar #banner_icon li a {
+  width: 179px;
+  height: 27px;
+  overflow: hidden;
+  display: block;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  -ms-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+/* line 40, ../sass/service_nav.scss */
+#all_nav #slider_bar #banner_icon li #nav_1 {
+  background: url(../service/images/service1.gif) no-repeat top center;
+}
+/* line 41, ../sass/service_nav.scss */
+#all_nav #slider_bar #banner_icon li #nav_1:hover {
+  background-position: 0 -27px;
+}
+/* line 42, ../sass/service_nav.scss */
+#all_nav #slider_bar #banner_icon li #nav_2 {
+  background: url(../service/images/service2.gif) no-repeat top center;
+}
+/* line 43, ../sass/service_nav.scss */
+#all_nav #slider_bar #banner_icon li #nav_2:hover {
+  background-position: 0 -27px;
+}
+/* line 44, ../sass/service_nav.scss */
+#all_nav #slider_bar #banner_icon li #nav_3 {
+  background: url(../service/images/service3.gif) no-repeat top center;
+}
+/* line 45, ../sass/service_nav.scss */
+#all_nav #slider_bar #banner_icon li #nav_3:hover {
+  background-position: 0 -27px;
+}
+/* line 46, ../sass/service_nav.scss */
+#all_nav #slider_bar #banner_icon li #nav_4 {
+  background: url(../service/images/service4.gif) no-repeat top center;
+}
+/* line 47, ../sass/service_nav.scss */
+#all_nav #slider_bar #banner_icon li #nav_4:hover {
+  background-position: 0 -27px;
+}
+/* line 48, ../sass/service_nav.scss */
+#all_nav #slider_bar #banner_icon li #nav_5 {
+  background: url(../service/images/service5.gif) no-repeat top center;
+}
+/* line 49, ../sass/service_nav.scss */
+#all_nav #slider_bar #banner_icon li #nav_5:hover {
+  background-position: 0 -27px;
+}
+/* line 50, ../sass/service_nav.scss */
+#all_nav #slider_bar #banner_icon li #nav_6 {
+  background: url(../service/images/service6.gif) no-repeat top center;
+}
+/* line 51, ../sass/service_nav.scss */
+#all_nav #slider_bar #banner_icon li #nav_6:hover {
+  background-position: 0 -27px;
+}
+/* line 52, ../sass/service_nav.scss */
+#all_nav #slider_bar #banner_icon li #nav_7 {
+  background: url(../service/images/service7.gif) no-repeat top center;
+}
+/* line 53, ../sass/service_nav.scss */
+#all_nav #slider_bar #banner_icon li #nav_7:hover {
+  background-position: 0 -27px;
+}
+/* line 54, ../sass/service_nav.scss */
+#all_nav #slider_bar #banner_icon li #nav_8 {
+  background: url(../service/images/service8.gif) no-repeat top center;
+}
+/* line 55, ../sass/service_nav.scss */
+#all_nav #slider_bar #banner_icon li #nav_8:hover {
+  background-position: 0 -27px;
+}
+/* line 56, ../sass/service_nav.scss */
+#all_nav #slider_bar #banner_icon li #nav_9 {
+  background: url(../service/images/service9.gif) no-repeat top center;
+}
+/* line 57, ../sass/service_nav.scss */
+#all_nav #slider_bar #banner_icon li #nav_9:hover {
+  background-position: 0 -27px;
+}
+/* line 58, ../sass/service_nav.scss */
+#all_nav #slider_bar #banner_icon li #nav_10 {
+  background: url(../service/images/servie10.gif) no-repeat top center;
+}
+/* line 59, ../sass/service_nav.scss */
+#all_nav #slider_bar #banner_icon li #nav_10:hover {
+  background-position: 0 -27px;
+}
+/* line 60, ../sass/service_nav.scss */
+#all_nav #slider_bar #banner_icon li #nav_11 {
+  background: url(../service/images/servie11.gif) no-repeat top center;
+}
+/* line 61, ../sass/service_nav.scss */
+#all_nav #slider_bar #banner_icon li #nav_11:hover {
+  background-position: 0 -27px;
+}

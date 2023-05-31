@@ -1,0 +1,90 @@
+/*長寬*/
+/*藏字*/
+/* line 29, ../sass/_brain_plugin.scss */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 3, ../sass/traning_nav.scss */
+body {
+  background: transparent;
+}
+
+/* line 7, ../sass/traning_nav.scss */
+#all_nav {
+  width: 207px;
+  height: 350px;
+  position: relative;
+}
+/* line 11, ../sass/traning_nav.scss */
+#all_nav #slider_bar {
+  width: 197px;
+  height: 350px;
+  background: #0c92cf;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  position: absolute;
+  right: 0;
+}
+/* line 18, ../sass/traning_nav.scss */
+#all_nav #slider_bar #logo_icon {
+  width: 203px;
+  height: 43px;
+  top: 14px;
+  left: -12px;
+  position: relative;
+}
+/* line 24, ../sass/traning_nav.scss */
+#all_nav #slider_bar #banner_icon {
+  width: 194px;
+  height: 220px;
+  position: inherit;
+  margin-top: 35px;
+}
+/* line 28, ../sass/traning_nav.scss */
+#all_nav #slider_bar #banner_icon li {
+  width: 179px;
+  height: 27px;
+  margin-top: 15px;
+}
+/* line 32, ../sass/traning_nav.scss */
+#all_nav #slider_bar #banner_icon li a {
+  width: 179px;
+  height: 27px;
+  overflow: hidden;
+  display: block;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  -ms-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+/* line 37, ../sass/traning_nav.scss */
+#all_nav #slider_bar #banner_icon li #nav_1 {
+  background: url(../traning/images/traning1.gif) no-repeat top center;
+}
+/* line 38, ../sass/traning_nav.scss */
+#all_nav #slider_bar #banner_icon li #nav_1:hover {
+  background-position: 0 -27px;
+}
+/* line 39, ../sass/traning_nav.scss */
+#all_nav #slider_bar #banner_icon li #nav_2 {
+  background: url(../traning/images/traning2.gif) no-repeat top center;
+}
+/* line 40, ../sass/traning_nav.scss */
+#all_nav #slider_bar #banner_icon li #nav_2:hover {
+  background-position: 0 -27px;
+}
+/* line 41, ../sass/traning_nav.scss */
+#all_nav #slider_bar #banner_icon li #nav_3 {
+  background: url(../traning/images/traning3.gif) no-repeat top center;
+}
+/* line 42, ../sass/traning_nav.scss */
+#all_nav #slider_bar #banner_icon li #nav_3:hover {
+  background-position: 0 -27px;
+}
