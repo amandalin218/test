@@ -1,0 +1,303 @@
+@charset "utf-8";
+body{
+	padding:0;
+	margin:0;
+    background: url(../images/bg.jpg) no-repeat top center #000000 ;
+}
+dl, dt, dd,  ol,  h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, blockquote, p,th, td {
+	padding:0;
+	margin:0;
+	font-family:"Microsoft JhengHei",Arial, Helvetica, sans-serif ;
+	list-style-type:none;
+}
+#bg{
+	position:absolute;
+	display:block;
+    width:100%;
+    height: 1300px;
+	margin:0 auto;
+}
+#content{
+	position:relative;
+	width:1000px;
+    height: 1300px;
+	margin:0 auto;
+}
+#logo{
+	position:relative;
+	background:url(../images/logo.png) top center no-repeat;
+	width:403px;
+	height:226px;
+	margin-left:60px;
+	cursor:pointer;
+	top:6px;
+}
+#logo:hover{
+	background:url(../images/logo_1.png) top center no-repeat;
+	-webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+}
+
+#download{
+	position:relative;
+	background:url(../images/download_0.png) top center no-repeat;
+	width:144px;
+	height:46px;
+	cursor:pointer;
+	left:235px;
+	top:5px;
+}
+
+#download:hover{
+	background:url(../images/download_1.png) top center no-repeat;
+	-webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+}
+
+#account{
+	position:relative;
+	background:url(../images/account_0.png) top center no-repeat;
+	width:144px;
+	height:46px;
+	cursor:pointer;
+	top:-40px;
+	left:78px;
+}
+#account:hover{
+	background:url(../images/account_1.png) top center no-repeat;
+	-webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+}
+
+#fb{
+	position:relative;
+	background: url(../images/fb_0.png) top center no-repeat;
+	width:46px;
+	height:47px;
+	cursor:pointer;
+	top:-310px;
+	left:882px;
+}
+#fb:hover{
+	background:url(../images/fb_1.png) top center no-repeat;
+	-webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+}
+
+#share{
+	position:relative;
+	background: url(../images/share_0.png) top center no-repeat;
+	width:46px;
+	height:47px;
+	cursor:pointer;
+	top:-357px;
+	left:933px;
+}
+#share:hover{
+	background:url(../images/share_1.png) top center no-repeat;
+	-webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+}
+
+#gamer{
+	position:relative;
+	background: url(../images/gamer_0.png) top center no-repeat;
+	width:46px;
+	height:47px;
+	cursor:pointer;
+	top:-404px;
+	left:779px;
+}
+#gamer:hover{
+	background:url(../images/gamer_1.png) top center no-repeat;
+	-webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+}
+
+
+#gamebase{
+	position:relative;
+	background: url(../images/gamebase_0.png) top center no-repeat;
+	width:46px;
+	height:47px;
+	cursor:pointer;
+	top:-450px;
+	left:832px;
+}
+#gamebase:hover{
+	background:url(../images/gamebase_1.png) top center no-repeat;
+	-webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+}
+#title{
+	position:relative;
+	background:url(../images/title.png) top center no-repeat;
+	width:827px;
+	height:422px;
+	left:40px;
+	top:12px;
+}
+
+.b1{
+	position: absolute;
+	background: url(../images/b1_1.png) top center no-repeat;
+	width:107px;
+	height:249px;
+	cursor:pointer;
+	margin-top:5px;
+	margin-left:230px;
+}
+.b1:hover{
+	background:url(../images/b1_2.png) top center no-repeat;
+	-webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+}
+
+.b2{
+	position: absolute;
+	background:url(../images/b2_1.png) top center no-repeat;
+	width:84px;
+	height:249px;
+	cursor:pointer;
+	margin-top:5px;
+	margin-left:355px;
+}
+.b2:hover{
+	background:url(../images/b2_2.png) top center no-repeat;
+	-webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+}
+
+.b3{
+	position: absolute;
+	background:url(../images/b3_1.png) top center no-repeat;
+	width:94px;
+	height:249px;
+	cursor:pointer;
+	margin-top:5px;
+	margin-left:465px;
+}
+.b3:hover{
+	background:url(../images/b3_2.png) top center no-repeat;
+	-webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+}
+
+.b4{
+	position: absolute;
+	background:url(../images/b4_1.png) top center no-repeat;
+	width:84px;
+	height:249px;
+	cursor:pointer;
+	margin-top:3px;
+	margin-left:580px;
+}
+.b4:hover{
+	background:url(../images/b4_2.png) top center no-repeat;
+	-webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+}
+
+.b5{
+	position: absolute;
+	background: url(../images/b5_1.png) top center no-repeat;
+	width:272px;
+	height:142px;
+	cursor:pointer;
+	margin-top:0px;
+	margin-left:680px;
+}
+.b5:hover{
+	background: url(../images/b5_2.png) top center no-repeat;
+	-webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+}
+
+.b6{
+	position: absolute; 
+	background: url(../images/b6_1.png) top center no-repeat;
+	width:273px;
+	height:72px;
+	cursor:pointer;
+	margin-top:134px;
+	margin-left:680px;
+}
+.b6:hover{
+	background:url(../images/b6_2.png) top center no-repeat;
+	-webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+}
+
+.b7{
+	position: absolute;
+	background: url(../images/b7_1.png) top center no-repeat;
+	width:258px;
+	height:48px;
+	cursor:pointer;
+	margin-top:206px;
+	margin-left:686px;
+}
+.b7:hover{
+	background:url(../images/b7_2.png) top center no-repeat;
+	-webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out;
+}
+#copy{
+	position: absolute;
+	background:url(../images/copy.png) top center no-repeat;
+	width:1000px;
+	height:100px;
+	margin-top:270px;
+	margin-left:auto;
+	margin-right:auto;
+}
+#flashContent { 
+    width:800px; 
+    height:350px;
+	display:block;
+	position: absolute;
+	top:480px;
+	z-index:1;
+}
