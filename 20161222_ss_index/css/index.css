@@ -1,0 +1,355 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	padding:0;
+	margin:0;
+    font-family: "Microsoft JhengHei",Arial, Helvetica, sans-serif;
+	background:url(../images/bottom_bg.jpg);
+	
+}
+dl, dt, dd,  ol,  h1, h2, h4, h5, h6, pre, form, fieldset, input, textarea, li,ul,blockquote, p,th, td {
+	padding: 0;
+	margin: 0;
+	font-family: "Microsoft JhengHei",Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	list-style-type: none;
+	position: relative;
+	line-height: 30px;
+}
+#bg{
+	background:url(../images/bg.jpg) top center no-repeat;
+	position: relative;
+	min-width: 1000px;
+	width: 100%;
+	height:800px;
+}
+#bg1{
+	background:url(../images/bg1.jpg) top center no-repeat;
+	position: relative;
+	min-width: 1000px;
+	width: 100%;
+	height:800px;
+}
+#bg2{
+	background:url(../images/bg2.jpg) top center no-repeat;
+	position: relative;
+	min-width: 1000px;
+	width: 100%;
+	height:800px;
+}
+.center{
+	width:1000px;
+	position: relative;
+	margin:0 auto;
+}
+.logo{
+	position:relative;
+    width: 296px;
+    height: 149px;
+    cursor: pointer;
+    display: block;
+	margin:0 auto;
+}
+.box{
+	position:absolute;
+	width:188px;
+	height:75px;
+	display:block;
+    right: 17px;
+    top: 13px;
+}
+.account{
+	background:url(../images/downaccound.png) top left no-repeat;
+	width:100px;
+	height:39px;
+	display:block;
+	cursor:pointer;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+}
+.account:hover{ background:url(../images/downaccound.png)  top right no-repeat;}
+.download{
+	background:url(../images/downaccound.png) bottom left  no-repeat;
+	width:100px;
+	height:39px;
+	display:block;
+	cursor:pointer;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+}
+.download:hover{ background:url(../images/downaccound.png)  bottom right no-repeat;}
+.fb{
+	background:url(../images/icon.png)top left no-repeat;
+	float:left;
+	width:40px;
+	height:39px;
+	display:block;
+	cursor:pointer;	
+	margin-top: -80px;
+    margin-left: 110px;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+}
+.fb:hover{background-position:bottom left;}
+.share{
+	background:url(../images/icon.png) no-repeat;
+    background-position: -117px 0px;
+	float:left;
+	width:40px;
+	height:39px;
+	display:block;
+	cursor:pointer;
+	margin-top: -80px;
+    margin-left: 145px;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+}
+.share:hover{background-position:-117px -39px;}
+.gamer{
+	background:url(../images/icon.png) no-repeat;
+    background-position: -40px 0px;
+	float:left;
+	width:40px;
+	height:39px;
+	display:block;
+	cursor:pointer;
+	margin-top: -40px;
+    margin-left: 145px;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+}
+.gamer:hover{background-position:-40px -39px;}
+.gamebase{
+	background:url(../images/icon.png) top no-repeat;
+    background-position: -78px 0px;
+	float:left;
+	width:40px;
+	height:39px;
+	display:block;
+	cursor:pointer;
+	margin-top: -40px;
+    margin-left: 110px;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+}
+.gamebase:hover{background-position:-78px -39px;}
+
+.account2{
+	background:url(../images/downaccound2.png) top left no-repeat;
+	width:100px;
+	height:39px;
+	display:block;
+	cursor:pointer;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+}
+.account2:hover{ background:url(../images/downaccound2.png)  top right no-repeat;}
+.download2{
+	background:url(../images/downaccound2.png) bottom left  no-repeat;
+	width:100px;
+	height:39px;
+	display:block;
+	cursor:pointer;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+}
+.download2:hover{ background:url(../images/downaccound2.png)  bottom right no-repeat;}
+.fb2{
+	background:url(../images/icon2.png)top left no-repeat;
+	float:left;
+	width:40px;
+	height:39px;
+	display:block;
+	cursor:pointer;	
+	margin-top: -80px;
+    margin-left: 110px;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+}
+.fb2:hover{background-position:bottom left;}
+.share2{
+	background:url(../images/icon2.png) no-repeat;
+    background-position: -117px 0px;
+	float:left;
+	width:40px;
+	height:39px;
+	display:block;
+	cursor:pointer;
+	margin-top: -80px;
+    margin-left: 145px;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+}
+.share2:hover{background-position:-117px -39px;}
+.gamer2{
+	background:url(../images/icon2.png) no-repeat;
+    background-position: -40px 0px;
+	float:left;
+	width:40px;
+	height:39px;
+	display:block;
+	cursor:pointer;
+	margin-top: -40px;
+    margin-left: 145px;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+}
+.gamer2:hover{background-position:-40px -39px;}
+.gamebase2{
+	background:url(../images/icon2.png) top no-repeat;
+    background-position: -78px 0px;
+	float:left;
+	width:40px;
+	height:39px;
+	display:block;
+	cursor:pointer;
+	margin-top: -40px;
+    margin-left: 110px;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+}
+.gamebase2:hover{background-position:-78px -39px;}
+
+.action1{
+	background:url(../images/title3.png) bottom center no-repeat;
+	position: relative;
+	width:162px;
+	height:105px;
+	display:block;
+	cursor:pointer;
+    top: -70px;
+    left: -30px;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+}
+.action1:hover{ background:url(../images/title3_2.png) top center no-repeat;}
+.action2{
+	background:url(../images/title4.png) bottom center no-repeat;
+	position: relative;
+	width:162px;
+	height:105px;
+	display:block;
+	margin-top:3px;
+	cursor:pointer;
+    left: 260px;
+    top: -100px;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+}
+.action2:hover{ background:url(../images/title4_2.png) top center no-repeat;}
+.action3{
+	background:url(../images/title5.png) bottom center no-repeat;
+	position: relative;
+	width:162px;
+	height:105px;
+	display:block;
+	margin-top:3px;
+	cursor:pointer;
+    top: -70px;
+    left: 30px;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+}
+.action3:hover{ background:url(../images/title5_2.png) top center no-repeat;}
+.action4{
+	background:url(../images/title1.png) bottom center no-repeat;
+	position: relative;
+	width:143px;
+	height:72px;
+	display:block;
+	margin-top:3px;
+	cursor:pointer;
+    top: -180px;
+    left: 460px;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+}
+.action4:hover{ background:url(../images/title1_2.png) top center no-repeat;}
+.action5{
+	background:url(../images/title2.png) bottom center no-repeat;
+	position: relative;
+	width:142px;
+	height:90px;
+	display:block;
+	margin-top:3px;
+	cursor:pointer;
+	top: -100px;
+    left: 610px;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+}
+.action5:hover{ background:url(../images/title2_2.png) top center no-repeat;}
+#bottom{
+	width:100%;
+	height:68px;
+	background:url(../images/bottom_bg.jpg);
+	position: relative;
+}
+#content{
+    position: absolute;
+    width: 668px;
+    height: 630px;
+    display: block;
+    left: 309px;
+    top: 156px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.close{
+	background: url(../images/close.png) top center no-repeat;
+	width:40px;
+	height:40px;
+	cursor:pointer;
+}
