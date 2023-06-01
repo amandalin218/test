@@ -1,0 +1,284 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+body,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td,div {
+    padding: 0;
+    margin: 0;
+    font-family: "微軟正黑體", "Microsoft JhengHei", Arial, Helvetica, sans-serif;
+}
+body{	background:url(../images/bg2.jpg);}
+#bg1 {
+    width: 100%;
+    min-width: 1000px;
+    height: auto;
+    background-image: url(../images/bg.jpg);
+    background-repeat: no-repeat;
+    background-position: 50% 0px;
+    background-attachment: scroll;
+	
+}
+#bg2{
+	width: 100%;
+	min-width: 1000px;
+	height:auto;
+	background: url(../images/bg_center.png) repeat-y;
+	background-position: 50% 0%;
+	background-attachment: scroll;
+	}
+.main {
+    position: relative;
+    width: 1000px;
+    height: 850px;
+    margin: 0 auto;
+}
+.main2 {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1000px;
+    height: auto;
+}
+#cy {
+    width: 100%;
+    height: 392px;
+    min-width: 1000px;
+    background-image: url(../images/cy.png);
+    background-repeat: no-repeat;
+    background-position: 50% 0%;
+    background-attachment: scroll;
+	bottom:0px;
+	margin-top:-300px;
+}
+
+.btn1 {
+    background: url(../images/btn1.png);
+    width: 187px;
+    height: 187px;
+    position: absolute;
+	top: 350px;
+    left: 80px;
+    cursor: pointer;
+}
+.btn1:hover {
+    -webkit-transition: 0.8s ease-in-out;
+    -moz-transition: 0.8s ease-in-out;
+    -o-transition: 0.8s ease-in-out;
+    -ms-transition: 0.8s ease-in-out;
+    transition: 0.8s ease-in-out;
+	transform:rotate(6.28rad);
+}
+.btn2 {
+    background: url(../images/btn2.png);
+    width: 187px;
+    height: 187px;
+    position: absolute;
+    top: 295px;
+    left: 300px;
+    cursor: pointer;
+}
+.btn2:hover {
+    -webkit-transition: 0.8s ease-in-out;
+    -moz-transition: 0.8s ease-in-out;
+    -o-transition: 0.8s ease-in-out;
+    -ms-transition: 0.8s ease-in-out;
+    transition: 0.8s ease-in-out;
+	transform:rotate(-6.28rad);
+}
+.btn3 {
+    background: url(../images/btn3.png);
+    width: 186px;
+    height: 187px;
+    position: absolute;
+	top: 295px;
+    left: 510px;
+    cursor: pointer;
+}
+.btn3:hover {
+    -webkit-transition: 0.8s ease-in-out;
+    -moz-transition: 0.8s ease-in-out;
+    -o-transition: 0.8s ease-in-out;
+    -ms-transition: 0.8s ease-in-out;
+    transition: 0.8s ease-in-out;
+	transform:rotate(-6.28rad);
+}
+.btn4 {
+    background: url(../images/btn4.png);
+    width: 187px;
+    height: 187px;
+    position: absolute;
+	top: 350px;
+    left: 730px;
+    cursor: pointer;
+}
+.btn4:hover {
+    -webkit-transition: 0.8s ease-in-out;
+    -moz-transition: 0.8s ease-in-out;
+    -o-transition: 0.8s ease-in-out;
+    -ms-transition: 0.8s ease-in-out;
+    transition: 0.8s ease-in-out;
+	transform:rotate(6.28rad);
+}
+.btn5 {
+    background: url(../images/btn5.png);
+    width: 187px;
+    height: 187px;
+    position: absolute;
+    top: 530px;
+    left: 70px;
+    cursor: pointer;
+}
+.btn5:hover {
+    -webkit-transition: 0.8s ease-in-out;
+    -moz-transition: 0.8s ease-in-out;
+    -o-transition: 0.8s ease-in-out;
+    -ms-transition: 0.8s ease-in-out;
+    transition: 0.8s ease-in-out;
+	transform:rotate(-6.28rad);
+}
+.btn6 {
+    background: url(../images/btn6.png);
+    width: 187px;
+    height: 187px;
+    position: absolute;
+    top: 450px;
+    left: 230px;
+    cursor: pointer;
+}
+.btn6:hover {
+    -webkit-transition: 0.8s ease-in-out;
+    -moz-transition: 0.8s ease-in-out;
+    -o-transition: 0.8s ease-in-out;
+    -ms-transition: 0.8s ease-in-out;
+    transition: 0.8s ease-in-out;
+	transform:rotate(6.28rad);
+}
+.btn7 {
+    background: url(../images/btn7.png);
+    width: 212px;
+    height: 213px;
+    position: absolute;
+	top: 420px;
+    left: 400px;
+    cursor: pointer;
+}
+.btn7:hover {
+    -webkit-transition: 0.8s ease-in-out;
+    -moz-transition: 0.8s ease-in-out;
+    -o-transition: 0.8s ease-in-out;
+    -ms-transition: 0.8s ease-in-out;
+    transition: 0.8s ease-in-out;
+	transform:rotate(-6.28rad);
+}
+.btn8 {
+    background: url(../images/btn8.png);
+    width: 186px;
+    height: 187px;
+    position: absolute;
+	top: 440px;
+    left: 600px;
+    cursor: pointer;
+}
+.btn8:hover {
+    -webkit-transition: 0.8s ease-in-out;
+    -moz-transition: 0.8s ease-in-out;
+    -o-transition: 0.8s ease-in-out;
+    -ms-transition: 0.8s ease-in-out;
+    transition: 0.8s ease-in-out;
+	transform:rotate(6.28rad);
+}
+.btn9 {
+    background: url(../images/btn9.png);
+    width: 187px;
+    height: 187px;
+    position: absolute;
+	top: 530px;
+    left: 750px;
+    cursor: pointer;
+}
+.btn9:hover {
+    -webkit-transition: 0.8s ease-in-out;
+    -moz-transition: 0.8s ease-in-out;
+    -o-transition: 0.8s ease-in-out;
+    -ms-transition: 0.8s ease-in-out;
+    transition: 0.8s ease-in-out;
+	transform:rotate(6.28rad);
+}
+
+.share {
+    background: url(../images/share.png) 0px 0px no-repeat;
+    width: 117px;
+    height: 42px;
+	margin-left:800px;
+    cursor: pointer;
+}
+.top{ 
+    background: url(../images/top.png) top center;
+	width:176px;
+	height:227px;
+	cursor:pointer;
+	position:fixed;
+	z-index:2;
+	bottom:50px;
+	right:0px;
+	}
+.pic1{
+	background:url(../images/pic1.png) top center no-repeat;
+	width: 100%;
+	min-width: 1000px;
+	height:800px;
+	position:fixed;
+	margin:0 auto;
+	text-align:center;
+	display: none;
+	}
+.pic2{
+	background:url(../images/pic2.png) top center no-repeat;
+	width: 100%;
+	min-width: 1000px;
+	height:800px;
+	position:fixed;
+	margin:0 auto;
+	text-align:center;
+	display: none;
+	}
+.pic4{
+	background:url(../images/pic4.png) top center no-repeat;
+	width: 100%;
+	min-width: 1000px;
+	height:800px;
+	position:fixed;
+	margin:0 auto;
+	text-align:center;
+	display: none;
+	}
+.pic5{
+	background:url(../images/pic5.png) top center no-repeat;
+	width: 100%;
+	min-width: 1000px;
+	height:800px;
+	position:fixed;
+	margin:0 auto;
+	text-align:center;
+	display: none;
+	}
+.pic6{
+	background:url(../images/pic6.png) top center no-repeat;
+	width: 100%;
+	min-width: 1000px;
+	height:800px;
+	position:fixed;
+	margin:0 auto;
+	text-align:center;
+	display: none;
+	}
+.pic9{
+	background:url(../images/pic9.png) top center no-repeat;
+	width: 100%;
+	min-width: 1000px;
+	height:800px;
+	position:fixed;
+	margin:0 auto;
+	text-align:center;
+	display: none;
+	}

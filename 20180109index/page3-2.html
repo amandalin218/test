@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>無標題文件</title>
+<style type="text/css">
+    body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, {
+		padding: 0;
+		margin: 0;
+	}
+	a,img {
+		outline: none;/* for Firefox */
+		hlbr:expression(this.onFocus=this.blur()); /* for IE */	
+	}
+	img, div {border:0px;}
+	body{
+		word-wrap:break-word;
+		font-family: Arial,"微軟正黑體", Helvetica, sans-serif;
+		line-height: 22px;
+	}
+	.tt1{
+		margin:30px auto;
+		text-align:center;
+		color: #FFF;
+		font-size: 24px;
+		background: #F35600;
+		padding: 10px;
+		border-radius: 20px;
+		font-weight:bold;
+	}
+	.tt2{
+		margin-top:10px;
+		margin-left:30px;
+		color: #003;
+	}
+	.tt3{
+		width:700px;
+		margin:0 auto;
+		line-height: 26px;
+		font-size:16px;
+		color: #805404;
+		text-indent:30px;
+	}
+	h2{
+		line-height: 16px;
+		margin-top: 20px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		-ms-border-radius: 5px;
+		-o-border-radius: 5px;
+		border-radius: 5px;
+		background: #B8070C;
+		padding: 5px 5px;
+		margin-right: 10px;
+		color: #FF0;
+		font-size: 16px;
+		width: 90px;
+	}
+	a.teach {
+		position: relative;
+		width: auto;
+		font-size: 20px;
+		color: #fff1d9;
+		text-align: center;
+		cursor: pointer;
+		background-color: #384d14;
+		border-radius: 5px;
+		text-decoration: none;
+		padding:5px;
+		transition: all .5s;
+		-moz-transition: all .5s;
+		-webkit-transition: all .5s;
+		-o-transition: all .5s;
+		margin-left:300px;
+		z-index:8;
+	}
+	a.teach:hover{background-color: #900;}
+	.shop1 {
+		margin-left: 80px;
+		margin-top:30px;
+		display: inline-block;
+		width: 250px;
+		cursor:pointer;
+		line-height: 40px;
+		text-align: center;
+		padding: 4px 8px 2px 8px;
+		border-radius: 5px;
+		background-color: #F90;
+		text-shadow: 5px 2px 5px rgba(246,246,227,.0);
+		font-size: 22px;
+		font-weight: 600;
+		transition: all .5s;
+		-moz-transition: all .5s;
+		-webkit-transition: all .5s;
+		-o-transition: all .5s;
+		box-shadow: 0 1px 0 #a25b00, 0 2px 0 #a25b00, 0 3px 0 #a25b00, 0 4px 0 #a25b00, 0 5px 0 #a25b00, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 2px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.15);
+		letter-spacing: 2px;
+		text-decoration: none;
+		color:#FFF; 
+	}
+	.shop1:hover {
+    	background-color: #c02515;
+    	box-shadow: 0 1px 0 #6d261f, 0 2px 0 #6d261f, 0 3px 0 #6d261f, 0 4px 0 #6d261f, 0 5px 0 #6d261f, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 2px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), 0 15px 15px rgba(0, 0, 0, 0.15);
+	}
+	.shop2 {
+		margin-left: 80px;
+		margin-top:30px;
+		display: inline-block;
+		width: 250px;
+		cursor:pointer;
+		line-height: 40px;
+		text-align: center;
+		padding: 4px 8px 2px 8px;
+		border-radius: 5px;
+    	background-color: #c02515;
+		text-shadow: 5px 2px 5px rgba(246,246,227,.0);
+		font-size: 22px;
+		font-weight: 600;
+		transition: all .5s;
+		-moz-transition: all .5s;
+		-webkit-transition: all .5s;
+		-o-transition: all .5s;
+		box-shadow: 0 1px 0 #a25b00, 0 2px 0 #a25b00, 0 3px 0 #a25b00, 0 4px 0 #a25b00, 0 5px 0 #a25b00, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 2px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.15);
+		letter-spacing: 2px;
+		text-decoration: none;
+		color:#FFF; 
+	}
+	tr,td{ padding:5px; color:#55301f;}
+	ul,ol{ margin-top:10px;line-height: 26px; margin-left:30px;　}
+	#close{
+		position:absolute;
+		background:url(images/close.png) top center no-repeat;
+		width:86px;
+		height:87px;
+		margin-left: 760px;
+		margin-top: -105px;
+		cursor:pointer;
+	}
+	#sh1{ width:80%; margin:0 auto;}
+</style>
+	<script type="text/javascript">
+        $(document).ready(function() { 
+          $('#close').click(function() {
+            $("#sh1").slideUp(300);
+            setTimeout(function(){location.href ="#";},300);
+          });
+		  $('#close').click(function() {
+            $(".main").animate({height:'850px'});
+			$(".pic1,.pic2,.pic4,.pic5,.pic6,.pic9").hide();
+          });
+        });
+    </script>
+</head>
+
+<body>
+<div id="sh1">
+<div id="close"></div>
+<img src="images/title3.jpg">
+<a class="shop1 " href="#page3" >精彩限時商品折扣上架</a>
+<a class="shop2 " href="#page3-2">轉點加碼送</a>
+<div class="tt1">轉點加碼送</div>
+<p class="tt3">迎新春賀新年，天龍八部歲末迎新，先預祝所有玩家狗年大吉大利，新天龍八部特別在春節前夕舉辦「轉點加碼送」活動，只要兌換元寶即可加碼獲得額外的道具獎勵！！</p>
+<h2>活動時間：</h2>
+<p class="tt2">2018/2/7更新維護後-2/20 24:00期間</p>
+<h2>活動說明：</h2>
+<p class="tt2">活動期間內，只要兌換元寶達以下點數，即可加碼獲得對應的額外道具獎勵！！</p>
+<p class="tt2">150點 高級天靈丹X1 </p>
+<p class="tt2">350點 紅寶石(3級)X1、靈獸精魄X5</p>
+<p class="tt2">500點 龍泉鐵英X3(綁定) 、金蠶絲X20 、真元精珀X5</p>
+<p class="tt2">800點 蒼鶴藥魄X5(綁定)、綴夢靈石X5(綁定)、 至尊強化精華X8</p>
+<p class="tt2">1000點 冥晶石禮包X1、榮耀精金禮包X1，高級寶石摘除符6級X2</p>
+<p class="tt2" style="color:#F00;"><strong>需一次性兌換150、350、500、800、1000點元寶。</strong></p>
+<p class="tt2">如一次性兌換500點元寶，可加碼領取高級天靈丹X 1 、紅寶石(3級)X 1、靈獸精魄X5、龍泉鐵英X3(綁定) 、金蠶絲X20 、真元精珀X5。</p>
+<p class="tt2">如一次性兌換1000元寶，可加碼領取高級天靈丹X 1 、紅寶石(3級)X 1 、靈獸精魄X5、龍泉鐵英X3(綁定)、 金蠶絲X20 、真元精珀X5 、蒼鶴藥魄X5(綁定)、 綴夢靈石X5(綁定) 、至尊強化精華X8 、冥晶石禮包X1、榮耀精金禮包X1、高級寶石摘除符6級X2。</p> 
+<p style="margin:0 auto; width:298px;"><img src="images/3-2.jpg" width="298" height="280"></p>
+<p class="tt2" style=" text-align:center;">提升穿刺攻擊必備 </p>
+<h2>注意事項：</h2>
+<ol>
+    <li>遊戲新幹線保留以上活動及獎項內<span id="er">容修改之權利</span>有權決定取消、終止、修改或暫停活動及贈品內容並保有修改活動細項的權利。</li>
+    <li>若因遇不可抗力之因素，活動將有延後舉辦或取消的可能。</li>
+    <li>活動如有任何修改 相關最新活動消息，請見官網公告。</li>
+    <li>領獎時請確保角色是否有足夠空間，若因空間不足，將不再另行補發。</li>
+</ol>
+<div style="height:100px;"></div>
+</div>
+</body>
+</html>
