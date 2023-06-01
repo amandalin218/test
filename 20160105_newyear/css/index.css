@@ -1,0 +1,269 @@
+@charset "utf-8";
+/* CSS Document */
+/*reset ----------------------*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	background:url(../images/bg.jpg) top center no-repeat #000;
+}
+.wrapper{
+	width:1000px;
+	min-width:1000px;
+	height:1080px;
+	margin:0 auto;
+}
+.download{
+	background:url(../images/download.png) top center no-repeat;
+	position:absolute;
+	margin-top:-190px;
+	margin-left:700px;
+	display:block;
+	width:130px;
+	height:43px;
+	cursor:pointer;
+}
+.download:hover{
+	background:url(../images/download.png) bottom center no-repeat;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+	}
+.account{
+	background:url(../images/account.png)top center no-repeat;
+	position:absolute;
+	margin-top:-190px;
+	margin-left:850px;
+	display:block;
+	width:130px;
+	height:43px;
+	cursor:pointer;
+}
+.account:hover{
+	background:url(../images/account.png) bottom center no-repeat;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+	
+}
+.Billing{
+	background: url(../images/Billing.png)top center no-repeat;
+	position: absolute;
+	margin-top: -190px;
+	margin-left: 550px;
+	display: block;
+	width: 130px;
+	height: 43px;
+	cursor: pointer;
+}
+.Billing:hover{
+	background:url(../images/Billing.png) bottom center no-repeat;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+}
+
+#floor{
+	position: absolute;
+	background:url(../images/floor.jpg) top center no-repeat;
+	width:2000px;
+	height:67px;
+	margin:0 auto;
+	top:1000px;
+	z-index:1;
+}
+#btn{
+	position:relative;
+	margin-top:430px;
+	margin-left:100px;
+	width:1000px;
+	height:400px;
+	}
+#btn1 a{
+	background:url(../images/btn1.png) top center no-repeat;
+	display:block;
+	width:218px;
+	height:376px;
+	position:absolute;
+	cursor:pointer;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+}
+#btn1 a:hover{
+	margin-top:-30px;
+}
+#btn2 a{
+	background:url(../images/btn2.png) top center no-repeat;
+	display:block;
+	width:177px;
+	height:356px;
+	position:absolute;
+	margin-left:200px;
+	cursor:pointer;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+}
+#btn2 a:hover{
+	margin-top:-40px;
+}
+#btn3 a{
+	background:url(../images/btn3.png) top center no-repeat;
+	display:block;
+	width:175px;
+	height:400px;
+	position:absolute;
+	margin-left:420px;
+	margin-top:-50px;
+	cursor:pointer;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+}
+#btn3 a:hover{
+	margin-top:-80px;
+}
+#btn4 a{
+	background:url(../images/btn4.png)  top center no-repeat;
+	display:block;
+	width:217px;
+	height:378px;
+	position:absolute;
+	margin-top:0px;
+	margin-left:610px;
+	cursor:pointer;
+	-webkit-transition:0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition:  0.5s ease-in-out;
+}
+#btn4 a:hover{
+	margin-top:-20px;	
+}
+.tbox {
+	position:absolute; 
+	display:none; 
+	padding:14px 17px; 
+	z-index:3;
+}
+.tinner {
+	padding:0px; 
+    -moz-border-radius:0px; 
+	border-radius:0px; 
+}
+.tmask {
+	position:absolute;
+	display:none;
+	top:0px;
+	right:0px;
+	height:100%;
+	width:100%; background:#000;
+	z-index:2;
+}
+.tclose {
+	position:absolute; 
+	top:0px; 
+	right:0px; 
+	width:46px; 
+	height:48px;
+	cursor:pointer;
+	background: url(../images/close.png) no-repeat;
+}
+.tclose:hover {
+	background-position:0 -48px;
+}
+#fans{
+	background:url(../images/fans.png) top center no-repeat;
+	position:relative;
+	width:146px;
+	height:88px;
+	cursor:pointer;
+	margin-top:-35px;
+	margin-left:430px;
+}
+
+.fanbg{
+	background:url(../images/fansbg.png) top center no-repeat;
+	position:absolute;
+	width:200px;
+	height:200px;
+	margin-top:-100px;
+	margin-left:400px;
+	-webkit-animation: fanbg 3s infinite linear;
+	-moz-animation: fanbg 3s infinite linear;
+	-o-animation: fanbg 3s infinite linear;
+	animation: fanbg 3s infinite linear;
+}
+	@-webkit-keyframes fanbg {
+		from {
+			-webkit-transform: rotate(0deg);
+		}
+		to {
+			-webkit-transform: rotate(360deg);
+		}
+	}
+	@-moz-keyframes fanbg {
+		from {
+			-moz-transform: rotate(0deg);
+		}
+		to {
+			-moz-transform: rotate(360deg);
+		}
+	}
+	@-o-keyframes fanbg {
+		from {
+			-o-transform: rotate(0deg);
+		}
+		to {
+			-o-transform: rotate(360deg);
+		}
+	}
+	@keyframes fanbg {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg);
+		}
