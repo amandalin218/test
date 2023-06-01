@@ -1,0 +1,641 @@
+@charset"utf-8";
+/* CSS Document */
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Microsoft JhengHei", Arial, Helvetica, sans-serif;
+    color: #4a2b2b;
+    background: url(../images/content.jpg);
+}
+dl, dt, dd, ol, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, li, ul, blockquote, p, th, td {
+    padding: 0;
+    margin: 0;
+    font-family: "Microsoft JhengHei", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    list-style-type: none;
+    position: relative;
+    line-height: 25px;
+}
+#bg {
+    background-attachment: scroll;
+    background-image: url(../images/bg.jpg);
+    background-repeat: no-repeat;
+    background-position: 50% 0%;
+    overflow: hidden;
+}
+.center {
+    text-align: center
+}
+.pic {
+    max-width: 380px;
+    width: 100%;
+    height: auto;
+}
+#content {
+    position: relative;
+    margin: 0 auto;
+    max-width: 1000px;
+    height: 774px;
+}
+#content2 {
+    position: relative;
+    margin: 0 auto;
+    max-width: 1000px;
+    height: auto;
+}
+#content3, #content4, #content5, #content6, #content7, #content8, #content9, #content10 {
+    position: relative;
+    margin: 0 auto;
+    max-width: 1000px;
+    height: auto;
+    text-align: center;
+    margin-bottom: 100px
+}
+#content3, #content4 {
+    height: 830px;
+    margin-top: 30px;
+}
+#content10 {
+    position: relative;
+    margin: 0 auto;
+    max-width: 1000px;
+    height: 700px;
+    text-align: center;
+}
+#content11 {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 60px;
+    margin-top: 10px;
+    max-width: 700px;
+    height: 150px;
+    text-align: left;
+}
+.box2 {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    text-align: left;
+}
+.line {
+    background: url(../images/line2.png);
+    width: 100%;
+    height: 12px;
+    margin-top: 15px;
+}
+.red {
+    color: #c84914;
+    font-size: 20px;
+    font-weight: bolder;
+}
+.logo {
+    position: absolute;
+    background: url(../images/logo.png);
+    width: 239px;
+    height: 138px;
+    left: 10px;
+    display: block;
+    cursor: pointer;
+}
+.logo:hover {
+    background: url(../images/logo_2.png);
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+}
+.fb {
+    position: absolute;
+    background: url(../images/fb.png) top center;
+    width: 147px;
+    height: 30px;
+    top: 10px;
+    right: 100px;
+    display: block;
+    cursor: pointer;
+}
+.fb2 {
+    position: absolute;
+    background: url(../images/fb2.png) top center;
+    width: 30px;
+    height: 30px;
+    top: 10px;
+    right: 250px;
+    display: block;
+    cursor: pointer;
+}
+.fb:hover {
+    background: url(../images/fb.png) bottom center;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+}
+.save {
+    position: absolute;
+    background: url(../images/save.png)top center;
+    width: 30px;
+    height: 30px;
+    top: 10px;
+    right: 50px;
+    display: block;
+    cursor: pointer;
+}
+.save:hover {
+    background: url(../images/save.png)bottom center;
+}
+.qrcode {
+    position: absolute;
+    background: url(../images/QRcode.png);
+    width: 128px;
+    height: 122px;
+    top: 400px;
+    right: 100px;
+    display: block;
+    cursor: pointer;
+}
+.googleplay {
+    position: absolute;
+    background: url(../images/btn.png) top left;
+    width: 227px;
+    height: 59px;
+    top: 530px;
+    right: 50px;
+    display: block;
+    cursor: pointer;
+}
+.googleplay:hover {
+    background: url(../images/btn.png) bottom left;
+}
+.applestore {
+    position: absolute;
+    background: url(../images/btn.png) top center;
+    width: 227px;
+    height: 59px;
+    top: 590px;
+    right: 50px;
+    display: block;
+    cursor: pointer;
+}
+.applestore:hover {
+    background: url(../images/btn.png) bottom center;
+}
+.apkdownload {
+    position: absolute;
+    background: url(../images/btn.png) top right;
+    width: 227px;
+    height: 59px;
+    top: 650px;
+    right: 50px;
+    display: block;
+    cursor: pointer;
+}
+.apkdownload:hover {
+    background: url(../images/btn.png) bottom right;
+}
+#copyright {
+    background: url(../images/copyright.png) top center;
+    width: 924px;
+    height: 59px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 150px;
+}
+#linebg {
+    position: fixed;
+    bottom: 0px;
+    background: url(../images/line.jpg);
+    width: 100%;
+    height: 126px;
+}
+.top {
+    position: absolute;
+    right: 50px;
+    top: 15px;
+    background: url(../images/top.png) top left;
+    width: 69px;
+    height: 94px;
+    cursor: pointer;
+}
+.top:hover {
+    background: url(../images/top.png) top right;
+}
+.btn1 {
+    background: url(../images/01.png)no-repeat;
+    width: 129px;
+    height: 35px;
+}
+.btn2 {
+    background: url(../images/02.png)no-repeat;
+    width: 129px;
+    height: 35px;
+}
+.btn3 {
+    background: url(../images/03.png)no-repeat;
+    width: 129px;
+    height: 35px;
+}
+.btn4 {
+    background: url(../images/04.png)no-repeat;
+    width: 129px;
+    height: 35px;
+}
+.btn5 {
+    background: url(../images/05.png)no-repeat;
+    width: 129px;
+    height: 35px;
+}
+.btn6 {
+    background: url(../images/06.png)no-repeat;
+    width: 129px;
+    height: 35px;
+}
+.btn7 {
+    background: url(../images/07.png)no-repeat;
+    width: 129px;
+    height: 35px;
+}
+.btn8 {
+    background: url(../images/08.png)no-repeat;
+    width: 129px;
+    height: 35px;
+}
+.btn9 {
+    background: url(../images/09.png) no-repeat;
+    width: 129px;
+    height: 35px;
+}
+#box {
+    margin-top: 6px;
+    margin-left: 10px;
+    background-color: #1a1714;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #46382a;
+    width: 140px;
+    height: 40px;
+    color: #947a55;
+    cursor: pointer;
+    float: left;
+    text-align: center;
+    line-height: 40px;
+}
+#box:hover {
+    background-color: #4a3420;
+}
+#left {
+    width: 920px;
+}
+.s001 {
+    background: url(../images/001.png);
+    width: 721px;
+    height: 409px;
+    margin: 0 auto;
+}
+.s002 {
+    background: url(../images/2.png);
+    width: 535px;
+    height: 37px;
+    margin: 0 auto;
+}
+.s004 {
+    background: url(../images/004.png);
+    width: 721px;
+    height: 409px;
+    margin: 0 auto;
+}
+.s006 {
+    background: url(../images/006.png);
+    width: 721px;
+    height: 412px;
+    margin: 0 auto;
+}
+.s008 {
+    background: url(../images/008.png);
+    width: 721px;
+    height: 415px;
+    margin: 0 auto;
+}
+.s009 {
+    background: url(../images/009.png);
+    width: 721px;
+    height: 408px;
+    margin: 0 auto;
+}
+.s0010 {
+    background: url(../images/010.png);
+    width: 721px;
+    height: 391px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+.s0012 {
+    background: url(../images/012.png);
+    width: 721px;
+    height: 413px;
+    margin: 0 auto;
+}
+.s0014 {
+    background: url(../images/014.png);
+    width: 721px;
+    height: 411px;
+    margin: 0 auto;
+}
+.s0016 {
+    background: url(../images/016.png);
+    width: 721px;
+    height: 407px;
+    margin: 0 auto;
+}
+.people {
+    background: url(../images/people.png);
+    width: 699px;
+    height: 433px;
+    margin: 0 auto;
+}
+@media screen and (min-width: 980px) and (max-width: 1200px) {
+    #bg {
+        background-image: url(../images/bg.jpg);
+    }
+    #content {
+        width: 100%;
+        height: 774px;
+    }
+    #content2 {
+        width: 100%;
+        height: 126px;
+    }
+    #left {
+        width: 85%;
+    }
+    #linebg {
+        position: fixed;
+        bottom: 0px;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 979px) {
+    #bg {
+        background-image: url(../images/bg2.jpg);
+        min-width: 768px;
+    }
+    #content {
+        width: 100%;
+        height: 774px;
+    }
+    #content2 {
+        width: 100%;
+        height: 126px;
+    }
+    #left {
+        width: 800px;
+        margin: 0 auto;
+    }
+    #linebg {
+        background: url(../images/line.jpg);
+        position: fixed;
+        bottom: 0px;
+        height: 130px;
+    }
+    #copyright {
+        background: url(../images/copyright2.png) top center;
+        width: 504px;
+        height: 127px;
+        margin: 0 auto;
+    }
+    #box {
+        width: 129px;
+        height: 35px;
+    }
+    .top {
+        top: -100px;
+        left: 50px;
+    }
+    .box2 {
+        width: 768px;
+        text-indent: 0;
+    }
+}
+@media screen and (min-width: 481px) and (max-width: 767px) {
+    #bg {
+        background-image: url(../images/bg3.jpg);
+        max-width: 767px;
+        background-size: 100% auto;
+    }
+    #content {
+        width: 100%;
+        height: 774px;
+    }
+    #content2 {
+        width: 100%;
+        height: 126px;
+    }
+    #content4 {
+        margin-top: 350px;
+    }
+    .qrcode {
+        display: none;
+    }
+    .googleplay {
+        top: 380px
+    }
+    .applestore {
+        top: 430px
+    }
+    .apkdownload {
+        top: 480px
+    }
+    #left {
+        width: 700px;
+        margin: 0 auto;
+    }
+    .top {
+        display: none
+    }
+    #linebg {
+        background: url(../images/line.jpg);
+        height: 140px;
+        position: fixed;
+        bottom: 0px;
+    }
+    #copyright {
+        background: url(../images/copyright2.png) top center;
+        width: 504px;
+        height: 127px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 200px;
+    }
+    #box {
+        width: 129px;
+        height: 35px;
+    }
+    .box2 {
+        width: 480px;
+        text-indent: 0;
+    }
+    .btn1, .btn2, .btn3, .btn4, .btn5, .btn6, .btn7, .btn8, .btn9 {
+        background-size: 100% auto;
+        max-width: 129px;
+        height: 100%;
+    }
+}
+@media screen and (max-width: 480px) {
+    #bg {
+        background-image: url(../images/bg4.jpg);
+        max-width: 480px;
+        background-size: 100% auto;
+        background-position: top center;
+    }
+    #content {
+        width: 100%;
+        height: 774px;
+    }
+    #content2 {
+        width: auto;
+        height: 126px;
+    }
+    #content3, #content4, #content5, #content6, #content7, #content8, #content9, #content10, #content11 {
+        max-width: 480px;
+        height: auto;
+    }
+    #left {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .qrcode {
+        display: none;
+    }
+    .googleplay {
+        top: 420px
+    }
+    .applestore {
+        top: 480px
+    }
+    .apkdownload {
+        top: 540px
+    }
+    .top {
+        display: none
+    }
+    .logo {
+        background: url(../images/logo_s.png);
+        width: 100px;
+        height: 58px;
+        left: 10px;
+        top: 10px;
+    }
+    .save {
+        right: 10px
+    }
+    .fb {
+        right: 50px
+    }
+    .logo:hover {
+        background: url(../images/logo_s2.png);
+    }
+    #linebg {
+        background: url(../images/line.jpg);
+        max-height: 80px;
+        position: fixed;
+        bottom: 0px;
+    }
+    #copyright {
+        background: url(../images/copyright3.png) top center;
+        width: 320px;
+        height: 156px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    #box {
+        width: 30px;
+        height: 35px;
+        margin-left: 10px;
+        margin-top: 0px;
+    }
+    .s001 {
+        background: url(../images/001_s.png);
+        width: 320px;
+        height: 182px;
+        margin: 0 auto;
+    }
+    .s002 {
+        background: url(../images/2_s.png);
+        width: 340px;
+        height: 73px;
+        margin: 0 auto;
+    }
+    .s004 {
+        background: url(../images/004_s.png);
+        width: 320px;
+        height: 181px;
+        margin: 0 auto;
+    }
+    .s006 {
+        background: url(../images/006_s.png);
+        width: 320px;
+        height: 183px;
+        margin: 0 auto;
+    }
+    .s008 {
+        background: url(../images/008_s.png);
+        width: 320px;
+        height: 184px;
+        margin: 0 auto;
+    }
+    .s009 {
+        background: url(../images/009_s.png);
+        width: 320px;
+        height: 181px;
+        margin: 0 auto;
+    }
+    .s0010 {
+        background: url(../images/010_s.png);
+        width: 320px;
+        height: 174px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 90px;
+    }
+    .s0012 {
+        background: url(../images/012_s.png);
+        width: 320px;
+        height: 183px;
+        margin: 0 auto;
+    }
+    .s0014 {
+        background: url(../images/014_s.png);
+        width: 320px;
+        height: 182px;
+        margin: 0 auto;
+    }
+    .s0016 {
+        background: url(../images/016_s.png);
+        width: 320px;
+        height: 181px;
+        margin: 0 auto;
+    }
+    .box2 {
+        width: 320px;
+        text-indent: 0;
+    }
+    li {
+        width: 320px;
+    }
+    .people {
+        background: url(../images/people_s.png);
+        width: 340px;
+        height: 211px;
+        margin-left: 0px;
+    }
+    .btn1, .btn2, .btn3, .btn4, .btn5, .btn6, .btn7, .btn8, .btn9 {
+        width: 30px;
+        height: 35px;
+    }
+    table {
+        width: 90%;
+    }
+}
