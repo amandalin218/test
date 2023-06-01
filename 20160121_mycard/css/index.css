@@ -1,0 +1,569 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	padding:0;
+	margin:0;
+	background: url(../images/bg.jpg) repeat;
+}
+
+dl, dt, dd,  ol,  h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, li,ul,blockquote, p,th, td {
+	padding: 0;
+	margin: 0;
+	font-family: "Microsoft JhengHei",Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	list-style-type: none;
+}
+a {
+    text-decoration:none;
+}
+
+
+#main{
+position:relative;
+background:url(../images/top.jpg) repeat;
+width:100%;
+height:586px;
+margin:0 auto;
+}
+#main2{
+	position: relative;
+	width:1000px;
+	margin:0 auto;
+}
+#main3{
+   position: relative;
+   width:1000px;
+   margin:0 auto;
+}
+
+@media screen and (min-width: 1200px) {
+	#main2{
+		position: relative;
+		width:1000px;
+		margin:0 auto;
+	}
+	#main3{
+	   position: relative;
+	   width:1000px;
+	   margin:0 auto;
+	}
+	.pic{
+		background:url(../images/pic.jpg) top left no-repeat;;
+		height:257px;
+		width:698px;
+	}
+	.title{
+		background:url(../images/title.png)top center no-repeat;
+		width:521px;
+		height:271px;
+		position:absolute;
+		top: 100px;
+}
+	.logo{
+	   position:absolute;
+	   background:url(../images/logo.png) top center no-repeat;
+	   width:267px;
+	   height:104px;
+	   cursor:pointer;
+	   right:0px;  
+	}
+	.downloadbg{
+		background:rgba(0%,0%,0%,0.3);
+		width: 183px;
+		height: 268px;
+		right:0px;
+		top: 160px;
+		position: absolute;
+	}
+	.monkey{
+		background:url(../images/monkey3.png) top center no-repeat;
+		width:534px;
+		height:528px;
+		right:10px;
+		position: absolute;
+		top: 60px;
+	}
+#bottom{
+	background:url(../images/bottom.jpg) top center no-repeat;
+	width:100%;
+	height:68px;
+	left:auto;
+	right:auto;
+	top:10px;
+}
+
+.share{
+	position:absolute;
+	background:url(../images/share_1.png) top center no-repeat;
+	width:40px;
+	height:40px;
+	cursor:pointer;
+	left: 65%;
+	top: 10px;
+}
+}
+@media screen and (min-width: 980px) and (max-width: 1200px) {
+	#main2{
+		position: relative;
+		width:1000px;
+		margin:0 auto;
+	}
+	#main3{
+	   position: relative;
+	   width:1000px;
+	   margin:0 auto;
+	}
+	.pic{
+		background:url(../images/pic.jpg) top left no-repeat;;
+		height:257px;
+		width:698px;
+	}
+	.title{
+	background:url(../images/title.png)top center no-repeat;
+	width:521px;
+	height:271px;
+	position:absolute;
+	top: 100px;
+}
+	.logo{
+	   position:absolute;
+	   background:url(../images/logo.png) top center no-repeat;
+	   width:267px;
+	   height:104px;
+	   cursor:pointer;
+	   right:0px;  
+	}	
+	.downloadbg{
+		background:rgba(0%,0%,0%,0.3);
+		width: 183px;
+		height: 268px;
+		right:0px;
+		top: 160px;
+		position: absolute;
+	}
+	.monkey{
+		background:url(../images/monkey3.png) top center no-repeat;
+		width:534px;
+		height:528px;
+		right:10px;
+		position: absolute;
+		top: 60px;
+	}
+#bottom{
+	background:url(../images/bottom.jpg) top center no-repeat;
+	width:100%;
+	height:68px;
+	left:auto;
+	right:auto;
+	top:10px;
+}
+
+.share{
+	position:absolute;
+	background:url(../images/share_1.png) top center no-repeat;
+	width:40px;
+	height:40px;
+	cursor:pointer;
+	left: 65%;
+	top: 10px;
+}
+
+}
+@media screen and (min-width: 768px) and (max-width: 979px) {
+	#main2{
+		position: relative;
+		width:AUTO;
+		margin:0 auto;
+	}
+	#main3{
+	   position: relative;
+	   width:AUTO;
+	   margin:0 auto;
+	}
+	.pic{
+		background:url(../images/pic.jpg) top left no-repeat;;
+		height:257px;
+		width:698px;
+	}
+	.title{
+	background:url(../images/title.png)top center no-repeat;
+	width:521px;
+	height:271px;
+	position:absolute;
+	top: 100px;
+}
+	.logo{
+	   position:absolute;
+	   background:url(../images/logo_m.png) top center no-repeat;
+	   width:200px;
+	   height:78px;
+	   cursor:pointer;
+	   right:0px; 
+	   top:20px; 
+	}
+	.downloadbg {
+		background: rgba(0%,0%,0%,0.3);
+		width: 183px;
+		height: 150px;
+		right: 0px;
+		top: 350px;
+		position: absolute;
+	}	
+	.monkey{
+		background:url(../images/monkey3_m.png) top center no-repeat;
+		width:300px;
+		height:297px;
+		right:100px;
+		position: absolute;
+		top: 290px;
+	}
+	#bottom{
+		background:url(../images/bottom.png) top center no-repeat;
+		width:100%;
+		height:107px;
+		left:auto;
+		right:auto;
+		top:10px;
+	}
+	
+	.share{
+		position:absolute;
+		background:url(../images/share_1.png) top center no-repeat;
+		width:40px;
+		height:40px;
+		cursor:pointer;
+		left:10px;
+		top: 60px;
+	}
+	.download{
+		display: none;
+	}
+	.line{
+	background:url(../images/line_1.png) top center no-repeat;
+	position:absolute;
+	width:40px;
+	height:40px;
+	cursor:pointer;
+	left: 10px;
+	top: 120px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	#main2{
+		position: relative;
+		width:AUTO;
+		margin:0 auto;
+	}
+	#main3{
+	   position: relative;
+	   width:AUTO;
+	   margin:0 auto;
+	}
+	.pic{
+		background:url(../images/pic_s.jpg) top left no-repeat;;
+		height:257px;
+		width:698px;
+	}
+	.title{
+	background:url(../images/title.png)top center no-repeat;
+	width:521px;
+	height:271px;
+	position:absolute;
+	top: 100px;
+}
+	.logo{
+	   position:absolute;
+	   background:url(../images/logo_m.png) top center no-repeat;
+	   width:200px;
+	   height:78px;
+	   cursor:pointer;
+	   right:0px; 
+	   top:20px; 
+	}
+	.downloadbg {
+		background: rgba(0%,0%,0%,0.3);
+		width: 183px;
+		height: 150px;
+		right: 0px;
+		top: 350px;
+		position: absolute;
+	}
+	.monkey{
+		background:url(../images/monkey3_m.png) top center no-repeat;
+		width:300px;
+		height:297px;
+		right:100px;
+		position: absolute;
+		top: 290px;
+	}	
+	#bottom{
+		background:url(../images/bottom.png) top center no-repeat;
+		width:100%;
+		height:107px;
+		left:auto;
+		right:auto;
+		top:10px;
+	}
+
+	.share{
+		position:absolute;
+		background:url(../images/share_1.png) top center no-repeat;
+		width:40px;
+		height:40px;
+		cursor:pointer;
+		left:10px;
+		top: 60px;
+	}
+	.download{
+		display: none;
+	}
+	.line{
+	background:url(../images/line_1.png) top center no-repeat;
+	position:absolute;
+	width:40px;
+	height:40px;
+	cursor:pointer;
+	left: 10px;
+	top: 120px;
+	}
+}
+@media screen and (max-width: 480px) {
+	#main2{
+		position: relative;
+		width:360px;
+		margin:0 auto;
+	}
+	#main3{
+	   position: relative;
+	   width:360px;
+	   margin:0 auto;
+	}
+	.pic{
+		background:url(../images/pic_s.jpg) top left no-repeat;;
+		height:133px;
+		width:360px;
+	}
+	.title{
+		background:url(../images/title_s.png)top center no-repeat;
+		width:350px;
+		height:182px;
+		position:absolute;
+		top: 160px;
+	}
+	.logo{
+	   position:absolute;
+	   background:url(../images/logo.png) top center no-repeat;
+	   width:267px;
+	   height:104px;
+	   cursor:pointer;
+	   right:0px; 
+	   top:50px; 
+	}	
+	.downloadbg{
+		background:rgba(0%,0%,0%,0.3);
+		width: 183px;
+		height: 150px;
+		right:10px;
+		top: 350px;
+		position: absolute;
+	}
+	.monkey{
+		background:url(../images/monkey3_s.png) top center no-repeat;
+		width:250px;
+		height:247px;
+		left:0px;
+		position: absolute;
+		top: 340px;
+	}
+	#bottom{
+		background:url(../images/bottom.png) top center no-repeat;
+		width:100%;
+		height:107px;
+		left:auto;
+		right:auto;
+		top:10px;
+	}
+	.download{
+		display: none;
+	}
+	
+	.share{
+		position:absolute;
+		background:url(../images/share_1.png) top center no-repeat;
+		width:40px;
+		height:40px;
+		cursor:pointer;
+		left: 10px;
+		top: 100px;
+	}
+	.line{
+	background:url(../images/line_1.png) top center no-repeat;
+	position:absolute;
+	width:40px;
+	height:40px;
+	cursor:pointer;
+	left: 10px;
+	top: 150px;
+	}
+}
+@media screen and (max-device-width: 480px) {
+	#main2{
+		position: relative;
+		width:360px;
+		margin:0 auto;
+	}
+	#main3{
+	   position: relative;
+	   width:AUTO;
+	   margin:0 auto;
+	}
+	.pic{
+		background:url(../images/pic_s.jpg) top left no-repeat;;
+		height:133px;
+		width:360px;
+	}
+	.title{
+	background:url(../images/title_s.png)top center no-repeat;
+	width:350px;
+	height:182px;
+	position:absolute;
+	top: 160px;
+	}
+	.logo{
+	   position:absolute;
+	   background:url(../images/logo.png) top center no-repeat;
+	   width:267px;
+	   height:104px;
+	   cursor:pointer;
+	   right:0px; 
+	   top:50px; 
+	}
+	.downloadbg{
+		background:rgba(0%,0%,0%,0.3);
+		width: 183px;
+		height: 150px;
+		right:10px;
+		top: 350px;
+		position: absolute;
+	}	
+	.monkey{
+	background:url(../images/monkey3_s.png) top center no-repeat;
+	width:250px;
+	height:247px;
+	left:0px;
+	position: absolute;
+    top: 340px;
+}
+	#bottom{
+		background:url(../images/bottom.png) top center no-repeat;
+		width:100%;
+		height:107px;
+		left:auto;
+		right:auto;
+		top:10px;
+	}
+	.download{
+		display: none;
+	}
+	
+	.share{
+		position:absolute;
+		background:url(../images/share_1.png) top center no-repeat;
+		width:40px;
+		height:40px;
+		cursor:pointer;
+		left: 10px;
+		top: 60px;
+	}
+	.line{
+	background:url(../images/line_1.png) top center no-repeat;
+	position:absolute;
+	width:40px;
+	height:40px;
+	cursor:pointer;
+	left: 10px;
+	top: 150px;
+	}
+}
+	  
+
+
+.share:hover{
+	background:url(../images/share_2.png)  top center no-repeat;
+}
+.download1{
+	position: relative;
+	background:url(../images/download1.png) top center no-repeat;
+	width:165px;
+	height:40px;
+	cursor:pointer;
+	margin:0 auto;
+	top: 10px;		 
+}
+.download1:hover{
+	background:url(../images/download1_1.png) top center no-repeat;
+}
+.download2{
+	position:relative;
+	background:url(../images/download2.png) top center no-repeat;
+	width:165px;
+	height:39px;
+	cursor:pointer;
+	margin:0 auto;
+	top: 15px;
+}
+.download2:hover{
+	background:url(../images/download2_1.png) top center no-repeat;
+}
+.download3{
+	position:relative;
+	background:url(../images/download3.png) top center no-repeat;
+	width:165px;
+	height:44px;
+	cursor:pointer;
+	margin:0 auto;
+	top: 19px;		 
+}
+.download3:hover{
+	background:url(../images/download3_1.png) top center no-repeat;
+}
+.download{
+	position:relative;;
+	background:url(../images/qrcode.jpg) top center no-repeat;
+	width:126px;
+	height:100px;
+	margin:0 auto;
+	top: 30px;
+}
+
+.frame{
+	background:url(../images/12.jpg) repeat-x;
+	width:100%;
+	height:38px;
+	height: 38px;
+}
+
+
+.game{
+	position:absolute;
+	background:url(../images/game.png) top center no-repeat;
+	width:281px;
+	height:45px;
+}
+.content1,.content2,.content3,.content4,.content5,.content6{
+	height:auto;
+	margin-top:30px;
+	font-family: "微軟正黑體";
+	font-size:20px;
+	color:#FFF;
+}
+.image{
+	top:10px;
+}
+#bottom_bg{
+	background:url(../images/bottom_bg.jpg) repeat;
+	width:100%;
+	height:100%;
+}
