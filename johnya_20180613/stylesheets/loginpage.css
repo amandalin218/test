@@ -1,0 +1,696 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+@import url(reset.css);
+/* line 5, C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+
+}
+
+/* line 22, C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/*
+@include POS(475px,75px);
+@include css3(transition,all 1s ease);
+@include css3(box-shadow,0px 0px 14px #ffffff);
+@include css3(border-radius,20px);
+border: 2px solid #6d4b00;
+left: calc(50% - 82.5px);
+
+
+.tablestyle{
+    table{
+        margin: 0 auto;
+        border-collapse: separate;
+        border-spacing: 2px!important;
+        font-size: 16px;
+        line-height:1.5;
+    }
+    table tr td{
+        text-align: center;
+        padding: 5px;
+    }
+    table tr:nth-child(odd) {
+          background-color: rgba(76, 46, 0, 0.17);
+        }
+        span{
+            @include midtext();
+            font-size: 23px;
+        }
+}
+*/
+/*
+@include css3(transition,all 1s ease);
+@include css3(animation,opacitylight 2s infinite linear);
+@include keyframes(opacitylight) {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+*/
+/*
+@media screen and (min-width: 0px) and (max-width:640px) {}
+@media screen and (min-width: 641px) and (max-width:1200px) {}
+@media screen and (min-width: 1201px) and (max-width:2000px) {}
+*/
+/*zindex*/
+/*midtext*/
+/*stext*/
+/*btn*/
+/*specify*/
+/*keyframes*/
+/*Responsive*/
+/*radius*/
+/*boxshadow*/
+/*POS*/
+/*SIZE*/
+/*clearfix*/
+/*changebg*/
+/*animated-picandtxt*/
+/* line 238, ../sass/screen.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 241, ../sass/screen.scss */
+li {
+  list-style: none;
+}
+
+/* line 245, ../sass/screen.scss */
+body {
+  width: 100%;
+  background: url(../images/txtbg.jpg);
+  min-width: 1000px;
+  font: normal 14px/20px "Microsoft JhengHei";
+}
+
+/* line 252, ../sass/screen.scss */
+.wrapper {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  overflow: hidden;
+  min-width: 1000px;
+}
+
+/* line 259, ../sass/screen.scss */
+.wrapper-in {
+	width: 1000px;
+	height: 100%;
+	position: relative;
+	margin-top: 7px;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+}
+
+/* line 265, ../sass/screen.scss */
+.topbanner {
+  background: url(../images/bg.jpg) top center fixed;
+  height: 870px;
+  position: relative;
+}
+/* line 269, ../sass/screen.scss */
+.topbanner .topbtn {
+  font: normal 14px/30px "Microsoft JhengHei";
+  background: #860421;
+  position: relative;
+  width: 500px;
+  margin: 0 auto;
+  color: #fff;
+  text-align: center;
+  -webkit-border-radius: 0 0 10px 10px;
+  -moz-border-radius: 0 0 10px 10px;
+  -ms-border-radius: 0 0 10px 10px;
+  -o-border-radius: 0 0 10px 10px;
+  border-radius: 0 0 10px 10px;
+  -webkit-box-shadow: 0px 0px 10px #000;
+  -moz-box-shadow: 0px 0px 10px #000;
+  -ms-box-shadow: 0px 0px 10px #000;
+  -o-box-shadow: 0px 0px 10px #000;
+  box-shadow: 0px 0px 10px #000;
+}
+/* line 279, ../sass/screen.scss */
+.topbanner .topbtn a {
+  color: #fff;
+}
+/* line 281, ../sass/screen.scss */
+.topbanner .topbtn a:hover {
+  color: #fff000;
+}
+/* line 287, ../sass/screen.scss */
+.topbanner .logobtn {
+  text-align: center;
+}
+/* line 289, ../sass/screen.scss */
+.topbanner .logobtn a {
+  color: #000344;
+  font-size: 16px;
+  line-height: 30px;
+  border: 1px solid #000344;
+  padding: 2px 8px;
+  margin: 0 2px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+/* line 297, ../sass/screen.scss */
+.topbanner .logobtn a:hover {
+  background: #000344;
+  color: #fff;
+}
+/* line 303, ../sass/screen.scss */
+.topbanner .logo {
+  text-align: center;
+}
+/* line 305, ../sass/screen.scss */
+.topbanner .logo img {
+  width: 300px;
+}
+/* line 309, ../sass/screen.scss */
+.topbanner:after {
+  position: absolute;
+  bottom: 0;
+  content: "";
+  background: url(../images/topbg.png) bottom center;
+  width: 100%;
+  height: 167px;
+}
+
+/* line 318, ../sass/screen.scss */
+.content, .loginpage {
+  color: #fff;
+  font-size: 15px;
+}
+/* line 321, ../sass/screen.scss */
+.content .tietle, .loginpage .tietle {
+  background: url(../images/tietlebk.png) top center no-repeat;
+  width: 100%;
+  height: 84px;
+  text-align: center;
+  line-height: 78px;
+  font-size: 30px;
+  font-weight: bolder;
+  color: #fff;
+  margin: 50px 0 25px 0;
+}
+/* line 332, ../sass/screen.scss */
+.content .tietles, .loginpage .tietles {
+  font-size: 16px;
+  line-height: 50px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  background: #43540d;
+  padding: 5px 10px;
+  margin-right: 10px;
+}
+/* line 340, ../sass/screen.scss */
+.content .alerttxt, .loginpage .alerttxt {
+	color: #ffeb00;
+	font-weight: bold;
+}
+/* line 343, ../sass/screen.scss */
+.content .contentbtn, .loginpage .contentbtn {
+	color: #000;
+	border-radius: 12px;
+	max-width: 200px;
+	height: 150px;
+	font-weight: bolder;
+	font-size: 25px;
+	text-align: center;
+	text-shadow: #fff 0px 1px, #fff 1px 0px, #fff -1px 0px, 
+   #fff 0px -2px, #fff -1.4px -1.4px, #fff 1.4px 1.4px, 
+   #fff 1.4px -1.4px, #fff -1.4px 1.4px;
+	cursor: pointer;
+	margin-top: 30px;
+	margin-right: auto;
+	margin-bottom: -10px;
+	margin-left: auto;
+	padding-top: 15px;
+	padding-right: 10px;
+	padding-left: 10px;
+	background-image: url(../images/redpocket_1.png);
+	width: 90px;
+	background-repeat: no-repeat;
+	
+	-webkit-animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.1s both;
+    animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.1s both;
+}
+@keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+			opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+			
+			  }
+}
+
+.content .contentbtn, .loginpage .contentbtn1 .img1 {
+	border-radius: 12px;
+	height: 168px;
+	cursor: pointer;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 10px;
+	margin-left: 0px;
+	padding-top: 15px;
+	padding-right: 10px;
+	padding-left: 10px;
+	background-image: url(../images/redpocket_2-0.png);
+	width: 120px;
+	background-repeat: no-repeat;
+	
+	-webkit-animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.2s both;
+    animation: img1 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.2s both;
+}
+@keyframes img1 {
+  0% {
+    -webkit-transform: translatex(10px);
+            transform: translatex(10px);
+			opacity: 0;
+  }
+  100% {
+    -webkit-transform: translatex(0px);
+            transform: translatex(0px);
+			
+			  }
+}
+.content .contentbtn, .loginpage .contentbtn1 .img2 {
+	border-radius: 12px;
+	max-width: 200px;
+	height: 170px;
+	cursor: pointer;
+	margin-top: -180px;
+	margin-right: auto;
+	margin-bottom: 10px;
+	margin-left: 60px;
+	background-image: url(../images/redpocket_2-1.png);
+	width: 112px;
+	background-repeat: no-repeat;
+	
+	-webkit-animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.8s both;
+    animation: img2 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.8s both;
+}
+@keyframes img2 {
+  0% {
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+			opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+			
+			  }
+}
+.content .contentbtn, .loginpage .contentbtn1 .img3 {
+	border-radius: 12px;
+	height: 168px;
+	cursor: pointer;
+	margin-top: -190px;
+	margin-right: auto;
+	margin-bottom: 10px;
+	margin-left: 125px;
+	background-image: url(../images/redpocket_2-2.png);
+	width: 120px;
+	background-repeat: no-repeat;
+	
+	-webkit-animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s both;
+    animation: img3 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s both;
+}
+@keyframes img3 {
+  0% {
+    -webkit-transform: translatex(-10px);
+            transform: translatex(-10px);
+			opacity: 0;
+  }
+  100% {
+    -webkit-transform: translatex(0px);
+            transform: translatex(0px);
+			
+			  }
+}
+
+
+.contentbtn2 {
+	border-radius: 11px;
+	max-width: 185px;
+	line-height: 35px;
+	cursor: pointer;
+	position: relative;
+	left: 7px;
+	right: 7px;
+	bottom: 7px;
+	z-index: 1;
+	top:1px;
+}
+.content .contentbtn, .loginpage .contentbtn2 .img6 {
+	border-radius: 12px;
+	height: 168px;
+	cursor: pointer;
+	margin-right: auto;
+	margin-left: 100px;
+	background-image: url(../images/redpocket_3-3.png);
+	width: 120px;
+	background-repeat: no-repeat;
+	position:relative;
+	z-index:2;
+	
+	-webkit-animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
+    animation: img6 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
+}
+@keyframes img6 {
+  0% {
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+			opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+			
+			  }
+}
+.content .contentbtn, .loginpage .contentbtn2 .img4 {
+	border-radius: 12px;
+	height: 142px;
+	cursor: pointer;
+	margin-top: -135px;
+	margin-right: auto;
+	background-image: url(../images/redpocket_3-1.png);
+	width: 120px;
+	background-repeat: no-repeat;
+	
+	-webkit-animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3.3s both;
+    animation: img4 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3.3s both;
+}
+@keyframes img4 {
+  0% {
+    -webkit-transform: translatex(25px);
+            transform: translatex(25px);
+			opacity: 0;
+  }
+  100% {
+    -webkit-transform: translatex(0px);
+            transform: translatex(0px);
+			
+			  }
+}
+.content .contentbtn, .loginpage .contentbtn2 .img5 {
+	border-radius: 12px;
+	height: 146px;
+	cursor: pointer;
+	margin-top: -155px;
+	margin-left: 40px;
+	background-image: url(../images/redpocket_3-2.png);
+	width: 112px;
+	background-repeat: no-repeat;
+	
+	-webkit-animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.5s both;
+    animation: img5 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.5s both;
+}
+@keyframes img5 {
+  0% {
+    -webkit-transform: translatex(10px);
+            transform: translatex(10px);
+			opacity: 0;
+  }
+  100% {
+    -webkit-transform: translatex(0px);
+            transform: translatex(0px);
+			
+			  }
+}
+.content .contentbtn, .loginpage .contentbtn2 .img7 {
+	border-radius: 12px;
+	height: 146px;
+	cursor: pointer;
+	margin-top: -145px;
+	margin-left: 162px;
+	background-image: url(../images/redpocket_3-4.png);
+	width: 112px;
+	background-repeat: no-repeat;
+	position:relative;
+	z-index:1;
+	
+	
+	-webkit-animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.8s both;
+    animation: img7 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.8s both;
+}
+@keyframes img7 {
+  0% {
+    -webkit-transform: translatex(-10px);
+            transform: translatex(-10px);
+			opacity: 0;
+  }
+  100% {
+    -webkit-transform: translatex(0px);
+            transform: translatex(0px);
+			
+			  }
+}
+.content .contentbtn, .loginpage .contentbtn2 .img8 {
+	border-radius: 12px;
+	height: 142px;
+	cursor: pointer;
+	margin-top: -135px;
+	margin-left: 200px;
+	background-image: url(../images/redpocket_3-5.png);
+	width: 122px;
+	background-repeat: no-repeat;
+	position:relative;
+	z-index:0;
+	-webkit-animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3.8s both;
+    animation: img8 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3.8s both;
+}
+@keyframes img8 {
+  0% {
+    -webkit-transform: translatex(-25px);
+            transform: translatex(-25px);
+			opacity: 0;
+  }
+  100% {
+    -webkit-transform: translatex(0px);
+            transform: translatex(0px);
+			
+			  }
+}
+
+/* line 357, ../sass/screen.scss */
+.content .contentbtn:hover, .loginpage .contentbtn:hover {
+	color: #144ca8;
+
+  
+}
+/* line 363, ../sass/screen.scss */
+.content table, .loginpage table {
+  width:;
+	border-collapse: separate;
+	border-spacing: 2px !important;
+	font-size: 14px;
+	line-height: 20px;
+	color: #fff;
+	margin-top: 18px;
+	margin-right: auto;
+	margin-bottom: auto;
+	margin-left: auto;
+}
+/* line 371, ../sass/screen.scss */
+.content table .table-tietle, .loginpage table .table-tietle {
+  background: #373d0b;
+  color: #ffc800;
+}
+/* line 375, ../sass/screen.scss */
+.content table .tablecolor1, .loginpage table .tablecolor1 {
+ color: #ffc800;
+}
+/* line 378, ../sass/screen.scss */
+.content table .tablecolor2, .loginpage table .tablecolor2 {
+  color: #00ffb8;
+}
+/* line 382, ../sass/screen.scss */
+.content table tbody, .loginpage table tbody {
+	background-color: rgba(57, 154, 118, 0.5);
+ /* background:rgba(255, 96, 133, 0.41);*/
+}
+/* line 385, ../sass/screen.scss */
+.content table tr td, .loginpage table tr td {
+	text-align: center;
+	padding-top: 5px;
+	padding-right: 11px;
+	padding-bottom: 5px;
+	padding-left: 13px;
+	width: px;
+	font-weight: bold;
+}
+/* line 389, ../sass/screen.scss */
+.content table tr:nth-child(even), .loginpage table tr:nth-child(even) {
+	background-color: rgba(223, 223, 170, 0.4);
+  /*background-color: rgba(255, 96, 133, 0.41);*/
+}
+/* line 392, ../sass/screen.scss */
+.content .loginname, .loginpage .loginname {
+  text-align: center;
+  padding-top: 25px;
+  line-height: 40px;
+  font-size: 25px;
+  color:#665130;
+}
+/* line 397, ../sass/screen.scss */
+.content .loginname a, .loginpage .loginname a {
+  line-height: 16px;
+  font-size: 14px;
+  background: #ffd400;
+   color: #000;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  padding: 2px 8px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+/* line 406, ../sass/screen.scss */
+.content .loginname a:hover, .loginpage .loginname a:hover {
+  background: #fff000;
+}
+/* line 411, ../sass/screen.scss */
+.content .itempic, .loginpage .itempic {
+  width: 40px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+/* line 418, ../sass/screen.scss */
+.loginpage table {
+  font-size: 16px;
+}
+
+/* line 422, ../sass/screen.scss */
+.peo4 {
+  position: absolute;
+  top: 1600px;
+  right: -280px;
+  opacity: 1;
+  -webkit-transition: all 1.5s ease;
+  -moz-transition: all 1.5s ease;
+  -ms-transition: all 1.5s ease;
+  -o-transition: all 1.5s ease;
+  transition: all 1.5s ease;
+}
+
+/* line 430, ../sass/screen.scss */
+.outpicleft {
+  right: -500px;
+  opacity: 0;
+}
+
+/* line 435, ../sass/screen.scss */
+.peo5 {
+  position: absolute;
+  top: 460px;
+  left: -240px;
+  opacity: 1;
+  -webkit-transition: all 1.5s ease;
+  -moz-transition: all 1.5s ease;
+  -ms-transition: all 1.5s ease;
+  -o-transition: all 1.5s ease;
+  transition: all 1.5s ease;
+}
+/* line 441, ../sass/screen.scss */
+.peo5 .gotxt {
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  -webkit-animation: wave 2s infinite cubic-bezier(0.1, 0.28, 0.25, 1);
+  -moz-animation: wave 2s infinite cubic-bezier(0.1, 0.28, 0.25, 1);
+  -ms-animation: wave 2s infinite cubic-bezier(0.1, 0.28, 0.25, 1);
+  -o-animation: wave 2s infinite cubic-bezier(0.1, 0.28, 0.25, 1);
+  animation: wave 2s infinite cubic-bezier(0.1, 0.28, 0.25, 1);
+}
+
+/* line 449, ../sass/screen.scss */
+.outpicright {
+  left: -800px;
+  opacity: 0;
+}
