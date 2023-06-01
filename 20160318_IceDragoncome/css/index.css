@@ -1,0 +1,214 @@
+@charset "utf-8";
+body{
+	padding:0;
+	margin:0;
+	background: url(../images/bg.jpg)  top center no-repeat #000;
+}
+
+dl, dt, dd,  ol,  h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, li,ul,blockquote, p,th, td {
+	padding: 0;
+	margin: 0;
+	font-family: "Microsoft JhengHei",Arial, Helvetica, sans-serif;
+	list-style-type: none;
+}
+a {
+    text-decoration:none;
+}
+
+#main{
+	position:relative;
+	background:url(../images/top.jpg) repeat;
+	width:1000px;
+	height:768px;
+	margin:0 auto;
+}
+
+#logo{
+	position:absolute;
+	background:url(../images/LOGO.png) top center no-repeat;
+	width:314px;
+	height:135px;
+	cursor:pointer;
+}
+#download{
+	position:absolute;
+	background:url(../images/download.png) top center no-repeat;
+	width:126px;
+	height:42px;
+	cursor:pointer;
+	top:140px;
+	left:40px;
+	z-index:4;
+}
+#download:hover{
+		background:url(../images/download.png) bottom center no-repeat;
+}
+
+#account{
+	position:absolute;
+	background:url(../images/account.png) top center no-repeat;
+	width:126px;
+	height:42px;
+	cursor:pointer;
+	top:140px;
+	left:175px;
+	z-index:4;
+}
+
+#account:hover{
+		background:url(../images/account.png) bottom center no-repeat;
+}
+#fb{
+	position:absolute;
+	background:url(../images/fb_1.png)top center no-repeat;
+	width:51px;
+	height:59px;
+	cursor:pointer;
+	left:750px;
+}
+#fb:hover{
+	background:url(../images/fb_2.png)top center no-repeat;
+}
+#gamer{
+	position:absolute;
+	background:url(../images/gamer_1.png)top center no-repeat;
+	width:51px;
+	height:59px;
+	cursor:pointer;
+	left:800px;
+}
+#gamer:hover{
+	background:url(../images/gamer_2.png)top center no-repeat;
+}
+#base{
+	position:absolute;
+	background:url(../images/base_1.png)top center no-repeat;
+	width:51px;
+	height:59px;
+	cursor:pointer;
+	left:850px;
+}
+#base:hover{
+	background:url(../images/base_2.png)top center no-repeat;
+}
+#share{
+	position:absolute;
+	background:url(../images/share_1.png)top center no-repeat;
+	width:51px;
+	height:59px;
+	cursor:pointer;
+	left:900px;
+}
+#share:hover{
+	background:url(../images/share_2.png)top center no-repeat;
+}
+#button1{
+	position:absolute;
+	background:url(../images/button_1.png) top center no-repeat;
+	width:376px;
+	height:90px;
+	cursor:pointer;
+    top: 680px;
+	left:100px;
+}
+#button1:hover{
+	background:url(../images/button_1_2.png)top center no-repeat;
+}
+#button2{
+	position:absolute;
+	background:url(../images/button_2.png) top center no-repeat;
+	width:376px;
+	height:90px;
+	cursor:pointer;
+    top: 680px;
+	left:500px;
+}
+#button2:hover{
+	background:url(../images/button_2_2.png)top center no-repeat;
+}
+.move{
+		-webkit-transition:0.5s ease-in-out;
+		-moz-transition: 0.5s ease-in-out;
+		-o-transition: 0.5s ease-in-out;
+		-ms-transition: 0.5s ease-in-out;
+		transition:  0.5s ease-in-out;
+}
+#bottom{
+	position:relative;
+	background:url(../images/bottom.jpg)top center no-repeat;
+	width:100%;
+	height:74px;
+	margin:0 auto;
+}
+
+#content1,#content2{
+	position:relative;
+	background:url(../images/bg2.jpg) top center  #000000;
+	width:100%;
+	height:auto;
+	margin:0 auto;
+	display:none;
+
+}
+.center{
+	margin:0 auto;
+	width:1000px;
+}
+#top{
+	background:url(../images/top.png) no-repeat top center;
+	position:fixed;
+	width:283px;
+	height:157px;
+    cursor:pointer;
+	z-index:5;
+	right:0;
+	display:none;
+}
+
+#smoke{
+    width:300px;
+    height:517px;
+    background: url(../images/smoke_01.png);
+    position:relative;
+	top:150px;
+	left:-50px;
+    animation: smoke 5s infinite; /*IE*/
+    -moz-animation: smoke  5s infinite; /*FireFox*/
+    -webkit-animation: smoke  5s infinite; /*Chrome, Safari*/
+}
+
+  @keyframes smoke {
+	0% { background:url(../images/smoke_01.png);}
+	20% { background:url(../images/smoke_02.png); }
+	40% { background:url(../images/smoke_03.png) ;}
+	60% { background:url(../images/smoke_04.png) ;}
+	80% { background:url(../images/smoke_05.png) ;}
+	100% { background:url(../images/smoke_01.png) ;}
+  }
+  
+  @-moz-keyframes smoke {
+	0% { background:url(../images/smoke_01.png);}
+	20% { background:url(../images/smoke_02.png) ;}
+	40% { background:url(../images/smoke_03.png) ;}
+	60% { background:url(../images/smoke_04.png) ;}
+	80% { background:url(../images/smoke_05.png) ;}
+	100% { background:url(../images/smoke_01.png) ;}
+  }
+  
+  @-webkit-keyframes smoke {
+	0% { background:url(../images/smoke_01.png);}
+	20% { background:url(../images/smoke_02.png) ;}
+	40% { background:url(../images/smoke_03.png) ;}
+	60% { background:url(../images/smoke_04.png) ;}
+	80% { background:url(../images/smoke_05.png) ;}
+	100% { background:url(../images/smoke_01.png) ;}
+  }
+  
+ @-o-keyframes mymove {
+	0% { background:url(../images/smoke_01.png);}
+	20% { background:url(../images/smoke_02.png) ;}
+	40% { background:url(../images/smoke_03.png) ;}
+	60% { background:url(../images/smoke_04.png) ;}
+	80% { background:url(../images/smoke_05.png) ;}
+	100% { background:url(../images/smoke_01.png) ;}
+}
