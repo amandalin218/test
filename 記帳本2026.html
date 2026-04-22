@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的記帳本 2026</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+/* Tiffany 主題 ─ 微軟正黑體 + Arial */
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:'Microsoft JhengHei','微軟正黑體',Arial,sans-serif;
+  background:#f0fafa;color:#1a3a3a;min-height:100vh;font-size:15px;
+}
+:root{
+  /* Tiffany palette */
+  --tiffany:#0abab5;
+  --tiffany-d:#088a86;
+  --tiffany-dd:#05605c;
+  --tiffany-l:#e0f7f6;
+  --tiffany-ll:#f0fafa;
+
+  --bg:#f0fafa;
+  --surface:#ffffff;
+  --surface2:#e8f7f6;
+
+  --border:#b2e4e2;
+  --border2:#7dd4d1;
+
+  --text:#1a3a3a;
+  --text2:#4a7a78;
+  --text3:#8ab8b6;
+
+  /* accent = tiffany */
+  --accent:#0abab5;
+  --accent-l:#e0f7f6;
+  --accent-d:#088a86;
+
+  --green:#2e9e6e;
+  --green-l:#e5f7ef;
+  --red:#d64545;
+  --red-l:#fdeaea;
+
+  --r:10px;--rl:16px;
+}
+.shell{display:flex;min-height:100vh;}
+/* Sidebar */
+.sidebar{width:220px;background:var(--tiffany-dd);border-right:none;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;flex-shrink:0;}
+.logo{padding:24px 20px 18px;border-bottom:1px solid rgba(255,255,255,.15);}
+.logo-title{font-size:17px;font-weight:700;color:#fff;}
+.logo-sub{font-size:11px;color:var(--text3);font-family:Arial,monospace;margin-top:2px;}
+.nav{padding:12px 10px;flex:1;}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--r);cursor:pointer;font-size:14px;color:rgba(255,255,255,.65);transition:background .15s,color .15s;margin-bottom:2px;user-select:none;}
+.nav-item:hover{background:rgba(255,255,255,.12);color:#fff;}
+.nav-item.active{background:rgba(255,255,255,.18);color:#fff;font-weight:700;}
+.nav-icon{font-size:15px;width:18px;text-align:center;}
+.sidebar-foot{padding:14px 10px;border-top:1px solid rgba(255,255,255,.15);}
+.sync-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:6px;padding:8px 12px;background:var(--green-l);color:var(--green);border:1px solid #c5dfc9;border-radius:var(--r);font-size:13px;font-family:'Microsoft JhengHei','微軟正黑體',Arial,sans-serif;cursor:pointer;}
+.sync-btn:hover{background:rgba(255,255,255,.25);}
+/* Main */
+.main{flex:1;display:flex;flex-direction:column;min-width:0;}
+.topbar{background:var(--surface);border-bottom:3px solid var(--tiffany);padding:16px 28px;display:flex;align-items:center;justify-content:space-between;}
+.topbar-title{font-size:18px;font-weight:700;}
+.topbar-date{font-size:12px;color:var(--text3);font-family:Arial,monospace;}
+.content{padding:24px 28px;flex:1;}
+/* Sections */
+.sec{display:none;}.sec.active{display:block;}
+/* Form */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:20px 22px;margin-bottom:20px;}
+.card-title{font-size:14px;font-weight:700;margin-bottom:14px;color:var(--tiffany-dd);letter-spacing:.02em;}
+.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:10px;margin-bottom:10px;}
+.fgrid2{display:grid;grid-template-columns:3fr 1fr;gap:10px;}
+.fg label{display:block;font-size:11px;color:var(--text3);letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px;}
+input,select{width:100%;padding:8px 10px;border:1px solid var(--border2);border-radius:var(--r);font-size:14px;font-family:'Microsoft JhengHei','微軟正黑體',Arial,sans-serif;background:var(--bg);color:var(--text);outline:none;transition:border-color .15s;}
+input:focus,select:focus{border-color:var(--tiffany);box-shadow:0 0 0 3px rgba(10,186,181,.12);}
+.btn{padding:8px 18px;border-radius:var(--r);font-size:14px;font-family:'Microsoft JhengHei','微軟正黑體',Arial,sans-serif;font-weight:500;cursor:pointer;border:none;transition:opacity .15s,transform .1s;}
+.btn:active{transform:scale(.97);}
+.btn-a{background:var(--tiffany);color:#fff;width:100%;letter-spacing:.03em;}
+.btn-a:hover{background:var(--tiffany-d);}
+.btn-o{background:transparent;border:1px solid var(--border2);color:var(--text2);}
+.btn-o:hover{background:var(--surface2);}
+.btn-sm{padding:5px 12px;font-size:12px;}
+/* Entries */
+.ent-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;}
+.ent-head{padding:13px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);gap:10px;flex-wrap:wrap;}
+.ent-head-l{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.ent-title{font-size:14px;font-weight:700;}
+.ent-row{display:flex;align-items:center;padding:11px 18px;border-bottom:1px solid var(--border);transition:background .1s;gap:10px;}
+.ent-row:last-child{border-bottom:none;}
+.ent-row:hover{background:var(--surface2);}
+.pill{display:inline-flex;align-items:center;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:500;white-space:nowrap;flex-shrink:0;}
+.ent-info{flex:1;min-width:0;}
+.ent-name{font-size:14px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.ent-meta{font-size:11px;color:var(--text3);margin-top:1px;}
+.ent-amt{font-family:Arial,monospace;font-size:14px;font-weight:500;white-space:nowrap;}
+.del-btn{background:none;border:none;color:var(--text3);cursor:pointer;font-size:17px;padding:0 2px;line-height:1;}
+.del-btn:hover{color:var(--red);}
+.ent-foot{padding:12px 18px;background:var(--surface2);display:flex;justify-content:flex-end;align-items:center;gap:8px;border-top:1px solid var(--border);}
+.ent-foot-lbl{font-size:12px;color:var(--text2);}
+.ent-foot-total{font-family:Arial,monospace;font-size:16px;font-weight:700;}
+.empty{text-align:center;padding:40px 20px;color:var(--text3);font-size:14px;}
+/* Metrics */
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:22px;}
+.mc{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--tiffany);border-radius:var(--rl);padding:16px 18px;}
+.mc-lbl{font-size:11px;color:var(--text3);letter-spacing:.05em;text-transform:uppercase;margin-bottom:5px;}
+.mc-val{font-size:22px;font-weight:700;font-family:Arial,monospace;}
+.mc-sub{font-size:11px;color:var(--text2);margin-top:3px;}
+/* Charts */
+.charts-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px;}
+.chart-card{background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--tiffany-l);border-radius:var(--rl);padding:18px 20px;}
+.chart-title{font-size:12px;font-weight:700;color:var(--text2);letter-spacing:.04em;text-transform:uppercase;margin-bottom:12px;}
+.legend-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;}
+.legend-item{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--text2);}
+.legend-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0;}
+/* Month nav */
+.month-nav{display:flex;align-items:center;gap:8px;margin-bottom:18px;}
+.mnav-btn{width:28px;height:28px;border-radius:50%;border:2px solid var(--tiffany);background:transparent;color:var(--tiffany-d);font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s;}
+.mnav-btn:hover{background:var(--tiffany-l);}
+.mnav-lbl{font-size:14px;font-weight:500;min-width:90px;text-align:center;}
+/* Budget */
+.bgt-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.bgt-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:14px 16px;}
+.bgt-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+.bgt-cat{font-size:13px;font-weight:700;}
+.bgt-pct{font-size:13px;font-family:Arial,monospace;font-weight:500;}
+.bgt-bar-bg{height:5px;background:var(--surface2);border-radius:3px;margin-bottom:7px;overflow:hidden;}
+.bgt-bar-fill{height:5px;border-radius:3px;}
+.bgt-foot{display:flex;justify-content:space-between;font-size:11px;color:var(--text3);font-family:Arial,monospace;}
+/* Settings */
+.st-title{font-size:12px;font-weight:700;color:var(--text2);letter-spacing:.05em;text-transform:uppercase;margin-bottom:12px;}
+.st-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:16px 20px;margin-bottom:20px;}
+.st-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);}
+.st-row:last-child{border-bottom:none;}
+.st-row-info{flex:1;}
+.st-row-lbl{font-size:14px;font-weight:500;}
+.st-row-desc{font-size:12px;color:var(--text3);margin-top:1px;}
+/* Modal */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(44,37,32,.4);z-index:1000;align-items:center;justify-content:center;}
+.modal-overlay.open{display:flex;}
+.modal{background:var(--surface);border-radius:var(--rl);padding:26px 28px;width:460px;max-width:92vw;border:1px solid var(--border);}
+.modal-title{font-size:16px;font-weight:700;margin-bottom:5px;}
+.modal-desc{font-size:13px;color:var(--text2);margin-bottom:16px;line-height:1.6;}
+.modal-foot{display:flex;gap:10px;justify-content:flex-end;margin-top:16px;}
+.steps{counter-reset:s;list-style:none;margin-bottom:16px;}
+.steps li{counter-increment:s;display:flex;gap:10px;margin-bottom:10px;font-size:13px;color:var(--text2);line-height:1.6;}
+.steps li::before{content:counter(s);width:20px;height:20px;border-radius:50%;background:var(--tiffany-l);color:var(--tiffany-dd);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.code-block{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:10px 12px;font-size:11px;font-family:Arial,monospace;color:var(--text2);line-height:1.8;white-space:pre-wrap;margin-bottom:14px;}
+/* Toast */
+#toast{position:fixed;bottom:24px;right:24px;background:var(--tiffany-dd);color:#fff;padding:10px 18px;border-radius:var(--r);font-size:13px;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:9999;}
+#toast.show{opacity:1;transform:translateY(0);}
+.fsel select{width:auto;font-size:13px;padding:6px 9px;}
+@media(max-width:860px){
+  .sidebar{width:54px;}
+  .logo,.nav-item span,.sidebar-foot .sync-btn span{display:none;}
+  .nav-item{justify-content:center;padding:10px;}
+  .content{padding:16px;}
+  .fgrid{grid-template-columns:1fr 1fr;}
+  .fgrid2{grid-template-columns:1fr;}
+  .charts-row{grid-template-columns:1fr;}
+  .bgt-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div id="toast"></div>
+
+<div class="modal-overlay" id="sync-modal">
+  <div class="modal">
+    <div class="modal-title">連結 Google Sheets</div>
+    <div class="modal-desc">依步驟設定後，即可將記帳資料同步到你的 Google 試算表。</div>
+    <ol class="steps">
+      <li>開啟 <a href="https://sheets.new" target="_blank" style="color:var(--accent)">sheets.new</a> 建立新試算表</li>
+      <li>點選「延伸功能」→「Apps Script」，貼上以下程式碼後儲存</li>
+    </ol>
+    <div class="code-block">function doPost(e) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  const data = JSON.parse(e.postData.contents);
+  if (data.action === 'sync') {
+    sheet.clearContents();
+    sheet.appendRow(['日期','類別','項目','金額','備註']);
+    data.entries.forEach(r => {
+      sheet.appendRow([r.date, r.cat, r.name, r.amt, r.note||'']);
+    });
+    return ContentService.createTextOutput(JSON.stringify({status:'ok'}))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}</div>
+    <ol class="steps" style="counter-reset:s 2;">
+      <li>點「部署」→「新增部署」→ 類型選「網頁應用程式」→ 存取權選「所有人」→ 部署</li>
+      <li>複製「網頁應用程式網址」貼到下方</li>
+    </ol>
+    <div class="fg"><label>網頁應用程式網址</label>
+      <input type="text" id="script-url-input" placeholder="https://script.google.com/macros/s/..." style="font-size:12px;font-family:Arial,monospace;">
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-o" onclick="closeModal()">取消</button>
+      <button class="btn btn-a" style="width:auto;padding:8px 20px;" onclick="saveScriptUrl()">儲存並連結</button>
+    </div>
+  </div>
+</div>
+
+<div class="shell">
+  <aside class="sidebar">
+    <div class="logo">
+      <div class="logo-title">記帳本</div>
+      <div class="logo-sub">2026</div>
+    </div>
+    <nav class="nav">
+      <div class="nav-item active" onclick="showSec('record',this)"><span class="nav-icon">✏️</span><span>記帳</span></div>
+      <div class="nav-item" onclick="showSec('overview',this)"><span class="nav-icon">📊</span><span>總覽</span></div>
+      <div class="nav-item" onclick="showSec('budget',this)"><span class="nav-icon">🎯</span><span>預算</span></div>
+      <div class="nav-item" onclick="showSec('settings',this)"><span class="nav-icon">⚙️</span><span>設定</span></div>
+    </nav>
+    <div class="sidebar-foot">
+      <button class="sync-btn" onclick="openSyncModal()">
+        <span style="font-size:13px;">↑</span><span>同步 Sheets</span>
+      </button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="topbar-title" id="topbar-title">記帳</div>
+      <div class="topbar-date" id="topbar-date"></div>
+    </div>
+    <div class="content">
+
+      <!-- RECORD -->
+      <div id="sec-record" class="sec active">
+        <div class="card">
+          <div class="card-title">新增消費</div>
+          <div class="fgrid">
+            <div class="fg"><label>項目名稱</label><input type="text" id="inp-name" placeholder="例：便當、咖啡..."></div>
+            <div class="fg"><label>金額（元）</label><input type="number" id="inp-amt" placeholder="0" min="0"></div>
+            <div class="fg"><label>日期</label><input type="date" id="inp-date"></div>
+            <div class="fg"><label>類別</label>
+              <select id="inp-cat">
+                <option>早餐</option><option>中餐</option><option>下午茶</option>
+                <option>晚餐</option><option>消夜</option><option>娛樂</option>
+                <option>生活必需品</option><option>交通</option><option>醫療</option>
+                <option>手機</option><option>交際</option><option>孩童學費</option>
+                <option>郵寄</option><option>其他</option>
+              </select>
+            </div>
+          </div>
+          <div class="fgrid2">
+            <div class="fg"><label>備註（可選）</label><input type="text" id="inp-note" placeholder="可空白"></div>
+            <div class="fg" style="display:flex;align-items:flex-end;"><button class="btn btn-a" onclick="addEntry()">+ 新增</button></div>
+          </div>
+        </div>
+        <div class="ent-card">
+          <div class="ent-head">
+            <div class="ent-head-l">
+              <div class="ent-title">消費記錄</div>
+              <div class="fsel" style="display:flex;gap:8px;">
+                <select id="filter-month" onchange="renderEntries()"><option value="all">全部月份</option></select>
+                <select id="filter-cat" onchange="renderEntries()">
+                  <option value="all">全部類別</option>
+                  <option>早餐</option><option>中餐</option><option>下午茶</option>
+                  <option>晚餐</option><option>消夜</option><option>娛樂</option>
+                  <option>生活必需品</option><option>交通</option><option>醫療</option>
+                  <option>手機</option><option>交際</option><option>孩童學費</option>
+                  <option>郵寄</option><option>其他</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div id="entries-list"></div>
+          <div class="ent-foot" id="ent-foot" style="display:none;">
+            <span class="ent-foot-lbl">篩選合計</span>
+            <span class="ent-foot-total" id="ent-total"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- OVERVIEW -->
+      <div id="sec-overview" class="sec">
+        <div class="month-nav">
+          <button class="mnav-btn" onclick="changeMonth(-1)">&#8249;</button>
+          <div class="mnav-lbl" id="ov-month-lbl"></div>
+          <button class="mnav-btn" onclick="changeMonth(1)">&#8250;</button>
+        </div>
+        <div class="metrics" id="ov-metrics"></div>
+        <div class="charts-row">
+          <div class="chart-card">
+            <div class="chart-title">消費分類</div>
+            <div class="legend-wrap" id="pie-legend"></div>
+            <div style="position:relative;height:200px;">
+              <canvas id="pie-chart" role="img" aria-label="消費分類圓餅圖">各類別消費佔比</canvas>
+            </div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-title">每日消費</div>
+            <div style="position:relative;height:230px;">
+              <canvas id="bar-chart" role="img" aria-label="每日消費長條圖">每日消費</canvas>
+            </div>
+          </div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-title">全年走勢</div>
+          <div style="position:relative;height:190px;">
+            <canvas id="line-chart" role="img" aria-label="全年走勢折線圖">全年消費</canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- BUDGET -->
+      <div id="sec-budget" class="sec">
+        <div class="card">
+          <div class="card-title">設定月預算</div>
+          <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:10px;align-items:end;">
+            <div class="fg"><label>類別</label>
+              <select id="bgt-cat">
+                <option>早餐</option><option>中餐</option><option>下午茶</option>
+                <option>晚餐</option><option>消夜</option><option>娛樂</option>
+                <option>生活必需品</option><option>交通</option><option>醫療</option>
+                <option>手機</option><option>交際</option><option>孩童學費</option>
+                <option>郵寄</option><option>其他</option>
+              </select>
+            </div>
+            <div class="fg"><label>每月上限（元）</label><input type="number" id="bgt-amt" placeholder="0" min="0"></div>
+            <button class="btn btn-a" onclick="setBudget()">儲存</button>
+          </div>
+        </div>
+        <div class="bgt-grid" id="bgt-grid"></div>
+      </div>
+
+      <!-- SETTINGS -->
+      <div id="sec-settings" class="sec">
+        <div class="st-title">Google Sheets 同步</div>
+        <div class="st-card">
+          <div class="st-row">
+            <div class="st-row-info"><div class="st-row-lbl">Script 網址</div><div class="st-row-desc" id="script-status">尚未設定</div></div>
+            <button class="btn btn-o btn-sm" onclick="openSyncModal()">設定</button>
+          </div>
+          <div class="st-row">
+            <div class="st-row-info"><div class="st-row-lbl">立即同步</div><div class="st-row-desc">將所有記錄推送至試算表</div></div>
+            <button class="btn btn-o btn-sm" onclick="syncToSheets()">同步 ↑</button>
+          </div>
+        </div>
+        <div class="st-title">資料管理</div>
+        <div class="st-card">
+          <div class="st-row">
+            <div class="st-row-info"><div class="st-row-lbl">匯出備份（JSON）</div><div class="st-row-desc">下載全部記錄備份</div></div>
+            <button class="btn btn-o btn-sm" onclick="exportJSON()">匯出</button>
+          </div>
+          <div class="st-row">
+            <div class="st-row-info"><div class="st-row-lbl">匯入備份（JSON）</div><div class="st-row-desc">從備份檔還原記錄</div></div>
+            <button class="btn btn-o btn-sm" onclick="document.getElementById('import-file').click()">匯入</button>
+            <input type="file" id="import-file" accept=".json" style="display:none" onchange="importJSON(event)">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script>
+// ── Category config ──────────────────────────────────────────────
+const CATS = ['早餐','中餐','下午茶','晚餐','消夜','娛樂','生活必需品','交通','醫療','手機','交際','孩童學費','郵寄','其他'];
+const C_COLOR = {'早餐':'#378ADD','中餐':'#1D9E75','下午茶':'#D4537E','晚餐':'#7F77DD','消夜':'#D85A30','娛樂':'#BA7517','生活必需品':'#639922','交通':'#5F5E5A','醫療':'#E24B4A','手機':'#0F6E56','交際':'#9B59B6','孩童學費':'#E67E22','郵寄':'#16A085','其他':'#888780'};
+const C_BG   = {'早餐':'#E6F1FB','中餐':'#E1F5EE','下午茶':'#FBEAF0','晚餐':'#EEEDFE','消夜':'#FAECE7','娛樂':'#FAEEDA','生活必需品':'#EAF3DE','交通':'#F1EFE8','醫療':'#FCEBEB','手機':'#E1F5EE','交際':'#F5EEF8','孩童學費':'#FEF5EC','郵寄':'#E8F8F5','其他':'#F1EFE8'};
+const C_TXT  = {'早餐':'#0C447C','中餐':'#085041','下午茶':'#72243E','晚餐':'#3C3489','消夜':'#712B13','娛樂':'#633806','生活必需品':'#27500A','交通':'#444441','醫療':'#791F1F','手機':'#085041','交際':'#6C3483','孩童學費':'#935116','郵寄':'#0E6655','其他':'#444441'};
+
+// ── Built-in 2026 data (1–4 月) ──────────────────────────────────
+const BUILTIN = [{"id": 342, "name": "午餐", "amt": 130.0, "date": "2026-04-19", "cat": "中餐", "note": ""}, {"id": 343, "name": "麵包", "amt": 235.0, "date": "2026-04-19", "cat": "消夜", "note": ""}, {"id": 344, "name": "我的衣服", "amt": 568.0, "date": "2026-04-19", "cat": "娛樂", "note": ""}, {"id": 341, "name": "北投下午茶", "amt": 1760.0, "date": "2026-04-18", "cat": "下午茶", "note": ""}, {"id": 335, "name": "車票", "amt": 200.0, "date": "2026-04-17", "cat": "交通", "note": ""}, {"id": 336, "name": "珍珠奶茶", "amt": 55.0, "date": "2026-04-17", "cat": "下午茶", "note": ""}, {"id": 337, "name": "Apple Pencil筆尖", "amt": 590.0, "date": "2026-04-17", "cat": "生活必需品", "note": ""}, {"id": 338, "name": "零食", "amt": 321.0, "date": "2026-04-17", "cat": "下午茶", "note": ""}, {"id": 339, "name": "糕餅", "amt": 120.0, "date": "2026-04-17", "cat": "下午茶", "note": ""}, {"id": 340, "name": "全家", "amt": 137.0, "date": "2026-04-17", "cat": "下午茶", "note": ""}, {"id": 333, "name": "全聯", "amt": 98.0, "date": "2026-04-16", "cat": "生活必需品", "note": ""}, {"id": 334, "name": "零食", "amt": 108.0, "date": "2026-04-16", "cat": "下午茶", "note": ""}, {"id": 331, "name": "Ubereat", "amt": 330.0, "date": "2026-04-15", "cat": "中餐", "note": ""}, {"id": 332, "name": "壽司郎", "amt": 675.0, "date": "2026-04-15", "cat": "晚餐", "note": ""}, {"id": 330, "name": "全聯", "amt": 230.0, "date": "2026-04-13", "cat": "生活必需品", "note": ""}, {"id": 327, "name": "餐袋", "amt": 269.0, "date": "2026-04-12", "cat": "生活必需品", "note": ""}, {"id": 328, "name": "線上課程", "amt": 1980.0, "date": "2026-04-12", "cat": "娛樂", "note": ""}, {"id": 329, "name": "萊爾富", "amt": 133.0, "date": "2026-04-12", "cat": "生活必需品", "note": ""}, {"id": 321, "name": "一茶一瓦", "amt": 1161.0, "date": "2026-04-11", "cat": "晚餐", "note": ""}, {"id": 322, "name": "無印良品", "amt": 86.0, "date": "2026-04-11", "cat": "消夜", "note": ""}, {"id": 323, "name": "蚵仔煎", "amt": 80.0, "date": "2026-04-11", "cat": "中餐", "note": ""}, {"id": 324, "name": "魚鬆飯套餐", "amt": 130.0, "date": "2026-04-11", "cat": "中餐", "note": ""}, {"id": 325, "name": "充電", "amt": 38.0, "date": "2026-04-11", "cat": "娛樂", "note": ""}, {"id": 326, "name": "萊爾富", "amt": 167.0, "date": "2026-04-11", "cat": "下午茶", "note": ""}, {"id": 316, "name": "Disney", "amt": 285.0, "date": "2026-04-10", "cat": "娛樂", "note": ""}, {"id": 317, "name": "夯麵坊", "amt": 340.0, "date": "2026-04-10", "cat": "中餐", "note": ""}, {"id": 318, "name": "生活用品", "amt": 409.0, "date": "2026-04-10", "cat": "生活必需品", "note": ""}, {"id": 319, "name": "網路", "amt": 646.0, "date": "2026-04-10", "cat": "其他", "note": ""}, {"id": 320, "name": "剪頭髮", "amt": 950.0, "date": "2026-04-10", "cat": "娛樂", "note": ""}, {"id": 315, "name": "瓦斯", "amt": 804.0, "date": "2026-04-09", "cat": "其他", "note": ""}, {"id": 312, "name": "羽牙醫", "amt": 200.0, "date": "2026-04-07", "cat": "醫療", "note": ""}, {"id": 313, "name": "夯麵坊", "amt": 540.0, "date": "2026-04-07", "cat": "晚餐", "note": ""}, {"id": 314, "name": "萊爾富", "amt": 94.0, "date": "2026-04-07", "cat": "下午茶", "note": ""}, {"id": 311, "name": "IKEA", "amt": 79.0, "date": "2026-04-06", "cat": "生活必需品", "note": ""}, {"id": 308, "name": "飯糰", "amt": 81.0, "date": "2026-04-05", "cat": "中餐", "note": ""}, {"id": 309, "name": "麥當勞", "amt": 475.0, "date": "2026-04-05", "cat": "中餐", "note": ""}, {"id": 310, "name": "FLAI", "amt": 271.0, "date": "2026-04-05", "cat": "娛樂", "note": ""}, {"id": 303, "name": "NET", "amt": 683.0, "date": "2026-04-04", "cat": "娛樂", "note": ""}, {"id": 304, "name": "定食8", "amt": 838.0, "date": "2026-04-04", "cat": "中餐", "note": ""}, {"id": 305, "name": "麥當勞", "amt": 475.0, "date": "2026-04-04", "cat": "晚餐", "note": ""}, {"id": 306, "name": "加值", "amt": 200.0, "date": "2026-04-04", "cat": "交通", "note": ""}, {"id": 307, "name": "卡包", "amt": 49.0, "date": "2026-04-04", "cat": "娛樂", "note": ""}, {"id": 290, "name": "舒跑", "amt": 25.0, "date": "2026-04-03", "cat": "下午茶", "note": ""}, {"id": 291, "name": "產品", "amt": 100.0, "date": "2026-04-03", "cat": "娛樂", "note": ""}, {"id": 292, "name": "加值", "amt": 200.0, "date": "2026-04-03", "cat": "娛樂", "note": ""}, {"id": 293, "name": "Sunny bag", "amt": 150.0, "date": "2026-04-03", "cat": "娛樂", "note": ""}, {"id": 294, "name": "大宇小雨", "amt": 310.0, "date": "2026-04-03", "cat": "娛樂", "note": ""}, {"id": 295, "name": "諾米", "amt": 250.0, "date": "2026-04-03", "cat": "娛樂", "note": ""}, {"id": 296, "name": "Humor star", "amt": 300.0, "date": "2026-04-03", "cat": "娛樂", "note": ""}, {"id": 297, "name": "Inksundae", "amt": 500.0, "date": "2026-04-03", "cat": "娛樂", "note": ""}, {"id": 298, "name": "軟Q魚", "amt": 320.0, "date": "2026-04-03", "cat": "娛樂", "note": ""}, {"id": 299, "name": "阿G禮物", "amt": 1000.0, "date": "2026-04-03", "cat": "娛樂", "note": ""}, {"id": 300, "name": "虎爺", "amt": 100.0, "date": "2026-04-03", "cat": "娛樂", "note": ""}, {"id": 301, "name": "咖哩飯", "amt": 170.0, "date": "2026-04-03", "cat": "中餐", "note": ""}, {"id": 302, "name": "口香糖", "amt": 29.0, "date": "2026-04-03", "cat": "早餐", "note": ""}, {"id": 288, "name": "全聯", "amt": 442.0, "date": "2026-04-02", "cat": "生活必需品", "note": ""}, {"id": 289, "name": "課程", "amt": 2750.0, "date": "2026-04-02", "cat": "娛樂", "note": ""}, {"id": 284, "name": "手機", "amt": 599.0, "date": "2026-04-01", "cat": "手機", "note": ""}, {"id": 285, "name": "華南信用卡", "amt": 1643.0, "date": "2026-04-01", "cat": "生活必需品", "note": ""}, {"id": 286, "name": "國民年金", "amt": 2661.0, "date": "2026-04-01", "cat": "其他", "note": ""}, {"id": 287, "name": "麵匡匡", "amt": 403.0, "date": "2026-04-01", "cat": "晚餐", "note": ""}, {"id": 279, "name": "飲料", "amt": 100.0, "date": "2026-03-31", "cat": "交際", "note": ""}, {"id": 280, "name": "下午茶", "amt": 94.0, "date": "2026-03-31", "cat": "交際", "note": ""}, {"id": 281, "name": "星巴克", "amt": 115.0, "date": "2026-03-31", "cat": "早餐", "note": ""}, {"id": 282, "name": "便當", "amt": 130.0, "date": "2026-03-31", "cat": "中餐", "note": ""}, {"id": 283, "name": "文具", "amt": 64.0, "date": "2026-03-31", "cat": "生活必需品", "note": ""}, {"id": 278, "name": "健身房", "amt": 50.0, "date": "2026-03-30", "cat": "娛樂", "note": ""}, {"id": 277, "name": "咖啡", "amt": 24.0, "date": "2026-03-29", "cat": "下午茶", "note": ""}, {"id": 273, "name": "飲料", "amt": 64.0, "date": "2026-03-28", "cat": "下午茶", "note": ""}, {"id": 274, "name": "無印良品", "amt": 89.0, "date": "2026-03-28", "cat": "生活必需品", "note": ""}, {"id": 275, "name": "燈", "amt": 849.0, "date": "2026-03-28", "cat": "生活必需品", "note": ""}, {"id": 276, "name": "巧克力", "amt": 129.0, "date": "2026-03-28", "cat": "生活必需品", "note": ""}, {"id": 268, "name": "票劵", "amt": 180.0, "date": "2026-03-27", "cat": "娛樂", "note": ""}, {"id": 269, "name": "五祿", "amt": 270.0, "date": "2026-03-27", "cat": "晚餐", "note": ""}, {"id": 270, "name": "巧克力香蕉三明治", "amt": 39.0, "date": "2026-03-27", "cat": "早餐", "note": ""}, {"id": 271, "name": "蛋糕", "amt": 139.0, "date": "2026-03-27", "cat": "下午茶", "note": ""}, {"id": 272, "name": "加值", "amt": 200.0, "date": "2026-03-27", "cat": "交通", "note": ""}, {"id": 267, "name": "課程", "amt": 1916.0, "date": "2026-03-26", "cat": "娛樂", "note": ""}, {"id": 266, "name": "全聯", "amt": 1059.0, "date": "2026-03-25", "cat": "生活必需品", "note": ""}, {"id": 263, "name": "下學期學費", "amt": 1633.0, "date": "2026-03-24", "cat": "孩童學費", "note": ""}, {"id": 264, "name": "蛋糕", "amt": 330.0, "date": "2026-03-24", "cat": "生活必需品", "note": ""}, {"id": 265, "name": "水餃", "amt": 295.0, "date": "2026-03-24", "cat": "生活必需品", "note": ""}, {"id": 258, "name": "21世紀", "amt": 135.0, "date": "2026-03-22", "cat": "中餐", "note": ""}, {"id": 259, "name": "咖啡", "amt": 24.0, "date": "2026-03-22", "cat": "下午茶", "note": ""}, {"id": 260, "name": "巧克力", "amt": 65.0, "date": "2026-03-22", "cat": "下午茶", "note": ""}, {"id": 261, "name": "香水", "amt": 360.0, "date": "2026-03-22", "cat": "生活必需品", "note": ""}, {"id": 262, "name": "鍋子衛生棉", "amt": 897.0, "date": "2026-03-22", "cat": "生活必需品", "note": ""}, {"id": 254, "name": "Ubereat", "amt": 307.0, "date": "2026-03-21", "cat": "中餐", "note": ""}, {"id": 255, "name": "飲料", "amt": 70.0, "date": "2026-03-21", "cat": "下午茶", "note": ""}, {"id": 256, "name": "滷味", "amt": 160.0, "date": "2026-03-21", "cat": "晚餐", "note": ""}, {"id": 257, "name": "燒烤", "amt": 180.0, "date": "2026-03-21", "cat": "晚餐", "note": ""}, {"id": 252, "name": "小羽衣服", "amt": 475.0, "date": "2026-03-20", "cat": "生活必需品", "note": ""}, {"id": 253, "name": "爸爸衣服", "amt": 398.0, "date": "2026-03-20", "cat": "生活必需品", "note": ""}, {"id": 247, "name": "捐款", "amt": 300.0, "date": "2026-03-19", "cat": "其他", "note": ""}, {"id": 248, "name": "蛋糕", "amt": 335.0, "date": "2026-03-19", "cat": "消夜", "note": ""}, {"id": 249, "name": "蛋", "amt": 260.0, "date": "2026-03-19", "cat": "生活必需品", "note": ""}, {"id": 250, "name": "素描本", "amt": 89.0, "date": "2026-03-19", "cat": "生活必需品", "note": ""}, {"id": 251, "name": "Subway", "amt": 158.0, "date": "2026-03-19", "cat": "中餐", "note": ""}, {"id": 246, "name": "露易莎", "amt": 280.0, "date": "2026-03-18", "cat": "中餐", "note": ""}, {"id": 244, "name": "義大利麵", "amt": 625.0, "date": "2026-03-17", "cat": "晚餐", "note": ""}, {"id": 245, "name": "加值", "amt": 100.0, "date": "2026-03-17", "cat": "交通", "note": ""}, {"id": 243, "name": "全聯", "amt": 483.0, "date": "2026-03-16", "cat": "生活必需品", "note": ""}, {"id": 242, "name": "巧克力", "amt": 55.0, "date": "2026-03-15", "cat": "消夜", "note": ""}, {"id": 239, "name": "全家", "amt": 115.0, "date": "2026-03-14", "cat": "下午茶", "note": ""}, {"id": 240, "name": "咖啡", "amt": 24.0, "date": "2026-03-14", "cat": "下午茶", "note": ""}, {"id": 241, "name": "炒年糕", "amt": 99.0, "date": "2026-03-14", "cat": "下午茶", "note": ""}, {"id": 237, "name": "運動中心", "amt": 50.0, "date": "2026-03-13", "cat": "娛樂", "note": ""}, {"id": 238, "name": "網路", "amt": 646.0, "date": "2026-03-13", "cat": "手機", "note": ""}, {"id": 235, "name": "波羅麵包", "amt": 60.0, "date": "2026-03-12", "cat": "下午茶", "note": ""}, {"id": 236, "name": "車票", "amt": 300.0, "date": "2026-03-12", "cat": "交通", "note": ""}, {"id": 233, "name": "全聯", "amt": 1169.0, "date": "2026-03-11", "cat": "生活必需品", "note": ""}, {"id": 234, "name": "韓式便當", "amt": 110.0, "date": "2026-03-11", "cat": "中餐", "note": ""}, {"id": 232, "name": "小牛哥", "amt": 320.0, "date": "2026-03-10", "cat": "中餐", "note": ""}, {"id": 231, "name": "手機", "amt": 599.0, "date": "2026-03-09", "cat": "手機", "note": ""}, {"id": 230, "name": "蛋糕", "amt": 101.0, "date": "2026-03-08", "cat": "消夜", "note": ""}, {"id": 225, "name": "咖啡", "amt": 24.0, "date": "2026-03-07", "cat": "下午茶", "note": ""}, {"id": 226, "name": "蛋糕", "amt": 180.0, "date": "2026-03-07", "cat": "消夜", "note": ""}, {"id": 227, "name": "牛丼", "amt": 387.0, "date": "2026-03-07", "cat": "晚餐", "note": ""}, {"id": 228, "name": "草莓", "amt": 300.0, "date": "2026-03-07", "cat": "消夜", "note": ""}, {"id": 229, "name": "參考書", "amt": 344.0, "date": "2026-03-07", "cat": "孩童學費", "note": ""}, {"id": 221, "name": "中華電信", "amt": 599.0, "date": "2026-03-06", "cat": "手機", "note": ""}, {"id": 222, "name": "Ubereat", "amt": 313.0, "date": "2026-03-06", "cat": "晚餐", "note": ""}, {"id": 223, "name": "口香糖咖啡", "amt": 88.0, "date": "2026-03-06", "cat": "消夜", "note": ""}, {"id": 224, "name": "牛奶", "amt": 78.0, "date": "2026-03-06", "cat": "生活必需品", "note": ""}, {"id": 219, "name": "木盆", "amt": 209.0, "date": "2026-03-05", "cat": "中餐", "note": ""}, {"id": 220, "name": "FLAI", "amt": 268.0, "date": "2026-03-05", "cat": "娛樂", "note": ""}, {"id": 218, "name": "五祿", "amt": 115.0, "date": "2026-03-04", "cat": "晚餐", "note": ""}, {"id": 216, "name": "洗碗精", "amt": 200.0, "date": "2026-03-03", "cat": "生活必需品", "note": ""}, {"id": 217, "name": "印度料理", "amt": 630.0, "date": "2026-03-03", "cat": "晚餐", "note": ""}, {"id": 214, "name": "麥片", "amt": 169.0, "date": "2026-03-02", "cat": "生活必需品", "note": ""}, {"id": 215, "name": "小北百貨地墊", "amt": 693.0, "date": "2026-03-02", "cat": "生活必需品", "note": ""}, {"id": 209, "name": "公仔麵", "amt": 230.0, "date": "2026-03-01", "cat": "中餐", "note": ""}, {"id": 210, "name": "扮家家酒", "amt": 1349.0, "date": "2026-03-01", "cat": "交際", "note": ""}, {"id": 211, "name": "麻糬", "amt": 348.0, "date": "2026-03-01", "cat": "下午茶", "note": ""}, {"id": 212, "name": "遊樂園", "amt": 100.0, "date": "2026-03-01", "cat": "娛樂", "note": ""}, {"id": 213, "name": "碳烤", "amt": 220.0, "date": "2026-03-01", "cat": "晚餐", "note": ""}, {"id": 208, "name": "Ubereat", "amt": 371.0, "date": "2026-02-28", "cat": "晚餐", "note": ""}, {"id": 205, "name": "攀岩", "amt": 200.0, "date": "2026-02-27", "cat": "娛樂", "note": ""}, {"id": 206, "name": "711", "amt": 131.0, "date": "2026-02-27", "cat": "下午茶", "note": ""}, {"id": 207, "name": "草莓", "amt": 169.0, "date": "2026-02-27", "cat": "生活必需品", "note": ""}, {"id": 199, "name": "牙醫", "amt": 200.0, "date": "2026-02-26", "cat": "醫療", "note": ""}, {"id": 200, "name": "便當", "amt": 110.0, "date": "2026-02-26", "cat": "中餐", "note": ""}, {"id": 201, "name": "飲料", "amt": 93.0, "date": "2026-02-26", "cat": "消夜", "note": ""}, {"id": 202, "name": "飲料", "amt": 63.0, "date": "2026-02-26", "cat": "消夜", "note": ""}, {"id": 203, "name": "寄件", "amt": 60.0, "date": "2026-02-26", "cat": "郵寄", "note": ""}, {"id": 204, "name": "加值", "amt": 200.0, "date": "2026-02-26", "cat": "交通", "note": ""}, {"id": 197, "name": "酒", "amt": 1596.0, "date": "2026-02-25", "cat": "交際", "note": ""}, {"id": 198, "name": "削鉛筆機", "amt": 250.0, "date": "2026-02-25", "cat": "生活必需品", "note": ""}, {"id": 191, "name": "保護套", "amt": 123.0, "date": "2026-02-24", "cat": "娛樂", "note": ""}, {"id": 192, "name": "內頁", "amt": 50.0, "date": "2026-02-24", "cat": "娛樂", "note": ""}, {"id": 193, "name": "咖哩飯", "amt": 150.0, "date": "2026-02-24", "cat": "中餐", "note": ""}, {"id": 194, "name": "潤滑油", "amt": 152.0, "date": "2026-02-24", "cat": "生活必需品", "note": ""}, {"id": 195, "name": "蛋白質", "amt": 371.0, "date": "2026-02-24", "cat": "生活必需品", "note": ""}, {"id": 196, "name": "五祿", "amt": 310.0, "date": "2026-02-24", "cat": "晚餐", "note": ""}, {"id": 190, "name": "國泰家醫", "amt": 250.0, "date": "2026-02-23", "cat": "醫療", "note": ""}, {"id": 186, "name": "iPad膜", "amt": 943.0, "date": "2026-02-22", "cat": "生活必需品", "note": ""}, {"id": 187, "name": "衛生棉", "amt": 248.0, "date": "2026-02-22", "cat": "娛樂", "note": ""}, {"id": 188, "name": "扭蛋", "amt": 100.0, "date": "2026-02-22", "cat": "娛樂", "note": ""}, {"id": 189, "name": "港式料理", "amt": 816.0, "date": "2026-02-22", "cat": "晚餐", "note": ""}, {"id": 183, "name": "Ubereat", "amt": 377.0, "date": "2026-02-21", "cat": "生活必需品", "note": ""}, {"id": 184, "name": "咖啡", "amt": 24.0, "date": "2026-02-21", "cat": "下午茶", "note": ""}, {"id": 185, "name": "壽司", "amt": 845.0, "date": "2026-02-21", "cat": "晚餐", "note": ""}, {"id": 182, "name": "腳踏車租借", "amt": 260.0, "date": "2026-02-20", "cat": "交通", "note": ""}, {"id": 176, "name": "Apple配備", "amt": 943.0, "date": "2026-02-19", "cat": "生活必需品", "note": ""}, {"id": 177, "name": "App", "amt": 390.0, "date": "2026-02-19", "cat": "娛樂", "note": ""}, {"id": 178, "name": "郭金山", "amt": 1000.0, "date": "2026-02-19", "cat": "交際", "note": ""}, {"id": 179, "name": "拉麵", "amt": 698.0, "date": "2026-02-19", "cat": "晚餐", "note": ""}, {"id": 180, "name": "全聯", "amt": 298.0, "date": "2026-02-19", "cat": "生活必需品", "note": ""}, {"id": 181, "name": "皮卡丘", "amt": 100.0, "date": "2026-02-19", "cat": "娛樂", "note": ""}, {"id": 173, "name": "寶可夢卡包", "amt": 49.0, "date": "2026-02-18", "cat": "娛樂", "note": ""}, {"id": 174, "name": "全家早餐", "amt": 74.0, "date": "2026-02-18", "cat": "早餐", "note": ""}, {"id": 175, "name": "寶可夢商品", "amt": 509.0, "date": "2026-02-18", "cat": "娛樂", "note": ""}, {"id": 170, "name": "買彩劵", "amt": 800.0, "date": "2026-02-17", "cat": "娛樂", "note": ""}, {"id": 171, "name": "部隊鍋", "amt": 169.0, "date": "2026-02-17", "cat": "中餐", "note": ""}, {"id": 172, "name": "卡套包和收納夾", "amt": 235.0, "date": "2026-02-17", "cat": "生活必需品", "note": ""}, {"id": 169, "name": "咖啡", "amt": 65.0, "date": "2026-02-16", "cat": "下午茶", "note": ""}, {"id": 165, "name": "銅鑼燒", "amt": 42.0, "date": "2026-02-15", "cat": "下午茶", "note": ""}, {"id": 166, "name": "咖啡", "amt": 24.0, "date": "2026-02-15", "cat": "下午茶", "note": ""}, {"id": 167, "name": "大巨星", "amt": 1098.0, "date": "2026-02-15", "cat": "晚餐", "note": ""}, {"id": 168, "name": "加值", "amt": 200.0, "date": "2026-02-15", "cat": "交通", "note": ""}, {"id": 161, "name": "韓食", "amt": 229.0, "date": "2026-02-14", "cat": "晚餐", "note": ""}, {"id": 162, "name": "咖啡", "amt": 24.0, "date": "2026-02-14", "cat": "下午茶", "note": ""}, {"id": 163, "name": "Ubereat", "amt": 960.0, "date": "2026-02-14", "cat": "娛樂", "note": ""}, {"id": 164, "name": "雞尾酒", "amt": 128.0, "date": "2026-02-14", "cat": "消夜", "note": ""}, {"id": 155, "name": "五祿", "amt": 115.0, "date": "2026-02-13", "cat": "中餐", "note": ""}, {"id": 156, "name": "Cotco", "amt": 2427.0, "date": "2026-02-13", "cat": "生活必需品", "note": ""}, {"id": 157, "name": "全聯", "amt": 342.0, "date": "2026-02-13", "cat": "生活必需品", "note": ""}, {"id": 158, "name": "壽司", "amt": 35.0, "date": "2026-02-13", "cat": "下午茶", "note": ""}, {"id": 159, "name": "麵包", "amt": 45.0, "date": "2026-02-13", "cat": "下午茶", "note": ""}, {"id": 160, "name": "雞尾酒", "amt": 84.0, "date": "2026-02-13", "cat": "消夜", "note": ""}, {"id": 151, "name": "天然氣", "amt": 852.0, "date": "2026-02-12", "cat": "其他", "note": ""}, {"id": 152, "name": "五祿", "amt": 115.0, "date": "2026-02-12", "cat": "中餐", "note": ""}, {"id": 153, "name": "餅乾", "amt": 25.0, "date": "2026-02-12", "cat": "下午茶", "note": ""}, {"id": 154, "name": "寶可夢黑卡", "amt": 299.0, "date": "2026-02-12", "cat": "娛樂", "note": ""}, {"id": 147, "name": "全聯", "amt": 517.0, "date": "2026-02-11", "cat": "生活必需品", "note": ""}, {"id": 148, "name": "蛋糕", "amt": 390.0, "date": "2026-02-11", "cat": "下午茶", "note": ""}, {"id": 149, "name": "羽卡加值", "amt": 100.0, "date": "2026-02-11", "cat": "交通", "note": ""}, {"id": 150, "name": "媽祖卡", "amt": 39.0, "date": "2026-02-11", "cat": "交際", "note": ""}, {"id": 144, "name": "蝦皮", "amt": 377.0, "date": "2026-02-10", "cat": "生活必需品", "note": ""}, {"id": 145, "name": "蝦皮", "amt": 375.0, "date": "2026-02-10", "cat": "生活必需品", "note": ""}, {"id": 146, "name": "麵包", "amt": 45.0, "date": "2026-02-10", "cat": "下午茶", "note": ""}, {"id": 143, "name": "飯糰", "amt": 70.0, "date": "2026-02-09", "cat": "下午茶", "note": ""}, {"id": 142, "name": "波蘿麵包", "amt": 75.0, "date": "2026-02-08", "cat": "晚餐", "note": ""}, {"id": 134, "name": "咖啡", "amt": 24.0, "date": "2026-02-07", "cat": "早餐", "note": ""}, {"id": 135, "name": "尿布", "amt": 190.0, "date": "2026-02-07", "cat": "交際", "note": ""}, {"id": 136, "name": "丼飯", "amt": 99.0, "date": "2026-02-07", "cat": "早餐", "note": ""}, {"id": 137, "name": "飲料", "amt": 55.0, "date": "2026-02-07", "cat": "下午茶", "note": ""}, {"id": 138, "name": "擦手巾", "amt": 129.0, "date": "2026-02-07", "cat": "交際", "note": ""}, {"id": 139, "name": "炸雞", "amt": 341.0, "date": "2026-02-07", "cat": "晚餐", "note": ""}, {"id": 140, "name": "中壢", "amt": 160.0, "date": "2026-02-07", "cat": "交通", "note": ""}, {"id": 141, "name": "加值", "amt": 200.0, "date": "2026-02-07", "cat": "交通", "note": ""}, {"id": 129, "name": "麵包", "amt": 77.0, "date": "2026-02-06", "cat": "早餐", "note": ""}, {"id": 130, "name": "711", "amt": 117.0, "date": "2026-02-06", "cat": "中餐", "note": ""}, {"id": 131, "name": "丼飯", "amt": 354.0, "date": "2026-02-06", "cat": "晚餐", "note": ""}, {"id": 132, "name": "計程車", "amt": 100.0, "date": "2026-02-06", "cat": "交通", "note": ""}, {"id": 133, "name": "公車", "amt": 15.0, "date": "2026-02-06", "cat": "交通", "note": ""}, {"id": 128, "name": "蛋餅", "amt": 60.0, "date": "2026-02-05", "cat": "中餐", "note": ""}, {"id": 124, "name": "麥當勞", "amt": 392.0, "date": "2026-02-04", "cat": "晚餐", "note": ""}, {"id": 125, "name": "電費", "amt": 646.0, "date": "2026-02-04", "cat": "其他", "note": ""}, {"id": 126, "name": "水", "amt": 20.0, "date": "2026-02-04", "cat": "消夜", "note": ""}, {"id": 127, "name": "吐司", "amt": 48.0, "date": "2026-02-04", "cat": "消夜", "note": ""}, {"id": 120, "name": "全聯", "amt": 832.0, "date": "2026-02-03", "cat": "生活必需品", "note": ""}, {"id": 121, "name": "恐龍展", "amt": 405.0, "date": "2026-02-03", "cat": "娛樂", "note": ""}, {"id": 122, "name": "包子", "amt": 56.0, "date": "2026-02-03", "cat": "下午茶", "note": ""}, {"id": 123, "name": "國民年金", "amt": 2490.0, "date": "2026-02-03", "cat": "其他", "note": ""}, {"id": 116, "name": "五祿", "amt": 115.0, "date": "2026-02-02", "cat": "中餐", "note": ""}, {"id": 117, "name": "Uber", "amt": 185.0, "date": "2026-02-02", "cat": "交通", "note": ""}, {"id": 118, "name": "零食點心", "amt": 473.0, "date": "2026-02-02", "cat": "生活必需品", "note": ""}, {"id": 119, "name": "魯味", "amt": 317.0, "date": "2026-02-02", "cat": "晚餐", "note": ""}, {"id": 110, "name": "牛奶", "amt": 27.0, "date": "2026-02-01", "cat": "早餐", "note": ""}, {"id": 111, "name": "方師傅三明治", "amt": 168.0, "date": "2026-02-01", "cat": "晚餐", "note": ""}, {"id": 112, "name": "藍皮伴手禮", "amt": 519.0, "date": "2026-02-01", "cat": "交際", "note": ""}, {"id": 113, "name": "My card", "amt": 221.0, "date": "2026-02-01", "cat": "娛樂", "note": ""}, {"id": 114, "name": "加值", "amt": 300.0, "date": "2026-02-01", "cat": "交通", "note": ""}, {"id": 115, "name": "薯條", "amt": 45.0, "date": "2026-02-01", "cat": "消夜", "note": ""}, {"id": 107, "name": "衛生棉", "amt": 153.0, "date": "2026-01-31", "cat": "生活必需品", "note": ""}, {"id": 108, "name": "麥當勞", "amt": 100.0, "date": "2026-01-31", "cat": "消夜", "note": ""}, {"id": 109, "name": "藍皮伴手禮", "amt": 498.0, "date": "2026-01-31", "cat": "交際", "note": ""}, {"id": 102, "name": "方師傅餅乾", "amt": 907.0, "date": "2026-01-30", "cat": "交際", "note": ""}, {"id": 103, "name": "小潘鳳梨酥", "amt": 399.0, "date": "2026-01-30", "cat": "交際", "note": ""}, {"id": 104, "name": "星巴克", "amt": 155.0, "date": "2026-01-30", "cat": "交際", "note": ""}, {"id": 105, "name": "芒果千層", "amt": 105.0, "date": "2026-01-30", "cat": "下午茶", "note": ""}, {"id": 106, "name": "筆", "amt": 148.0, "date": "2026-01-30", "cat": "生活必需品", "note": ""}, {"id": 101, "name": "溫野菜", "amt": 2196.0, "date": "2026-01-29", "cat": "中餐", "note": ""}, {"id": 97, "name": "健保", "amt": 2478.0, "date": "2026-01-28", "cat": "其他", "note": ""}, {"id": 98, "name": "自然人憑證", "amt": 250.0, "date": "2026-01-28", "cat": "其他", "note": ""}, {"id": 99, "name": "家樂福", "amt": 151.0, "date": "2026-01-28", "cat": "下午茶", "note": ""}, {"id": 100, "name": "Ubereat", "amt": 332.0, "date": "2026-01-28", "cat": "晚餐", "note": ""}, {"id": 92, "name": "手機費", "amt": 599.0, "date": "2026-01-27", "cat": "手機", "note": ""}, {"id": 93, "name": "租車", "amt": 15.0, "date": "2026-01-27", "cat": "交通", "note": ""}, {"id": 94, "name": "運動飲料", "amt": 30.0, "date": "2026-01-27", "cat": "下午茶", "note": ""}, {"id": 95, "name": "小吃", "amt": 330.0, "date": "2026-01-27", "cat": "晚餐", "note": ""}, {"id": 96, "name": "草莓大福", "amt": 210.0, "date": "2026-01-27", "cat": "消夜", "note": ""}, {"id": 85, "name": "摩斯", "amt": 175.0, "date": "2026-01-26", "cat": "中餐", "note": ""}, {"id": 86, "name": "運動飲料", "amt": 25.0, "date": "2026-01-26", "cat": "下午茶", "note": ""}, {"id": 87, "name": "五祿", "amt": 330.0, "date": "2026-01-26", "cat": "晚餐", "note": ""}, {"id": 88, "name": "零食", "amt": 156.0, "date": "2026-01-26", "cat": "消夜", "note": ""}, {"id": 89, "name": "運動飲料", "amt": 58.0, "date": "2026-01-26", "cat": "消夜", "note": ""}, {"id": 90, "name": "紀念品", "amt": 100.0, "date": "2026-01-26", "cat": "交際", "note": ""}, {"id": 91, "name": "加值車票", "amt": 300.0, "date": "2026-01-26", "cat": "交通", "note": ""}, {"id": 84, "name": "咖啡", "amt": 24.0, "date": "2026-01-25", "cat": "下午茶", "note": ""}, {"id": 82, "name": "全家早餐", "amt": 49.0, "date": "2026-01-24", "cat": "早餐", "note": ""}, {"id": 83, "name": "Ubereat", "amt": 329.0, "date": "2026-01-24", "cat": "晚餐", "note": ""}, {"id": 79, "name": "五祿", "amt": 115.0, "date": "2026-01-23", "cat": "中餐", "note": ""}, {"id": 80, "name": "飯糰", "amt": 240.0, "date": "2026-01-23", "cat": "晚餐", "note": ""}, {"id": 81, "name": "零食", "amt": 275.0, "date": "2026-01-23", "cat": "消夜", "note": ""}, {"id": 75, "name": "黑米便當", "amt": 220.0, "date": "2026-01-21", "cat": "中餐", "note": ""}, {"id": 76, "name": "藥燉排骨", "amt": 100.0, "date": "2026-01-21", "cat": "中餐", "note": ""}, {"id": 77, "name": "松屋", "amt": 400.0, "date": "2026-01-21", "cat": "晚餐", "note": ""}, {"id": 78, "name": "草莓牛奶", "amt": 80.0, "date": "2026-01-21", "cat": "消夜", "note": ""}, {"id": 71, "name": "水", "amt": 30.0, "date": "2026-01-20", "cat": "下午茶", "note": ""}, {"id": 72, "name": "一蘭", "amt": 730.0, "date": "2026-01-20", "cat": "晚餐", "note": ""}, {"id": 73, "name": "鳳梨酥", "amt": 1000.0, "date": "2026-01-20", "cat": "交際", "note": ""}, {"id": 74, "name": "巧克力", "amt": 69.0, "date": "2026-01-20", "cat": "消夜", "note": ""}, {"id": 66, "name": "派", "amt": 120.0, "date": "2026-01-19", "cat": "下午茶", "note": ""}, {"id": 67, "name": "鐵板麵", "amt": 72.0, "date": "2026-01-19", "cat": "晚餐", "note": ""}, {"id": 68, "name": "豆皮壽司", "amt": 49.0, "date": "2026-01-19", "cat": "下午茶", "note": ""}, {"id": 69, "name": "機台", "amt": 120.0, "date": "2026-01-19", "cat": "娛樂", "note": ""}, {"id": 70, "name": "加值", "amt": 200.0, "date": "2026-01-19", "cat": "交通", "note": ""}, {"id": 63, "name": "烏龍麵", "amt": 106.0, "date": "2026-01-18", "cat": "中餐", "note": ""}, {"id": 64, "name": "咖啡", "amt": 24.0, "date": "2026-01-18", "cat": "下午茶", "note": ""}, {"id": 65, "name": "甜甜圈", "amt": 84.0, "date": "2026-01-18", "cat": "下午茶", "note": ""}, {"id": 58, "name": "巧克力", "amt": 87.0, "date": "2026-01-17", "cat": "下午茶", "note": ""}, {"id": 59, "name": "豬排", "amt": 582.0, "date": "2026-01-17", "cat": "晚餐", "note": ""}, {"id": 60, "name": "麻糬", "amt": 105.0, "date": "2026-01-17", "cat": "消夜", "note": ""}, {"id": 61, "name": "泡麵", "amt": 25.0, "date": "2026-01-17", "cat": "消夜", "note": ""}, {"id": 62, "name": "Ubereat-拉麵", "amt": 293.0, "date": "2026-01-17", "cat": "晚餐", "note": ""}, {"id": 55, "name": "流感藥", "amt": 2530.0, "date": "2026-01-16", "cat": "醫療", "note": ""}, {"id": 56, "name": "全聯-Unereat", "amt": 349.0, "date": "2026-01-16", "cat": "中餐", "note": ""}, {"id": 57, "name": "Ubereat", "amt": 330.0, "date": "2026-01-16", "cat": "晚餐", "note": ""}, {"id": 50, "name": "Ubereat", "amt": 304.0, "date": "2026-01-15", "cat": "晚餐", "note": ""}, {"id": 51, "name": "巧克力", "amt": 60.0, "date": "2026-01-15", "cat": "消夜", "note": ""}, {"id": 52, "name": "奶飲料", "amt": 106.0, "date": "2026-01-15", "cat": "下午茶", "note": ""}, {"id": 53, "name": "金泊符", "amt": 78.0, "date": "2026-01-15", "cat": "生活必需品", "note": ""}, {"id": 54, "name": "郵寄玩具", "amt": 138.0, "date": "2026-01-15", "cat": "郵寄", "note": ""}, {"id": 47, "name": "寒假班", "amt": 1905.0, "date": "2026-01-14", "cat": "孩童學費", "note": ""}, {"id": 48, "name": "大福", "amt": 199.0, "date": "2026-01-14", "cat": "下午茶", "note": ""}, {"id": 49, "name": "銅鑼燒", "amt": 77.0, "date": "2026-01-14", "cat": "下午茶", "note": ""}, {"id": 43, "name": "南港運動中心", "amt": 3000.0, "date": "2026-01-13", "cat": "孩童學費", "note": ""}, {"id": 44, "name": "星巴克", "amt": 95.0, "date": "2026-01-13", "cat": "早餐", "note": ""}, {"id": 45, "name": "文具", "amt": 158.0, "date": "2026-01-13", "cat": "生活必需品", "note": ""}, {"id": 46, "name": "水餃", "amt": 590.0, "date": "2026-01-13", "cat": "生活必需品", "note": ""}, {"id": 39, "name": "全聯", "amt": 446.0, "date": "2026-01-12", "cat": "生活必需品", "note": ""}, {"id": 40, "name": "高鐵", "amt": 3505.0, "date": "2026-01-12", "cat": "交通", "note": ""}, {"id": 41, "name": "巧克力", "amt": 49.0, "date": "2026-01-12", "cat": "消夜", "note": ""}, {"id": 42, "name": "神經內科-國泰", "amt": 290.0, "date": "2026-01-12", "cat": "醫療", "note": ""}, {"id": 35, "name": "無印良品", "amt": 125.0, "date": "2026-01-11", "cat": "生活必需品", "note": ""}, {"id": 36, "name": "三商巧福", "amt": 179.0, "date": "2026-01-11", "cat": "中餐", "note": ""}, {"id": 37, "name": "咖啡和巧克力", "amt": 213.0, "date": "2026-01-11", "cat": "下午茶", "note": ""}, {"id": 38, "name": "麵包", "amt": 124.0, "date": "2026-01-11", "cat": "下午茶", "note": ""}, {"id": 31, "name": "點點餐", "amt": 1000.0, "date": "2026-01-10", "cat": "中餐", "note": ""}, {"id": 32, "name": "默爾", "amt": 1005.0, "date": "2026-01-10", "cat": "晚餐", "note": ""}, {"id": 33, "name": "氣墊城堡", "amt": 279.0, "date": "2026-01-10", "cat": "娛樂", "note": ""}, {"id": 34, "name": "甜甜圈", "amt": 57.0, "date": "2026-01-10", "cat": "下午茶", "note": ""}, {"id": 27, "name": "五祿", "amt": 110.0, "date": "2026-01-09", "cat": "中餐", "note": ""}, {"id": 28, "name": "飲料", "amt": 65.0, "date": "2026-01-09", "cat": "下午茶", "note": ""}, {"id": 29, "name": "Ubereat", "amt": 401.0, "date": "2026-01-09", "cat": "晚餐", "note": ""}, {"id": 30, "name": "游泳課", "amt": 2070.0, "date": "2026-01-09", "cat": "孩童學費", "note": ""}, {"id": 24, "name": "全家", "amt": 688.0, "date": "2026-01-08", "cat": "生活必需品", "note": ""}, {"id": 25, "name": "萊爾富", "amt": 94.0, "date": "2026-01-08", "cat": "下午茶", "note": ""}, {"id": 26, "name": "牙科", "amt": 150.0, "date": "2026-01-08", "cat": "醫療", "note": ""}, {"id": 23, "name": "五祿", "amt": 155.0, "date": "2026-01-07", "cat": "中餐", "note": ""}, {"id": 17, "name": "漢堡王", "amt": 59.0, "date": "2026-01-06", "cat": "中餐", "note": ""}, {"id": 18, "name": "牛肉麵", "amt": 85.0, "date": "2026-01-06", "cat": "晚餐", "note": ""}, {"id": 19, "name": "麵包", "amt": 45.0, "date": "2026-01-06", "cat": "消夜", "note": ""}, {"id": 20, "name": "健康藥品", "amt": 520.0, "date": "2026-01-06", "cat": "娛樂", "note": ""}, {"id": 21, "name": "蝦皮送禮", "amt": 197.0, "date": "2026-01-06", "cat": "交際", "note": ""}, {"id": 22, "name": "看腦科", "amt": 420.0, "date": "2026-01-06", "cat": "醫療", "note": ""}, {"id": 13, "name": "五祿", "amt": 110.0, "date": "2026-01-05", "cat": "中餐", "note": ""}, {"id": 14, "name": "八方雲集", "amt": 235.0, "date": "2026-01-05", "cat": "晚餐", "note": ""}, {"id": 15, "name": "全聯", "amt": 112.0, "date": "2026-01-05", "cat": "生活必需品", "note": ""}, {"id": 16, "name": "漫畫點數", "amt": 300.0, "date": "2026-01-05", "cat": "娛樂", "note": ""}, {"id": 11, "name": "萊爾富咖啡", "amt": 24.0, "date": "2026-01-04", "cat": "下午茶", "note": ""}, {"id": 12, "name": "蝦皮", "amt": 197.0, "date": "2026-01-04", "cat": "交際", "note": ""}, {"id": 5, "name": "鬆餅", "amt": 109.0, "date": "2026-01-03", "cat": "早餐", "note": ""}, {"id": 6, "name": "找早餐", "amt": 200.0, "date": "2026-01-03", "cat": "早餐", "note": ""}, {"id": 7, "name": "Ubereat蛋糕", "amt": 322.0, "date": "2026-01-03", "cat": "消夜", "note": ""}, {"id": 8, "name": "711", "amt": 65.0, "date": "2026-01-03", "cat": "生活必需品", "note": ""}, {"id": 9, "name": "全聯", "amt": 279.0, "date": "2026-01-03", "cat": "生活必需品", "note": ""}, {"id": 10, "name": "毛帽", "amt": 590.0, "date": "2026-01-03", "cat": "生活必需品", "note": ""}, {"id": 4, "name": "家用網路", "amt": 646.0, "date": "2026-01-02", "cat": "手機", "note": ""}, {"id": 1, "name": "輪輪", "amt": 1374.0, "date": "2026-01-01", "cat": "中餐", "note": ""}, {"id": 2, "name": "小說點數", "amt": 547.0, "date": "2026-01-01", "cat": "娛樂", "note": ""}, {"id": 3, "name": "寶可夢禮物", "amt": 1212.0, "date": "2026-01-01", "cat": "交際", "note": ""}];
+
+// ── State ────────────────────────────────────────────────────────
+function loadEntries() {
+  // Start with built-in data, then add any user-added entries (id >= 900000)
+  const saved = JSON.parse(localStorage.getItem('kk_entries') || '[]');
+  const userAdded = saved.filter(e => e.id >= 900000);
+  const all = [...BUILTIN, ...userAdded];
+  all.sort((a,b) => b.date.localeCompare(a.date) || b.id - a.id);
+  return all;
+}
+function saveUserEntries(entries) {
+  const userAdded = entries.filter(e => e.id >= 900000);
+  localStorage.setItem('kk_entries', JSON.stringify(userAdded));
+}
+
+let entries = loadEntries();
+let budgets = JSON.parse(localStorage.getItem('kk_budgets') || '{}');
+let scriptUrl = localStorage.getItem('kk_script') || '';
+let ovYear = 2026;
+let ovMonth = new Date().getMonth() + 1;
+let nextId = 900000 + Math.floor(Date.now() % 100000);
+let pieChart = null, barChart = null, lineChart = null;
+
+// ── Utils ─────────────────────────────────────────────────────────
+const pad = n => String(n).padStart(2,'0');
+const fmtM = n => '$' + Math.round(n).toLocaleString();
+const today = new Date();
+document.getElementById('inp-date').value = `${today.getFullYear()}-${pad(today.getMonth()+1)}-${pad(today.getDate())}`;
+document.getElementById('topbar-date').textContent = `${today.getFullYear()}/${pad(today.getMonth()+1)}/${pad(today.getDate())}`;
+
+function toast(msg, dur=2500) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._tid);
+  t._tid = setTimeout(() => t.classList.remove('show'), dur);
+}
+
+// ── Navigation ────────────────────────────────────────────────────
+function showSec(id, el) {
+  document.querySelectorAll('.sec').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('sec-' + id).classList.add('active');
+  if (el) el.classList.add('active');
+  const titles = {record:'記帳', overview:'總覽', budget:'預算', settings:'設定'};
+  document.getElementById('topbar-title').textContent = titles[id] || id;
+  if (id === 'overview') renderOverview();
+  if (id === 'budget') renderBudget();
+  if (id === 'settings') renderSettings();
+}
+
+// ── Month filter ──────────────────────────────────────────────────
+function populateMonthFilter() {
+  const ms = [...new Set(entries.map(e => e.date.slice(0,7)))].sort().reverse();
+  const sel = document.getElementById('filter-month');
+  const prev = sel.value;
+  sel.innerHTML = '<option value="all">全部月份</option>';
+  ms.forEach(m => {
+    const [y,mo] = m.split('-');
+    const o = document.createElement('option');
+    o.value = m; o.textContent = `${y}年${mo}月`;
+    sel.appendChild(o);
+  });
+  if (prev && ms.includes(prev)) sel.value = prev;
+}
+
+// ── Add entry ─────────────────────────────────────────────────────
+function addEntry() {
+  const name = document.getElementById('inp-name').value.trim();
+  const amt  = parseFloat(document.getElementById('inp-amt').value);
+  const date = document.getElementById('inp-date').value;
+  const cat  = document.getElementById('inp-cat').value;
+  const note = document.getElementById('inp-note').value.trim();
+  if (!name) { toast('請填寫項目名稱'); return; }
+  if (!amt || amt <= 0) { toast('請填寫正確的金額'); return; }
+  if (!date) { toast('請選擇日期'); return; }
+  const entry = { id: nextId++, name, amt, date, cat, note };
+  entries.unshift(entry);
+  entries.sort((a,b) => b.date.localeCompare(a.date) || b.id - a.id);
+  saveUserEntries(entries);
+  document.getElementById('inp-name').value = '';
+  document.getElementById('inp-amt').value = '';
+  document.getElementById('inp-note').value = '';
+  populateMonthFilter();
+  renderEntries();
+  toast('已新增：' + name + ' ' + fmtM(amt));
+}
+
+// ── Delete entry ──────────────────────────────────────────────────
+function deleteEntry(id) {
+  if (!confirm('確定刪除這筆記錄？')) return;
+  entries = entries.filter(e => e.id !== id);
+  saveUserEntries(entries);
+  populateMonthFilter();
+  renderEntries();
+  toast('已刪除');
+}
+
+// ── Render entries ────────────────────────────────────────────────
+function renderEntries() {
+  const ym   = document.getElementById('filter-month').value;
+  const catF = document.getElementById('filter-cat').value;
+  let filtered = entries;
+  if (ym !== 'all')   filtered = filtered.filter(e => e.date.slice(0,7) === ym);
+  if (catF !== 'all') filtered = filtered.filter(e => e.cat === catF);
+  const el = document.getElementById('entries-list');
+  const foot = document.getElementById('ent-foot');
+  const totalEl = document.getElementById('ent-total');
+  if (!filtered.length) {
+    el.innerHTML = '<div class="empty">尚無記錄</div>';
+    foot.style.display = 'none';
+    return;
+  }
+  const total = filtered.reduce((s,e) => s + e.amt, 0);
+  totalEl.textContent = fmtM(total);
+  foot.style.display = 'flex';
+  el.innerHTML = filtered.map(e => `
+    <div class="ent-row">
+      <span class="pill" style="background:${C_BG[e.cat]||'#eee'};color:${C_TXT[e.cat]||'#444'}">${e.cat}</span>
+      <div class="ent-info">
+        <div class="ent-name">${e.name}</div>
+        <div class="ent-meta">${e.date}${e.note ? ' · ' + e.note : ''}</div>
+      </div>
+      <span class="ent-amt">${fmtM(e.amt)}</span>
+      <button class="del-btn" onclick="deleteEntry(${e.id})">×</button>
+    </div>`).join('');
+}
+
+// ── Overview ──────────────────────────────────────────────────────
+function changeMonth(dir) {
+  ovMonth += dir;
+  if (ovMonth > 12) { ovMonth = 1; ovYear++; }
+  if (ovMonth < 1)  { ovMonth = 12; ovYear--; }
+  renderOverview();
+}
+
+function renderOverview() {
+  const ym = `${ovYear}-${pad(ovMonth)}`;
+  document.getElementById('ov-month-lbl').textContent = `${ovYear}年${ovMonth}月`;
+  const filtered = entries.filter(e => e.date.slice(0,7) === ym);
+  const total = filtered.reduce((s,e) => s + e.amt, 0);
+  const uniqueDays = [...new Set(filtered.map(e => e.date))].length;
+  const avgDay = uniqueDays ? Math.round(total / uniqueDays) : 0;
+  const catAgg = {};
+  filtered.forEach(e => { catAgg[e.cat] = (catAgg[e.cat]||0) + e.amt; });
+  const topCat = Object.entries(catAgg).sort((a,b) => b[1]-a[1]);
+  document.getElementById('ov-metrics').innerHTML = `
+    <div class="mc"><div class="mc-lbl">本月總消費</div><div class="mc-val">${fmtM(total)}</div><div class="mc-sub">${filtered.length} 筆記錄</div></div>
+    <div class="mc"><div class="mc-lbl">平均每日</div><div class="mc-val">${fmtM(avgDay)}</div><div class="mc-sub">${uniqueDays} 天有記錄</div></div>
+    <div class="mc"><div class="mc-lbl">最大支出</div><div class="mc-val" style="font-size:16px;">${topCat.length ? topCat[0][0] : '—'}</div><div class="mc-sub">${topCat.length ? fmtM(topCat[0][1]) : ''}</div></div>
+  `;
+  // Pie
+  const catEntries = Object.entries(catAgg).sort((a,b) => b[1]-a[1]);
+  const cLabels = catEntries.map(e => e[0]);
+  const cVals   = catEntries.map(e => e[1]);
+  const cColors = cLabels.map(c => C_COLOR[c]||'#888');
+  document.getElementById('pie-legend').innerHTML = cLabels.map((c,i) => `<div class="legend-item"><span class="legend-dot" style="background:${cColors[i]}"></span>${c}</div>`).join('');
+  if (pieChart) { pieChart.destroy(); pieChart = null; }
+  if (cVals.length) {
+    pieChart = new Chart(document.getElementById('pie-chart'), {
+      type: 'doughnut',
+      data: { labels: cLabels, datasets: [{ data: cVals, backgroundColor: cColors, borderWidth: 2, borderColor: '#fff' }] },
+      options: { responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false}, tooltip:{callbacks:{label:ctx => ' '+fmtM(ctx.raw)+' ('+Math.round(ctx.raw/(total||1)*100)+'%)'}} } }
+    });
+  }
+  // Bar
+  const daysInMonth = new Date(ovYear, ovMonth, 0).getDate();
+  const dayAgg = {};
+  filtered.forEach(e => { dayAgg[e.date] = (dayAgg[e.date]||0) + e.amt; });
+  const dLabels = [], dData = [];
+  for (let d = 1; d <= daysInMonth; d++) {
+    dLabels.push(d);
+    dData.push(dayAgg[`${ovYear}-${pad(ovMonth)}-${pad(d)}`] || 0);
+  }
+  if (barChart) { barChart.destroy(); barChart = null; }
+  barChart = new Chart(document.getElementById('bar-chart'), {
+    type: 'bar',
+    data: { labels: dLabels, datasets: [{ data: dData, backgroundColor: '#0abab5', borderWidth:0, label:'消費' }] },
+    options: { responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false}, tooltip:{callbacks:{label:ctx => ' '+fmtM(ctx.raw)}} }, scales:{ x:{ticks:{autoSkip:true,maxTicksLimit:16,font:{size:10}}}, y:{ticks:{callback:v=>'$'+v.toLocaleString(),font:{size:10}}} } }
+  });
+  // Line
+  const mTotals = Array.from({length:12},(_,i) => {
+    const m = `${ovYear}-${pad(i+1)}`;
+    return entries.filter(e => e.date.slice(0,7)===m).reduce((s,e)=>s+e.amt,0);
+  });
+  if (lineChart) { lineChart.destroy(); lineChart = null; }
+  lineChart = new Chart(document.getElementById('line-chart'), {
+    type: 'line',
+    data: { labels:['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'], datasets:[{ data:mTotals, borderColor:'#0abab5', backgroundColor:'rgba(10,186,181,.08)', borderWidth:2, pointBackgroundColor:'#0abab5', pointRadius:4, tension:.3, fill:true, label:'消費' }] },
+    options: { responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false}, tooltip:{callbacks:{label:ctx => ' '+fmtM(ctx.raw)}} }, scales:{ x:{ticks:{font:{size:10}}}, y:{ticks:{callback:v=>'$'+v.toLocaleString(),font:{size:10}}} } }
+  });
+}
+
+// ── Budget ────────────────────────────────────────────────────────
+function setBudget() {
+  const cat = document.getElementById('bgt-cat').value;
+  const amt = parseFloat(document.getElementById('bgt-amt').value);
+  if (!amt || amt <= 0) { toast('請輸入預算金額'); return; }
+  budgets[cat] = amt;
+  localStorage.setItem('kk_budgets', JSON.stringify(budgets));
+  document.getElementById('bgt-amt').value = '';
+  renderBudget();
+  toast(cat + ' 預算設為 ' + fmtM(amt));
+}
+
+function renderBudget() {
+  const ym = `${today.getFullYear()}-${pad(today.getMonth()+1)}`;
+  const filtered = entries.filter(e => e.date.slice(0,7) === ym);
+  const catAgg = {};
+  filtered.forEach(e => { catAgg[e.cat] = (catAgg[e.cat]||0) + e.amt; });
+  const el = document.getElementById('bgt-grid');
+  const keys = Object.keys(budgets);
+  if (!keys.length) { el.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:36px;color:var(--text3);font-size:14px;">尚未設定預算</div>'; return; }
+  el.innerHTML = keys.map(cat => {
+    const bgt = budgets[cat], spent = catAgg[cat]||0;
+    const pct = Math.min(100, Math.round(spent/bgt*100));
+    const col = pct>=100?'var(--red)':pct>=80?'#c09a2a':'var(--green)';
+    return `<div class="bgt-item">
+      <div class="bgt-head"><span class="pill" style="background:${C_BG[cat]||'#eee'};color:${C_TXT[cat]||'#444'}">${cat}</span><span class="bgt-pct" style="color:${col}">${pct}%</span></div>
+      <div class="bgt-bar-bg"><div class="bgt-bar-fill" style="width:${pct}%;background:${col}"></div></div>
+      <div class="bgt-foot"><span>已用 ${fmtM(spent)}</span><span>上限 ${fmtM(bgt)}</span></div>
+    </div>`;
+  }).join('');
+}
+
+// ── Settings ──────────────────────────────────────────────────────
+function renderSettings() {
+  document.getElementById('script-status').textContent = scriptUrl ? '已連結：'+scriptUrl.slice(0,45)+'...' : '尚未設定';
+}
+
+function openSyncModal() {
+  document.getElementById('script-url-input').value = scriptUrl;
+  document.getElementById('sync-modal').classList.add('open');
+}
+function closeModal() { document.getElementById('sync-modal').classList.remove('open'); }
+function saveScriptUrl() {
+  const url = document.getElementById('script-url-input').value.trim();
+  if (!url.startsWith('https://script.google.com')) { toast('請貼上正確的 Apps Script 網址'); return; }
+  scriptUrl = url;
+  localStorage.setItem('kk_script', scriptUrl);
+  closeModal();
+  toast('已儲存 Script 網址！');
+  renderSettings();
+}
+
+async function syncToSheets() {
+  if (!scriptUrl) { openSyncModal(); return; }
+  toast('同步中…', 60000);
+  try {
+    const resp = await fetch(scriptUrl, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({action:'sync', entries}) });
+    const data = await resp.json();
+    toast(data.status === 'ok' ? '✓ 已同步到 Google Sheets！' : '同步失敗，請確認 Script 設定');
+  } catch(e) { toast('同步失敗：' + e.message); }
+}
+
+function exportJSON() {
+  const blob = new Blob([JSON.stringify({entries, budgets}, null, 2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = '記帳本備份_' + today.toISOString().slice(0,10) + '.json';
+  a.click();
+  toast('已匯出備份');
+}
+
+function importJSON(evt) {
+  const file = evt.target.files[0]; if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (data.entries) {
+        const imported = data.entries.filter(e => e.id >= 900000);
+        localStorage.setItem('kk_entries', JSON.stringify(imported));
+        entries = loadEntries();
+      }
+      if (data.budgets) { budgets = data.budgets; localStorage.setItem('kk_budgets', JSON.stringify(budgets)); }
+      populateMonthFilter(); renderEntries();
+      toast('✓ 匯入成功');
+    } catch { toast('匯入失敗：格式有誤'); }
+  };
+  reader.readAsText(file);
+  evt.target.value = '';
+}
+
+// ── Init ──────────────────────────────────────────────────────────
+populateMonthFilter();
+renderEntries();
+</script>
+</body>
+</html>
