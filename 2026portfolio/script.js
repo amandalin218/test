@@ -85,7 +85,7 @@ const PROJECTS = {
       ['assets/ad-yokai-dusk-app.jpg', '妖界黃昏 APP AD', null],
       ['assets/ad-yokai-ball-app.jpg', '妖怪滾珠 APP AD', null],
       ['assets/ad-nirvana.jpg', '瑯琊榜 風起長林', null],
-      ['assets/ad-eplay-summer.jpg', 'e-PLAY－瘋狂一夏', null],
+      ['assets2/ad-eplay-summer.jpg', 'e-PLAY－瘋狂一夏', null],
       ['assets/ad-zhengzhan.jpg', '龍戰四方', null],
       ['assets/ad-pay2go-dogyear.jpg', '智付寶－狗年紅包活動', null],
       ['assets/ad-pay2go-lantern.jpg', '智付寶 × 嘉義燈會', null],
@@ -103,39 +103,39 @@ const PROJECTS = {
       ['assets/ad-slot-detective.jpg', '遊戲大亂鬥 SLOT', null],
       ['assets/ad-slot-beauty.jpg', '遊戲大亂鬥 SLOT', null],
       ['assets/ad-slot-koi.jpg', '遊戲大亂鬥 SLOT', null],
-      ['assets/ad-bana-01.jpg', 'Banabana成人漫畫', null],  
-      ['assets/ad-bana-02.jpg', 'Banabana成人漫畫', null],  // 待放圖 02
-      ['assets/ad-bana-03.jpg', 'Banabana成人漫畫', null],  // 待放圖 03
-      ['assets/ad-bana-04.jpg', 'Banabana成人漫畫', null],  // 待放圖 04
-      ['assets/ad-bana-05.jpg', 'Banabana成人漫畫', null],  // 待放圖 05
-      ['assets/ad-bana-06.jpg', 'Banabana成人漫畫', null],  // 待放圖 06
-      ['assets/ad-bana-07.jpg', 'Banabana成人漫畫', null],  // 待放圖 07
-      ['assets/ad-bana-08.jpg', 'Banabana成人漫畫', null],  // 待放圖 08
-      ['assets/ad-bana-09.jpg', 'Banabana成人漫畫', null],  // 待放圖 09
-      ['assets/ad-bana-10.jpg', 'Banabana成人漫畫', null],  // 待放圖 10
-      ['assets/ad-bana-11.jpg', 'Banabana成人漫畫', null],  // 待放圖 11
-      ['assets/ad-bana-12.jpg', 'Banabana成人漫畫', null],  // 待放圖 12
-      ['assets/ad-bana-13.jpg', 'Banabana成人漫畫', null],  // 待放圖 13
-      ['assets/ad-bana-14.jpg', 'Banabana成人漫畫', null],  // 待放圖 14
-      ['assets/ad-bana-15.jpg', 'Banabana成人漫畫', null],  // 待放圖 15
-      ['assets/ad-bana-16.jpg', 'Banabana成人漫畫', null],  // 待放圖 16
-      ['assets/ad-bana-17.jpg', 'Banabana成人漫畫', null],  // 待放圖 17
-      ['assets/ad-bana-18.jpg', 'Banabana成人漫畫', null],  // 待放圖 18
-      ['assets/ad-bana-19.jpg', 'Banabana成人漫畫', null],  // 待放圖 19
-      ['assets/ad-bana-20.jpg', 'Banabana成人漫畫', null],  // 待放圖 20
-      ['assets/ad-bana-21.jpg', 'Banabana成人漫畫', null],  // 待放圖 21
-      ['assets/ad-bana-22.jpg', 'Banabana成人漫畫', null],  // 待放圖 22
-      ['assets/ad-bana-23.jpg', 'Banabana成人漫畫', null],  // 待放圖 23
-      ['assets/ad-bana-24.jpg', 'Banabana成人漫畫', null],  // 待放圖 24
-      ['assets/ad-bana-25.jpg', 'Banabana成人漫畫', null],  // 待放圖 25
-      ['assets/ad-bana-26.jpg', 'Banabana成人漫畫', null],  // 待放圖 26
-      ['assets/ad-bana-27.jpg', 'Banabana成人漫畫', null],  // 待放圖 27
-      ['assets/ad-bana-28.jpg', 'Banabana成人漫畫', null],  // 待放圖 28
-      ['assets/ad-bana-29.jpg', 'Banabana成人漫畫', null],  // 待放圖 29
-      ['assets/ad-bana-30.jpg', 'Banabana成人漫畫', null],  // 待放圖 30
-      ['assets/ad-bana-31.jpg', 'Banabana成人漫畫', null],  // 待放圖 31
-      ['assets/ad-bana-32.jpg', 'Banabana成人漫畫', null],  
-      ['assets/ad-bana-33.jpg', 'Banabana成人漫畫', null],  
+      ['assets2/ad-bana-01.jpg', 'Banabana成人漫畫', null],  
+      ['assets2/ad-bana-02.jpg', 'Banabana成人漫畫', null],  // 待放圖 02
+      ['assets2/ad-bana-03.jpg', 'Banabana成人漫畫', null],  // 待放圖 03
+      ['assets2/ad-bana-04.jpg', 'Banabana成人漫畫', null],  // 待放圖 04
+      ['assets2/ad-bana-05.jpg', 'Banabana成人漫畫', null],  // 待放圖 05
+      ['assets2/ad-bana-06.jpg', 'Banabana成人漫畫', null],  // 待放圖 06
+      ['assets2/ad-bana-07.jpg', 'Banabana成人漫畫', null],  // 待放圖 07
+      ['assets2/ad-bana-08.jpg', 'Banabana成人漫畫', null],  // 待放圖 08
+      ['assets2/ad-bana-09.jpg', 'Banabana成人漫畫', null],  // 待放圖 09
+      ['assets2/ad-bana-10.jpg', 'Banabana成人漫畫', null],  // 待放圖 10
+      ['assets2/ad-bana-11.jpg', 'Banabana成人漫畫', null],  // 待放圖 11
+      ['assets2/ad-bana-12.jpg', 'Banabana成人漫畫', null],  // 待放圖 12
+      ['assets2/ad-bana-13.jpg', 'Banabana成人漫畫', null],  // 待放圖 13
+      ['assets2/ad-bana-14.jpg', 'Banabana成人漫畫', null],  // 待放圖 14
+      ['assets2/ad-bana-15.jpg', 'Banabana成人漫畫', null],  // 待放圖 15
+      ['assets2/ad-bana-16.jpg', 'Banabana成人漫畫', null],  // 待放圖 16
+      ['assets2/ad-bana-17.jpg', 'Banabana成人漫畫', null],  // 待放圖 17
+      ['assets2/ad-bana-18.jpg', 'Banabana成人漫畫', null],  // 待放圖 18
+      ['assets2/ad-bana-19.jpg', 'Banabana成人漫畫', null],  // 待放圖 19
+      ['assets2/ad-bana-20.jpg', 'Banabana成人漫畫', null],  // 待放圖 20
+      ['assets2/ad-bana-21.jpg', 'Banabana成人漫畫', null],  // 待放圖 21
+      ['assets2/ad-bana-22.jpg', 'Banabana成人漫畫', null],  // 待放圖 22
+      ['assets2/ad-bana-23.jpg', 'Banabana成人漫畫', null],  // 待放圖 23
+      ['assets2/ad-bana-24.jpg', 'Banabana成人漫畫', null],  // 待放圖 24
+      ['assets2/ad-bana-25.jpg', 'Banabana成人漫畫', null],  // 待放圖 25
+      ['assets2/ad-bana-26.jpg', 'Banabana成人漫畫', null],  // 待放圖 26
+      ['assets2/ad-bana-27.jpg', 'Banabana成人漫畫', null],  // 待放圖 27
+      ['assets2/ad-bana-28.jpg', 'Banabana成人漫畫', null],  // 待放圖 28
+      ['assets2/ad-bana-29.jpg', 'Banabana成人漫畫', null],  // 待放圖 29
+      ['assets2/ad-bana-30.jpg', 'Banabana成人漫畫', null],  // 待放圖 30
+      ['assets2/ad-bana-31.jpg', 'Banabana成人漫畫', null],  // 待放圖 31
+      ['assets2/ad-bana-32.jpg', 'Banabana成人漫畫', null],  
+      ['assets2/ad-bana-33.jpg', 'Banabana成人漫畫', null],  
     ]
   },
   graphic: {
