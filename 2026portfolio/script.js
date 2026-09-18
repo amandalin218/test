@@ -181,11 +181,21 @@ function items(key) {
   });
 }
 
+function preloadImage(src) {
+  if (!src) return;
+  var img = new Image();
+  img.decoding = 'async';
+  img.src = src;
+}
+
 function render() {
   var p = PROJECTS[state.key];
   if (!p) return;
   var list = items(state.key);
   var cur = list[state.index];
+  if (cur && cur.src) preloadImage(cur.src);
+  var nextItem = list[state.index + 1];
+  if (nextItem && nextItem.src) preloadImage(nextItem.src);
   var pages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
   var page = Math.floor(state.index / PAGE_SIZE);
 
