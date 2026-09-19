@@ -7,147 +7,147 @@
 // tint = 圖片還沒放上前的佔位色
 const PROJECTS = {
   illu: {
-    num: '01', title: 'Illustration', cover: 'assets/opt-work-cat-coffee.jpg',
+    num: '01', title: 'Illustration', cover: 'assets/opt-work-cat-coffee.webp',
     tint: ['#DCE7EF','#CBDCE8','#E3E9E2','#D5DEE9','#E8DFD8','#CFD9E3'],
     works: [
-      ['assets/opt-work-cat-coffee.jpg', '貓咪插畫', null],
-      ['assets/opt-work-illu-cafe-chat.jpg', '人物插畫', null],
-      ['assets/opt-work-illu-sisters.jpg', '人物插畫', null],
-      ['assets/opt-work-illu-ginkgo.jpg', '人物插畫', null],
-      ['assets/opt-work-illu-macbookpro.jpg', 'Mr. MacBook Pro 擬人插畫', null],
-      ['assets/opt-work-illu-red-beret.jpg', '紅帽女孩跟練畫', null],
-      ['assets/opt-work-illu-camera-girl.jpg', '攝影女孩跟練畫', null],
-      ['assets/opt-work-illu-zodiac.jpg', '十二星座 Q 版角色插畫', null],
-      ['assets/opt-work-illu-stickers.jpg', 'Q 版大頭貼表情圖組', null],
-      ['assets/opt-work-illu-shark.jpg', '鯊魚插畫', null],
-      ['assets/opt-work-illu-whaleshark.jpg', '鯨鯊插畫', null],
-      ['assets/opt-work-illu-birthday.jpg', '手寫字卡設計', null]
+      ['assets/opt-work-cat-coffee.webp', '貓咪插畫', null],
+      ['assets/opt-work-illu-cafe-chat.webp', '人物插畫', null],
+      ['assets/opt-work-illu-sisters.webp', '人物插畫', null],
+      ['assets/opt-work-illu-ginkgo.webp', '人物插畫', null],
+      ['assets/opt-work-illu-macbookpro.webp', 'Mr. MacBook Pro 擬人插畫', null],
+      ['assets/opt-work-illu-red-beret.webp', '紅帽女孩跟練畫', null],
+      ['assets/opt-work-illu-camera-girl.webp', '攝影女孩跟練畫', null],
+      ['assets/opt-work-illu-zodiac.webp', '十二星座 Q 版角色插畫', null],
+      ['assets/opt-work-illu-stickers.webp', 'Q 版大頭貼表情圖組', null],
+      ['assets/opt-work-illu-shark.webp', '鯊魚插畫', null],
+      ['assets/opt-work-illu-whaleshark.webp', '鯨鯊插畫', null],
+      ['assets/opt-work-illu-birthday.webp', '手寫字卡設計', null]
     ]
   },
   ui: {
-    num: '02', title: 'UI/UX', cover: 'assets/opt-work-angel-love.jpg',
+    num: '02', title: 'UI/UX', cover: 'assets/opt-work-angel-love.webp',
     tint: ['#D8E3EC','#E2E8EE','#CDD9E4','#E6EAED','#D2DCE6','#DDE5EB'],
     works: [
-      ['assets/ui-dragonnest-awaken.jpg', '新龍之谷－覺醒系統改版活動頁', 'https://amandalin218.github.io/test/20160318_IceDragoncome/index.html'],
-      ['assets/ui-dragonnest-machina.jpg', '新龍之谷－瑪奇娜新職業登場活動頁', 'https://amandalin218.github.io/test/20150717_machina/index.html'],
-      ['assets/ui-dragonnest-hero80.jpg', '新龍之谷－英雄 80 嶇起座談報名頁', 'https://amandalin218.github.io/test/20150616_meeting/index.html'],
-      ['assets/ui-saint-tianmeng.jpg', '聖鬥士－天猛之復生改版活動頁', 'https://amandalin218.github.io/test/20141204sy_web/index.html'],
-      ['assets/ui-queensblade-points.jpg', '女皇之刃－點數轉移公告頁', 'https://amandalin218.github.io/test/operation_20141031/index.html'],
-      ['assets/ui-wulin2.jpg', '武林 2－上市宣傳活動頁', 'https://amandalin218.github.io/test/20160621_ob/index.html'],
-      ['assets/ui-shushan-icefire.jpg', '蜀山縹渺錄－冰火集改版活動頁', 'https://amandalin218.github.io/test/20161222_ss_index/index.html'],
-      ['assets/ui-shushan-dragonboat.jpg', '蜀山縹渺錄－端午節活動頁', 'https://amandalin218.github.io/test/johnya_20180613/index.html'],
-      ['assets/ui-pw-territory.jpg', '完美世界－領土爭霸戰活動頁', 'https://amandalin218.github.io/test/20161222pw_index/index.html'],
-      ['assets/ui-pw-lingyun-guard.jpg', '完美世界 凌雲異界－守護永恆活動頁', 'https://amandalin218.github.io/test/20160728html/index.html'],
-      ['assets/ui-pw-lingyun-star.jpg', '完美世界 凌雲異界－星運滿點儲值活動頁', 'https://amandalin218.github.io/test/20160805/index.html'],
-      ['assets/ui-moonshadow-points.jpg', '月影傳說－點數轉移公告頁', 'https://amandalin218.github.io/test/operation_20141124/index.html'],
-      ['assets/ui-windfantasy-points.jpg', '風色幻想－點數轉移公告頁', 'https://amandalin218.github.io/test/ago_20140930/index.html'],
-      ['assets/ui-shiguang.jpg', '天使之戀－時光幻域改版活動頁', 'https://amandalin218.github.io/test/20160903AL/default.html'],
-      ['assets/ui-lingdong.jpg', '天使之戀－靈動幻境改版活動頁', 'https://amandalin218.github.io/test/AL_Web/default.html'],
-      ['assets/ui-garden.jpg', '天使之戀－花園夜事活動頁', 'https://amandalin218.github.io/test/flow_20150325/index.html'],
-      ['assets/ui-rainbow-card.jpg', '萌萌彩虹島－卡牌大師改版活動頁', 'https://amandalin218.github.io/test/howcom_20150804/index.html'],
-      ['assets/ui-rainbow-halloween.jpg', '萌萌彩虹島－萬聖驚魂夜活動頁', 'https://amandalin218.github.io/test/20141016index/index.html'],
-      ['assets/ui-rainbow-update.jpg', '萌萌彩虹島－改版活動頁面', 'https://amandalin218.github.io/test/20140811html/index.html'],
-      ['assets/ui-rainbow-park.jpg', '萌萌彩虹島－吉恩蒂亞公園改版頁', 'https://amandalin218.github.io/test/gpark_20141216_1/index.html'],
-      ['assets/ui-rainbow-points.jpg', '萌萌彩虹島－點數轉移公告頁', 'https://amandalin218.github.io/test/operation_20160715/index.html'],
-      ['assets/ui-aika-newyear.jpg', 'AIKA 芙蘭戰記－元月送好禮活動頁', 'https://amandalin218.github.io/test/jan_20150115/index.html'],
-      ['assets/ui-gf-newyear.jpg', 'GF 迎新春 2018 年節活動頁', 'https://amandalin218.github.io/test/20180109index/index.html'],
-      ['assets/ui-newparadise-redpack.jpg', '臺灣新樂園－百萬紅包年節活動頁', 'https://amandalin218.github.io/test/sp_20150210_all/index.html'],
-      ['assets/ui-starpower-candy.jpg', '星勢力－糖果虎點蚊香新年活動頁', 'https://amandalin218.github.io/test/20160105_newyear/index.html'],
-      ['assets/ui-gf-xmas.jpg', 'GF 雙誕嘉年華年度活動頁', 'https://amandalin218.github.io/test/chrica_20151222/index.html'],
-      ['assets/ui-lucky777.jpg', '樂享奇城－LUCKY 777 拉霸活動頁', 'https://amandalin218.github.io/test/201807_slot/index.html'],
-      ['assets/ui-coldjoke-familymart.jpg', '十萬個冷笑話－全家儲值好禮活動頁', 'https://amandalin218.github.io/test/20160121_mycard/index.html'],
-      ['assets/ui-coldjoke-mycard.jpg', '十萬個冷笑話－指定通路 MyCard 儲值活動頁', 'https://amandalin218.github.io/test/20180816_Mycardtw/index.html'],
-      ['assets/ui-tunshi-mycard.jpg', '吞食天地 M－MyCard 儲值活動頁', 'https://amandalin218.github.io/test/index/index.html'],
-      ['assets/ui-wy-yuji-site.jpg', '慾姬-官網', null],
-      ['assets/ui-wy-yuji-preorder.jpg', '慾姬-事前預約', null],
-      ['assets/ui-wy-bana-comic.jpg', 'Banabana 漫畫平台開幕頁面', null],
-      ['assets/ui-wy-bana-doujin.jpg', '妖界黃昏二創活動頁面', null],
-      ['assets/ui-wy-banabana-beast.jpg', '奇想之戰Ｒ-事前預約', null],
-      ['assets/ui-wy-win99.jpg', '印度博弈網站設計', null]
+      ['assets/ui-dragonnest-awaken.webp', '新龍之谷－覺醒系統改版活動頁', 'https://amandalin218.github.io/test/20160318_IceDragoncome/index.html'],
+      ['assets/ui-dragonnest-machina.webp', '新龍之谷－瑪奇娜新職業登場活動頁', 'https://amandalin218.github.io/test/20150717_machina/index.html'],
+      ['assets/ui-dragonnest-hero80.webp', '新龍之谷－英雄 80 嶇起座談報名頁', 'https://amandalin218.github.io/test/20150616_meeting/index.html'],
+      ['assets/ui-saint-tianmeng.webp', '聖鬥士－天猛之復生改版活動頁', 'https://amandalin218.github.io/test/20141204sy_web/index.html'],
+      ['assets/ui-queensblade-points.webp', '女皇之刃－點數轉移公告頁', 'https://amandalin218.github.io/test/operation_20141031/index.html'],
+      ['assets/ui-wulin2.webp', '武林 2－上市宣傳活動頁', 'https://amandalin218.github.io/test/20160621_ob/index.html'],
+      ['assets/ui-shushan-icefire.webp', '蜀山縹渺錄－冰火集改版活動頁', 'https://amandalin218.github.io/test/20161222_ss_index/index.html'],
+      ['assets/ui-shushan-dragonboat.webp', '蜀山縹渺錄－端午節活動頁', 'https://amandalin218.github.io/test/johnya_20180613/index.html'],
+      ['assets/ui-pw-territory.webp', '完美世界－領土爭霸戰活動頁', 'https://amandalin218.github.io/test/20161222pw_index/index.html'],
+      ['assets/ui-pw-lingyun-guard.webp', '完美世界 凌雲異界－守護永恆活動頁', 'https://amandalin218.github.io/test/20160728html/index.html'],
+      ['assets/ui-pw-lingyun-star.webp', '完美世界 凌雲異界－星運滿點儲值活動頁', 'https://amandalin218.github.io/test/20160805/index.html'],
+      ['assets/ui-moonshadow-points.webp', '月影傳說－點數轉移公告頁', 'https://amandalin218.github.io/test/operation_20141124/index.html'],
+      ['assets/ui-windfantasy-points.webp', '風色幻想－點數轉移公告頁', 'https://amandalin218.github.io/test/ago_20140930/index.html'],
+      ['assets/ui-shiguang.webp', '天使之戀－時光幻域改版活動頁', 'https://amandalin218.github.io/test/20160903AL/default.html'],
+      ['assets/ui-lingdong.webp', '天使之戀－靈動幻境改版活動頁', 'https://amandalin218.github.io/test/AL_Web/default.html'],
+      ['assets/ui-garden.webp', '天使之戀－花園夜事活動頁', 'https://amandalin218.github.io/test/flow_20150325/index.html'],
+      ['assets/ui-rainbow-card.webp', '萌萌彩虹島－卡牌大師改版活動頁', 'https://amandalin218.github.io/test/howcom_20150804/index.html'],
+      ['assets/ui-rainbow-halloween.webp', '萌萌彩虹島－萬聖驚魂夜活動頁', 'https://amandalin218.github.io/test/20141016index/index.html'],
+      ['assets/ui-rainbow-update.webp', '萌萌彩虹島－改版活動頁面', 'https://amandalin218.github.io/test/20140811html/index.html'],
+      ['assets/ui-rainbow-park.webp', '萌萌彩虹島－吉恩蒂亞公園改版頁', 'https://amandalin218.github.io/test/gpark_20141216_1/index.html'],
+      ['assets/ui-rainbow-points.webp', '萌萌彩虹島－點數轉移公告頁', 'https://amandalin218.github.io/test/operation_20160715/index.html'],
+      ['assets/ui-aika-newyear.webp', 'AIKA 芙蘭戰記－元月送好禮活動頁', 'https://amandalin218.github.io/test/jan_20150115/index.html'],
+      ['assets/ui-gf-newyear.webp', 'GF 迎新春 2018 年節活動頁', 'https://amandalin218.github.io/test/20180109index/index.html'],
+      ['assets/ui-newparadise-redpack.webp', '臺灣新樂園－百萬紅包年節活動頁', 'https://amandalin218.github.io/test/sp_20150210_all/index.html'],
+      ['assets/ui-starpower-candy.webp', '星勢力－糖果虎點蚊香新年活動頁', 'https://amandalin218.github.io/test/20160105_newyear/index.html'],
+      ['assets/ui-gf-xmas.webp', 'GF 雙誕嘉年華年度活動頁', 'https://amandalin218.github.io/test/chrica_20151222/index.html'],
+      ['assets/ui-lucky777.webp', '樂享奇城－LUCKY 777 拉霸活動頁', 'https://amandalin218.github.io/test/201807_slot/index.html'],
+      ['assets/ui-coldjoke-familymart.webp', '十萬個冷笑話－全家儲值好禮活動頁', 'https://amandalin218.github.io/test/20160121_mycard/index.html'],
+      ['assets/ui-coldjoke-mycard.webp', '十萬個冷笑話－指定通路 MyCard 儲值活動頁', 'https://amandalin218.github.io/test/20180816_Mycardtw/index.html'],
+      ['assets/ui-tunshi-mycard.webp', '吞食天地 M－MyCard 儲值活動頁', 'https://amandalin218.github.io/test/index/index.html'],
+      ['assets/ui-wy-yuji-site.webp', '慾姬-官網', null],
+      ['assets/ui-wy-yuji-preorder.webp', '慾姬-事前預約', null],
+      ['assets/ui-wy-bana-comic.webp', 'Banabana 漫畫平台開幕頁面', null],
+      ['assets/ui-wy-bana-doujin.webp', '妖界黃昏二創活動頁面', null],
+      ['assets/ui-wy-banabana-beast.webp', '奇想之戰Ｒ-事前預約', null],
+      ['assets/ui-wy-win99.webp', '印度博弈網站設計', null]
     ]
   },
   brand: {
-    num: '03', title: 'Brand', cover: 'assets/opt-work-banabana-2.jpg',
+    num: '03', title: 'Brand', cover: 'assets/opt-work-banabana-2.webp',
     tint: ['#F0E8DB','#E7DCC9','#F3EDE3','#E1D6C4','#EEE6D9','#E9DECD'],
     works: [
-      ['assets/opt-work-banabana-2.jpg', 'BanaBana 平台 LOGO 設計', null],
-      ['assets/opt-work-brand-poster.jpg', '金門風獅爺投稿得獎作品', null],
-      ['assets/opt-work-brand-card.jpg', '農機吉祥物造型設計', null],
-      ['assets/opt-work-brand-mujiguoliu.jpg', '「無印果流」流動劇團 Logo 提案', null],
-      ['assets/opt-work-brand-pay2go.jpg', '智付寶 LOGO 提案', null],
-      ['assets/opt-work-brand-app.jpg', '慾姬遊戲 LOGO 設計', null]
+      ['assets/opt-work-banabana-2.webp', 'BanaBana 平台 LOGO 設計', null],
+      ['assets/opt-work-brand-poster.webp', '金門風獅爺投稿得獎作品', null],
+      ['assets/opt-work-brand-card.webp', '農機吉祥物造型設計', null],
+      ['assets/opt-work-brand-mujiguoliu.webp', '「無印果流」流動劇團 Logo 提案', null],
+      ['assets/opt-work-brand-pay2go.webp', '智付寶 LOGO 提案', null],
+      ['assets/opt-work-brand-app.webp', '慾姬遊戲 LOGO 設計', null]
     ]
   },
   ad: {
-    num: '04', title: 'AD Creative', cover: 'assets/opt-work-yokai.jpg',
+    num: '04', title: 'AD Creative', cover: 'assets/opt-work-yokai.webp',
     tint: ['#E0DCE8','#D4CFE0','#E8E3F0','#CFC9DD','#DED8EA','#D9D3E4'],
     works: [
-      ['assets/ad-yokai-dusk-app.jpg', '妖界黃昏 APP AD', null],
-      ['assets/ad-yokai-ball-app.jpg', '妖怪滾珠 APP AD', null],
-      ['assets/ad-nirvana.jpg', '瑯琊榜 風起長林', null],
-      ['assets2/ad-eplay-summer.jpg', 'e-PLAY－瘋狂一夏', null],
-      ['assets/ad-zhengzhan.jpg', '龍戰四方', null],
-      ['assets/ad-pay2go-dogyear.jpg', '智付寶－狗年紅包活動', null],
-      ['assets/ad-pay2go-lantern.jpg', '智付寶 × 嘉義燈會', null],
-      ['assets/ad-pay2go-shop.jpg', '智付寶－網路商店消費', null],
-      ['assets/ad-slot-gold15.jpg', '遊戲大亂鬥 SLOT', null],
-      ['assets/ad-slot-caishen.jpg', '遊戲大亂鬥 SLOT', null],
-      ['assets/ad-slot-tianming.jpg', '遊戲大亂鬥 SLOT', null],
-      ['assets/ad-slot-myth.jpg', '遊戲大亂鬥 SLOT', null],
-      ['assets/ad-slot-xianxia.jpg', '遊戲大亂鬥 SLOT', null],
-      ['assets/ad-slot-comic.jpg', '遊戲大亂鬥 SLOT', null],
-      ['assets/ad-slot-food.jpg', '遊戲大亂鬥 SLOT', null],
-      ['assets/ad-slot-dragonboat.jpg', '遊戲大亂鬥 SLOT', null],
-      ['assets/ad-slot-fishing.jpg', 'BANA SLOT', null],
-      ['assets/ad-slot-xmas.jpg', '遊戲大亂鬥 SLOT', null],
-      ['assets/ad-slot-detective.jpg', '遊戲大亂鬥 SLOT', null],
-      ['assets/ad-slot-beauty.jpg', '遊戲大亂鬥 SLOT', null],
-      ['assets/ad-slot-koi.jpg', '遊戲大亂鬥 SLOT', null],
-      ['assets2/ad-bana-01.jpg', 'Banabana成人漫畫', null],  
-      ['assets2/ad-bana-02.jpg', 'Banabana成人漫畫', null],  // 待放圖 02
-      ['assets2/ad-bana-03.jpg', 'Banabana成人漫畫', null],  // 待放圖 03
-      ['assets2/ad-bana-04.jpg', 'Banabana成人漫畫', null],  // 待放圖 04
-      ['assets2/ad-bana-05.jpg', 'Banabana成人漫畫', null],  // 待放圖 05
-      ['assets2/ad-bana-06.jpg', 'Banabana成人漫畫', null],  // 待放圖 06
-      ['assets2/ad-bana-07.jpg', 'Banabana成人漫畫', null],  // 待放圖 07
-      ['assets2/ad-bana-08.jpg', 'Banabana成人漫畫', null],  // 待放圖 08
-      ['assets2/ad-bana-09.jpg', 'Banabana成人漫畫', null],  // 待放圖 09
-      ['assets2/ad-bana-10.jpg', 'Banabana成人漫畫', null],  // 待放圖 10
-      ['assets2/ad-bana-11.jpg', 'Banabana成人漫畫', null],  // 待放圖 11
-      ['assets2/ad-bana-12.jpg', 'Banabana成人漫畫', null],  // 待放圖 12
-      ['assets2/ad-bana-13.jpg', 'Banabana成人漫畫', null],  // 待放圖 13
-      ['assets2/ad-bana-14.jpg', 'Banabana成人漫畫', null],  // 待放圖 14
-      ['assets2/ad-bana-15.jpg', 'Banabana成人漫畫', null],  // 待放圖 15
-      ['assets2/ad-bana-16.jpg', 'Banabana成人漫畫', null],  // 待放圖 16
-      ['assets2/ad-bana-17.jpg', 'Banabana成人漫畫', null],  // 待放圖 17
-      ['assets2/ad-bana-18.jpg', 'Banabana成人漫畫', null],  // 待放圖 18
-      ['assets2/ad-bana-19.jpg', 'Banabana成人漫畫', null],  // 待放圖 19
-      ['assets2/ad-bana-20.jpg', 'Banabana成人漫畫', null],  // 待放圖 20
-      ['assets2/ad-bana-21.jpg', 'Banabana成人漫畫', null],  // 待放圖 21
-      ['assets2/ad-bana-22.jpg', 'Banabana成人漫畫', null],  // 待放圖 22
-      ['assets2/ad-bana-23.jpg', 'Banabana成人漫畫', null],  // 待放圖 23
-      ['assets2/ad-bana-24.jpg', 'Banabana成人漫畫', null],  // 待放圖 24
-      ['assets2/ad-bana-25.jpg', 'Banabana成人漫畫', null],  // 待放圖 25
-      ['assets2/ad-bana-26.jpg', 'Banabana成人漫畫', null],  // 待放圖 26
-      ['assets2/ad-bana-27.jpg', 'Banabana成人漫畫', null],  // 待放圖 27
-      ['assets2/ad-bana-28.jpg', 'Banabana成人漫畫', null],  // 待放圖 28
-      ['assets2/ad-bana-29.jpg', 'Banabana成人漫畫', null],  // 待放圖 29
-      ['assets2/ad-bana-30.jpg', 'Banabana成人漫畫', null],  // 待放圖 30
-      ['assets2/ad-bana-31.jpg', 'Banabana成人漫畫', null],  // 待放圖 31
-      ['assets2/ad-bana-32.jpg', 'Banabana成人漫畫', null],  
-      ['assets2/ad-bana-33.jpg', 'Banabana成人漫畫', null],  
+      ['assets/ad-yokai-dusk-app.webp', '妖界黃昏 APP AD', null],
+      ['assets/ad-yokai-ball-app.webp', '妖怪滾珠 APP AD', null],
+      ['assets/ad-nirvana.webp', '瑯琊榜 風起長林', null],
+      ['assets2/ad-eplay-summer.webp', 'e-PLAY－瘋狂一夏', null],
+      ['assets/ad-zhengzhan.webp', '龍戰四方', null],
+      ['assets/ad-pay2go-dogyear.webp', '智付寶－狗年紅包活動', null],
+      ['assets/ad-pay2go-lantern.webp', '智付寶 × 嘉義燈會', null],
+      ['assets/ad-pay2go-shop.webp', '智付寶－網路商店消費', null],
+      ['assets/ad-slot-gold15.webp', '遊戲大亂鬥 SLOT', null],
+      ['assets/ad-slot-caishen.webp', '遊戲大亂鬥 SLOT', null],
+      ['assets/ad-slot-tianming.webp', '遊戲大亂鬥 SLOT', null],
+      ['assets/ad-slot-myth.webp', '遊戲大亂鬥 SLOT', null],
+      ['assets/ad-slot-xianxia.webp', '遊戲大亂鬥 SLOT', null],
+      ['assets/ad-slot-comic.webp', '遊戲大亂鬥 SLOT', null],
+      ['assets/ad-slot-food.webp', '遊戲大亂鬥 SLOT', null],
+      ['assets/ad-slot-dragonboat.webp', '遊戲大亂鬥 SLOT', null],
+      ['assets/ad-slot-fishing.webp', 'BANA SLOT', null],
+      ['assets/ad-slot-xmas.webp', '遊戲大亂鬥 SLOT', null],
+      ['assets/ad-slot-detective.webp', '遊戲大亂鬥 SLOT', null],
+      ['assets/ad-slot-beauty.webp', '遊戲大亂鬥 SLOT', null],
+      ['assets/ad-slot-koi.webp', '遊戲大亂鬥 SLOT', null],
+      ['assets2/ad-bana-01.webp', 'Banabana成人漫畫', null],  
+      ['assets2/ad-bana-02.webp', 'Banabana成人漫畫', null],  // 待放圖 02
+      ['assets2/ad-bana-03.webp', 'Banabana成人漫畫', null],  // 待放圖 03
+      ['assets2/ad-bana-04.webp', 'Banabana成人漫畫', null],  // 待放圖 04
+      ['assets2/ad-bana-05.webp', 'Banabana成人漫畫', null],  // 待放圖 05
+      ['assets2/ad-bana-06.webp', 'Banabana成人漫畫', null],  // 待放圖 06
+      ['assets2/ad-bana-07.webp', 'Banabana成人漫畫', null],  // 待放圖 07
+      ['assets2/ad-bana-08.webp', 'Banabana成人漫畫', null],  // 待放圖 08
+      ['assets2/ad-bana-09.webp', 'Banabana成人漫畫', null],  // 待放圖 09
+      ['assets2/ad-bana-10.webp', 'Banabana成人漫畫', null],  // 待放圖 10
+      ['assets2/ad-bana-11.webp', 'Banabana成人漫畫', null],  // 待放圖 11
+      ['assets2/ad-bana-12.webp', 'Banabana成人漫畫', null],  // 待放圖 12
+      ['assets2/ad-bana-13.webp', 'Banabana成人漫畫', null],  // 待放圖 13
+      ['assets2/ad-bana-14.webp', 'Banabana成人漫畫', null],  // 待放圖 14
+      ['assets2/ad-bana-15.webp', 'Banabana成人漫畫', null],  // 待放圖 15
+      ['assets2/ad-bana-16.webp', 'Banabana成人漫畫', null],  // 待放圖 16
+      ['assets2/ad-bana-17.webp', 'Banabana成人漫畫', null],  // 待放圖 17
+      ['assets2/ad-bana-18.webp', 'Banabana成人漫畫', null],  // 待放圖 18
+      ['assets2/ad-bana-19.webp', 'Banabana成人漫畫', null],  // 待放圖 19
+      ['assets2/ad-bana-20.webp', 'Banabana成人漫畫', null],  // 待放圖 20
+      ['assets2/ad-bana-21.webp', 'Banabana成人漫畫', null],  // 待放圖 21
+      ['assets2/ad-bana-22.webp', 'Banabana成人漫畫', null],  // 待放圖 22
+      ['assets2/ad-bana-23.webp', 'Banabana成人漫畫', null],  // 待放圖 23
+      ['assets2/ad-bana-24.webp', 'Banabana成人漫畫', null],  // 待放圖 24
+      ['assets2/ad-bana-25.webp', 'Banabana成人漫畫', null],  // 待放圖 25
+      ['assets2/ad-bana-26.webp', 'Banabana成人漫畫', null],  // 待放圖 26
+      ['assets2/ad-bana-27.webp', 'Banabana成人漫畫', null],  // 待放圖 27
+      ['assets2/ad-bana-28.webp', 'Banabana成人漫畫', null],  // 待放圖 28
+      ['assets2/ad-bana-29.webp', 'Banabana成人漫畫', null],  // 待放圖 29
+      ['assets2/ad-bana-30.webp', 'Banabana成人漫畫', null],  // 待放圖 30
+      ['assets2/ad-bana-31.webp', 'Banabana成人漫畫', null],  // 待放圖 31
+      ['assets2/ad-bana-32.webp', 'Banabana成人漫畫', null],  
+      ['assets2/ad-bana-33.webp', 'Banabana成人漫畫', null],  
     ]
   },
   graphic: {
-    num: '05', title: 'Graphic', cover: 'assets/opt-work-recruit-dm.jpg',
+    num: '05', title: 'Graphic', cover: 'assets/opt-work-recruit-dm.webp',
     tint: ['#E4E7EA','#D9DEE3','#ECEFF1','#CED5DB','#E0E5E9','#D4DAE0'],
     works: [
-      ['assets/opt-work-recruit-dm.jpg', '華義 2025 校園徵才 DM－標準色版', null],
-      ['assets/opt-work-graphic-recruit-2025.jpg', '華義 2025 校園徵才 DM－妖界黃昏版', null],
-      ['assets/opt-work-graphic-lamungan.jpg', '新東陽南投服務區文宣插畫', null],
-      ['assets/opt-work-graphic-zhugong-postcards.jpg', '遊戲「主公你好壞」明信片套組', null],
-      ['assets/opt-work-graphic-theatre-dm.jpg', '無印果流流動劇團「主婦的米」明信片', null],
-      ['assets/opt-work-graphic-wedding-invite.jpg', '手繪婚禮邀請卡', null]
+      ['assets/opt-work-recruit-dm.webp', '華義 2025 校園徵才 DM－標準色版', null],
+      ['assets/opt-work-graphic-recruit-2025.webp', '華義 2025 校園徵才 DM－妖界黃昏版', null],
+      ['assets/opt-work-graphic-lamungan.webp', '新東陽南投服務區文宣插畫', null],
+      ['assets/opt-work-graphic-zhugong-postcards.webp', '遊戲「主公你好壞」明信片套組', null],
+      ['assets/opt-work-graphic-theatre-dm.webp', '無印果流流動劇團「主婦的米」明信片', null],
+      ['assets/opt-work-graphic-wedding-invite.webp', '手繪婚禮邀請卡', null]
     ]
   }
 }
