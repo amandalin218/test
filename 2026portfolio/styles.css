@@ -207,3 +207,26 @@ a:hover{color:#1D5D8C}
 @media(max-width:639px){.hero-art{width:100%!important}.hero-art-img{height:100%!important;object-fit:cover!important;object-position:-65% center!important;margin:0!important}.hero-text{align-items:flex-start!important;padding-top:4px!important}.hero-decor{display:none!important}.stat{flex:1 1 90px!important}.bio-btn{width:min(240px,100%)!important}.skills-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.skill-item{border-left:none!important;padding-left:0!important}.lb-thumbs{grid-auto-rows:56px}.lb-main{min-height:min(32vh,180px)}}
 /* Lightbox performance optimization */
 .lb-main-img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;opacity:0;transition:opacity .12s ease}.lb-main-img.is-loaded{opacity:1}.lb-main{contain:layout paint}
+
+
+/* Lightbox image loading message */
+.lb-main {
+  position: relative;
+}
+.lb-main.is-loading::before {
+  content: "圖片載入中…";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  pointer-events: none;
+  font-size: 14px;
+  letter-spacing: .08em;
+  opacity: .72;
+}
+.lb-main-img {
+  position: relative;
+  z-index: 1;
+}

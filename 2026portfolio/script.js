@@ -1,3 +1,10 @@
+
+/* Lightbox loading placeholder */
+function setLightboxLoadingState(el, loading) {
+  if (!el) return;
+  el.classList.toggle('is-loading', !!loading);
+}
+
 /* Amanda Lin Portfolio — 互動邏輯
    1. 作品資料（PROJECTS）
    2. 精選作品跳窗（分頁縮圖、OPEN PAGE、原圖放大）
