@@ -239,6 +239,28 @@ function preloadImage(src) {
   preloaded[src] = img;
 }
 
+/* 圖片下載完（或失敗）後執行 cb；已經下載好就立刻執行 */
+function whenLoaded(src, cb) {
+  preloadImage(src);
+  var img = preloaded[src];
+  if (!img || (img.complete && img.naturalWidth)) { cb(); return; }
+  img.addEventListener('load', cb, { once: true });
+  img.addEventListener('error', cb, { once: true });
+}
+
+/* 幫某個元素顯示「載入中…」，直到 src 下載完。
+   token 用來避免快速切換時，舊圖片載完把新圖片的提示拿掉 */
+function showLoading(node, src) {
+  if (!node) return;
+  if (!src) { node.classList.remove('is-loading'); return; }
+  var token = (node._loadToken || 0) + 1;
+  node._loadToken = token;
+  node.classList.add('is-loading');
+  whenLoaded(src, function () {
+    if (node._loadToken === token) node.classList.remove('is-loading');
+  });
+}
+
 /* 預先下載某一頁的縮圖 + 大圖 */
 function preloadPage(list, page) {
   var slice = list.slice(page * PAGE_SIZE, page * PAGE_SIZE + PAGE_SIZE);
@@ -265,6 +287,7 @@ function render() {
   el.main.style.backgroundImage = cur && cur.src
     ? 'url(' + cur.src + '), url(' + thumbOf(cur.src) + ')'
     : 'none';
+  showLoading(el.main, cur && cur.src);
   el.main.style.backgroundColor = cur && cur.src ? 'transparent' : (cur ? cur.color : '#EAF0F5');
   el.main.classList.toggle('has-link', !!(cur && cur.url));
   el.main.classList.toggle('is-zoomable', canZoom(cur));
@@ -280,7 +303,10 @@ function render() {
     var d = document.createElement('div');
     d.className = 'lb-thumb' + (i === state.index ? ' is-active' : '');
     d.style.backgroundColor = it.color;
-    if (it.src) d.style.backgroundImage = 'url(' + thumbOf(it.src) + ')';
+    if (it.src) {
+      d.style.backgroundImage = 'url(' + thumbOf(it.src) + ')';
+      showLoading(d, thumbOf(it.src));
+    }
     d.addEventListener('click', function () { state.index = i; render(); });
     el.thumbs.appendChild(d);
   });
@@ -333,6 +359,14 @@ document.querySelectorAll('.round-btn[data-open]').forEach(function (n) {
   n.addEventListener('touchstart', warm, { once: true, passive: true });
 });
 
+/* 首頁作品封面、ABOUT 照片（CSS 背景圖）：還沒載完就顯示「載入中…」 */
+function showBgLoading(node) {
+  var bg = getComputedStyle(node).backgroundImage;
+  var m = bg && bg.match(/url\(["']?(.*?)["']?\)/);
+  if (m) showLoading(node, m[1]);
+}
+document.querySelectorAll('.work-row figure, .about-image').forEach(showBgLoading);
+
 /* 頁面載入完、瀏覽器閒下來後，偷偷先把每個分類第一頁的縮圖抓好 */
 window.addEventListener('load', function () {
   var idle = window.requestIdleCallback || function (fn) { setTimeout(fn, 1500); };
@@ -356,6 +390,7 @@ el.main.addEventListener('click', function (e) {
   if (e.target.closest('.lb-link')) return;
   var cur = items(state.key)[state.index];
   if (!canZoom(cur)) return;
+  showLoading(el.zoomImg.parentNode, cur.src);
   el.zoomImg.src = cur.src;
   el.zoom.hidden = false;
 });
@@ -366,6 +401,8 @@ document.querySelectorAll('[data-bio]').forEach(function (n) {
   n.addEventListener('click', function () {
     el.bio.hidden = false;
     el.bio.classList.remove('is-closing');
+    var photo = el.bio.querySelector('.bio-photo');
+    if (photo) showBgLoading(photo);
   });
 });
 if (el.bio) {
