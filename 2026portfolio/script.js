@@ -237,9 +237,7 @@ function render() {
   var list = items(state.key);
   var cur = list[state.index];
   if (cur && cur.src) preloadImage(cur.src);
-  var nextItem = list[state.index + 1];
-  if (nextItem && nextItem.src) preloadImage(nextItem.src);
-  var pages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
+var pages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
   var page = Math.floor(state.index / PAGE_SIZE);
 
   el.main.style.backgroundImage = cur && cur.src ? 'url(' + cur.src + ')' : 'none';
