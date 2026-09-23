@@ -1,10 +1,3 @@
-
-/* Lightbox loading placeholder */
-function setLightboxLoadingState(el, loading) {
-  if (!el) return;
-  el.classList.toggle('is-loading', !!loading);
-}
-
 /* Amanda Lin Portfolio — 互動邏輯
    1. 作品資料（PROJECTS）
    2. 精選作品跳窗（分頁縮圖、OPEN PAGE、原圖放大）
@@ -239,10 +232,26 @@ function loadThumbsWhenIdle() {
   var run = function () {
     Array.prototype.forEach.call(el.thumbs.querySelectorAll('.lb-thumb[data-src]'), function (d) {
       var src = d.getAttribute('data-src');
-      if (src) {
-        d.style.backgroundImage = 'url("' + src.replace(/"/g, '\\"') + '")';
-        d.removeAttribute('data-src');
+      if (!src) return;
+
+      var img = d.querySelector('.lb-thumb-img');
+      if (!img) {
+        img = document.createElement('img');
+        img.className = 'lb-thumb-img';
+        img.alt = '';
+        img.decoding = 'async';
+        img.loading = 'lazy';
+        d.appendChild(img);
       }
+
+      img.onload = function () {
+        d.classList.add('is-loaded');
+      };
+      img.onerror = function () {
+        d.classList.add('is-loaded');
+      };
+      img.src = src;
+      d.removeAttribute('data-src');
     });
   };
   if (window.requestIdleCallback) window.requestIdleCallback(run, {timeout:800});
@@ -258,7 +267,7 @@ function render() {
   var page = Math.floor(state.index / PAGE_SIZE);
 
   el.main.style.backgroundImage = 'none';
-  el.main.style.backgroundColor = cur && cur.src ? 'transparent' : (cur ? cur.color : '#EAF0F5');
+  el.main.style.backgroundColor = cur ? cur.color : '#EAF0F5';
 
   var mainImg = el.main.querySelector('.lb-main-img');
   if (!mainImg) {
@@ -271,19 +280,23 @@ function render() {
   }
 
   mainImg.classList.remove('is-loaded');
+  el.main.classList.toggle('is-loading', !!(cur && cur.src));
   if (cur && cur.src) {
     mainImg.src = cur.src;
     if (mainImg.complete) {
       mainImg.classList.add('is-loaded');
+      el.main.classList.remove('is-loading');
       loadThumbsWhenIdle();
     } else {
       mainImg.onload = function () {
         mainImg.classList.add('is-loaded');
+        el.main.classList.remove('is-loading');
         loadThumbsWhenIdle();
       };
     }
   } else {
     mainImg.removeAttribute('src');
+    el.main.classList.remove('is-loading');
     loadThumbsWhenIdle();
   }
 
