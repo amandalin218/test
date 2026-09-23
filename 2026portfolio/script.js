@@ -152,6 +152,49 @@ const PROJECTS = {
   }
 }
 
+
+/* ---------- 1. 導覽列：依目前所在區域切換 active ---------- */
+const navLinks = Array.from(document.querySelectorAll('.nav-link[href^="#"]'));
+const navSections = ['home', 'works', 'about']
+  .map(function (id) { return document.getElementById(id); })
+  .filter(Boolean);
+
+function setActiveNav(id) {
+  navLinks.forEach(function (link) {
+    link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+  });
+}
+
+navLinks.forEach(function (link) {
+  link.addEventListener('click', function () {
+    var id = link.getAttribute('href').slice(1);
+    setActiveNav(id);
+  });
+});
+
+if (navSections.length && 'IntersectionObserver' in window) {
+  var navObserver = new IntersectionObserver(function (entries) {
+    var visible = entries
+      .filter(function (entry) { return entry.isIntersecting; })
+      .sort(function (a, b) { return b.intersectionRatio - a.intersectionRatio; });
+
+    if (visible.length) setActiveNav(visible[0].target.id);
+  }, {
+    rootMargin: '-22% 0px -58% 0px',
+    threshold: [0, 0.1, 0.25, 0.5]
+  });
+
+  navSections.forEach(function (section) { navObserver.observe(section); });
+}
+
+if (window.location.hash && navSections.some(function (section) {
+  return '#' + section.id === window.location.hash;
+})) {
+  setActiveNav(window.location.hash.slice(1));
+} else {
+  setActiveNav('home');
+}
+
 /* ---------- 2. 精選作品跳窗 ---------- */
 var PAGE_SIZE = 6;
 var state = { key: null, index: 0 };
@@ -256,7 +299,7 @@ function closeOverlay(node) {
   }, 300);
 }
 
-document.querySelectorAll('[data-open]').forEach(function (n) {
+document.querySelectorAll('.round-btn[data-open]').forEach(function (n) {
   n.addEventListener('click', function () { openGallery(n.getAttribute('data-open')); });
 });
 el.gallery.addEventListener('click', function (e) {
