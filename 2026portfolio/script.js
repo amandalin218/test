@@ -224,38 +224,26 @@ function items(key) {
   });
 }
 
-function preloadImage(src) {
-  // Lightbox no longer eagerly preloads images.
+/* 縮圖路徑：assets/xxx.webp → thumbs/assets/xxx.webp（寬高最大 360px） */
+function thumbOf(src) {
+  return src ? 'thumbs/' + src : null;
 }
 
-function loadThumbsWhenIdle() {
-  var run = function () {
-    Array.prototype.forEach.call(el.thumbs.querySelectorAll('.lb-thumb[data-src]'), function (d) {
-      var src = d.getAttribute('data-src');
-      if (!src) return;
+/* 預先下載圖片（同一張只會下載一次，並留在記憶體避免被回收） */
+var preloaded = {};
+function preloadImage(src) {
+  if (!src || preloaded[src]) return;
+  var img = new Image();
+  img.decoding = 'async';
+  img.src = src;
+  preloaded[src] = img;
+}
 
-      var img = d.querySelector('.lb-thumb-img');
-      if (!img) {
-        img = document.createElement('img');
-        img.className = 'lb-thumb-img';
-        img.alt = '';
-        img.decoding = 'async';
-        img.loading = 'lazy';
-        d.appendChild(img);
-      }
-
-      img.onload = function () {
-        d.classList.add('is-loaded');
-      };
-      img.onerror = function () {
-        d.classList.add('is-loaded');
-      };
-      img.src = src;
-      d.removeAttribute('data-src');
-    });
-  };
-  if (window.requestIdleCallback) window.requestIdleCallback(run, {timeout:800});
-  else setTimeout(run, 80);
+/* 預先下載某一頁的縮圖 + 大圖 */
+function preloadPage(list, page) {
+  var slice = list.slice(page * PAGE_SIZE, page * PAGE_SIZE + PAGE_SIZE);
+  slice.forEach(function (it) { preloadImage(thumbOf(it.src)); });
+  slice.forEach(function (it) { preloadImage(it.src); });
 }
 
 function render() {
@@ -266,40 +254,18 @@ function render() {
   var pages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
   var page = Math.floor(state.index / PAGE_SIZE);
 
-  el.main.style.backgroundImage = 'none';
-  el.main.style.backgroundColor = cur ? cur.color : '#EAF0F5';
+  // 先抓目前這張，再抓這一頁其他大圖，最後抓下一頁的縮圖
+  if (cur && cur.src) preloadImage(cur.src);
+  preloadPage(list, page);
+  list.slice((page + 1) * PAGE_SIZE, (page + 2) * PAGE_SIZE).forEach(function (it) {
+    preloadImage(thumbOf(it.src));
+  });
 
-  var mainImg = el.main.querySelector('.lb-main-img');
-  if (!mainImg) {
-    mainImg = document.createElement('img');
-    mainImg.className = 'lb-main-img';
-    mainImg.alt = '';
-    mainImg.decoding = 'async';
-    mainImg.setAttribute('fetchpriority', 'high');
-    el.main.insertBefore(mainImg, el.main.firstChild);
-  }
-
-  mainImg.classList.remove('is-loaded');
-  el.main.classList.toggle('is-loading', !!(cur && cur.src));
-  if (cur && cur.src) {
-    mainImg.src = cur.src;
-    if (mainImg.complete) {
-      mainImg.classList.add('is-loaded');
-      el.main.classList.remove('is-loading');
-      loadThumbsWhenIdle();
-    } else {
-      mainImg.onload = function () {
-        mainImg.classList.add('is-loaded');
-        el.main.classList.remove('is-loading');
-        loadThumbsWhenIdle();
-      };
-    }
-  } else {
-    mainImg.removeAttribute('src');
-    el.main.classList.remove('is-loading');
-    loadThumbsWhenIdle();
-  }
-
+  // 大圖疊兩層：上層原圖、下層縮圖。縮圖已經載好會先出現，原圖載完就蓋上去，不會空白
+  el.main.style.backgroundImage = cur && cur.src
+    ? 'url(' + cur.src + '), url(' + thumbOf(cur.src) + ')'
+    : 'none';
+  el.main.style.backgroundColor = cur && cur.src ? 'transparent' : (cur ? cur.color : '#EAF0F5');
   el.main.classList.toggle('has-link', !!(cur && cur.url));
   el.main.classList.toggle('is-zoomable', canZoom(cur));
   if (cur && cur.url) el.link.href = cur.url;
@@ -314,7 +280,7 @@ function render() {
     var d = document.createElement('div');
     d.className = 'lb-thumb' + (i === state.index ? ' is-active' : '');
     d.style.backgroundColor = it.color;
-    if (it.src) d.setAttribute('data-src', it.src);
+    if (it.src) d.style.backgroundImage = 'url(' + thumbOf(it.src) + ')';
     d.addEventListener('click', function () { state.index = i; render(); });
     el.thumbs.appendChild(d);
   });
@@ -357,6 +323,24 @@ function closeOverlay(node) {
 
 document.querySelectorAll('.round-btn[data-open]').forEach(function (n) {
   n.addEventListener('click', function () { openGallery(n.getAttribute('data-open')); });
+  // 滑鼠移到按鈕上（或手機手指按下）時就先開始下載第一頁，點開時多半已經好了
+  var warm = function () {
+    var list = items(n.getAttribute('data-open'));
+    list.slice(0, PAGE_SIZE).forEach(function (it) { preloadImage(thumbOf(it.src)); });
+    if (list[0]) preloadImage(list[0].src);
+  };
+  n.addEventListener('pointerenter', warm, { once: true });
+  n.addEventListener('touchstart', warm, { once: true, passive: true });
+});
+
+/* 頁面載入完、瀏覽器閒下來後，偷偷先把每個分類第一頁的縮圖抓好 */
+window.addEventListener('load', function () {
+  var idle = window.requestIdleCallback || function (fn) { setTimeout(fn, 1500); };
+  idle(function () {
+    Object.keys(PROJECTS).forEach(function (key) {
+      items(key).slice(0, PAGE_SIZE).forEach(function (it) { preloadImage(thumbOf(it.src)); });
+    });
+  });
 });
 el.gallery.addEventListener('click', function (e) {
   if (e.target === el.gallery) closeOverlay(el.gallery);
