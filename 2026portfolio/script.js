@@ -225,10 +225,21 @@ function items(key) {
 }
 
 function preloadImage(src) {
-  if (!src) return;
-  var img = new Image();
-  img.decoding = 'async';
-  img.src = src;
+  // Lightbox no longer eagerly preloads images.
+}
+
+function loadThumbsWhenIdle() {
+  var run = function () {
+    Array.prototype.forEach.call(el.thumbs.querySelectorAll('.lb-thumb[data-src]'), function (d) {
+      var src = d.getAttribute('data-src');
+      if (src) {
+        d.style.backgroundImage = 'url("' + src.replace(/"/g, '\\"') + '")';
+        d.removeAttribute('data-src');
+      }
+    });
+  };
+  if (window.requestIdleCallback) window.requestIdleCallback(run, {timeout:800});
+  else setTimeout(run, 80);
 }
 
 function render() {
@@ -236,12 +247,39 @@ function render() {
   if (!p) return;
   var list = items(state.key);
   var cur = list[state.index];
-  if (cur && cur.src) preloadImage(cur.src);
-var pages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
+  var pages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
   var page = Math.floor(state.index / PAGE_SIZE);
 
-  el.main.style.backgroundImage = cur && cur.src ? 'url(' + cur.src + ')' : 'none';
+  el.main.style.backgroundImage = 'none';
   el.main.style.backgroundColor = cur && cur.src ? 'transparent' : (cur ? cur.color : '#EAF0F5');
+
+  var mainImg = el.main.querySelector('.lb-main-img');
+  if (!mainImg) {
+    mainImg = document.createElement('img');
+    mainImg.className = 'lb-main-img';
+    mainImg.alt = '';
+    mainImg.decoding = 'async';
+    mainImg.setAttribute('fetchpriority', 'high');
+    el.main.insertBefore(mainImg, el.main.firstChild);
+  }
+
+  mainImg.classList.remove('is-loaded');
+  if (cur && cur.src) {
+    mainImg.src = cur.src;
+    if (mainImg.complete) {
+      mainImg.classList.add('is-loaded');
+      loadThumbsWhenIdle();
+    } else {
+      mainImg.onload = function () {
+        mainImg.classList.add('is-loaded');
+        loadThumbsWhenIdle();
+      };
+    }
+  } else {
+    mainImg.removeAttribute('src');
+    loadThumbsWhenIdle();
+  }
+
   el.main.classList.toggle('has-link', !!(cur && cur.url));
   el.main.classList.toggle('is-zoomable', canZoom(cur));
   if (cur && cur.url) el.link.href = cur.url;
@@ -256,7 +294,7 @@ var pages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
     var d = document.createElement('div');
     d.className = 'lb-thumb' + (i === state.index ? ' is-active' : '');
     d.style.backgroundColor = it.color;
-    if (it.src) d.style.backgroundImage = 'url(' + it.src + ')';
+    if (it.src) d.setAttribute('data-src', it.src);
     d.addEventListener('click', function () { state.index = i; render(); });
     el.thumbs.appendChild(d);
   });
