@@ -4,7 +4,8 @@
    3. ABOUT ME 跳窗
    4. 鍵盤操作（Tab / Enter / 空白鍵 / 方向鍵 / Esc） */
 
-// 作品資料：每一筆 = [圖片路徑, 副標, 連結(沒有就 null)]
+// 作品資料：每一筆 = [圖片路徑, 副標, 連結(沒有就 null), 'r18'(成人內容才加)]
+// 標了 'r18' 的作品，縮圖和大圖會先蓋上白色遮罩 + R18 標誌，點一次確認後才顯示
 // tint = 圖片還沒放上前的佔位色
 const PROJECTS = {
   illu: {
@@ -104,39 +105,39 @@ const PROJECTS = {
       ['assets/ad-slot-detective.webp', '遊戲大亂鬥 SLOT', null],
       ['assets/ad-slot-beauty.webp', '遊戲大亂鬥 SLOT', null],
       ['assets/ad-slot-koi.webp', '遊戲大亂鬥 SLOT', null],
-      ['assets2/ad-bana-01.webp', 'Banabana成人漫畫', null],  
-      ['assets2/ad-bana-02.webp', 'Banabana成人漫畫', null],  // 待放圖 02
-      ['assets2/ad-bana-03.webp', 'Banabana成人漫畫', null],  // 待放圖 03
-      ['assets2/ad-bana-04.webp', 'Banabana成人漫畫', null],  // 待放圖 04
-      ['assets2/ad-bana-05.webp', 'Banabana成人漫畫', null],  // 待放圖 05
-      ['assets2/ad-bana-06.webp', 'Banabana成人漫畫', null],  // 待放圖 06
-      ['assets2/ad-bana-07.webp', 'Banabana成人漫畫', null],  // 待放圖 07
-      ['assets2/ad-bana-08.webp', 'Banabana成人漫畫', null],  // 待放圖 08
-      ['assets2/ad-bana-09.webp', 'Banabana成人漫畫', null],  // 待放圖 09
-      ['assets2/ad-bana-10.webp', 'Banabana成人漫畫', null],  // 待放圖 10
-      ['assets2/ad-bana-11.webp', 'Banabana成人漫畫', null],  // 待放圖 11
-      ['assets2/ad-bana-12.webp', 'Banabana成人漫畫', null],  // 待放圖 12
-      ['assets2/ad-bana-13.webp', 'Banabana成人漫畫', null],  // 待放圖 13
-      ['assets2/ad-bana-14.webp', 'Banabana成人漫畫', null],  // 待放圖 14
-      ['assets2/ad-bana-15.webp', 'Banabana成人漫畫', null],  // 待放圖 15
-      ['assets2/ad-bana-16.webp', 'Banabana成人漫畫', null],  // 待放圖 16
-      ['assets2/ad-bana-17.webp', 'Banabana成人漫畫', null],  // 待放圖 17
-      ['assets2/ad-bana-18.webp', 'Banabana成人漫畫', null],  // 待放圖 18
-      ['assets2/ad-bana-19.webp', 'Banabana成人漫畫', null],  // 待放圖 19
-      ['assets2/ad-bana-20.webp', 'Banabana成人漫畫', null],  // 待放圖 20
-      ['assets2/ad-bana-21.webp', 'Banabana成人漫畫', null],  // 待放圖 21
-      ['assets2/ad-bana-22.webp', 'Banabana成人漫畫', null],  // 待放圖 22
-      ['assets2/ad-bana-23.webp', 'Banabana成人漫畫', null],  // 待放圖 23
-      ['assets2/ad-bana-24.webp', 'Banabana成人漫畫', null],  // 待放圖 24
-      ['assets2/ad-bana-25.webp', 'Banabana成人漫畫', null],  // 待放圖 25
-      ['assets2/ad-bana-26.webp', 'Banabana成人漫畫', null],  // 待放圖 26
-      ['assets2/ad-bana-27.webp', 'Banabana成人漫畫', null],  // 待放圖 27
-      ['assets2/ad-bana-28.webp', 'Banabana成人漫畫', null],  // 待放圖 28
-      ['assets2/ad-bana-29.webp', 'Banabana成人漫畫', null],  // 待放圖 29
-      ['assets2/ad-bana-30.webp', 'Banabana成人漫畫', null],  // 待放圖 30
-      ['assets2/ad-bana-31.webp', 'Banabana成人漫畫', null],  // 待放圖 31
-      ['assets2/ad-bana-32.webp', 'Banabana成人漫畫', null],  
-      ['assets2/ad-bana-33.webp', 'Banabana成人漫畫', null],  
+      ['assets2/ad-bana-01.webp', 'Banabana成人漫畫', null, 'r18'],  
+      ['assets2/ad-bana-02.webp', 'Banabana成人漫畫', null, 'r18'],  // 待放圖 02
+      ['assets2/ad-bana-03.webp', 'Banabana成人漫畫', null, 'r18'],  // 待放圖 03
+      ['assets2/ad-bana-04.webp', 'Banabana成人漫畫', null, 'r18'],  // 待放圖 04
+      ['assets2/ad-bana-05.webp', 'Banabana成人漫畫', null, 'r18'],  // 待放圖 05
+      ['assets2/ad-bana-06.webp', 'Banabana成人漫畫', null, 'r18'],  // 待放圖 06
+      ['assets2/ad-bana-07.webp', 'Banabana成人漫畫', null, 'r18'],  // 待放圖 07
+      ['assets2/ad-bana-08.webp', 'Banabana成人漫畫', null, 'r18'],  // 待放圖 08
+      ['assets2/ad-bana-09.webp', 'Banabana成人漫畫', null, 'r18'],  // 待放圖 09
+      ['assets2/ad-bana-10.webp', 'Banabana成人漫畫', null, 'r18'],  // 待放圖 10
+      ['assets2/ad-bana-11.webp', 'Banabana成人漫畫', null, 'r18'],  // 待放圖 11
+      ['assets2/ad-bana-12.webp', 'Banabana成人漫畫', null, 'r18'],  // 待放圖 12
+      ['assets2/ad-bana-13.webp', 'Banabana成人漫畫', null, 'r18'],  // 待放圖 13
+      ['assets2/ad-bana-14.webp', 'Banabana成人漫畫', null, 'r18'],  // 待放圖 14
+      ['assets2/ad-bana-15.webp', 'Banabana成人漫畫', null, 'r18'],  // 待放圖 15
+      ['assets2/ad-bana-16.webp', 'Banabana成人漫畫', null, 'r18'],  // 待放圖 16
+      ['assets2/ad-bana-17.webp', 'Banabana成人漫畫', null, 'r18'],  // 待放圖 17
+      ['assets2/ad-bana-18.webp', 'Banabana成人漫畫', null, 'r18'],  // 待放圖 18
+      ['assets2/ad-bana-19.webp', 'Banabana成人漫畫', null, 'r18'],  // 待放圖 19
+      ['assets2/ad-bana-20.webp', 'Banabana成人漫畫', null, 'r18'],  // 待放圖 20
+      ['assets2/ad-bana-21.webp', 'Banabana成人漫畫', null, 'r18'],  // 待放圖 21
+      ['assets2/ad-bana-22.webp', 'Banabana成人漫畫', null, 'r18'],  // 待放圖 22
+      ['assets2/ad-bana-23.webp', 'Banabana成人漫畫', null, 'r18'],  // 待放圖 23
+      ['assets2/ad-bana-24.webp', 'Banabana成人漫畫', null, 'r18'],  // 待放圖 24
+      ['assets2/ad-bana-25.webp', 'Banabana成人漫畫', null, 'r18'],  // 待放圖 25
+      ['assets2/ad-bana-26.webp', 'Banabana成人漫畫', null, 'r18'],  // 待放圖 26
+      ['assets2/ad-bana-27.webp', 'Banabana成人漫畫', null, 'r18'],  // 待放圖 27
+      ['assets2/ad-bana-28.webp', 'Banabana成人漫畫', null, 'r18'],  // 待放圖 28
+      ['assets2/ad-bana-29.webp', 'Banabana成人漫畫', null, 'r18'],  // 待放圖 29
+      ['assets2/ad-bana-30.webp', 'Banabana成人漫畫', null, 'r18'],  // 待放圖 30
+      ['assets2/ad-bana-31.webp', 'Banabana成人漫畫', null, 'r18'],  // 待放圖 31
+      ['assets2/ad-bana-32.webp', 'Banabana成人漫畫', null, 'r18'],  
+      ['assets2/ad-bana-33.webp', 'Banabana成人漫畫', null, 'r18'],  
     ]
   },
   graphic: {
@@ -199,11 +200,15 @@ if (window.location.hash && navSections.some(function (section) {
 /* ---------- 2. 精選作品跳窗 ---------- */
 var PAGE_SIZE = 6;
 var state = { key: null, index: 0 };
+// R18 作品：點一次「顯示」後，這次瀏覽（重新整理前）全部解鎖
+var r18Unlocked = false;
+function isLocked(it) { return !!(it && it.r18 && !r18Unlocked); }
 
 var el = {
   gallery: document.getElementById('gallery'),
   main: document.getElementById('lbMain'),
   link: document.getElementById('lbLink'),
+  r18: document.getElementById('lbR18'),
   thumbs: document.getElementById('lbThumbs'),
   num: document.getElementById('lbNum'),
   title: document.getElementById('lbTitle'),
@@ -221,7 +226,7 @@ function items(key) {
   var p = PROJECTS[key];
   if (!p) return [];
   return (p.works || []).map(function (w, i) {
-    return { src: w[0] || null, caption: w[1] || '', url: w[2] || null, color: p.tint[i % p.tint.length] };
+    return { src: w[0] || null, caption: w[1] || '', url: w[2] || null, r18: w[3] === 'r18', color: p.tint[i % p.tint.length] };
   });
 }
 
@@ -292,6 +297,8 @@ function render() {
   el.main.style.backgroundColor = cur && cur.src ? 'transparent' : (cur ? cur.color : '#EAF0F5');
   el.main.classList.toggle('has-link', !!(cur && cur.url));
   el.main.classList.toggle('is-zoomable', canZoom(cur));
+  // R18 遮罩：還沒解鎖就蓋住大圖
+  el.r18.hidden = !isLocked(cur);
   // 可以放大時，鍵盤也能用 Tab 選到大圖、按 Enter 放大
   if (canZoom(cur)) {
     el.main.setAttribute('role', 'button');
@@ -322,6 +329,12 @@ function render() {
       d.style.backgroundImage = 'url(' + thumbOf(it.src) + ')';
       showLoading(d, thumbOf(it.src));
     }
+    if (isLocked(it)) {
+      var m = document.createElement('div');
+      m.className = 'r18-mask';
+      m.innerHTML = '<img src="assets/r18.png" alt="R18">';
+      d.appendChild(m);
+    }
     d.addEventListener('click', function () {
       state.index = i;
       render();
@@ -340,7 +353,7 @@ function render() {
 
 /* 有圖片、且該筆沒有外部連結（有連結的改用 OPEN PAGE）時，就能點大圖看原圖 */
 function canZoom(cur) {
-  return !!(cur && cur.src && !cur.url);
+  return !!(cur && cur.src && !cur.url && !isLocked(cur));
 }
 
 /* 換到上一張 / 下一張（鍵盤方向鍵、手機滑動共用） */
@@ -444,6 +457,14 @@ el.main.addEventListener('touchend', function (e) {
   var dy = e.changedTouches[0].clientY - touchStart.y;
   touchStart = null;
   if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.5) step(dx < 0 ? 1 : -1);
+});
+
+/* R18 遮罩：點了就解鎖全部 R18 作品 */
+el.r18.addEventListener('click', function (e) {
+  e.stopPropagation();
+  r18Unlocked = true;
+  render();
+  if (canZoom(items(state.key)[state.index])) el.main.focus({ preventScroll: true });
 });
 
 /* 大圖 → 原圖放大 */
