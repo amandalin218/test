@@ -348,15 +348,21 @@ function closeOverlay(node) {
 }
 
 document.querySelectorAll('.round-btn[data-open]').forEach(function (n) {
-  n.addEventListener('click', function () { openGallery(n.getAttribute('data-open')); });
+  var key = n.getAttribute('data-open');
+  // 「→」按鈕和同一列的封面圖，點了都會打開跳窗
+  var cover = n.closest('.work-row') && n.closest('.work-row').querySelector('figure');
   // 滑鼠移到按鈕上（或手機手指按下）時就先開始下載第一頁，點開時多半已經好了
   var warm = function () {
-    var list = items(n.getAttribute('data-open'));
+    var list = items(key);
     list.slice(0, PAGE_SIZE).forEach(function (it) { preloadImage(thumbOf(it.src)); });
     if (list[0]) preloadImage(list[0].src);
   };
-  n.addEventListener('pointerenter', warm, { once: true });
-  n.addEventListener('touchstart', warm, { once: true, passive: true });
+  [n, cover].filter(Boolean).forEach(function (t) {
+    t.addEventListener('click', function () { openGallery(key); });
+    t.addEventListener('pointerenter', warm, { once: true });
+    t.addEventListener('touchstart', warm, { once: true, passive: true });
+  });
+  if (cover) cover.classList.add('is-clickable');
 });
 
 /* 首頁作品封面、ABOUT 照片（CSS 背景圖）：還沒載完就顯示「載入中…」 */

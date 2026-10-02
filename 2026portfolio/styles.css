@@ -151,6 +151,8 @@ a:hover{color:#1D5D8C}
 .nav-link:hover{color:#16324A;border-bottom-color:#16324A}
 .round-btn{transition:background .2s ease,color .2s ease}
 .round-btn:hover{background:#1B2E44;color:#FFFFFF;border-color:#1B2E44}
+.work-row figure.is-clickable{cursor:pointer; transition:opacity .2s ease}
+.work-row figure.is-clickable:hover{opacity:.85}
 .bio-btn:hover{background:#16324A;color:#FFFFFF}
 .email-btn:hover{background:#FFFFFF;color:#16324A;border-color:#16324A}
 .bio-x:hover{background:#16324A;color:#FFFFFF}
