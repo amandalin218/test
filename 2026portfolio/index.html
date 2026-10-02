@@ -12,6 +12,14 @@
 <meta content="Amanda Lin — Design · Illustration · Creative" property="og:title"/>
 <meta content="Amanda Lin — Visual Designer &amp; Illustrator specializing in game, web, UI, graphic design and digital advertising." property="og:description"/>
 <meta content="https://amandalin218.github.io/test/2026portfolio/index.html" property="og:url"/>
+<meta content="https://amandalin218.github.io/test/2026portfolio/assets/og-image.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="Amanda Lin — Design As a Bridge Between People" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="apple-touch-icon.png" rel="apple-touch-icon"/>
 <link as="image" fetchpriority="high" href="assets/opt-hero-ocean.webp" rel="preload"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -91,7 +99,7 @@
 <div class="work-tags">
 <div class="work-tag-list"><span># ILLUSTRATION</span><span># CHARACTER</span></div>
 </div>
-<div class="round-btn" data-open="illu">→</div>
+<div aria-label="開啟 Illustration 作品" class="round-btn" data-open="illu" role="button" tabindex="0">→</div>
 </div>
 <div class="work-row">
 <figure class="work-cover02"></figure>
@@ -103,7 +111,7 @@
 <div class="work-tags">
 <div class="work-tag-list"><span># WEB DESIGN</span><span># VISUAL</span></div>
 </div>
-<div class="round-btn" data-open="ui">→</div>
+<div aria-label="開啟 Web / UI 作品" class="round-btn" data-open="ui" role="button" tabindex="0">→</div>
 </div>
 <div class="work-row">
 <figure class="work-cover03"></figure>
@@ -115,7 +123,7 @@
 <div class="work-tags">
 <div class="work-tag-list"><span># BRAND IDENTITY</span><span># LOGO</span><span># CHARACTER DESIGN</span></div>
 </div>
-<div class="round-btn" data-open="brand">→</div>
+<div aria-label="開啟 Brand/LOGO 作品" class="round-btn" data-open="brand" role="button" tabindex="0">→</div>
 </div>
 <div class="work-row">
 <figure class="work-cover04"></figure>
@@ -127,7 +135,7 @@
 <div class="work-tags">
 <div class="work-tag-list"><span># AD CREATIVE</span><span>#BANNER</span><span># GAME</span><span># 18+ CONTENT</span></div>
 </div>
-<div class="round-btn" data-open="ad">→</div>
+<div aria-label="開啟 Game/AD Creative 作品" class="round-btn" data-open="ad" role="button" tabindex="0">→</div>
 </div>
 <div class="work-row work-row-last">
 <figure class="work-cover05"></figure>
@@ -139,7 +147,7 @@
 <div class="work-tags">
 <div class="work-tag-list"><span># GRAPHIC DESIGN</span><span># PRINT</span></div>
 </div>
-<div class="round-btn" data-open="graphic">→</div>
+<div aria-label="開啟 Graphic Design 作品" class="round-btn" data-open="graphic" role="button" tabindex="0">→</div>
 </div>
 </div>
 </div>
@@ -175,7 +183,7 @@
 <div class="stat-label">GAME TITLES</div>
 </div>
 </div>
-<div class="bio-btn" data-bio="1">MORE ABOUT ME <span>→</span></div>
+<div class="bio-btn" data-bio="1" role="button" tabindex="0">MORE ABOUT ME <span aria-hidden="true">→</span></div>
 </div>
 </div>
 </section>
@@ -229,9 +237,9 @@
 </div>
 <div class="footer-copy">© 2026 Amanda Lin. All rights reserved.</div>
 </footer>
-<div class="overlay bio-overlay" hidden="" id="bio">
+<div aria-label="About Amanda Lin" aria-modal="true" class="overlay bio-overlay" hidden="" id="bio" role="dialog">
 <div class="bio-panel bio-panel">
-<div class="bio-x js-close bio-close">×</div>
+<div aria-label="關閉" class="bio-x js-close bio-close" role="button" tabindex="0">×</div>
 <div class="bio-grid">
 <div class="bio-photo"></div>
 <div>
@@ -344,9 +352,9 @@
 </div>
 </div>
 </div>
-<div class="overlay lb-overlay" hidden="" id="gallery">
+<div aria-labelledby="lbTitle" aria-modal="true" class="overlay lb-overlay" hidden="" id="gallery" role="dialog">
 <div class="lb-panel">
-<div class="lb-bar"><div class="lb-x" data-close="gallery">×</div></div>
+<div class="lb-bar"><div aria-label="關閉" class="lb-x" data-close="gallery" role="button" tabindex="0">×</div></div>
 <div class="lb-grid">
 <div class="lb-main" id="lbMain">
 <a class="lb-link" id="lbLink" rel="noopener" target="_blank">OPEN PAGE <span>↗</span></a>
@@ -358,16 +366,16 @@
 <div class="lb-cap" id="lbCap"></div>
 </div>
 <div class="lb-nav" id="lbNav">
-<div class="lb-arrow" id="lbPrev">←</div>
+<div aria-label="上一頁" class="lb-arrow" id="lbPrev" role="button" tabindex="0">←</div>
 <div class="lb-count" id="lbCount"></div>
-<div class="lb-arrow" id="lbNext">→</div>
+<div aria-label="下一頁" class="lb-arrow" id="lbNext" role="button" tabindex="0">→</div>
 </div>
 </div>
 </div>
 </div>
-<div class="zoom-overlay" hidden="" id="zoom">
+<div aria-label="原圖" aria-modal="true" class="zoom-overlay" hidden="" id="zoom" role="dialog">
 <div class="zoom-inner"><img alt="" id="zoomImg"/></div>
-<div class="zoom-x" data-close="zoom">✕</div>
+<div aria-label="關閉" class="zoom-x" data-close="zoom" role="button" tabindex="0">✕</div>
 </div>
 <script src="script.js"></script>
 </body>
