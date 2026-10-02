@@ -101,7 +101,7 @@ a:hover{color:#1D5D8C}
 .footer-copy{font-size:.72rem; color:#3B566E; font-weight:300}
 .bio-overlay{position:fixed; inset:0; background:rgba(14,44,70,.72); backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px); display:flex; justify-content:center; align-items:flex-start; z-index:1000; padding:10px clamp(10px,4vw,40px) 0}
 .bio-panel{position:relative; box-sizing:border-box; width:min(900px,100%); max-height:calc(100vh - 10px); overflow-y:auto; background:#FBFDFE; padding:35px clamp(18px,4vw,44px) 44px; box-shadow:0 24px 70px rgba(10,36,60,.35)}
-.bio-close{position:absolute; top:20px; right:22px; width:34px; height:34px; border-radius:50%; border:1px solid rgba(22,50,74,.3); color:#16324A; display:flex; align-items:center; justify-content:center; font-size:1.1rem; cursor:pointer; user-select:none; z-index:5; background:rgba(251,253,254,.92)}
+.bio-close{position:absolute; top:20px; right:22px; width:34px; height:34px; border-radius:50%; color:#16324A; display:flex; align-items:center; justify-content:center; font-size:1.1rem; cursor:pointer; user-select:none; z-index:5; background:rgba(251,253,254,.92)}
 .bio-photo{width:100%; max-width:100%; min-width:0; height:100%; min-height:250px; align-self:stretch; background-image:url('assets/opt-about-portrait.webp'); background-size:cover; background-position:center 22%}
 .bio-eyebrow, .journey-eyebrow{font-family:'Inter',sans-serif; font-size:.68rem; letter-spacing:.24em; color:#4E6478; font-weight:500}
 .bio-section-rule, .journey-heading-row{display:flex; align-items:center; gap:16px}
