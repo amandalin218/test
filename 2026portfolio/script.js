@@ -9,7 +9,7 @@
 // tint = 圖片還沒放上前的佔位色
 const PROJECTS = {
   illu: {
-    num: '01', title: 'Illustration', cover: 'assets/opt-work-cat-coffee.webp',
+    num: '05', title: 'Illustration', cover: 'assets/opt-work-cat-coffee.webp',
     tint: ['#DCE7EF','#CBDCE8','#E3E9E2','#D5DEE9','#E8DFD8','#CFD9E3'],
     works: [
       ['assets/opt-work-cat-coffee.webp', '貓咪插畫', null],
@@ -27,7 +27,7 @@ const PROJECTS = {
     ]
   },
   ui: {
-    num: '02', title: 'UI/UX', cover: 'assets/opt-work-angel-love.webp',
+    num: '01', title: 'UI/UX', cover: 'assets/opt-work-angel-love.webp',
     tint: ['#D8E3EC','#E2E8EE','#CDD9E4','#E6EAED','#D2DCE6','#DDE5EB'],
     works: [
       ['assets/ui-dragonnest-awaken.webp', '新龍之谷－覺醒系統改版活動頁', 'https://amandalin218.github.io/test/20160318_IceDragoncome/index.html'],
@@ -81,7 +81,7 @@ const PROJECTS = {
     ]
   },
   ad: {
-    num: '04', title: 'AD Creative', cover: 'assets/opt-work-yokai.webp',
+    num: '02', title: 'AD Creative', cover: 'assets/opt-work-yokai.webp',
     tint: ['#E0DCE8','#D4CFE0','#E8E3F0','#CFC9DD','#DED8EA','#D9D3E4'],
     works: [
       ['assets/ad-yokai-dusk-app.webp', '妖界黃昏 APP AD', null],
@@ -141,7 +141,7 @@ const PROJECTS = {
     ]
   },
   graphic: {
-    num: '05', title: 'Graphic', cover: 'assets/opt-work-recruit-dm.webp',
+    num: '04', title: 'Graphic', cover: 'assets/opt-work-recruit-dm.webp',
     tint: ['#E4E7EA','#D9DEE3','#ECEFF1','#CED5DB','#E0E5E9','#D4DAE0'],
     works: [
       ['assets/opt-work-recruit-dm.webp', '華義 2025 校園徵才 DM－標準色版', null],
