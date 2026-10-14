@@ -10,10 +10,10 @@ const PROJECTS = {
     tint: ['#DCE7EF','#CBDCE8','#E3E9E2','#D5DEE9','#E8DFD8','#CFD9E3'],
     works: [
       ['assets/opt-work-cat-coffee.webp', '貓咪插畫', null],
-      ['assets/opt-work-illu-cafe-chat.webp', '人物插畫', null],
+      ['assets/opt-work-illu-macbookpro.webp', 'Mr. MacBook Pro 擬人插畫', null],
       ['assets/opt-work-illu-sisters.webp', '人物插畫', null],
       ['assets/opt-work-illu-ginkgo.webp', '人物插畫', null],
-      ['assets/opt-work-illu-macbookpro.webp', 'Mr. MacBook Pro 擬人插畫', null],
+      ['assets/opt-work-illu-cafe-chat.webp', '人物插畫', null],
       ['assets/opt-work-illu-red-beret.webp', '紅帽女孩跟練畫', null],
       ['assets/opt-work-illu-camera-girl.webp', '攝影女孩跟練畫', null],
       ['assets/opt-work-illu-zodiac.webp', '十二星座 Q 版角色插畫', null],
