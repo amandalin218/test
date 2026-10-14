@@ -49,25 +49,30 @@
     return { src: w[0], caption: w[1] || '', url: w[2] || null, r18: w[3] === 'r18' };
   });
 
-  /* ---------- 1. 分類切換列 ---------- */
+  /* ---------- 1. 分類切換列：「作品分類」＋ 01–05 編號，整組放在圓角框裡 ---------- */
   (function buildSwitch() {
     var nav = document.getElementById('catSwitch');
     if (!nav) return;
-    CATS.forEach(function (c) {
+    nav.appendChild(make('span', 'cat-switch-label', '作品分類'));
+    var list = make('div', 'cat-switch-list');
+    CATS.forEach(function (c, i) {
       var node;
       if (c.key === catKey) {
-        node = make('span', null, c.label);
+        node = make('span', null);
         node.setAttribute('aria-current', 'page');
       } else if (BUILT.indexOf(c.key) !== -1) {
-        node = make('a', null, c.label);
+        node = make('a', null);
         node.href = c.href;
       } else {
-        node = make('span', 'is-soon', c.label);
+        node = make('span', 'is-soon');
         node.title = '即將推出';
-        node.appendChild(make('i', null, 'SOON'));
       }
-      nav.appendChild(node);
+      node.appendChild(make('i', 'cat-no', pad2(i + 1)));
+      node.appendChild(document.createTextNode(c.label));
+      if (node.className === 'is-soon') node.appendChild(make('em', null, 'SOON'));
+      list.appendChild(node);
     });
+    nav.appendChild(list);
   })();
 
   var count = document.getElementById('catCount');
