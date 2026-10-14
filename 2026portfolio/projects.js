@@ -15,10 +15,10 @@ const PROJECTS = {
       ['assets/opt-work-illu-ginkgo.webp', '人物插畫', null],
       ['assets/opt-work-illu-red-beret.webp', '紅帽女孩跟練畫', null],
       ['assets/opt-work-illu-cafe-chat.webp', '人物插畫', null],
-      ['assets/opt-work-illu-camera-girl.webp', '攝影女孩跟練畫', null],
+      ['assets/opt-work-illu-shark.webp', '鯊魚插畫', null],
       ['assets/opt-work-illu-zodiac.webp', '十二星座 Q 版角色插畫', null],
       ['assets/opt-work-illu-stickers.webp', 'Q 版大頭貼表情圖組', null],
-      ['assets/opt-work-illu-shark.webp', '鯊魚插畫', null],
+      ['assets/opt-work-illu-camera-girl.webp', '攝影女孩跟練畫', null],
       ['assets/opt-work-illu-whaleshark.webp', '鯨鯊插畫', null],
       ['assets/opt-work-illu-birthday.webp', '手寫字卡設計', null]
     ]
