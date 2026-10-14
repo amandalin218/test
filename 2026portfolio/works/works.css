@@ -58,8 +58,8 @@ a.work-media{cursor:pointer}
 
 /* ---------- 18+ 區（只有 AD 頁有）---------- */
 .r18-section{margin-top:clamp(8px,2vw,20px); padding-top:clamp(28px,4vw,48px); border-top:1px solid rgba(22,50,74,.12)}
-.r18-gate{display:flex; align-items:center; justify-content:center; gap:clamp(14px,2.4vw,26px); width:100%; box-sizing:border-box; padding:clamp(28px,5vw,52px) 20px; border:1px dashed #9AA8B6; background:#FFC9ED; color:#16324A; font:inherit; cursor:pointer; text-align:left; transition:background .2s ease, border-color .2s ease}
-.r18-gate:hover,.r18-gate:focus-visible{background:#FFB8E6; border-color:#16324A; outline:none}
+.r18-gate{display:flex; align-items:center; justify-content:center; gap:clamp(14px,2.4vw,26px); width:100%; box-sizing:border-box; padding:clamp(28px,5vw,52px) 20px; border:1px dashed #B9A3AF; background:#F1E6EB; color:#16324A; font:inherit; cursor:pointer; text-align:left; transition:background .2s ease, border-color .2s ease}
+.r18-gate:hover,.r18-gate:focus-visible{background:#E9DAE1; border-color:#16324A; outline:none}
 .r18-gate-icon{width:clamp(44px,6vw,64px); height:auto; display:block}
 .r18-gate-text{display:flex; flex-direction:column; gap:6px}
 .r18-gate-text b,.r18-head b{font-family:'Inter',sans-serif; font-size:.9rem; letter-spacing:.2em; font-weight:700}
