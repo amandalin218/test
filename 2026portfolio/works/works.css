@@ -9,8 +9,7 @@
 .cat-wrap{max-width:1280px; margin:0 auto; padding:0 clamp(16px,4vw,44px)}
 
 /* ---------- 頁首：返回、標題、分類切換 ---------- */
-.cat-hero{padding:clamp(28px,5vw,56px) 0 clamp(20px,3vw,32px)}
-.cat-hero .back-btn{display:flex; width:fit-content; margin-left:auto}
+.cat-hero{padding:clamp(8px,2vw,24px) 0 clamp(20px,3vw,32px)}
 .cat-title-row{display:flex; align-items:flex-end; gap:clamp(16px,3vw,36px); flex-wrap:wrap; margin-top:clamp(22px,3.4vw,38px)}
 .cat-number{font-family:'Playfair Display',serif; font-size:clamp(1rem,2vw,1.2rem); letter-spacing:.08em; color:#5B7183; padding-bottom:.9em}
 .cat-title{font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(2.2rem,7vw,4rem); line-height:1.05; letter-spacing:.02em; margin:0; color:#1B2E44}
@@ -69,11 +68,8 @@ a.work-media{cursor:pointer}
 .r18-head{display:flex; align-items:baseline; gap:16px; margin-bottom:clamp(20px,3vw,32px); color:#16324A}
 
 /* ---------- 頁尾返回 ---------- */
-.cat-end{display:flex; justify-content:flex-end; margin:clamp(40px,7vw,80px) 0 clamp(40px,6vw,72px)}
-/* 頁首與頁尾的返回按鈕共用同一個樣式（大小、框線完全一樣） */
-.back-btn{display:inline-flex; align-items:center; gap:14px; border:1px solid #16324A; padding:11px 20px; font-family:'Inter',sans-serif; font-size:.72rem; letter-spacing:.18em; font-weight:600; color:#16324A; background:transparent; transition:background .2s ease, color .2s ease}
-.back-btn span{font-family:'Noto Sans TC','Inter',sans-serif; font-weight:500; letter-spacing:.12em; padding-left:14px; border-left:1px solid currentColor; opacity:.85}
-.back-btn:hover{background:#16324A; color:#fff}
+/* 頂端導覽列的返回連結：樣式沿用首頁的 .nav-link（滑過會出現底線），中文小字接在後面 */
+.nav-back span{font-family:'Noto Sans TC','Inter',sans-serif; font-weight:500; letter-spacing:.12em; margin-left:12px; padding-left:12px; border-left:1px solid rgba(22,50,74,.3)}
 .cat-noscript{text-align:center; color:#6B8093; font-size:.9rem}
 
 /* ---------- 原圖放大（只給沒有外部連結的作品用） ---------- */
@@ -99,8 +95,6 @@ html.zoom-open{overflow:hidden}
 
 /* ---------- 手機 ---------- */
 @media (max-width:720px){
-  .back-btn{gap:10px; padding:11px 12px; letter-spacing:.1em}
-  .back-btn span{padding-left:10px; letter-spacing:.06em}
   .works-grid,.works-grid[data-cols="3"]{grid-template-columns:minmax(0,1fr)}
   .cat-meta{flex:1 1 100%; margin-left:0; align-items:flex-start; text-align:left; padding-bottom:0}
   .cat-tags{justify-content:flex-start}
@@ -113,6 +107,6 @@ html.zoom-open{overflow:hidden}
 }
 
 @media (prefers-reduced-motion:reduce){
-  .work-media img,.work-action,.back-btn,.zoom-btn{transition:none}
+  .work-media img,.work-action,.zoom-btn{transition:none}
   .work-media:hover img{transform:none}
 }
