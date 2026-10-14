@@ -24,6 +24,7 @@
   var project = (typeof PROJECTS !== 'undefined') ? PROJECTS[catKey] : null;
   var grid = document.getElementById('worksGrid');
   var r18Unlocked = false;
+  var displayNo = [];   // 作品編號：依畫面上的位置（由上到下、由左到右）排，不是資料檔的順序
 
   function make(tag, cls, text) {
     var n = document.createElement(tag);
@@ -75,6 +76,7 @@
   /* ---------- 2. 作品格狀排列 ---------- */
   function buildCard(it, i) {
     var card = make('figure', 'work-card');
+    card.setAttribute('data-i', i);
     var media;
 
     if (it.url) {
@@ -102,7 +104,7 @@
     card.appendChild(media);
 
     var cap = make('figcaption', 'work-cap');
-    cap.appendChild(make('span', 'work-no', pad2(i + 1)));
+    cap.appendChild(make('span', 'work-no', pad2(displayNo[i] || i + 1)));
     var name = make('span', 'work-name');
     var parts = splitCaption(it.caption);
     name.appendChild(make('b', null, parts.title));
@@ -119,6 +121,33 @@
   var allGrids = [];
   function setSpan(card) {
     card.style.gridRowEnd = 'span ' + Math.max(1, Math.ceil(card.getBoundingClientRect().height / ROW));
+    scheduleRenumber();
+  }
+
+  /* 編號依畫面位置重排：同一個格狀區內，先比上緣、再比左緣。
+     欄數或圖片高度改變、視窗縮放後都會重算 */
+  var renumberQueued = false;
+  function scheduleRenumber() {
+    if (renumberQueued) return;
+    renumberQueued = true;
+    requestAnimationFrame(function () { renumberQueued = false; renumber(); });
+  }
+  function renumber() {
+    var n = 0;
+    allGrids.forEach(function (g) {
+      var list = Array.prototype.map.call(g.children, function (card) {
+        var r = card.getBoundingClientRect();
+        return { card: card, top: Math.round(r.top), left: Math.round(r.left), i: +card.getAttribute('data-i') };
+      });
+      list.sort(function (a, b) { return (a.top - b.top) || (a.left - b.left); });
+      list.forEach(function (o) {
+        n++;
+        displayNo[o.i] = n;
+        var no = o.card.querySelector('.work-no');
+        var t = pad2(n);
+        if (no && no.textContent !== t) no.textContent = t;
+      });
+    });
   }
   var watcher = (typeof ResizeObserver === 'function')
     ? new ResizeObserver(function (entries) { entries.forEach(function (en) { setSpan(en.target); }); })
@@ -194,6 +223,7 @@
     items.forEach(function (it, i) {
       if (!it.url && (!it.r18 || r18Unlocked)) zoomList.push(i);
     });
+    zoomList.sort(function (a, b) { return (displayNo[a] || a + 1) - (displayNo[b] || b + 1); });
   }
 
   function showZoom() {
@@ -202,7 +232,7 @@
     zoomImg.src = BASE + it.src;
     zoomImg.alt = it.caption;
     zoomCap.textContent = '';
-    zoomCap.appendChild(make('span', 'zoom-no', pad2(i + 1)));
+    zoomCap.appendChild(make('span', 'zoom-no', pad2(displayNo[i] || i + 1)));
     zoomCap.appendChild(document.createTextNode(it.caption));
     var many = zoomList.length > 1;
     btnPrev.hidden = !many;
