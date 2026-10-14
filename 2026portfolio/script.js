@@ -1,10 +1,8 @@
-/* Amanda Lin Portfolio — 互動邏輯
-   1. 作品資料（PROJECTS）→ 在 projects.js
-   2. 精選作品跳窗（分頁縮圖、OPEN PAGE、原圖放大、手機左右滑動）
+/* Amanda Lin Portfolio — 首頁互動邏輯
+   1. 導覽列 active 切換
+   2. 精選作品：按鈕與封面連到分類頁（works/*.html，作品資料在 projects.js，由分類頁使用）
    3. ABOUT ME 跳窗
-   4. 鍵盤操作（Tab / Enter / 空白鍵 / 方向鍵 / Esc） */
-
-// 作品資料（PROJECTS）已移到 projects.js，首頁彈窗與 works/ 分類頁共用，要先載入 projects.js
+   4. 鍵盤操作（Tab / Enter / 空白鍵 / Esc） */
 
 
 /* ---------- 1. 導覽列：依目前所在區域切換 active ---------- */
@@ -49,43 +47,18 @@ if (window.location.hash && navSections.some(function (section) {
   setActiveNav('home');
 }
 
-/* ---------- 2. 精選作品跳窗 ---------- */
-var PAGE_SIZE = 6;
-var state = { key: null, index: 0 };
-// R18 作品：點一次「顯示」後，這次瀏覽（重新整理前）全部解鎖
-var r18Unlocked = false;
-function isLocked(it) { return !!(it && it.r18 && !r18Unlocked); }
+/* ---------- 2. 精選作品：「→」按鈕和封面圖都連到對應的分類頁（works/*.html） ---------- */
+document.querySelectorAll('.work-row').forEach(function (row) {
+  var link = row.querySelector('a.round-btn[href]');
+  var cover = row.querySelector('figure');
+  if (!link || !cover) return;
+  cover.classList.add('is-clickable');
+  cover.addEventListener('click', function () { window.location.href = link.getAttribute('href'); });
+});
 
 var el = {
-  gallery: document.getElementById('gallery'),
-  main: document.getElementById('lbMain'),
-  link: document.getElementById('lbLink'),
-  r18: document.getElementById('lbR18'),
-  thumbs: document.getElementById('lbThumbs'),
-  num: document.getElementById('lbNum'),
-  title: document.getElementById('lbTitle'),
-  cap: document.getElementById('lbCap'),
-  nav: document.getElementById('lbNav'),
-  prev: document.getElementById('lbPrev'),
-  next: document.getElementById('lbNext'),
-  count: document.getElementById('lbCount'),
-  bio: document.getElementById('bio'),
-  zoom: document.getElementById('zoom'),
-  zoomImg: document.getElementById('zoomImg')
+  bio: document.getElementById('bio')
 };
-
-function items(key) {
-  var p = PROJECTS[key];
-  if (!p) return [];
-  return (p.works || []).map(function (w, i) {
-    return { src: w[0] || null, caption: w[1] || '', url: w[2] || null, r18: w[3] === 'r18', color: p.tint[i % p.tint.length] };
-  });
-}
-
-/* 縮圖路徑：assets/xxx.webp → thumbs/assets/xxx.webp（寬高最大 360px） */
-function thumbOf(src) {
-  return src ? 'thumbs/' + src : null;
-}
 
 /* 預先下載圖片（同一張只會下載一次，並留在記憶體避免被回收） */
 var preloaded = {};
@@ -119,111 +92,6 @@ function showLoading(node, src) {
   });
 }
 
-/* 預先下載某一頁的縮圖 + 大圖 */
-function preloadPage(list, page) {
-  var slice = list.slice(page * PAGE_SIZE, page * PAGE_SIZE + PAGE_SIZE);
-  slice.forEach(function (it) { preloadImage(thumbOf(it.src)); });
-  slice.forEach(function (it) { preloadImage(it.src); });
-}
-
-function render() {
-  var p = PROJECTS[state.key];
-  if (!p) return;
-  var list = items(state.key);
-  var cur = list[state.index];
-  var pages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
-  var page = Math.floor(state.index / PAGE_SIZE);
-
-  // 先抓目前這張，再抓這一頁其他大圖，最後抓下一頁的縮圖
-  if (cur && cur.src) preloadImage(cur.src);
-  preloadPage(list, page);
-  list.slice((page + 1) * PAGE_SIZE, (page + 2) * PAGE_SIZE).forEach(function (it) {
-    preloadImage(thumbOf(it.src));
-  });
-
-  // 大圖疊兩層：上層原圖、下層縮圖。縮圖已經載好會先出現，原圖載完就蓋上去，不會空白
-  el.main.style.backgroundImage = cur && cur.src
-    ? 'url(' + cur.src + '), url(' + thumbOf(cur.src) + ')'
-    : 'none';
-  showLoading(el.main, cur && cur.src);
-  el.main.style.backgroundColor = cur && cur.src ? 'transparent' : (cur ? cur.color : '#EAF0F5');
-  el.main.classList.toggle('has-link', !!(cur && cur.url));
-  el.main.classList.toggle('is-zoomable', canZoom(cur));
-  // R18 遮罩：還沒解鎖就蓋住大圖
-  el.r18.hidden = !isLocked(cur);
-  // 可以放大時，鍵盤也能用 Tab 選到大圖、按 Enter 放大
-  if (canZoom(cur)) {
-    el.main.setAttribute('role', 'button');
-    el.main.setAttribute('tabindex', '0');
-    el.main.setAttribute('aria-label', '放大看原圖：' + cur.caption);
-  } else {
-    el.main.removeAttribute('role');
-    el.main.removeAttribute('tabindex');
-    el.main.removeAttribute('aria-label');
-  }
-  if (cur && cur.url) el.link.href = cur.url;
-
-  el.num.textContent = p.num;
-  el.title.textContent = p.title;
-  el.cap.textContent = cur ? cur.caption : '';
-
-  el.thumbs.innerHTML = '';
-  list.slice(page * PAGE_SIZE, page * PAGE_SIZE + PAGE_SIZE).forEach(function (it, j) {
-    var i = page * PAGE_SIZE + j;
-    var d = document.createElement('div');
-    d.className = 'lb-thumb' + (i === state.index ? ' is-active' : '');
-    d.setAttribute('role', 'button');
-    d.setAttribute('tabindex', '0');
-    d.setAttribute('aria-label', (i + 1) + '. ' + it.caption);
-    if (i === state.index) d.setAttribute('aria-current', 'true');
-    d.style.backgroundColor = it.color;
-    if (it.src) {
-      d.style.backgroundImage = 'url(' + thumbOf(it.src) + ')';
-      showLoading(d, thumbOf(it.src));
-    }
-    if (isLocked(it)) {
-      var m = document.createElement('div');
-      m.className = 'r18-mask';
-      m.innerHTML = '<img src="assets/r18.png" alt="R18">';
-      d.appendChild(m);
-    }
-    d.addEventListener('click', function () {
-      state.index = i;
-      render();
-      // 用鍵盤選縮圖時，重畫後把焦點留在同一張縮圖上
-      var again = el.thumbs.children[j];
-      if (again && document.activeElement === document.body) again.focus();
-    });
-    el.thumbs.appendChild(d);
-  });
-
-  el.nav.hidden = pages < 2;
-  el.count.textContent = '第 ' + (page + 1) + ' / ' + pages + ' 頁';
-  el.prev.classList.toggle('is-hidden', page === 0);
-  el.next.classList.toggle('is-hidden', page >= pages - 1);
-}
-
-/* 有圖片、且該筆沒有外部連結（有連結的改用 OPEN PAGE）時，就能點大圖看原圖 */
-function canZoom(cur) {
-  return !!(cur && cur.src && !cur.url && !isLocked(cur));
-}
-
-/* 換到上一張 / 下一張（鍵盤方向鍵、手機滑動共用） */
-function step(d) {
-  var list = items(state.key);
-  if (!list.length) return;
-  state.index = (state.index + d + list.length) % list.length;
-  render();
-}
-
-function pageStep(d) {
-  var list = items(state.key);
-  var pages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
-  var page = Math.min(pages - 1, Math.max(0, Math.floor(state.index / PAGE_SIZE) + d));
-  state.index = page * PAGE_SIZE;
-  render();
-}
-
 /* 打開跳窗時記住原本的焦點，關掉後放回去（鍵盤使用者不會迷路） */
 var returnFocus = {};
 
@@ -233,13 +101,6 @@ function openOverlay(node) {
   node.classList.remove('is-closing');
   var first = node.querySelector('[tabindex="0"]');
   if (first) first.focus({ preventScroll: true });
-}
-
-function openGallery(key) {
-  state.key = key;
-  state.index = 0;
-  render();
-  openOverlay(el.gallery);
 }
 
 function closeOverlay(node) {
@@ -253,24 +114,6 @@ function closeOverlay(node) {
   if (back && back.focus) back.focus({ preventScroll: true });
 }
 
-document.querySelectorAll('.round-btn[data-open]').forEach(function (n) {
-  var key = n.getAttribute('data-open');
-  // 「→」按鈕和同一列的封面圖，點了都會打開跳窗
-  var cover = n.closest('.work-row') && n.closest('.work-row').querySelector('figure');
-  // 滑鼠移到按鈕上（或手機手指按下）時就先開始下載第一頁，點開時多半已經好了
-  var warm = function () {
-    var list = items(key);
-    list.slice(0, PAGE_SIZE).forEach(function (it) { preloadImage(thumbOf(it.src)); });
-    if (list[0]) preloadImage(list[0].src);
-  };
-  [n, cover].filter(Boolean).forEach(function (t) {
-    t.addEventListener('click', function () { openGallery(key); });
-    t.addEventListener('pointerenter', warm, { once: true });
-    t.addEventListener('touchstart', warm, { once: true, passive: true });
-  });
-  if (cover) cover.classList.add('is-clickable');
-});
-
 /* 首頁作品封面、ABOUT 照片（CSS 背景圖）：還沒載完就顯示「載入中…」 */
 function showBgLoading(node) {
   var bg = getComputedStyle(node).backgroundImage;
@@ -278,63 +121,6 @@ function showBgLoading(node) {
   if (m) showLoading(node, m[1]);
 }
 document.querySelectorAll('.work-row figure, .about-image').forEach(showBgLoading);
-
-/* 頁面載入完、瀏覽器閒下來後，偷偷先把每個分類第一頁的縮圖抓好 */
-window.addEventListener('load', function () {
-  var idle = window.requestIdleCallback || function (fn) { setTimeout(fn, 1500); };
-  idle(function () {
-    Object.keys(PROJECTS).forEach(function (key) {
-      items(key).slice(0, PAGE_SIZE).forEach(function (it) { preloadImage(thumbOf(it.src)); });
-    });
-  });
-});
-el.gallery.addEventListener('click', function (e) {
-  if (e.target === el.gallery) closeOverlay(el.gallery);
-});
-document.querySelectorAll('[data-close="gallery"]').forEach(function (n) {
-  n.addEventListener('click', function () { closeOverlay(el.gallery); });
-});
-el.prev.addEventListener('click', function () { pageStep(-1); });
-el.next.addEventListener('click', function () { pageStep(1); });
-
-/* 手機：在大圖上左右滑動換上一張 / 下一張 */
-var touchStart = null;
-el.main.addEventListener('touchstart', function (e) {
-  if (e.touches.length !== 1) { touchStart = null; return; }
-  touchStart = { x: e.touches[0].clientX, y: e.touches[0].clientY };
-}, { passive: true });
-el.main.addEventListener('touchend', function (e) {
-  if (!touchStart) return;
-  var dx = e.changedTouches[0].clientX - touchStart.x;
-  var dy = e.changedTouches[0].clientY - touchStart.y;
-  touchStart = null;
-  if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.5) step(dx < 0 ? 1 : -1);
-});
-
-/* R18 遮罩：點了就解鎖全部 R18 作品 */
-el.r18.addEventListener('click', function (e) {
-  e.stopPropagation();
-  r18Unlocked = true;
-  render();
-  if (canZoom(items(state.key)[state.index])) el.main.focus({ preventScroll: true });
-});
-
-/* 大圖 → 原圖放大 */
-el.main.addEventListener('click', function (e) {
-  if (e.target.closest('.lb-link')) return;
-  var cur = items(state.key)[state.index];
-  if (!canZoom(cur)) return;
-  showLoading(el.zoomImg.parentNode, cur.src);
-  el.zoomImg.src = cur.src;
-  el.zoomImg.alt = cur.caption;
-  openOverlay(el.zoom);
-});
-function closeZoom() {
-  el.zoom.hidden = true;
-  var back = returnFocus.zoom;
-  if (back && back.focus) back.focus({ preventScroll: true });
-}
-el.zoom.addEventListener('click', closeZoom);
 
 /* ---------- 3. ABOUT ME 跳窗 ---------- */
 document.querySelectorAll('[data-bio]').forEach(function (n) {
@@ -351,10 +137,8 @@ if (el.bio) {
 }
 
 /* ---------- 鍵盤 ---------- */
-/* 目前最上層、開著的跳窗 */
+/* 目前開著的跳窗（只剩 ABOUT ME） */
 function topOverlay() {
-  if (!el.zoom.hidden) return el.zoom;
-  if (!el.gallery.hidden) return el.gallery;
   if (el.bio && !el.bio.hidden) return el.bio;
   return null;
 }
@@ -379,13 +163,5 @@ document.addEventListener('keydown', function (e) {
     else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     return;
   }
-  if (e.key === 'Escape') {
-    if (!el.zoom.hidden) { closeZoom(); return; }
-    closeOverlay(el.gallery);
-    closeOverlay(el.bio);
-    return;
-  }
-  if (el.gallery.hidden || !el.zoom.hidden) return;
-  if (e.key === 'ArrowRight') step(1);
-  if (e.key === 'ArrowLeft') step(-1);
+  if (e.key === 'Escape') closeOverlay(el.bio);
 });
