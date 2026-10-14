@@ -1,7 +1,6 @@
 /* Amanda Lin Portfolio — 分類頁樣式（works/*.html 共用），要搭配 ../styles.css 一起載入 */
 
-/* ---------- Header：捲動時蓋在內容上，背景要實一點 ---------- */
-.works-page .site-header{background:rgba(251,253,254,.92); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px)}
+/* ---------- Header：背景與模糊沿用 ../styles.css 的 .site-header（和首頁一樣） ---------- */
 .works-page .brand-logo{transition:opacity .2s ease}
 .works-page a:hover .brand-logo{opacity:.8}
 
