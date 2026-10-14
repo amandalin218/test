@@ -68,9 +68,8 @@ a.work-media{cursor:pointer}
 
 /* ---------- 頁尾返回 ---------- */
 /* 頂端導覽列的返回連結：樣式沿用首頁的 .nav-link（滑過會出現底線），中文小字接在後面 */
-/* 導覽列文字加淡白色外光（不加底色），滑到深色作品圖時仍然讀得到 */
-.works-page .site-header .nav-link,.works-page .site-header .brand-tagline{text-shadow:0 0 2px #fff,0 0 5px #fff,0 0 9px #fff,0 0 14px #fff,0 0 20px rgba(255,255,255,.9)}
-.works-page .site-header .brand-logo{filter:drop-shadow(0 0 2px #fff) drop-shadow(0 0 5px #fff) drop-shadow(0 0 10px #fff)}
+/* 導覽列右側的返回連結加淡白色外光（不加底色）；左邊 logo 只是裝飾，不加，滑到深色作品圖時仍然讀得到 */
+.works-page .site-header .nav-link{text-shadow:0 0 2px #fff,0 0 5px #fff,0 0 9px #fff,0 0 14px #fff,0 0 20px rgba(255,255,255,.9)}
 .nav-back span{border-left-color:rgba(22,50,74,.35)}
 .nav-back span{font-family:'Noto Sans TC','Inter',sans-serif; font-weight:500; letter-spacing:.12em; margin-left:12px; padding-left:12px; border-left:1px solid rgba(22,50,74,.3)}
 .cat-noscript{text-align:center; color:#6B8093; font-size:.9rem}
