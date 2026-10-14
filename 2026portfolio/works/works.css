@@ -30,13 +30,14 @@
 /* ---------- 作品格狀排列 ---------- */
 .cat-works{padding-bottom:clamp(20px,4vw,40px)}
 /* 緊密排列（masonry）：每列高度 4px，works.js 依每張卡片的高度設定要佔幾列；
-   作品比例不同也不會留下大空白。欄數預設 2，頁面可用 --cols 改 */
-.works-grid{display:grid; grid-template-columns:repeat(var(--cols,2),minmax(0,1fr)); column-gap:clamp(18px,2.6vw,36px); grid-auto-rows:4px; row-gap:0; align-items:start}
+   作品比例不同也不會留下大空白。欄數預設 2，頁面用 data-cols="3" 改成 3 欄 */
+.works-grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:clamp(18px,2.6vw,36px); grid-auto-rows:4px; row-gap:0; align-items:start}
+.works-grid[data-cols="3"]{grid-template-columns:repeat(3,minmax(0,1fr))}
 .work-card{margin:0; min-width:0; padding-bottom:clamp(28px,4vw,52px)}
 
 /* 圖片外框：button / a 共用。圖還沒載入前先用佔位色和預設比例撐住版面 */
 .work-media{display:block; position:relative; width:100%; overflow:hidden; background:#EAF0F5; aspect-ratio:2.15/1; border:1px solid rgba(22,50,74,.08); box-sizing:border-box; padding:0; margin:0; font:inherit; color:inherit; text-align:inherit; -webkit-appearance:none; appearance:none; cursor:pointer}
-button.work-media:not(.is-locked){cursor:zoom-in}
+button.work-media{cursor:zoom-in}
 .work-media.is-loaded{aspect-ratio:auto; background:#fff}
 .work-media img{display:block; width:100%; height:auto; opacity:0; transition:opacity .35s ease, transform .5s ease}
 .work-media.is-loaded img{opacity:1}
@@ -45,8 +46,6 @@ button.work-media:not(.is-locked){cursor:zoom-in}
 .work-media.is-error{aspect-ratio:2.15/1}
 .work-media.is-error img{display:none}
 .work-media.is-error::after{content:'圖片載入失敗'; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:.8rem; letter-spacing:.1em; color:#8C9BAA}
-.work-media.is-locked{background:#F3F6F9}
-.work-media .r18-cover{background:rgba(255,255,255,.9)}
 
 /* 說明列：編號、名稱、動作提示 */
 .work-cap{display:flex; align-items:baseline; gap:14px; margin-top:14px}
@@ -56,6 +55,16 @@ button.work-media:not(.is-locked){cursor:zoom-in}
 .work-name small{font-size:.78rem; color:#6B8093; font-weight:300; letter-spacing:.04em; overflow-wrap:anywhere}
 .work-action{flex:0 0 auto; font-family:'Inter',sans-serif; font-size:.6rem; letter-spacing:.16em; color:#8C9BAA; white-space:nowrap; transition:color .2s ease}
 .work-card:hover .work-action{color:#16324A}
+
+/* ---------- 18+ 區（只有 AD 頁有）---------- */
+.r18-section{margin-top:clamp(8px,2vw,20px); padding-top:clamp(28px,4vw,48px); border-top:1px solid rgba(22,50,74,.12)}
+.r18-gate{display:flex; align-items:center; justify-content:center; gap:clamp(14px,2.4vw,26px); width:100%; box-sizing:border-box; padding:clamp(28px,5vw,52px) 20px; border:1px dashed #9AA8B6; background:#F3F6F9; color:#16324A; font:inherit; cursor:pointer; text-align:left; transition:background .2s ease, border-color .2s ease}
+.r18-gate:hover,.r18-gate:focus-visible{background:#EAF0F5; border-color:#16324A; outline:none}
+.r18-gate-icon{width:clamp(44px,6vw,64px); height:auto; display:block}
+.r18-gate-text{display:flex; flex-direction:column; gap:6px}
+.r18-gate-text b,.r18-head b{font-family:'Inter',sans-serif; font-size:.9rem; letter-spacing:.2em; font-weight:700}
+.r18-gate-text small,.r18-head small{font-size:.78rem; color:#6B8093; letter-spacing:.08em}
+.r18-head{display:flex; align-items:baseline; gap:16px; margin-bottom:clamp(20px,3vw,32px); color:#16324A}
 
 /* ---------- 頁尾返回 ---------- */
 .cat-end{display:flex; justify-content:center; margin:clamp(48px,8vw,96px) 0 clamp(40px,6vw,72px)}
@@ -79,9 +88,14 @@ button.work-media:not(.is-locked){cursor:zoom-in}
 .zoom-next{right:clamp(8px,2vw,28px)}
 html.zoom-open{overflow:hidden}
 
+/* ---------- 平板：3 欄改 2 欄 ---------- */
+@media (max-width:1000px){
+  .works-grid[data-cols="3"]{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
 /* ---------- 手機 ---------- */
 @media (max-width:720px){
-  .works-grid{grid-template-columns:minmax(0,1fr)}
+  .works-grid,.works-grid[data-cols="3"]{grid-template-columns:minmax(0,1fr)}
   .cat-meta{flex:1 1 100%; margin-left:0; align-items:flex-start; text-align:left; padding-bottom:0}
   .cat-tags{justify-content:flex-start}
   .work-cap{flex-wrap:wrap; row-gap:4px}

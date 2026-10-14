@@ -2,7 +2,7 @@
    作品資料來自 ../projects.js 的 PROJECTS，頁面用 <body data-cat="ui"> 指定要顯示哪個分類。
    1. 分類切換列
    2. 作品格狀排列（有連結的作品開新分頁，沒有連結的作品放大看原圖）
-   3. R18 遮罩（點一次，這次瀏覽的 R18 作品全部解鎖）
+   3. R18 作品集中放在頁面最下方的「18+ CONTENT」區，點一次才顯示（這次瀏覽有效）
    4. 原圖放大（鍵盤 ← → Esc、手機左右滑動） */
 (function () {
   'use strict';
@@ -18,7 +18,7 @@
     { key: 'illu',    label: 'Illustration',     href: 'illustration.html' }
   ];
   // 已經做好的分類頁；其他分類做好之後，把 key 加進來，切換列就會變成可以點
-  var BUILT = ['ui'];
+  var BUILT = ['ui', 'ad', 'brand', 'graphic', 'illu'];
 
   var catKey = document.body.getAttribute('data-cat');
   var project = (typeof PROJECTS !== 'undefined') ? PROJECTS[catKey] : null;
@@ -74,11 +74,10 @@
 
   /* ---------- 2. 作品格狀排列 ---------- */
   function buildCard(it, i) {
-    var locked = it.r18 && !r18Unlocked;
     var card = make('figure', 'work-card');
     var media;
 
-    if (it.url && !locked) {
+    if (it.url) {
       media = make('a', 'work-media');
       media.href = it.url;
       media.target = '_blank';
@@ -87,37 +86,19 @@
     } else {
       media = make('button', 'work-media');
       media.type = 'button';
-      if (locked) {
-        media.classList.add('is-locked');
-        media.setAttribute('aria-label', '成人內容，點擊顯示所有 R18 作品');
-        media.addEventListener('click', unlockAll);
-      } else {
-        media.setAttribute('aria-label', '放大看原圖：' + it.caption);
-        media.addEventListener('click', function () { openZoom(i); });
-      }
+      media.setAttribute('aria-label', '放大看原圖：' + it.caption);
+      media.addEventListener('click', function () { openZoom(i); });
     }
     media.style.backgroundColor = project.tint[i % project.tint.length];
 
-    if (locked) {
-      // 沒解鎖之前不載入圖片，避免成人內容在遮罩底下就先下載
-      var cover = make('div', 'r18-cover');
-      var icon = make('img', 'r18-icon');
-      icon.src = BASE + 'assets/r18.png';
-      icon.alt = '';
-      cover.appendChild(icon);
-      cover.appendChild(make('div', 'r18-title', '成人內容'));
-      cover.appendChild(make('div', 'r18-hint', '點擊顯示'));
-      media.appendChild(cover);
-    } else {
-      var img = make('img');
-      img.alt = it.caption;
-      img.decoding = 'async';
-      img.loading = i < 4 ? 'eager' : 'lazy';
-      img.addEventListener('load', function () { media.classList.add('is-loaded'); media.style.backgroundColor = ''; if (!watcher) setSpan(card); });
-      img.addEventListener('error', function () { media.classList.add('is-loaded', 'is-error'); });
-      img.src = BASE + it.src;
-      media.appendChild(img);
-    }
+    var img = make('img');
+    img.alt = it.caption;
+    img.decoding = 'async';
+    img.loading = i < 4 ? 'eager' : 'lazy';
+    img.addEventListener('load', function () { media.classList.add('is-loaded'); media.style.backgroundColor = ''; if (!watcher) setSpan(card); });
+    img.addEventListener('error', function () { media.classList.add('is-loaded', 'is-error'); });
+    img.src = BASE + it.src;
+    media.appendChild(img);
     card.appendChild(media);
 
     var cap = make('figcaption', 'work-cap');
@@ -127,7 +108,7 @@
     name.appendChild(make('b', null, parts.title));
     if (parts.sub) name.appendChild(make('small', null, parts.sub));
     cap.appendChild(name);
-    if (!locked) cap.appendChild(make('span', 'work-action', it.url ? 'OPEN PAGE ↗' : 'VIEW +'));
+    cap.appendChild(make('span', 'work-action', it.url ? 'OPEN PAGE ↗' : 'VIEW +'));
     card.appendChild(cap);
     return card;
   }
@@ -135,37 +116,66 @@
   /* 緊密排列：量每張卡片的高度，設定它要佔幾列（每列 4px）。
      圖片載入、視窗縮放造成高度改變時會自動重算 */
   var ROW = 4;
+  var allGrids = [];
   function setSpan(card) {
     card.style.gridRowEnd = 'span ' + Math.max(1, Math.ceil(card.getBoundingClientRect().height / ROW));
   }
   var watcher = (typeof ResizeObserver === 'function')
     ? new ResizeObserver(function (entries) { entries.forEach(function (en) { setSpan(en.target); }); })
     : null;
-  function place(card) {
-    setSpan(card);
-    if (watcher) watcher.observe(card);
-  }
   if (!watcher) window.addEventListener('resize', function () {
-    Array.prototype.forEach.call(grid.children, setSpan);
+    allGrids.forEach(function (g) { Array.prototype.forEach.call(g.children, setSpan); });
   });
 
-  var frag = document.createDocumentFragment();
-  items.forEach(function (it, i) { frag.appendChild(buildCard(it, i)); });
-  grid.appendChild(frag);
-  Array.prototype.forEach.call(grid.children, place);
+  function fill(target, idxList) {
+    var frag = document.createDocumentFragment();
+    idxList.forEach(function (i) { frag.appendChild(buildCard(items[i], i)); });
+    target.appendChild(frag);
+    Array.prototype.forEach.call(target.children, function (card) {
+      setSpan(card);
+      if (watcher) watcher.observe(card);
+    });
+  }
 
-  /* ---------- 3. R18：解鎖時只重畫還蓋著的卡片 ---------- */
-  function unlockAll() {
-    r18Unlocked = true;
-    var cards = grid.children;
-    for (var i = 0; i < cards.length; i++) {
-      if (items[i].r18) {
-        var next = buildCard(items[i], i);
-        if (watcher) watcher.unobserve(cards[i]);
-        grid.replaceChild(next, cards[i]);
-        place(next);
-      }
-    }
+  var normalIdx = [], r18Idx = [];
+  items.forEach(function (it, i) { (it.r18 ? r18Idx : normalIdx).push(i); });
+
+  // 欄數由 <div class="works-grid" data-cols="3"> 決定（css 在 works.css）
+  if (grid.getAttribute('data-cols')) grid.dataset.cols = grid.getAttribute('data-cols');
+  allGrids.push(grid);
+  fill(grid, normalIdx);
+
+  /* ---------- 3. R18：集中在最下方，點一次才載入圖片 ---------- */
+  if (r18Idx.length) {
+    var section = make('section', 'r18-section');
+    section.setAttribute('aria-label', '成人內容');
+    var gate = make('button', 'r18-gate');
+    gate.type = 'button';
+    var icon = make('img', 'r18-gate-icon');
+    icon.src = BASE + 'assets/r18.png';
+    icon.alt = '';
+    gate.appendChild(icon);
+    var txt = make('span', 'r18-gate-text');
+    txt.appendChild(make('b', null, '18+ CONTENT'));
+    txt.appendChild(make('small', null, '成人內容 · ' + r18Idx.length + ' WORKS · 點擊顯示'));
+    gate.appendChild(txt);
+    section.appendChild(gate);
+    grid.parentNode.insertBefore(section, grid.nextSibling);
+
+    gate.addEventListener('click', function () {
+      r18Unlocked = true;
+      section.removeChild(gate);
+      section.classList.add('is-open');
+      var head = make('div', 'r18-head');
+      head.appendChild(make('b', null, '18+ CONTENT'));
+      head.appendChild(make('small', null, '成人內容 · ' + r18Idx.length + ' WORKS'));
+      section.appendChild(head);
+      var g2 = make('div', 'works-grid');
+      if (grid.getAttribute('data-cols')) g2.setAttribute('data-cols', grid.getAttribute('data-cols'));
+      section.appendChild(g2);
+      allGrids.push(g2);
+      fill(g2, r18Idx);
+    });
   }
 
   /* ---------- 4. 原圖放大 ---------- */
@@ -182,7 +192,7 @@
   function rebuildZoomList() {
     zoomList = [];
     items.forEach(function (it, i) {
-      if (!it.url && !(it.r18 && !r18Unlocked)) zoomList.push(i);
+      if (!it.url && (!it.r18 || r18Unlocked)) zoomList.push(i);
     });
   }
 
