@@ -57,12 +57,12 @@ const PROJECTS = {
       ['assets/ui-coldjoke-familymart.webp', '十萬個冷笑話－全家儲值好禮活動頁', 'https://amandalin218.github.io/test/20160121_mycard/index.html'],
       ['assets/ui-coldjoke-mycard.webp', '十萬個冷笑話－指定通路 MyCard 儲值活動頁', 'https://amandalin218.github.io/test/20180816_Mycardtw/index.html'],
       ['assets/ui-tunshi-mycard.webp', '吞食天地 M－MyCard 儲值活動頁', 'https://amandalin218.github.io/test/index/index.html'],
-      ['assets/ui-wy-yuji-site.webp', '慾姬-官網', null],
-      ['assets/ui-wy-yuji-preorder.webp', '慾姬-事前預約', null],
-      ['assets/ui-wy-bana-comic.webp', 'Banabana 漫畫平台開幕頁面', null],
-      ['assets/ui-wy-bana-doujin.webp', '妖界黃昏二創活動頁面', null],
-      ['assets/ui-wy-banabana-beast.webp', '奇想之戰Ｒ-事前預約', null],
-      ['assets/ui-wy-win99.webp', '印度博弈網站設計', null]
+      ['assets/ui-wy-yuji-site.webp', '慾姬-官網', null, 'r18'],
+      ['assets/ui-wy-yuji-preorder.webp', '慾姬-事前預約', null, 'r18'],
+      ['assets/ui-wy-bana-comic.webp', 'Banabana 漫畫平台開幕頁面', null, 'r18'],
+      ['assets/ui-wy-bana-doujin.webp', '妖界黃昏二創活動頁面', null, 'r18'],
+      ['assets/ui-wy-banabana-beast.webp', '奇想之戰Ｒ-事前預約', null, 'r18'],
+      ['assets/ui-wy-win99.webp', '印度博弈網站設計', null, 'r18']
     ]
   },
   brand: {

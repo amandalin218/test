@@ -12,11 +12,11 @@
 .cat-hero{padding:clamp(28px,5vw,56px) 0 clamp(20px,3vw,32px)}
 .cat-back{display:inline-block; font-family:'Inter',sans-serif; font-size:.7rem; letter-spacing:.2em; font-weight:600; color:#5B7183; padding-bottom:6px; border-bottom:1.5px solid transparent}
 .cat-back:hover{color:#16324A; border-bottom-color:#16324A}
-.cat-title-row{display:flex; align-items:flex-end; gap:clamp(16px,3vw,36px); flex-wrap:wrap; margin-top:clamp(18px,3vw,32px)}
-.cat-number{font-family:'Playfair Display',serif; font-size:clamp(1rem,2vw,1.2rem); letter-spacing:.08em; color:#5B7183; padding-bottom:.9em}
+.cat-title-row{display:flex; align-items:baseline; gap:clamp(16px,3vw,36px); flex-wrap:wrap; margin-top:clamp(18px,3vw,32px)}
+.cat-number{font-family:'Playfair Display',serif; font-size:clamp(1rem,2vw,1.2rem); letter-spacing:.08em; color:#5B7183}
 .cat-title{font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(2.2rem,7vw,4rem); line-height:1.05; letter-spacing:.02em; margin:0; color:#1B2E44}
-.cat-subtitle{margin-top:10px; font-size:.8rem; color:#6B8093; letter-spacing:.2em; font-weight:300}
-.cat-meta{margin-left:auto; display:flex; flex-direction:column; gap:10px; align-items:flex-end; text-align:right; padding-bottom:.4em}
+.cat-subtitle{ font-size:.8rem; color:#6B8093; letter-spacing:.2em; font-weight:300}
+.cat-meta{align-self:flex-end; margin-left:auto; display:flex; flex-direction:column; gap:10px; align-items:flex-end; text-align:right; padding-bottom:.4em}
 .cat-tags{display:flex; gap:22px; flex-wrap:wrap; justify-content:flex-end; font-family:'Inter',sans-serif; font-size:.6rem; letter-spacing:.16em; color:#8C9BAA}
 .cat-count{font-family:'Inter',sans-serif; font-size:.7rem; letter-spacing:.2em; font-weight:600; color:#2C4A63}
 
@@ -55,6 +55,9 @@ button.work-media{cursor:zoom-in}
 .work-name small{font-size:.78rem; color:#6B8093; font-weight:300; letter-spacing:.04em; overflow-wrap:anywhere}
 .work-action{flex:0 0 auto; font-family:'Inter',sans-serif; font-size:.6rem; letter-spacing:.16em; color:#8C9BAA; white-space:nowrap; transition:color .2s ease}
 .work-card:hover .work-action{color:#16324A}
+/* 不想顯示 OPEN PAGE / VIEW 提示的頁面，在 <body> 加 data-actions="hidden"（游標變手指就已經是提示） */
+.works-page[data-actions="hidden"] .work-action{display:none}
+a.work-media{cursor:pointer}
 
 /* ---------- 18+ 區（只有 AD 頁有）---------- */
 .r18-section{margin-top:clamp(8px,2vw,20px); padding-top:clamp(28px,4vw,48px); border-top:1px solid rgba(22,50,74,.12)}
