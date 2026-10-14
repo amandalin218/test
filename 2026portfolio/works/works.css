@@ -10,7 +10,7 @@
 
 /* ---------- 頁首：返回、標題、分類切換 ---------- */
 .cat-hero{padding:clamp(28px,5vw,56px) 0 clamp(20px,3vw,32px)}
-.cat-hero .back-btn{margin-bottom:0}
+.cat-hero .back-btn{display:flex; width:fit-content; margin-left:auto}
 .cat-title-row{display:flex; align-items:flex-end; gap:clamp(16px,3vw,36px); flex-wrap:wrap; margin-top:clamp(22px,3.4vw,38px)}
 .cat-number{font-family:'Playfair Display',serif; font-size:clamp(1rem,2vw,1.2rem); letter-spacing:.08em; color:#5B7183; padding-bottom:.9em}
 .cat-title{font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(2.2rem,7vw,4rem); line-height:1.05; letter-spacing:.02em; margin:0; color:#1B2E44}
