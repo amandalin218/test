@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>高雄港都兩天一夜</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Huninn&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 日系繪本風：和紙白底、墨灰粗線、四色平塗。單欄手機優先，卡片堆疊 */
+  --paper:#FFFCF6;
+  --ink:#3E3A39;
+  --coral:#F2A497;
+  --yellow:#F6D27A;
+  --water:#A8D3E6;
+  --bamboo:#B9DAA5;
+  --ink-soft:#6E6866;
+  --line:3px solid var(--ink);
+  --r-lg:28px;
+  --r-md:20px;
+  --r-sm:999px;
+  --font:"Huninn","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--font);font-size:16px;line-height:1.6;
+  padding-top:64px;
+}
+h1,h2,h3{margin:0;font-weight:400;text-wrap:balance;line-height:1.3}
+a{color:inherit}
+button{font-family:inherit;color:inherit}
+:focus-visible{outline:3px dashed var(--ink);outline-offset:3px}
+
+/* 頂端選單 */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:20;height:64px;
+  background:var(--paper);border-bottom:var(--line);
+  display:flex;align-items:center;
+}
+.nav-inner{
+  width:100%;max-width:720px;margin:0 auto;padding:0 12px;
+  display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;
+}
+.nav-inner::-webkit-scrollbar{display:none}
+.nav a{
+  flex:0 0 auto;text-decoration:none;font-size:15px;
+  padding:6px 14px;border:var(--line);border-radius:var(--r-sm);background:var(--paper);
+}
+.nav a:nth-child(1){background:var(--yellow)}
+.nav a:hover,.nav a:focus-visible{background:var(--water)}
+
+main{max-width:720px;margin:0 auto;padding:16px 16px 48px;display:flex;flex-direction:column;gap:28px}
+section{scroll-margin-top:80px}
+
+.card{background:var(--paper);border:var(--line);border-radius:var(--r-lg);padding:20px}
+.sec-title{display:flex;align-items:center;gap:10px;margin-bottom:14px;font-size:22px}
+.sec-title .chip{
+  display:inline-grid;place-items:center;width:38px;height:38px;flex:0 0 38px;
+  border:var(--line);border-radius:50%;
+}
+
+/* 首頁 */
+.hero{padding:0;overflow:hidden}
+.hero svg{display:block;width:100%;height:auto;border-bottom:var(--line)}
+.hero-body{padding:18px 20px 22px;display:flex;flex-direction:column;gap:14px}
+.hero-kicker{font-size:14px;color:var(--ink-soft)}
+.hero h1{font-size:30px}
+.hero h1 em{font-style:normal;background:var(--yellow);padding:0 6px;border-radius:8px}
+.count{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.count div{
+  border:var(--line);border-radius:var(--r-md);padding:8px 4px;text-align:center;
+}
+.count div:nth-child(1){background:var(--coral)}
+.count div:nth-child(2){background:var(--yellow)}
+.count div:nth-child(3){background:var(--water)}
+.count div:nth-child(4){background:var(--bamboo)}
+.count b{display:block;font-weight:400;font-size:28px;font-variant-numeric:tabular-nums;line-height:1.2}
+.count span{font-size:13px}
+.count-note{font-size:14px;color:var(--ink-soft)}
+.who{display:flex;flex-wrap:wrap;gap:6px}
+.who span{font-size:13px;border:2px solid var(--ink);border-radius:var(--r-sm);padding:2px 10px}
+
+/* 高鐵卡片 */
+.trains{display:grid;gap:14px}
+.train{position:relative;overflow:hidden}
+.train-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:12px}
+.pill{font-size:13px;border:2px solid var(--ink);border-radius:var(--r-sm);padding:2px 10px;background:var(--paper)}
+.train.go .pill.dir{background:var(--coral)}
+.train.back .pill.dir{background:var(--water)}
+.route{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px}
+.stop b{display:block;font-weight:400;font-size:30px;font-variant-numeric:tabular-nums;line-height:1.1}
+.stop span{font-size:15px}
+.stop.end{text-align:right}
+.route svg{width:84px;height:auto}
+.train-foot{margin-top:12px;font-size:14px;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px}
+
+/* 每日行程 */
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px}
+.tab{
+  border:var(--line);border-radius:var(--r-md);background:var(--paper);
+  padding:10px 8px;cursor:pointer;text-align:center;font-size:16px;line-height:1.3;
+}
+.tab small{display:block;font-size:13px;color:var(--ink-soft)}
+.tab[aria-selected="true"]{background:var(--yellow);transform:translateY(-2px);box-shadow:0 4px 0 var(--ink)}
+.tab[aria-selected="true"] small{color:var(--ink)}
+.day-theme{font-size:15px;margin:0 0 14px;padding:10px 14px;border:2px dashed var(--ink);border-radius:var(--r-md)}
+
+.timeline{list-style:none;margin:0;padding:0;position:relative}
+.timeline::before{
+  content:"";position:absolute;left:66.5px;top:8px;bottom:8px;border-left:3px dotted var(--ink);
+}
+.tl{display:grid;grid-template-columns:48px 22px 1fr;gap:10px;align-items:start;margin-bottom:12px}
+.tl time{font-size:15px;font-variant-numeric:tabular-nums;padding-top:12px;text-align:right}
+.tl .dot{
+  width:20px;height:20px;margin-top:14px;border:var(--line);border-radius:50%;
+  background:var(--paper);position:relative;z-index:1;
+}
+.tl.must .dot{background:var(--coral)}
+.tl-card{border:var(--line);border-radius:var(--r-md);padding:12px 14px;background:var(--paper)}
+.tl.must .tl-card{background:#FFF3EE}
+.tl-head{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.tl-head h3{font-size:17px}
+.must-badge{
+  flex:0 0 auto;display:inline-flex;align-items:center;gap:3px;font-size:13px;
+  background:var(--coral);border:2px solid var(--ink);border-radius:var(--r-sm);padding:1px 8px 1px 6px;
+}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 2px}
+.tag{font-size:12.5px;border:2px solid var(--ink);border-radius:var(--r-sm);padding:1px 9px}
+.t-hsr{background:var(--coral)}
+.t-mrt{background:var(--yellow)}
+.t-ferry{background:var(--water)}
+.t-lrt{background:var(--bamboo)}
+.t-walk{background:var(--paper)}
+.tl-note{margin:6px 0 0;font-size:14.5px;color:var(--ink-soft)}
+.legend{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;font-size:13px;color:var(--ink-soft);align-items:center}
+
+.pop{animation:pop .55s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes pop{
+  0%{opacity:0;transform:translateY(14px) scale(.94)}
+  60%{opacity:1;transform:translateY(-4px) scale(1.02)}
+  100%{opacity:1;transform:none}
+}
+
+/* 待辦清單 */
+.progress{display:flex;align-items:center;gap:10px;margin-bottom:12px;font-size:14px}
+.bar{flex:1;height:16px;border:var(--line);border-radius:var(--r-sm);overflow:hidden;background:var(--paper)}
+.bar i{display:block;height:100%;width:0;background:var(--bamboo);border-right:3px solid var(--ink);transition:width .4s}
+.todo{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.todo label{
+  display:flex;gap:12px;align-items:center;cursor:pointer;
+  border:var(--line);border-radius:var(--r-md);padding:10px 14px;background:var(--paper);
+}
+.todo input{
+  appearance:none;-webkit-appearance:none;flex:0 0 26px;width:26px;height:26px;margin:0;
+  border:var(--line);border-radius:9px;background:var(--paper);display:grid;place-items:center;cursor:pointer;
+}
+.todo input:checked{background:var(--bamboo)}
+.todo input:checked::after{
+  content:"";width:9px;height:14px;border:solid var(--ink);border-width:0 3px 3px 0;
+  transform:translate(0,-2px) rotate(45deg);
+}
+.todo input:checked + span{text-decoration:line-through;text-decoration-thickness:2px;color:var(--ink-soft)}
+.todo label:has(input:checked){background:#F4F9F0}
+
+/* 住宿 */
+.stay{display:grid;gap:14px}
+.stay-top{display:flex;gap:14px;align-items:center}
+.stay-top svg{width:92px;flex:0 0 92px;height:auto}
+.stay-top h3{font-size:20px}
+.stay-top p{margin:2px 0 0;font-size:14px;color:var(--ink-soft)}
+.info{display:grid;gap:8px;margin:0}
+.info div{display:grid;grid-template-columns:72px 1fr;gap:10px;padding:10px 12px;border:2px solid var(--ink);border-radius:16px}
+.info dt{font-size:14px;color:var(--ink-soft)}
+.info dd{margin:0;font-size:15px}
+.dates{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.dates div{border:var(--line);border-radius:var(--r-md);padding:10px;text-align:center}
+.dates div:first-child{background:var(--water)}
+.dates div:last-child{background:var(--bamboo)}
+.dates span{display:block;font-size:13px}
+.dates b{font-weight:400;font-size:18px}
+
+footer{text-align:center;font-size:13px;color:var(--ink-soft);padding:8px 16px 32px}
+
+/* 插圖動畫 */
+.anim-bob{animation:bob 3.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.anim-cloud1{animation:drift 16s ease-in-out infinite alternate}
+.anim-cloud2{animation:drift 22s ease-in-out infinite alternate-reverse}
+.anim-wave{animation:wave 3.6s ease-in-out infinite}
+.anim-wave2{animation:wave 3.6s ease-in-out infinite reverse}
+.anim-tram{animation:tram 18s linear infinite}
+.anim-sun{animation:spin 30s linear infinite;transform-box:fill-box;transform-origin:center}
+.anim-bird{animation:bird 9s ease-in-out infinite alternate}
+.anim-light{animation:blink 2.4s ease-in-out infinite}
+.anim-steam{animation:bob 2.6s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-4px) rotate(1.5deg)}}
+@keyframes drift{from{transform:translateX(-14px)}to{transform:translateX(18px)}}
+@keyframes wave{0%,100%{transform:translateX(0)}50%{transform:translateX(-10px)}}
+@keyframes tram{0%{transform:translateX(-80px)}100%{transform:translateX(480px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes bird{from{transform:translate(0,0)}to{transform:translate(26px,-8px)}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none !important;transition:none !important}
+}
+@media (min-width:600px){
+  .trains{grid-template-columns:1fr 1fr}
+  .hero h1{font-size:36px}
+  .stay{grid-template-columns:1fr 1fr;align-items:start}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="頁面選單">
+  <div class="nav-inner">
+    <a href="#home">首頁</a>
+    <a href="#trains">高鐵</a>
+    <a href="#plan">每日行程</a>
+    <a href="#todo">待辦</a>
+    <a href="#stay">住宿</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- 首頁 -->
+<section id="home" class="card hero" aria-labelledby="hero-title">
+  <svg viewBox="0 0 400 250" role="img" aria-label="高雄港插圖：旗津燈塔、85大樓、大港橋、輕軌、渡輪與海浪">
+    <g stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+      <!-- 太陽 -->
+      <g class="anim-sun">
+        <g stroke-width="3">
+          <line x1="340" y1="18" x2="340" y2="8"/><line x1="340" y1="72" x2="340" y2="62"/>
+          <line x1="313" y1="40" x2="303" y2="40"/><line x1="377" y1="40" x2="367" y2="40"/>
+          <line x1="321" y1="21" x2="314" y2="14"/><line x1="359" y1="59" x2="366" y2="66"/>
+          <line x1="359" y1="21" x2="366" y2="14"/><line x1="321" y1="59" x2="314" y2="66"/>
+        </g>
+        <circle cx="340" cy="40" r="17" fill="#F6D27A"/>
+      </g>
+      <!-- 雲 -->
+      <g class="anim-cloud1">
+        <path d="M40 54 q0-14 15-14 q5-12 20-9 q12-6 20 6 q14 0 14 13 z" fill="#FFFCF6"/>
+      </g>
+      <g class="anim-cloud2">
+        <path d="M210 36 q0-11 12-11 q5-10 17-7 q10-4 16 5 q11 0 11 11 z" fill="#FFFCF6"/>
+      </g>
+      <!-- 鳥 -->
+      <g class="anim-bird" fill="none" stroke-width="2.5">
+        <path d="M150 52 q5-6 10 0 q5-6 10 0"/>
+        <path d="M176 40 q4-5 8 0 q4-5 8 0"/>
+      </g>
+
+      <!-- 85 大樓 -->
+      <g>
+        <line x1="322" y1="70" x2="322" y2="56"/>
+        <path d="M300 168 V98 L312 80 H332 L344 98 V168 H330 V132 Q322 120 314 132 V168 Z" fill="#A8D3E6"/>
+        <line x1="306" y1="110" x2="338" y2="110"/>
+        <line x1="306" y1="122" x2="314" y2="122"/><line x1="330" y1="122" x2="338" y2="122"/>
+        <path d="M312 80 L322 70 L332 80" fill="#FFFCF6"/>
+      </g>
+      <!-- 城市小樓 -->
+      <rect x="268" y="130" width="26" height="38" rx="4" fill="#F6D27A"/>
+      <rect x="350" y="122" width="30" height="46" rx="4" fill="#F2A497"/>
+      <g stroke-width="2.5"><line x1="275" y1="142" x2="287" y2="142"/><line x1="275" y1="153" x2="287" y2="153"/>
+      <line x1="358" y1="136" x2="372" y2="136"/><line x1="358" y1="148" x2="372" y2="148"/></g>
+
+      <!-- 大港橋 -->
+      <g>
+        <path d="M160 168 L250 168" stroke-width="4"/>
+        <path d="M216 168 L206 104 Q232 128 236 168" fill="#FFFCF6"/>
+        <line x1="207" y1="110" x2="178" y2="166" stroke-width="2"/>
+        <line x1="209" y1="122" x2="190" y2="166" stroke-width="2"/>
+        <line x1="211" y1="134" x2="200" y2="166" stroke-width="2"/>
+      </g>
+
+      <!-- 岸邊與輕軌 -->
+      <rect x="-4" y="168" width="408" height="14" fill="#B9DAA5"/>
+      <g class="anim-tram">
+        <rect x="0" y="152" width="52" height="18" rx="7" fill="#B9DAA5"/>
+        <rect x="6" y="156" width="10" height="7" rx="2" fill="#FFFCF6" stroke-width="2"/>
+        <rect x="21" y="156" width="10" height="7" rx="2" fill="#FFFCF6" stroke-width="2"/>
+        <rect x="36" y="156" width="10" height="7" rx="2" fill="#FFFCF6" stroke-width="2"/>
+        <line x1="26" y1="152" x2="26" y2="144" stroke-width="2"/>
+      </g>
+
+      <!-- 海 -->
+      <rect x="-4" y="182" width="408" height="72" fill="#A8D3E6"/>
+
+      <!-- 旗後山與燈塔 -->
+      <path d="M-4 196 Q30 130 92 150 Q118 160 128 196 Z" fill="#B9DAA5"/>
+      <g>
+        <path d="M54 150 L57 118 H71 L74 150 Z" fill="#FFFCF6"/>
+        <rect x="55" y="110" width="18" height="9" rx="2" fill="#3E3A39"/>
+        <path d="M58 110 Q64 100 70 110" fill="#3E3A39"/>
+        <line x1="60" y1="132" x2="68" y2="132" stroke-width="2"/>
+        <circle class="anim-light" cx="64" cy="114" r="2.5" fill="#F6D27A" stroke="none"/>
+      </g>
+
+      <!-- 浪 -->
+      <g fill="none" stroke-width="2.5">
+        <path class="anim-wave" d="M140 206 q8-6 16 0 t16 0 t16 0"/>
+        <path class="anim-wave2" d="M300 222 q8-6 16 0 t16 0 t16 0"/>
+        <path class="anim-wave" d="M30 234 q8-6 16 0 t16 0 t16 0"/>
+      </g>
+
+      <!-- 渡輪 -->
+      <g class="anim-bob">
+        <path d="M200 214 H282 L272 232 H210 Z" fill="#F2A497"/>
+        <rect x="214" y="196" width="50" height="18" rx="5" fill="#F6D27A"/>
+        <rect x="222" y="201" width="9" height="7" rx="2" fill="#FFFCF6" stroke-width="2"/>
+        <rect x="236" y="201" width="9" height="7" rx="2" fill="#FFFCF6" stroke-width="2"/>
+        <rect x="250" y="201" width="9" height="7" rx="2" fill="#FFFCF6" stroke-width="2"/>
+        <path d="M239 196 V184 L254 189 L239 194" fill="#FFFCF6" stroke-width="2.5"/>
+      </g>
+    </g>
+  </svg>
+  <div class="hero-body">
+    <div class="hero-kicker">2026.12.5（六）– 12.6（日）・捷運＋渡輪小旅行</div>
+    <h1 id="hero-title">高雄<em>港都</em>兩天一夜</h1>
+    <div class="who" aria-label="同行成員">
+      <span>媽媽 Amanda</span><span>爸爸</span><span>兒子・7 歲</span><span>阿嬤（12/5 一起玩）</span>
+    </div>
+    <div>
+      <div class="count" role="timer" aria-live="off" aria-label="距離出發倒數">
+        <div><b id="cd-d">--</b><span>天</span></div>
+        <div><b id="cd-h">--</b><span>時</span></div>
+        <div><b id="cd-m">--</b><span>分</span></div>
+        <div><b id="cd-s">--</b><span>秒</span></div>
+      </div>
+      <p class="count-note" id="cd-note">距離 12/5 早上 10:40 南港出發</p>
+    </div>
+  </div>
+</section>
+
+<!-- 高鐵 -->
+<section id="trains" aria-labelledby="trains-title">
+  <h2 class="sec-title" id="trains-title"><span class="chip" style="background:var(--coral)" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#3E3A39" stroke-width="2.2" stroke-linejoin="round"><path d="M4 15 Q4 6 14 6 H17 Q21 6 21 11 V15 Z" fill="#FFFCF6"/><line x1="3" y1="18" x2="21" y2="18"/><rect x="9" y="8.5" width="4" height="3" rx="1"/></svg>
+  </span>高鐵車次</h2>
+  <div class="trains">
+    <article class="card train go">
+      <div class="train-top"><span class="pill dir">去程・12/5（六）</span><span class="pill">車次 1217</span></div>
+      <div class="route">
+        <div class="stop"><b>10:40</b><span>南港</span></div>
+        <svg viewBox="0 0 90 40" aria-hidden="true"><g stroke="#3E3A39" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"><line x1="2" y1="34" x2="88" y2="34" stroke-dasharray="2 6"/><g class="anim-bob"><path d="M14 28 Q14 12 44 12 H60 Q78 12 80 28 Z" fill="#FFFCF6"/><rect x="40" y="16" width="10" height="6" rx="2" fill="#A8D3E6"/><rect x="54" y="16" width="10" height="6" rx="2" fill="#A8D3E6"/><line x1="16" y1="24" x2="79" y2="24" stroke="#F2A497" stroke-width="3"/></g></g></svg>
+        <div class="stop end"><b>12:30</b><span>左營</span></div>
+      </div>
+      <div class="train-foot"><span>車程約 1 小時 50 分</span><span>下車轉捷運紅線</span></div>
+    </article>
+    <article class="card train back">
+      <div class="train-top"><span class="pill dir">回程・12/6（日）</span><span class="pill">車次 242</span></div>
+      <div class="route">
+        <div class="stop"><b>16:15</b><span>左營</span></div>
+        <svg viewBox="0 0 90 40" aria-hidden="true"><g stroke="#3E3A39" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"><line x1="2" y1="34" x2="88" y2="34" stroke-dasharray="2 6"/><g class="anim-bob"><path d="M14 28 Q14 12 44 12 H60 Q78 12 80 28 Z" fill="#FFFCF6"/><rect x="40" y="16" width="10" height="6" rx="2" fill="#A8D3E6"/><rect x="54" y="16" width="10" height="6" rx="2" fill="#A8D3E6"/><line x1="16" y1="24" x2="79" y2="24" stroke="#F2A497" stroke-width="3"/></g></g></svg>
+        <div class="stop end"><b>18:05</b><span>南港</span></div>
+      </div>
+      <div class="train-foot"><span>車程約 1 小時 50 分</span><span>15:30 前到左營站</span></div>
+    </article>
+  </div>
+</section>
+
+<!-- 每日行程 -->
+<section id="plan" aria-labelledby="plan-title">
+  <h2 class="sec-title" id="plan-title"><span class="chip" style="background:var(--yellow)" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#3E3A39" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><rect x="4" y="5" width="16" height="15" rx="3" fill="#FFFCF6"/><line x1="4" y1="10" x2="20" y2="10"/><line x1="9" y1="3" x2="9" y2="7"/><line x1="15" y1="3" x2="15" y2="7"/></svg>
+  </span>每日行程</h2>
+  <div class="card">
+    <div class="tabs" role="tablist" aria-label="選擇日期">
+      <button class="tab" role="tab" id="tab-1" aria-controls="panel" aria-selected="true" data-day="0">Day 1<small>12/5（六）</small><small>旗津・港邊</small></button>
+      <button class="tab" role="tab" id="tab-2" aria-controls="panel" aria-selected="false" data-day="1">Day 2<small>12/6（日）</small><small>美術館・駁二</small></button>
+    </div>
+    <div id="panel" role="tabpanel" aria-labelledby="tab-1">
+      <p class="day-theme" id="day-theme"></p>
+      <ol class="timeline" id="timeline"></ol>
+    </div>
+    <div class="legend" aria-label="交通標籤說明">
+      交通：<span class="tag t-hsr">高鐵</span><span class="tag t-mrt">捷運</span><span class="tag t-ferry">渡輪</span><span class="tag t-lrt">輕軌</span><span class="tag t-walk">步行／單車</span>
+    </div>
+  </div>
+</section>
+
+<!-- 待辦 -->
+<section id="todo" aria-labelledby="todo-title">
+  <h2 class="sec-title" id="todo-title"><span class="chip" style="background:var(--bamboo)" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#3E3A39" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="4" fill="#FFFCF6"/><path d="M8 12 L11 15 L16 9"/></svg>
+  </span>出發前待辦</h2>
+  <div class="card">
+    <div class="progress"><div class="bar" aria-hidden="true"><i id="bar"></i></div><span id="todo-count">0 / 0</span></div>
+    <ul class="todo" id="todo-list"></ul>
+  </div>
+</section>
+
+<!-- 住宿 -->
+<section id="stay" aria-labelledby="stay-title">
+  <h2 class="sec-title" id="stay-title"><span class="chip" style="background:var(--water)" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#3E3A39" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M3 20 V11 L12 4 L21 11 V20 Z" fill="#FFFCF6"/><rect x="10" y="14" width="4" height="6"/></svg>
+  </span>住宿資訊</h2>
+  <div class="card stay">
+    <div class="stay-top">
+      <svg viewBox="0 0 100 110" aria-hidden="true">
+        <g stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+          <circle class="anim-light" cx="80" cy="18" r="6" fill="#F6D27A"/>
+          <rect x="22" y="20" width="46" height="82" rx="6" fill="#F2A497"/>
+          <g fill="#FFFCF6" stroke-width="2.5">
+            <rect x="30" y="30" width="10" height="10" rx="2"/><rect x="50" y="30" width="10" height="10" rx="2"/>
+            <rect x="30" y="48" width="10" height="10" rx="2"/><rect x="50" y="48" width="10" height="10" rx="2" fill="#F6D27A"/>
+            <rect x="30" y="66" width="10" height="10" rx="2" fill="#F6D27A"/><rect x="50" y="66" width="10" height="10" rx="2"/>
+          </g>
+          <rect x="38" y="84" width="14" height="18" rx="3" fill="#A8D3E6"/>
+          <line x1="6" y1="102" x2="94" y2="102"/>
+          <path d="M72 102 V86 Q72 78 80 78 Q88 78 88 86 V102" fill="#B9DAA5"/>
+        </g>
+      </svg>
+      <div>
+        <h3>寒軒國際大飯店</h3>
+        <p>就在高雄市政府對面，高樓景觀房可以看港灣夜景</p>
+      </div>
+    </div>
+    <div class="dates">
+      <div><span>入住</span><b>12/5（六）</b></div>
+      <div><span>退房</span><b>12/6（日）</b></div>
+    </div>
+    <dl class="info">
+      <div><dt>地址</dt><dd>高雄市苓雅區四維三路 33 號</dd></div>
+      <div><dt>最近捷運</dt><dd>紅線 獅甲站（往北到美麗島 3 站）</dd></div>
+      <div><dt>接駁</dt><dd>網路資訊寫獅甲站 3 號出口有免費接駁，採預約制，出發前請打電話跟飯店確認</dd></div>
+      <div><dt>行李</dt><dd>兩天都把行李寄在美麗島站 B2 往西子灣方向的置物櫃（刷卡閘門內）</dd></div>
+    </dl>
+  </div>
+</section>
+
+</main>
+
+<footer>祝我們一家玩得開心・高雄見！</footer>
+
+<script>
+(function(){
+  // ---------- 倒數 ----------
+  var target = new Date("2026-12-05T10:40:00+08:00").getTime();
+  var end = new Date("2026-12-06T18:05:00+08:00").getTime();
+  var el = {d:document.getElementById("cd-d"),h:document.getElementById("cd-h"),m:document.getElementById("cd-m"),s:document.getElementById("cd-s"),note:document.getElementById("cd-note")};
+  function pad(n){return n<10?"0"+n:""+n}
+  function tick(){
+    var now = Date.now(), diff = target - now;
+    if(diff <= 0){
+      el.d.textContent = el.h.textContent = el.m.textContent = el.s.textContent = "0";
+      el.note.textContent = now < end ? "出發囉！旅途愉快～" : "旅程結束，歡迎回家！";
+      return;
+    }
+    var s = Math.floor(diff/1000);
+    el.d.textContent = Math.floor(s/86400);
+    el.h.textContent = pad(Math.floor(s%86400/3600));
+    el.m.textContent = pad(Math.floor(s%3600/60));
+    el.s.textContent = pad(s%60);
+  }
+  tick(); setInterval(tick,1000);
+
+  // ---------- 行程資料 ----------
+  var T = {hsr:["t-hsr","高鐵"],red:["t-mrt","捷運紅線"],orange:["t-mrt","捷運橘線"],ferry:["t-ferry","渡輪"],lrt:["t-lrt","輕軌"],walk:["t-walk","步行"],bike:["t-walk","YouBike／計程車"]};
+  var days = [
+    {theme:"阿嬤從屏東上來一起玩！下午搭渡輪逛旗津，吃大碗公冰，晚上逛夜市。",
+     items:[
+      {t:"12:30",title:"抵達高鐵左營站",tags:["hsr","red"],note:"1217 車次到站，轉捷運紅線往小港，約 20 分鐘到美麗島站。可以先在車上吃點東西墊胃。"},
+      {t:"13:00",title:"美麗島站・和阿嬤會合",tags:["red"],note:"一起看光之穹頂。行李寄放在 B2 往西子灣方向的置物櫃（刷卡閘門內）。"},
+      {t:"13:30",title:"午餐：新濱町海洋廚房",tags:["orange","walk"],note:"橘線坐到西子灣站。室內有冷氣，咖哩、拉麵、小吃都有，就在渡輪站旁邊。"},
+      {t:"14:30",title:"搭渡輪到旗津",tags:["ferry"],must:true,note:"鼓山輪渡站上船，船程 5–10 分鐘。全票 30 元；6–12 歲、65 歲以上優待票 15 元（要帶證件）。"},
+      {t:"14:45",title:"旗津老街・天后宮",tags:["walk"],must:true,note:"邊散步邊吃小吃，看三百多年的老廟。"},
+      {t:"15:30",title:"星空隧道・旗津海水浴場",tags:["walk"],note:"都是平路，阿嬤走起來不累；兒子可以去踩黑沙。"},
+      {t:"16:45",title:"搭渡輪回鼓山",tags:["ferry"],note:"接近日落時間，在船上看港灣夕陽。"},
+      {t:"17:00",title:"渡船頭海之冰",tags:["walk"],must:true,note:"巨無霸碗公冰，四個人分著吃剛好！11:00–23:00，週一公休。別走錯成附近的「大碗公冰甜品」。"},
+      {t:"18:15",title:"六合夜市・晚餐",tags:["orange","walk"],must:true,note:"坐回美麗島站拿行李，夜市就在車站旁邊，邊逛邊吃。"},
+      {t:"19:45",title:"送阿嬤搭車・回飯店",tags:["red"],note:"阿嬤坐一站到高雄車站轉台鐵回屏東；我們坐紅線到獅甲站回寒軒。"}
+     ]},
+    {theme:"文創藝文日！早上逛美術館園區，下午到駁二、大港橋，再從容去搭高鐵。",
+     items:[
+      {t:"09:15",title:"退房・美麗島站寄行李",tags:["red"],note:"紅線從獅甲站往北坐 3 站，行李寄好再出發。"},
+      {t:"10:00",title:"高雄市立美術館",tags:["red","bike"],must:true,note:"坐到凹子底站，騎 YouBike 或搭計程車過去。09:30 開館，園區有湖、草地和雕塑。"},
+      {t:"11:00",title:"內惟藝術中心",tags:["walk"],note:"11:00 開門。建築很美，有選物店、書店和咖啡廳。"},
+      {t:"11:45",title:"搭輕軌到駁二",tags:["lrt"],note:"環狀輕軌從美術館一路坐到駁二，沿路穿過綠色林蔭。"},
+      {t:"12:15",title:"駁二藝術特區・午餐",tags:["walk"],must:true,note:"倉庫裡都是文創小店和展覽，午餐也在這一帶解決。"},
+      {t:"13:00",title:"大港橋・棧貳庫",tags:["walk"],note:"走過白色帆船造型的旋轉橋，再逛棧貳庫。"},
+      {t:"14:40",title:"回美麗島拿行李 → 左營",tags:["orange","red"],note:"從鹽埕埔站坐回美麗島，拿完行李轉紅線到左營，15:30 前到。"},
+      {t:"16:15",title:"高鐵 242 次回南港",tags:["hsr"],note:"18:05 抵達南港，回家囉！"}
+     ]}
+  ];
+
+  var star = '<svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M6 1 L7.5 4.3 L11 4.6 L8.4 6.9 L9.2 10.4 L6 8.6 L2.8 10.4 L3.6 6.9 L1 4.6 L4.5 4.3 Z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="1.4" stroke-linejoin="round"/></svg>';
+  var tl = document.getElementById("timeline"), theme = document.getElementById("day-theme");
+  var tabs = Array.prototype.slice.call(document.querySelectorAll(".tab"));
+  var panel = document.getElementById("panel");
+
+  function esc(s){return s.replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+
+  function render(i, animate){
+    var d = days[i];
+    theme.textContent = d.theme;
+    tl.innerHTML = d.items.map(function(it, k){
+      var tags = it.tags.map(function(x){return '<span class="tag '+T[x][0]+'">'+T[x][1]+'</span>'}).join("");
+      return '<li class="tl'+(it.must?' must':'')+(animate?' pop':'')+'" style="animation-delay:'+(k*55)+'ms">'+
+        '<time>'+it.t+'</time><span class="dot" aria-hidden="true"></span>'+
+        '<div class="tl-card"><div class="tl-head"><h3>'+esc(it.title)+'</h3>'+
+        (it.must?'<span class="must-badge">'+star+'必去</span>':'')+'</div>'+
+        '<div class="tags">'+tags+'</div><p class="tl-note">'+esc(it.note)+'</p></div></li>';
+    }).join("");
+    tabs.forEach(function(t,k){
+      t.setAttribute("aria-selected", k===i ? "true":"false");
+      t.tabIndex = k===i ? 0 : -1;
+      if(k===i){ panel.setAttribute("aria-labelledby", t.id); if(animate){ t.classList.remove("pop"); void t.offsetWidth; t.classList.add("pop"); } }
+    });
+    try{ localStorage.setItem("khh-day", String(i)); }catch(e){}
+  }
+
+  tabs.forEach(function(t,k){
+    t.addEventListener("click", function(){ render(k, true); });
+    t.addEventListener("keydown", function(e){
+      if(e.key==="ArrowRight"||e.key==="ArrowLeft"){
+        var n = (k + (e.key==="ArrowRight"?1:-1) + tabs.length) % tabs.length;
+        tabs[n].focus(); render(n, true);
+      }
+    });
+  });
+
+  var startDay = 0;
+  try{ var saved = parseInt(localStorage.getItem("khh-day"),10); if(saved===0||saved===1) startDay = saved; }catch(e){}
+  render(startDay, false);
+
+  // ---------- 待辦 ----------
+  var todos = [
+    "確認高鐵票（去程 1217、回程 242）",
+    "打電話給寒軒，預約獅甲站接駁",
+    "跟阿嬤確認台鐵車次（13:00 前到美麗島站）",
+    "一卡通／悠遊卡加值（捷運、輕軌、渡輪都能用）",
+    "帶兒子和阿嬤的證件（渡輪優待票）",
+    "查 SKM Park 寶可夢造景還在不在",
+    "薄外套、帽子、防曬",
+    "行動電源和充電線",
+    "準備小提袋裝夜市戰利品"
+  ];
+  var store = {};
+  try{ store = JSON.parse(localStorage.getItem("khh-todo")||"{}") || {}; }catch(e){ store = {}; }
+  var list = document.getElementById("todo-list"), bar = document.getElementById("bar"), count = document.getElementById("todo-count");
+  list.innerHTML = todos.map(function(txt,i){
+    return '<li><label for="todo-'+i+'"><input type="checkbox" id="todo-'+i+'" data-i="'+i+'"'+(store[i]?' checked':'')+'><span>'+esc(txt)+'</span></label></li>';
+  }).join("");
+  function update(){
+    var boxes = list.querySelectorAll("input"), done = 0;
+    boxes.forEach(function(b){ if(b.checked) done++; });
+    count.textContent = done+" / "+boxes.length + (done===boxes.length?"　準備好了！":"");
+    bar.style.width = (done/boxes.length*100)+"%";
+  }
+  list.addEventListener("change", function(e){
+    var i = e.target.getAttribute("data-i"); if(i===null) return;
+    store[i] = e.target.checked;
+    try{ localStorage.setItem("khh-todo", JSON.stringify(store)); }catch(err){}
+    update();
+  });
+  update();
+})();
+</script>
+</body>
+</html>
