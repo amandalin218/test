@@ -137,6 +137,17 @@ section{scroll-margin-top:80px}
 .t-lrt{background:var(--bamboo)}
 .t-walk{background:var(--paper)}
 .tl-note{margin:6px 0 0;font-size:14.5px;color:var(--ink-soft)}
+.places{display:flex;flex-direction:column;gap:6px;margin-top:10px;padding-top:10px;border-top:2px dashed var(--ink)}
+.place{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.pname{font-size:14px;margin-right:auto}
+.plink{display:inline-flex;align-items:center;gap:4px;font-size:13px;text-decoration:none;
+  border:2px solid var(--ink);border-radius:var(--r-sm);padding:2px 10px 2px 8px;min-height:30px;
+  transition:transform .15s}
+.plink.map{background:var(--water)}
+.plink.pic{background:var(--yellow)}
+.plink:hover{transform:translateY(-2px)}
+.plink:active{transform:translateY(1px)}
+#hotel-links .places{margin-top:8px;border-top:none;padding-top:0;margin-top:0}
 .legend{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;font-size:13px;color:var(--ink-soft);align-items:center}
 
 .pop{animation:pop .55s cubic-bezier(.3,1.6,.5,1) both}
@@ -468,24 +479,24 @@ footer{text-align:center;font-size:13px;color:var(--ink-soft);padding:8px 16px 3
     {theme:"阿嬤從屏東上來一起玩！下午搭渡輪逛旗津，吃大碗公冰，晚上逛夜市。",
      items:[
       {t:"12:30",title:"抵達高鐵左營站",tags:["hsr","red"],note:"1217 車次到站，轉捷運紅線往小港，約 20 分鐘到美麗島站。可以先在車上吃點東西墊胃。"},
-      {t:"13:00",title:"美麗島站・和阿嬤會合",tags:["red"],note:"一起看光之穹頂。行李寄放在 B2 往西子灣方向的置物櫃（刷卡閘門內）。"},
-      {t:"13:30",title:"午餐：新濱町海洋廚房",tags:["orange","walk"],note:"橘線坐到西子灣站。室內有冷氣，咖哩、拉麵、小吃都有，就在渡輪站旁邊。"},
-      {t:"14:30",title:"搭渡輪到旗津",tags:["ferry"],must:true,note:"鼓山輪渡站上船，船程 5–10 分鐘。全票 30 元；6–12 歲、65 歲以上優待票 15 元（要帶證件）。"},
-      {t:"14:45",title:"旗津老街・天后宮",tags:["walk"],must:true,note:"邊散步邊吃小吃，看三百多年的老廟。"},
-      {t:"15:30",title:"星空隧道・旗津海水浴場",tags:["walk"],note:"都是平路，阿嬤走起來不累；兒子可以去踩黑沙。"},
-      {t:"16:45",title:"搭渡輪回鼓山",tags:["ferry"],note:"接近日落時間，在船上看港灣夕陽。"},
-      {t:"17:00",title:"渡船頭海之冰",tags:["walk"],must:true,note:"巨無霸碗公冰，四個人分著吃剛好！11:00–23:00，週一公休。別走錯成附近的「大碗公冰甜品」。"},
-      {t:"18:15",title:"六合夜市・晚餐",tags:["orange","walk"],must:true,note:"坐回美麗島站拿行李，夜市就在車站旁邊，邊逛邊吃。"},
-      {t:"19:45",title:"送阿嬤搭車・回飯店",tags:["red"],note:"阿嬤坐一站到高雄車站轉台鐵回屏東；我們坐紅線到獅甲站回寒軒。"}
+      {t:"13:00",title:"美麗島站・和阿嬤會合",tags:["red"],places:[["美麗島站・光之穹頂","高雄捷運美麗島站 光之穹頂"]],note:"一起看光之穹頂。行李寄放在 B2 往西子灣方向的置物櫃（刷卡閘門內）。"},
+      {t:"13:30",title:"午餐：新濱町海洋廚房",tags:["orange","walk"],places:[["新濱町海洋廚房","新濱町海洋廚房 高雄鼓山"]],note:"橘線坐到西子灣站。室內有冷氣，咖哩、拉麵、小吃都有，就在渡輪站旁邊。"},
+      {t:"14:30",title:"搭渡輪到旗津",tags:["ferry"],must:true,places:[["鼓山輪渡站（渡輪）","鼓山輪渡站 高雄","鼓山 旗津 渡輪"]],note:"鼓山輪渡站上船，船程 5–10 分鐘。全票 30 元；6–12 歲、65 歲以上優待票 15 元（要帶證件）。"},
+      {t:"14:45",title:"旗津老街・天后宮",tags:["walk"],must:true,places:[["旗津老街","旗津老街 廟前路 高雄"],["旗津天后宮","旗津天后宮 高雄"]],note:"邊散步邊吃小吃，看三百多年的老廟。"},
+      {t:"15:30",title:"星空隧道・旗津海水浴場",tags:["walk"],places:[["旗津星空隧道","旗津星空隧道 高雄"],["旗津海水浴場","旗津海水浴場 高雄"]],note:"都是平路，阿嬤走起來不累；兒子可以去踩黑沙。"},
+      {t:"16:45",title:"搭渡輪回鼓山",tags:["ferry"],places:[["港灣夕陽","鼓山輪渡站 高雄","高雄港 渡輪 夕陽"]],note:"接近日落時間，在船上看港灣夕陽。"},
+      {t:"17:00",title:"渡船頭海之冰",tags:["walk"],must:true,places:[["渡船頭海之冰","渡船頭海之冰 高雄鼓山"]],note:"巨無霸碗公冰，四個人分著吃剛好！11:00–23:00，週一公休。別走錯成附近的「大碗公冰甜品」。"},
+      {t:"18:15",title:"六合夜市・晚餐",tags:["orange","walk"],must:true,places:[["六合夜市","六合觀光夜市 高雄"]],note:"坐回美麗島站拿行李，夜市就在車站旁邊，邊逛邊吃。"},
+      {t:"19:45",title:"送阿嬤搭車・回飯店",tags:["red"],places:[["寒軒國際大飯店","寒軒國際大飯店 高雄"]],note:"阿嬤坐一站到高雄車站轉台鐵回屏東；我們坐紅線到獅甲站回寒軒。"}
      ]},
     {theme:"文創藝文日！早上逛美術館園區，下午到駁二、大港橋，再從容去搭高鐵。",
      items:[
       {t:"09:15",title:"退房・美麗島站寄行李",tags:["red"],note:"紅線從獅甲站往北坐 3 站，行李寄好再出發。"},
-      {t:"10:00",title:"高雄市立美術館",tags:["red","bike"],must:true,note:"坐到凹子底站，騎 YouBike 或搭計程車過去。09:30 開館，園區有湖、草地和雕塑。"},
-      {t:"11:00",title:"內惟藝術中心",tags:["walk"],note:"11:00 開門。建築很美，有選物店、書店和咖啡廳。"},
+      {t:"10:00",title:"高雄市立美術館",tags:["red","bike"],must:true,places:[["高雄市立美術館","高雄市立美術館"]],note:"坐到凹子底站，騎 YouBike 或搭計程車過去。09:30 開館，園區有湖、草地和雕塑。"},
+      {t:"11:00",title:"內惟藝術中心",tags:["walk"],places:[["內惟藝術中心","內惟藝術中心 高雄"]],note:"11:00 開門。建築很美，有選物店、書店和咖啡廳。"},
       {t:"11:45",title:"搭輕軌到駁二",tags:["lrt"],note:"環狀輕軌從美術館一路坐到駁二，沿路穿過綠色林蔭。"},
-      {t:"12:15",title:"駁二藝術特區・午餐",tags:["walk"],must:true,note:"倉庫裡都是文創小店和展覽，午餐也在這一帶解決。"},
-      {t:"13:00",title:"大港橋・棧貳庫",tags:["walk"],note:"走過白色帆船造型的旋轉橋，再逛棧貳庫。"},
+      {t:"12:15",title:"駁二藝術特區・午餐",tags:["walk"],must:true,places:[["駁二藝術特區","駁二藝術特區 高雄"]],note:"倉庫裡都是文創小店和展覽，午餐也在這一帶解決。"},
+      {t:"13:00",title:"大港橋・棧貳庫",tags:["walk"],places:[["大港橋","大港橋 高雄"],["棧貳庫","棧貳庫 KW2 高雄"]],note:"走過白色帆船造型的旋轉橋，再逛棧貳庫。"},
       {t:"14:40",title:"回美麗島拿行李 → 左營",tags:["orange","red"],note:"從鹽埕埔站坐回美麗島，拿完行李轉紅線到左營，15:30 前到。"},
       {t:"16:15",title:"高鐵 242 次回南港",tags:["hsr"],note:"18:05 抵達南港，回家囉！"}
      ]}
@@ -498,6 +509,18 @@ footer{text-align:center;font-size:13px;color:var(--ink-soft);padding:8px 16px 3
 
   function esc(s){return s.replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
 
+  var pinIcon='<svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M6 11 C6 11 2 7 2 4.6 A4 4 0 0 1 10 4.6 C10 7 6 11 6 11 Z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="1.4" stroke-linejoin="round"/><circle cx="6" cy="4.6" r="1.3" fill="#3E3A39"/></svg>';
+  var picIcon='<svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><rect x="1" y="2" width="10" height="8" rx="2" fill="#FFFCF6" stroke="#3E3A39" stroke-width="1.4"/><path d="M2.5 8.5 L5 6 L7 7.5 L8.5 6.2 L9.8 8.5 Z" fill="#3E3A39"/></svg>';
+  function placeLinks(arr){
+    return '<div class="places">'+arr.map(function(p){
+      var mapQ=encodeURIComponent(p[1]), picQ=encodeURIComponent(p[2]||p[1]);
+      return '<div class="place"><span class="pname">'+esc(p[0])+'</span>'+
+        '<a class="plink pic" href="https://www.google.com/search?tbm=isch&amp;q='+picQ+'" target="_blank" rel="noopener" aria-label="看'+esc(p[0])+'的照片">'+picIcon+'照片</a>'+
+        '<a class="plink map" href="https://www.google.com/maps/search/?api=1&amp;query='+mapQ+'" target="_blank" rel="noopener" aria-label="在地圖上看'+esc(p[0])+'">'+pinIcon+'地圖</a></div>';
+    }).join('')+'</div>';
+  }
+  window.__placeLinks = placeLinks;
+
   function render(i, animate){
     var d = days[i];
     theme.textContent = d.theme;
@@ -507,7 +530,7 @@ footer{text-align:center;font-size:13px;color:var(--ink-soft);padding:8px 16px 3
         '<time>'+it.t+'</time><span class="dot" aria-hidden="true"></span>'+
         '<div class="tl-card"><div class="tl-head"><h3>'+esc(it.title)+'</h3>'+
         (it.must?'<span class="must-badge">'+star+'必去</span>':'')+'</div>'+
-        '<div class="tags">'+tags+'</div><p class="tl-note">'+esc(it.note)+'</p></div></li>';
+        '<div class="tags">'+tags+'</div><p class="tl-note">'+esc(it.note)+'</p>'+(it.places?placeLinks(it.places):'')+'</div></li>';
     }).join("");
     tabs.forEach(function(t,k){
       t.setAttribute("aria-selected", k===i ? "true":"false");
