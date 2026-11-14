@@ -17,6 +17,8 @@
   --water:#A8D3E6;
   --bamboo:#B9DAA5;
   --ink-soft:#6E6866;
+  --wisteria-soft:#DDD2EE; /* 淡藤紫：地圖按鈕 */
+  --tiffany-soft:#B5E3DD; /* 淡 Tiffany：照片按鈕 */
   --line:3px solid var(--ink);
   --r-lg:28px;
   --r-md:20px;
@@ -97,6 +99,10 @@ section{scroll-margin-top:80px}
 .stop span{font-size:15px}
 .stop.end{text-align:right}
 .route svg{width:84px;height:auto}
+.seats{margin-top:12px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:14px}
+.seat{border:2px solid var(--ink);border-radius:10px;padding:1px 9px;background:var(--paper);font-variant-numeric:tabular-nums}
+.train.go .seat{background:#FDE7E2}
+.train.back .seat{background:#E6F3F9}
 .train-foot{margin-top:12px;font-size:14px;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px}
 
 /* 每日行程 */
@@ -138,15 +144,17 @@ section{scroll-margin-top:80px}
 .t-walk{background:var(--paper)}
 .tl-note{margin:6px 0 0;font-size:14.5px;color:var(--ink-soft)}
 .places{display:flex;flex-direction:column;gap:6px;margin-top:10px;padding-top:10px;border-top:2px dashed var(--ink)}
-.place{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-.pname{font-size:14px;margin-right:auto}
-.plink{display:inline-flex;align-items:center;gap:4px;font-size:13px;text-decoration:none;
-  border:2px solid var(--ink);border-radius:var(--r-sm);padding:2px 10px 2px 8px;min-height:30px;
+.place{display:flex;flex-direction:column;gap:6px}
+.pname{font-size:14px}
+.pbtns{display:flex;gap:6px;flex-wrap:nowrap}
+.plink{display:inline-flex;align-items:center;gap:4px;font-size:13px;text-decoration:none;white-space:nowrap;
+  border:2px solid var(--ink);border-radius:var(--r-sm);padding:2px 10px 2px 8px;min-height:30px;color:var(--ink);
   transition:transform .15s}
-.plink.map{background:var(--water)}
-.plink.pic{background:var(--yellow)}
+.plink.pic{background:var(--tiffany-soft)}
+.plink.map{background:var(--wisteria-soft)}
 .plink:hover{transform:translateY(-2px)}
 .plink:active{transform:translateY(1px)}
+.plink .ext{opacity:.8}
 #hotel-links .places{margin-top:8px;border-top:none;padding-top:0;margin-top:0}
 .legend{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;font-size:13px;color:var(--ink-soft);align-items:center}
 
@@ -333,10 +341,10 @@ footer{text-align:center;font-size:13px;color:var(--ink-soft);padding:8px 16px 3
     </g>
   </svg>
   <div class="hero-body">
-    <div class="hero-kicker">2026.12.5（六）– 12.6（日）・捷運＋渡輪小旅行</div>
+    <div class="hero-kicker">2026.12.12（六）– 12.13（日）・捷運＋渡輪小旅行</div>
     <h1 id="hero-title">高雄<em>港都</em>兩天一夜</h1>
     <div class="who" aria-label="同行成員">
-      <span>媽媽 Amanda</span><span>爸爸</span><span>兒子・7 歲</span><span>阿嬤（12/5 一起玩）</span>
+      <span>媽媽 Amanda</span><span>爸爸</span><span>兒子・7 歲</span><span>阿嬤（12/12 一起玩）</span>
     </div>
     <div>
       <div class="count" role="timer" aria-live="off" aria-label="距離出發倒數">
@@ -345,7 +353,7 @@ footer{text-align:center;font-size:13px;color:var(--ink-soft);padding:8px 16px 3
         <div><b id="cd-m">--</b><span>分</span></div>
         <div><b id="cd-s">--</b><span>秒</span></div>
       </div>
-      <p class="count-note" id="cd-note">距離 12/5 早上 10:40 南港出發</p>
+      <p class="count-note" id="cd-note">距離 12/12 早上 10:20 南港出發</p>
     </div>
   </div>
 </section>
@@ -357,21 +365,23 @@ footer{text-align:center;font-size:13px;color:var(--ink-soft);padding:8px 16px 3
   </span>高鐵車次</h2>
   <div class="trains">
     <article class="card train go">
-      <div class="train-top"><span class="pill dir">去程・12/5（六）</span><span class="pill">車次 1217</span></div>
+      <div class="train-top"><span class="pill dir">去程・12/12（六）</span><span class="pill">車次 121</span></div>
       <div class="route">
-        <div class="stop"><b>10:40</b><span>南港</span></div>
+        <div class="stop"><b>10:20</b><span>南港</span></div>
         <svg viewBox="0 0 90 40" aria-hidden="true"><g stroke="#3E3A39" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"><line x1="2" y1="34" x2="88" y2="34" stroke-dasharray="2 6"/><g class="anim-bob"><path d="M14 28 Q14 12 44 12 H60 Q78 12 80 28 Z" fill="#FFFCF6"/><rect x="40" y="16" width="10" height="6" rx="2" fill="#A8D3E6"/><rect x="54" y="16" width="10" height="6" rx="2" fill="#A8D3E6"/><line x1="16" y1="24" x2="79" y2="24" stroke="#F2A497" stroke-width="3"/></g></g></svg>
-        <div class="stop end"><b>12:30</b><span>左營</span></div>
+        <div class="stop end"><b>12:05</b><span>左營</span></div>
       </div>
-      <div class="train-foot"><span>車程約 1 小時 50 分</span><span>下車轉捷運紅線</span></div>
+      <div class="seats"><span>座位</span><span class="seat">4 車 5A</span><span class="seat">4 車 5B</span><span class="seat">4 車 5C</span></div>
+      <div class="train-foot"><span>車程約 1 小時 45 分</span><span>下車轉捷運紅線</span></div>
     </article>
     <article class="card train back">
-      <div class="train-top"><span class="pill dir">回程・12/6（日）</span><span class="pill">車次 242</span></div>
+      <div class="train-top"><span class="pill dir">回程・12/13（日）</span><span class="pill">車次 242</span></div>
       <div class="route">
         <div class="stop"><b>16:15</b><span>左營</span></div>
         <svg viewBox="0 0 90 40" aria-hidden="true"><g stroke="#3E3A39" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"><line x1="2" y1="34" x2="88" y2="34" stroke-dasharray="2 6"/><g class="anim-bob"><path d="M14 28 Q14 12 44 12 H60 Q78 12 80 28 Z" fill="#FFFCF6"/><rect x="40" y="16" width="10" height="6" rx="2" fill="#A8D3E6"/><rect x="54" y="16" width="10" height="6" rx="2" fill="#A8D3E6"/><line x1="16" y1="24" x2="79" y2="24" stroke="#F2A497" stroke-width="3"/></g></g></svg>
         <div class="stop end"><b>18:05</b><span>南港</span></div>
       </div>
+      <div class="seats"><span>座位</span><span class="seat">4 車 9A</span><span class="seat">4 車 9B</span><span class="seat">4 車 9C</span></div>
       <div class="train-foot"><span>車程約 1 小時 50 分</span><span>15:30 前到左營站</span></div>
     </article>
   </div>
@@ -384,8 +394,8 @@ footer{text-align:center;font-size:13px;color:var(--ink-soft);padding:8px 16px 3
   </span>每日行程</h2>
   <div class="card">
     <div class="tabs" role="tablist" aria-label="選擇日期">
-      <button class="tab" role="tab" id="tab-1" aria-controls="panel" aria-selected="true" data-day="0">Day 1<small>12/5（六）</small><small>旗津・港邊</small></button>
-      <button class="tab" role="tab" id="tab-2" aria-controls="panel" aria-selected="false" data-day="1">Day 2<small>12/6（日）</small><small>美術館・駁二</small></button>
+      <button class="tab" role="tab" id="tab-1" aria-controls="panel" aria-selected="true" data-day="0">Day 1<small>12/12（六）</small><small>旗津・港邊</small></button>
+      <button class="tab" role="tab" id="tab-2" aria-controls="panel" aria-selected="false" data-day="1">Day 2<small>12/13（日）</small><small>美術館・駁二</small></button>
     </div>
     <div id="panel" role="tabpanel" aria-labelledby="tab-1">
       <p class="day-theme" id="day-theme"></p>
@@ -435,8 +445,8 @@ footer{text-align:center;font-size:13px;color:var(--ink-soft);padding:8px 16px 3
       </div>
     </div>
     <div class="dates">
-      <div><span>入住</span><b>12/5（六）</b></div>
-      <div><span>退房</span><b>12/6（日）</b></div>
+      <div><span>入住</span><b>12/12（六）</b></div>
+      <div><span>退房</span><b>12/13（日）</b></div>
     </div>
     <dl class="info">
       <div><dt>地址</dt><dd>高雄市苓雅區四維三路 33 號</dd></div>
@@ -454,8 +464,8 @@ footer{text-align:center;font-size:13px;color:var(--ink-soft);padding:8px 16px 3
 <script>
 (function(){
   // ---------- 倒數 ----------
-  var target = new Date("2026-12-05T10:40:00+08:00").getTime();
-  var end = new Date("2026-12-06T18:05:00+08:00").getTime();
+  var target = new Date("2026-12-12T10:20:00+08:00").getTime();
+  var end = new Date("2026-12-13T18:05:00+08:00").getTime();
   var el = {d:document.getElementById("cd-d"),h:document.getElementById("cd-h"),m:document.getElementById("cd-m"),s:document.getElementById("cd-s"),note:document.getElementById("cd-note")};
   function pad(n){return n<10?"0"+n:""+n}
   function tick(){
@@ -478,12 +488,12 @@ footer{text-align:center;font-size:13px;color:var(--ink-soft);padding:8px 16px 3
   var days = [
     {theme:"阿嬤從屏東上來一起玩！下午搭渡輪逛旗津，吃大碗公冰，晚上逛夜市。",
      items:[
-      {t:"12:30",title:"抵達高鐵左營站",tags:["hsr","red"],note:"1217 車次到站，轉捷運紅線往小港，約 20 分鐘到美麗島站。可以先在車上吃點東西墊胃。"},
-      {t:"13:00",title:"美麗島站・和阿嬤會合",tags:["red"],places:[["美麗島站・光之穹頂","高雄捷運美麗島站 光之穹頂"]],note:"一起看光之穹頂。行李寄放在 B2 往西子灣方向的置物櫃（刷卡閘門內）。"},
-      {t:"13:30",title:"午餐：新濱町海洋廚房",tags:["orange","walk"],places:[["新濱町海洋廚房","新濱町海洋廚房 高雄鼓山"]],note:"橘線坐到西子灣站。室內有冷氣，咖哩、拉麵、小吃都有，就在渡輪站旁邊。"},
-      {t:"14:30",title:"搭渡輪到旗津",tags:["ferry"],must:true,places:[["鼓山輪渡站（渡輪）","鼓山輪渡站 高雄","鼓山 旗津 渡輪"]],note:"鼓山輪渡站上船，船程 5–10 分鐘。全票 30 元；6–12 歲、65 歲以上優待票 15 元（要帶證件）。"},
-      {t:"14:45",title:"旗津老街・天后宮",tags:["walk"],must:true,places:[["旗津老街","旗津老街 廟前路 高雄"],["旗津天后宮","旗津天后宮 高雄"]],note:"邊散步邊吃小吃，看三百多年的老廟。"},
-      {t:"15:30",title:"星空隧道・旗津海水浴場",tags:["walk"],places:[["旗津星空隧道","旗津星空隧道 高雄"],["旗津海水浴場","旗津海水浴場 高雄"]],note:"都是平路，阿嬤走起來不累；兒子可以去踩黑沙。"},
+      {t:"12:05",title:"抵達高鐵左營站",tags:["hsr","red"],note:"121 車次到站，轉捷運紅線往小港，約 20 分鐘到美麗島站。"},
+      {t:"12:30",title:"美麗島站・和阿嬤會合",tags:["red"],places:[["美麗島站・光之穹頂","高雄捷運美麗島站 光之穹頂"]],note:"一起看光之穹頂。行李寄放在 B2 往西子灣方向的置物櫃（刷卡閘門內）。這兩天站內有「高捷冬漫祭・美麗島桌遊節」（免費入場），人比較多，到站先寄行李再逛。"},
+      {t:"13:00",title:"午餐：新濱町海洋廚房",tags:["orange","walk"],places:[["新濱町海洋廚房","新濱町海洋廚房 高雄鼓山"]],note:"橘線坐到西子灣站。室內有冷氣，咖哩、拉麵、小吃都有，就在渡輪站旁邊。"},
+      {t:"14:00",title:"搭渡輪到旗津",tags:["ferry"],must:true,places:[["鼓山輪渡站（渡輪）","鼓山輪渡站 高雄","鼓山 旗津 渡輪"]],note:"鼓山輪渡站上船，船程 5–10 分鐘。全票 30 元；6–12 歲、65 歲以上優待票 15 元（要帶證件）。"},
+      {t:"14:15",title:"旗津老街・天后宮",tags:["walk"],must:true,places:[["旗津老街","旗津老街 廟前路 高雄"],["旗津天后宮","旗津天后宮 高雄"]],note:"邊散步邊吃小吃，看三百多年的老廟。"},
+      {t:"15:00",title:"星空隧道・旗津海水浴場",tags:["walk"],places:[["旗津星空隧道","旗津星空隧道 高雄"],["旗津海水浴場","旗津海水浴場 高雄"],["旗後燈塔（體力夠再去）","旗後燈塔 高雄"]],note:"都是平路，阿嬤走起來不累；兒子可以去踩黑沙。時間比較多，體力夠的話可以爬一小段坡去旗後燈塔看港灣。"},
       {t:"16:45",title:"搭渡輪回鼓山",tags:["ferry"],places:[["港灣夕陽","鼓山輪渡站 高雄","高雄港 渡輪 夕陽"]],note:"接近日落時間，在船上看港灣夕陽。"},
       {t:"17:00",title:"渡船頭海之冰",tags:["walk"],must:true,places:[["渡船頭海之冰","渡船頭海之冰 高雄鼓山"]],note:"巨無霸碗公冰，四個人分著吃剛好！11:00–23:00，週一公休。別走錯成附近的「大碗公冰甜品」。"},
       {t:"18:15",title:"六合夜市・晚餐",tags:["orange","walk"],must:true,places:[["六合夜市","六合觀光夜市 高雄"]],note:"坐回美麗島站拿行李，夜市就在車站旁邊，邊逛邊吃。"},
@@ -491,7 +501,7 @@ footer{text-align:center;font-size:13px;color:var(--ink-soft);padding:8px 16px 3
      ]},
     {theme:"文創藝文日！早上逛美術館園區，下午到駁二、大港橋，再從容去搭高鐵。",
      items:[
-      {t:"09:15",title:"退房・美麗島站寄行李",tags:["red"],note:"紅線從獅甲站往北坐 3 站，行李寄好再出發。"},
+      {t:"09:15",title:"退房・美麗島站寄行李",tags:["red"],note:"紅線從獅甲站往北坐 3 站。站內有冬漫祭，置物櫃可能比較快滿，早點去寄好再出發。"},
       {t:"10:00",title:"高雄市立美術館",tags:["red","bike"],must:true,places:[["高雄市立美術館","高雄市立美術館"]],note:"坐到凹子底站，騎 YouBike 或搭計程車過去。09:30 開館，園區有湖、草地和雕塑。"},
       {t:"11:00",title:"內惟藝術中心",tags:["walk"],places:[["內惟藝術中心","內惟藝術中心 高雄"]],note:"11:00 開門。建築很美，有選物店、書店和咖啡廳。"},
       {t:"11:45",title:"搭輕軌到駁二",tags:["lrt"],note:"環狀輕軌從美術館一路坐到駁二，沿路穿過綠色林蔭。"},
@@ -514,9 +524,9 @@ footer{text-align:center;font-size:13px;color:var(--ink-soft);padding:8px 16px 3
   function placeLinks(arr){
     return '<div class="places">'+arr.map(function(p){
       var mapQ=encodeURIComponent(p[1]), picQ=encodeURIComponent(p[2]||p[1]);
-      return '<div class="place"><span class="pname">'+esc(p[0])+'</span>'+
+      return '<div class="place"><span class="pname">'+esc(p[0])+'</span><div class="pbtns">'+
         '<a class="plink pic" href="https://www.google.com/search?tbm=isch&amp;q='+picQ+'" target="_blank" rel="noopener" aria-label="看'+esc(p[0])+'的照片">'+picIcon+'照片</a>'+
-        '<a class="plink map" href="https://www.google.com/maps/search/?api=1&amp;query='+mapQ+'" target="_blank" rel="noopener" aria-label="在地圖上看'+esc(p[0])+'">'+pinIcon+'地圖</a></div>';
+        '<a class="plink map" href="https://www.google.com/maps/search/?api=1&amp;query='+mapQ+'" target="_blank" rel="noopener" aria-label="在地圖上看'+esc(p[0])+'">'+pinIcon+'地圖</a></div></div>';
     }).join('')+'</div>';
   }
   window.__placeLinks = placeLinks;
@@ -556,15 +566,16 @@ footer{text-align:center;font-size:13px;color:var(--ink-soft);padding:8px 16px 3
 
   // ---------- 待辦 ----------
   var todos = [
-    "確認高鐵票（去程 1217、回程 242）",
+    "確認高鐵票（去程 121、回程 242）",
     "打電話給寒軒，預約獅甲站接駁",
-    "跟阿嬤確認台鐵車次（13:00 前到美麗島站）",
+    "跟阿嬤確認台鐵車次（12:30 前到美麗島站）",
     "一卡通／悠遊卡加值（捷運、輕軌、渡輪都能用）",
     "帶兒子和阿嬤的證件（渡輪優待票）",
     "查 SKM Park 寶可夢造景還在不在",
     "薄外套、帽子、防曬",
     "行動電源和充電線",
-    "準備小提袋裝夜市戰利品"
+    "準備小提袋裝夜市戰利品",
+    "兩天都提早到美麗島站寄行李（12/12–13 有高捷冬漫祭，人可能比較多）"
   ];
   var store = {};
   try{ store = JSON.parse(localStorage.getItem("khh-todo")||"{}") || {}; }catch(e){ store = {}; }
